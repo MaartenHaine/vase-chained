@@ -1,0 +1,2 @@
+props=NoNewPrivileges=yes
+systemd-run.rc=0

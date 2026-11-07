@@ -1,0 +1,6 @@
+Running as unit: s10-s09-LockPersonality-94810.service; invocation ID: 5f427c721c3640648abe86e286f24d96
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 1.057s
+             CPU time consumed: 37ms
+                   Memory peak: 5.9M (swap: 0B)

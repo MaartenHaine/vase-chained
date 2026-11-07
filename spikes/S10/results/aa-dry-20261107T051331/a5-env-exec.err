@@ -1,0 +1,6 @@
+Running as unit: s10-aa-a5-env-exec-1266027.service; invocation ID: f44d9c61a9a2433ab3cdf6038dc55545
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 8ms
+             CPU time consumed: 4ms
+                   Memory peak: 1.7M (swap: 0B)

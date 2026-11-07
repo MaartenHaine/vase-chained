@@ -1,0 +1,6 @@
+Running as unit: s10-s07-SystemCallArchitectures-native-94810.service; invocation ID: 082b855935be48e98ecb984a1c06c2bd
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 2.202s
+             CPU time consumed: 37ms
+                   Memory peak: 6M (swap: 0B)

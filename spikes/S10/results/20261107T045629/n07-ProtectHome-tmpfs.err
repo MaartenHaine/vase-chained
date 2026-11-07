@@ -1,0 +1,6 @@
+Running as unit: s10-n07-ProtectHome-tmpfs-94810.service; invocation ID: cf2ad5925abf495485a63b94f9c054b3
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 664ms
+             CPU time consumed: 36ms
+                   Memory peak: 6.4M (swap: 0B)

@@ -1,0 +1,16 @@
+kernel=7.0.0-42-generic
+systemd=259.9-0ubuntu0.1
+sysctl.apparmor_restrict_unprivileged_userns=1
+sysctl.unprivileged_userns_clone=1
+lsm=lockdown,capability,landlock,yama,apparmor,bpf,ima,evm
+manager.pid=4779
+manager.label=unconfined
+manager.CapEff=0000000800000000
+manager.NoNewPrivs=0
+manager.Seccomp=0
+manager.Seccomp_filters=0
+manager.ns.user=unreadable driver=user:[4026531837]
+manager.ns.mnt=unreadable driver=mnt:[4026531832]
+manager.ns.net=unreadable driver=net:[4026531833]
+before: units: 0 transient files: 0 failed s10 units: 0 
+after: units: 0 transient files: 0 failed s10 units: 0 

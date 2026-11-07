@@ -1,0 +1,6 @@
+Running as unit: s10-n27-old-plan-namespaces-94810.service; invocation ID: 9208ff5b993f4c57b5115ae8b53bf187
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 1.608s
+             CPU time consumed: 39ms
+                   Memory peak: 6.1M (swap: 0B)

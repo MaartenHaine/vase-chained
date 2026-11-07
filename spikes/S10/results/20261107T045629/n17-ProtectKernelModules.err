@@ -1,0 +1,6 @@
+Running as unit: s10-n17-ProtectKernelModules-94810.service; invocation ID: 23f0d5d46e7e42ceb2a363d91fc90e01
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=218/CAPABILITIES
+               Service runtime: 114ms
+             CPU time consumed: 6ms
+                   Memory peak: 2.2M (swap: 0B)

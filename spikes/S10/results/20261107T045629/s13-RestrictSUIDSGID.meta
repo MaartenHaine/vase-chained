@@ -1,0 +1,2 @@
+props=RestrictSUIDSGID=yes
+systemd-run.rc=0

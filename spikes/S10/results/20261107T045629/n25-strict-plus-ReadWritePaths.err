@@ -1,0 +1,6 @@
+Running as unit: s10-n25-strict-plus-ReadWritePaths-94810.service; invocation ID: 21563dd9b19f47f783d25b197491a85c
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 986ms
+             CPU time consumed: 37ms
+                   Memory peak: 5.8M (swap: 0B)

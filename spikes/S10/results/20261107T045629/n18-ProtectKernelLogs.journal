@@ -1,0 +1,5 @@
+Started s10-n18-ProtectKernelLogs-94810.service - [systemd-run] /usr/bin/python3 -I -c "import os; exec(os.environ[\"S10_CODE\"])".
+s10-n18-ProtectKernelLogs-94810.service: Failed to drop capabilities: Operation not permitted
+s10-n18-ProtectKernelLogs-94810.service: Failed at step CAPABILITIES spawning /usr/bin/python3: Operation not permitted
+s10-n18-ProtectKernelLogs-94810.service: Main process exited, code=exited, status=218/CAPABILITIES
+s10-n18-ProtectKernelLogs-94810.service: Failed with result 'exit-code'.

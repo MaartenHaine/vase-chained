@@ -1,0 +1,3 @@
+props=AppArmorProfile=vase-s10-probe
+cmd=/usr/bin/gnucat /proc/self/attr/current /usr/lib/os-release /home/martin/.cache/s10-probe.DATSlbq7/secret
+rc=231

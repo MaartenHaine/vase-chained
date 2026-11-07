@@ -1,0 +1,20 @@
+# S10 test profile (throwaway). Loaded once by the owner with `sudo apparmor_parser --replace --skip-cache` straight
+# from this file, never copied into /etc/apparmor.d, and removed in the same sitting with `--remove`.
+# It attaches by path to two root-owned copies of GNU coreutils binaries in /usr/local/libexec/vase-s10/ (gnucat
+# and gnuenv: /usr/bin/cat is rust-coreutils, one multicall binary that dispatches on argv[0], so a renamed copy
+# would not run as cat). It also allows mapping /usr/bin/gnucat itself, for the units that ask for the profile by
+# name (AppArmorProfile=) instead of by path. It allows only what the probe needs, so anything else (another
+# file, an exec, a socket) is denied by omission.
+abi <abi/5.0>,
+
+include <tunables/global>
+
+profile vase-s10-probe /usr/local/libexec/vase-s10/probe-* flags=(enforce) {
+  include <abstractions/base>
+
+  /usr/local/libexec/vase-s10/probe-* mr,
+  /usr/bin/gnucat mr,
+  @{PROC}/@{pid}/attr/{,apparmor/}current r,
+  /usr/lib/os-release r,
+  owner @{HOME}/.cache/s10-probe.*/fifo r,
+}

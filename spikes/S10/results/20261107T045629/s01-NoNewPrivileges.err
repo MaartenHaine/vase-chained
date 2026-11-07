@@ -1,0 +1,6 @@
+Running as unit: s10-s01-NoNewPrivileges-94810.service; invocation ID: 00640b86511e4e48ae4c3aa1c20af222
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 1.595s
+             CPU time consumed: 37ms
+                   Memory peak: 6M (swap: 0B)

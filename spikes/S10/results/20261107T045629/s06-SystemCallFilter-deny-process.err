@@ -1,0 +1,6 @@
+Running as unit: s10-s06-SystemCallFilter-deny-process-94810.service; invocation ID: 8145e95cbf524ef6b0695f1d8e9d8188
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 232ms
+             CPU time consumed: 47ms
+                   Memory peak: 5.3M (swap: 0B)

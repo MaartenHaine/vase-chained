@@ -1,0 +1,2 @@
+props=PrivateUsers=yes;ProtectHome=read-only;PrivateNetwork=yes;PrivateTmp=yes;ProtectSystem=strict
+systemd-run.rc=0

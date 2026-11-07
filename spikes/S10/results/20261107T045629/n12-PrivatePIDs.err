@@ -1,0 +1,6 @@
+Running as unit: s10-n12-PrivatePIDs-94810.service; invocation ID: 10ce19288af84f7d92e7b4c323ee127e
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=226/NAMESPACE
+               Service runtime: 24ms
+             CPU time consumed: 5ms
+                   Memory peak: 2.4M (swap: 0B)

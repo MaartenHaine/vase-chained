@@ -1,0 +1,6 @@
+Running as unit: s10-aa-a6-plan-env-exec-1266027.service; invocation ID: 5a8c82cc8bad4b3f855cf5cb80da037b
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 22ms
+             CPU time consumed: 11ms
+                   Memory peak: 2.4M (swap: 0B)

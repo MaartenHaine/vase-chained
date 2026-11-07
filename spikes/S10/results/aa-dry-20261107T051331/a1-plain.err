@@ -1,0 +1,6 @@
+Running as unit: s10-aa-a1-plain-1266027.service; invocation ID: 0c0020d94cfb4520ab657c1363be2f05
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 14ms
+             CPU time consumed: 4ms
+                   Memory peak: 2.2M (swap: 0B)

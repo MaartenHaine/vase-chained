@@ -1,0 +1,6 @@
+Running as unit: s10-n29-IPAddressDeny-94810.service; invocation ID: 7ddeceae2abe44c198415a82d3558f4c
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 2.327s
+             CPU time consumed: 39ms
+                   Memory peak: 5.9M (swap: 0B)

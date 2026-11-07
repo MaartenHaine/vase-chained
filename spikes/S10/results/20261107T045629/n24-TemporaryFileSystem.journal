@@ -1,0 +1,5 @@
+Started s10-n24-TemporaryFileSystem-94810.service - [systemd-run] /usr/bin/python3 -I -c "import os; exec(os.environ[\"S10_CODE\"])".
+s10-n24-TemporaryFileSystem-94810.service: Failed to set up mount namespacing: Operation not supported
+s10-n24-TemporaryFileSystem-94810.service: Failed at step NAMESPACE spawning /usr/bin/python3: Operation not supported
+s10-n24-TemporaryFileSystem-94810.service: Main process exited, code=exited, status=226/NAMESPACE
+s10-n24-TemporaryFileSystem-94810.service: Failed with result 'exit-code'.

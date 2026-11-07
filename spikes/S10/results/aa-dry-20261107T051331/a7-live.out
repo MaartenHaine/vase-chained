@@ -1,0 +1,5 @@
+MainPID=1280816 exe=/usr/bin/gnucat
+attr/current=unconfined
+NoNewPrivs:	1
+Seccomp:	2
+Seccomp_filters:	14

@@ -1,0 +1,6 @@
+Running as unit: s10-s11-RestrictNamespaces-94810.service; invocation ID: 55d6a5f6b15f4d9799e2e08c0be37926
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 345ms
+             CPU time consumed: 33ms
+                   Memory peak: 6.1M (swap: 0B)

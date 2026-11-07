@@ -1,0 +1,6 @@
+Running as unit: s10-n11-PrivateIPC-94810.service; invocation ID: 0bbf953d9cad47cf81601fc4ce76e233
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 354ms
+             CPU time consumed: 36ms
+                   Memory peak: 6.2M (swap: 0B)

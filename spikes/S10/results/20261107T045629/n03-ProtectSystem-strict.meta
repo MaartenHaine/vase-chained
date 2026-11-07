@@ -1,0 +1,2 @@
+props=ProtectSystem=strict
+systemd-run.rc=0

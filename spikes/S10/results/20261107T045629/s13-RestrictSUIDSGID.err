@@ -1,0 +1,6 @@
+Running as unit: s10-s13-RestrictSUIDSGID-94810.service; invocation ID: 296d4e5866b34f0a950367c73e028c67
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 1.455s
+             CPU time consumed: 39ms
+                   Memory peak: 6.1M (swap: 0B)

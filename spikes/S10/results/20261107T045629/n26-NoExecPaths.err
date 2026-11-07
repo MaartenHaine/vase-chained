@@ -1,0 +1,6 @@
+Running as unit: s10-n26-NoExecPaths-94810.service; invocation ID: 86a7904f3b524dc18c570d05b1d4dbf0
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 747ms
+             CPU time consumed: 36ms
+                   Memory peak: 6.2M (swap: 0B)

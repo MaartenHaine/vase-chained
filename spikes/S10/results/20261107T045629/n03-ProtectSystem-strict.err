@@ -1,0 +1,6 @@
+Running as unit: s10-n03-ProtectSystem-strict-94810.service; invocation ID: 2f860611de5f477ca0f31136491d8b71
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 173ms
+             CPU time consumed: 36ms
+                   Memory peak: 6.2M (swap: 0B)

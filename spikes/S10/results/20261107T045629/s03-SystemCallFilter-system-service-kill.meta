@@ -1,0 +1,2 @@
+props=SystemCallFilter=@system-service
+systemd-run.rc=1

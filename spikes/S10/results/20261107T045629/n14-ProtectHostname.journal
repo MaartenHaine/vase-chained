@@ -1,0 +1,2 @@
+Started s10-n14-ProtectHostname-94810.service - [systemd-run] /usr/bin/python3 -I -c "import os; exec(os.environ[\"S10_CODE\"])".
+s10-n14-ProtectHostname-94810.service: ProtectHostname=yes is configured, but UTS namespace setup is prohibited (container manager?), ignoring namespace setup.

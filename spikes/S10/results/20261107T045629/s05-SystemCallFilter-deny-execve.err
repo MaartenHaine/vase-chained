@@ -1,0 +1,6 @@
+Running as unit: s10-s05-SystemCallFilter-deny-execve-94810.service; invocation ID: 3faf7fca24ee4a3c94537405d0c1fbf5
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=203/EXEC
+               Service runtime: 29ms
+             CPU time consumed: 5ms
+                   Memory peak: 2M (swap: 0B)

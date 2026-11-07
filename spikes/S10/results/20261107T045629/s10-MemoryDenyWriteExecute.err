@@ -1,0 +1,6 @@
+Running as unit: s10-s10-MemoryDenyWriteExecute-94810.service; invocation ID: afe0114a6be246678ca25d978edb1a06
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 1.632s
+             CPU time consumed: 38ms
+                   Memory peak: 6M (swap: 0B)

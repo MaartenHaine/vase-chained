@@ -1,0 +1,5 @@
+Started s10-aa-a8-by-name-1266027.service - [systemd-run] /usr/bin/gnucat /proc/self/attr/current /usr/lib/os-release /home/martin/.cache/s10-probe.DATSlbq7/secret.
+s10-aa-a8-by-name-1266027.service: Failed to prepare AppArmor profile change to vase-s10-probe: No such file or directory
+s10-aa-a8-by-name-1266027.service: Failed at step APPARMOR spawning /usr/bin/gnucat: No such file or directory
+s10-aa-a8-by-name-1266027.service: Main process exited, code=exited, status=231/APPARMOR
+s10-aa-a8-by-name-1266027.service: Failed with result 'exit-code'.

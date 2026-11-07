@@ -1,0 +1,5 @@
+Started s10-p00-plan-with-CapabilityBoundingSet-483344.service - [systemd-run] /usr/bin/python3 -I -c "import os; exec(os.environ[\"S10_CODE\"])".
+s10-p00-plan-with-CapabilityBoundingSet-483344.service: Failed to drop capabilities: Operation not permitted
+s10-p00-plan-with-CapabilityBoundingSet-483344.service: Failed at step CAPABILITIES spawning /usr/bin/python3: Operation not permitted
+s10-p00-plan-with-CapabilityBoundingSet-483344.service: Main process exited, code=exited, status=218/CAPABILITIES
+s10-p00-plan-with-CapabilityBoundingSet-483344.service: Failed with result 'exit-code'.
