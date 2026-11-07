@@ -70,7 +70,15 @@ Any later action is added to the list only after its source at the pinned SHA ha
 that starts using it says so.
 
 GitHub doesn't run a fork's workflows until its Actions tab is opened once and the workflows are enabled there. Do
-that when the Linux CI job is merged, after the settings above are in place.
+that now, after the settings above are in place and before the Linux CI job's pull request is opened, so that the job
+runs on its own pull request. It is safe because no branch on GitHub has a workflow file yet: `main` passed the check
+at the top of this page, and every other pushed branch must pass this one:
+
+```sh
+git fetch origin && for b in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin); do
+  git ls-tree -r --name-only "$b" .github/workflows/; done
+#   prints nothing
+```
 
 Check:
 
@@ -110,8 +118,9 @@ In **Settings**, open **Rules > Rulesets**, then **New ruleset > New branch rule
 | Require deployments, code scanning, and others | Off                                                                                          |
 
 **Status checks.** A required check that never reports blocks every merge, so add it only after the Linux CI job has
-run once on a pull request. Then edit the ruleset: turn on **Require status checks to pass**, add that job's checks
-by name, and leave "Require branches to be up to date before merging" off. Each later CI job is added the same way.
+run once on a pull request: its own, since the workflows are enabled before it is opened (section 2). Then edit the
+ruleset: turn on **Require status checks to pass**, add that job's checks by name, and leave "Require branches to be
+up to date before merging" off. Each later CI job is added the same way.
 
 **If the ruleset is ever in the way** (a broken required check, say), set its enforcement status to **Disabled**,
 do the one thing, and set it back to **Active**. Don't add a bypass entry: a bypass stays forever, a disabled
