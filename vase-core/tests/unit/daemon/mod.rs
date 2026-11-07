@@ -1,6 +1,7 @@
 //! The daemon driven whole, over a fake platform.
 
 mod fake;
+mod prefix;
 
 use crate::geometry::Rect;
 use crate::input::InputCommand;

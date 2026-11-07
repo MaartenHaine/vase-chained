@@ -55,3 +55,21 @@ fn a_second_prefix_gets_its_own_bindings() {
     r.key(Key::meta(KeyCode::Char('a')));
     assert_eq!(r.key(Key::plain(KeyCode::Right)), Decision::ConsumeAndRun(InputCommand::FocusRight));
 }
+
+#[test]
+fn disarm_ends_an_armed_prefix_without_running_anything() {
+    let mut r = router();
+    r.key(Key::meta(KeyCode::Char('a')));
+    assert!(r.disarm());
+    assert!(!r.is_armed());
+    // The next key is routed fresh, not as the prefix's command.
+    assert_eq!(r.key(Key::plain(KeyCode::Right)), Decision::PassThrough);
+}
+
+#[test]
+fn disarm_when_idle_reports_nothing_was_armed() {
+    let mut r = router();
+    assert!(!r.disarm());
+    // The prefix still arms afterwards.
+    assert_eq!(r.key(Key::meta(KeyCode::Char('a'))), Decision::Consume);
+}

@@ -182,4 +182,11 @@ impl KeyRouter {
     pub fn is_armed(&self) -> bool {
         self.armed.is_some()
     }
+
+    /// End an armed prefix without routing a key to it. For a host that can lose the keyboard
+    /// mid-prefix (a timeout, another grab taking over, the hook going away), so the next key is
+    /// routed fresh instead of as the prefix's command. Returns whether a prefix was armed.
+    pub fn disarm(&mut self) -> bool {
+        self.armed.take().is_some()
+    }
 }
