@@ -102,20 +102,25 @@ reviewer.
 
 In **Settings**, open **Rules > Rulesets**, then **New ruleset > New branch ruleset**:
 
-| Field                                          | Set to                                                                                       |
-| ---------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Ruleset name                                   | `main`                                                                                       |
-| Enforcement status                             | **Active**                                                                                   |
-| Bypass list                                    | **Empty**. No bypass, not even for repository admins.                                        |
-| Target branches                                | **Add a target > Include default branch** (the default branch is `main`)                     |
-| Restrict deletions                             | **On**                                                                                       |
-| Block force pushes                             | **On**                                                                                       |
-| Require a pull request before merging          | **On**, with **Required approvals: 0**. The other sub-options stay off.                      |
-| Require status checks to pass                  | **Off for now.** See below.                                                                  |
-| Require signed commits                         | **Off.** Signing was dropped on 2026-09-24; Chained checks the checkout's integrity instead. |
-| Require linear history                         | **Off.** The monthly upstream merges from CasperTeirlinck/vase land as merge commits.        |
-| Restrict creations, Restrict updates           | Off                                                                                          |
-| Require deployments, code scanning, and others | Off                                                                                          |
+| Field                                          | Set to                                                                                                            |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Ruleset name                                   | `main`                                                                                                            |
+| Enforcement status                             | **Active**                                                                                                        |
+| Bypass list                                    | **Empty**. No bypass, not even for repository admins.                                                             |
+| Target branches                                | **Add a target > Include default branch** (the default branch is `main`)                                          |
+| Restrict deletions                             | **On**                                                                                                            |
+| Block force pushes                             | **On**                                                                                                            |
+| Require a pull request before merging          | **On**, with **Required approvals: 0** and **Allowed merge methods: Merge** only. The other sub-options stay off. |
+| Require status checks to pass                  | **Off for now.** See below.                                                                                       |
+| Require signed commits                         | **Off.** Signing was dropped on 2026-09-24; Chained checks the checkout's integrity instead.                      |
+| Require linear history                         | **Off.** The monthly upstream merges from CasperTeirlinck/vase land as merge commits.                             |
+| Restrict creations, Restrict updates           | Off                                                                                                               |
+| Require deployments, code scanning, and others | Off                                                                                                               |
+
+**Merge commits only.** "Allowed merge methods" is a list, not an on/off switch, and it allows merge, squash and
+rebase by default. A squash or rebase of an upstream-sync pull request would put new commits on `main` instead of
+upstream's own, so upstream's commits would stop being ancestors of `main` and the next monthly merge would re-conflict
+on everything since the fork point. Merge only keeps them.
 
 **Status checks.** A required check that never reports blocks every merge, so add it only after the Linux CI job has
 run once on a pull request: its own, since the workflows are enabled before it is opened (section 2). Then edit the
@@ -135,13 +140,15 @@ Check:
 ```sh
 gh api repos/MaartenHaine/vase-chained/rulesets
 gh api repos/MaartenHaine/vase-chained/rules/branches/main
-#   "deletion", "non_fast_forward" and "pull_request" (required_approving_review_count 0); no "required_signatures"
+#   "deletion", "non_fast_forward" and "pull_request" (required_approving_review_count 0,
+#   allowed_merge_methods ["merge"]); no "required_signatures"
 ```
 
 Classic branch protection (**Settings > Branches > Add classic branch protection rule** for `main`) gives the same
 result if rulesets aren't wanted: "Require a pull request before merging" with 0 approvals, "Allow force pushes" and
 "Allow deletions" both unticked, "Require signed commits" unticked, and "Do not allow bypassing the above settings"
-ticked. Use one or the other, not both.
+ticked. Classic protection has no merge-method option, so also untick "Allow squash merging" and "Allow rebase
+merging" under **Settings > General > Pull Requests**. Use the ruleset or classic protection, not both.
 
 ## What these settings don't cover
 
