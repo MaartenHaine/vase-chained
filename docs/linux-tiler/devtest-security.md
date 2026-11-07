@@ -315,7 +315,9 @@ most behaviour can be tested at L0 with no compositor at all.
 
 - GitHub's `ubuntu-latest` runner ships an older GNOME, so run the job in
   `container: ubuntu:26.04@sha256:<digest>`. Optionally pin apt to a `snapshot.ubuntu.com` date
-  (UNVERIFIED that apt's `--snapshot` works in that image) so CI tests the same 50.x the desktop runs.
+  so CI tests the same 50.x the desktop runs. M0a does: both chained-tiler-* Containerfiles set `APT::Snapshot`
+  (apt 3.2 in the 26.04 image honours it; snapshot.ubuntu.com is https only, so `ca-certificates` comes first, from
+  the live archive).
   Bump both through Upgrade, like the other CI pins (spec story 58).
 - Jobs: `unit` (gjs), `lint` (eslint, shexli, metadata lint, tripwires), `shell-headless` (test tool +
   dbusmock runner, two virtual monitors), and `pack` (`gnome-extensions pack`, and checking that the zip
@@ -477,7 +479,9 @@ way back (remove Tiling Assistant from `disabled-extensions`).
 4. **Install `mutter-dev-bin`** on the desktop for interactive devkit work (an apt universe package; it
    isn't needed for any automated test)? `python3-dbusmock` is needed only in containers, not on the host.
 5. **CI apt pinning:** pin the CI image to an Ubuntu snapshot date, moved by Upgrade, or follow the live
-   archive?
+   archive? M0a pins it (a review found the desktop's cached image and CI's fresh one drifting apart); following the
+   live archive instead means dropping the `APT::Snapshot` line from both Containerfiles and the "same thing" claim
+   in `.github/workflows/linux.yaml`.
 6. **`development-tools`:** set it to `false` on the real session once the Tiler ships (it isn't an
    extension key; it turns off `lg` on the real session)? Also, add the doctor check in section 5.5?
 7. **Architecture** (other lenses cover this): a pure GJS port of vase-core, or a Rust daemon plus a thin

@@ -8,7 +8,14 @@
 # - gtk-4-examples, x11-apps and xwayland: Wayland and X11 test clients for later milestones
 FROM docker.io/library/ubuntu@sha256:da6fc2be547864451aa253836dd926da33623312df4a9a243e35dc877c378a78
 
-RUN apt-get update \
+# Packages come from one Ubuntu archive snapshot, the same in build.Containerfile and test.Containerfile, so the
+# desktop's image and every CI build install the same versions. Moving the date is an edit here, so it changes the
+# image tag (tools/linux/podman.sh); bump it through Upgrade, like the other pins. snapshot.ubuntu.com serves https
+# only, so ca-certificates comes first, from the live archive; apt checks the archive's signatures either way.
+RUN apt-get update --error-on=any \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates \
+ && echo 'APT::Snapshot "20261106T000000Z";' > /etc/apt/apt.conf.d/50chained-snapshot \
+ && apt-get update --error-on=any \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       gnome-shell gjs dbus dbus-daemon python3-dbus python3-dbusmock \
       mesa-libgallium libgl1-mesa-dri libegl-mesa0 \

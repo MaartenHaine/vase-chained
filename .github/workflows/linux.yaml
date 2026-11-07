@@ -2,8 +2,9 @@
 #
 # Hardening (devtest-security.md §4.6): no permissions at the top, contents: read per job, every action pinned to a
 # full commit SHA, no secrets, no pull_request_target, and the checkout keeps no token. Each job runs the same scripts
-# as the local just recipes, in the same chained-tiler-* images (Ubuntu 26.04 by digest, Ubuntu's own toolchain), so a
-# green run here means the same thing as a green run on the desktop.
+# as the local just recipes, in the same chained-tiler-* images (Ubuntu 26.04 by digest, Ubuntu's own toolchain, every
+# package from the apt snapshot the Containerfiles name), so a green run here means the same thing as a green run on
+# the desktop.
 name: linux
 
 on:
