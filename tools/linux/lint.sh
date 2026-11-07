@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# The Linux Tiler's static checks (docs/linux-tiler/devtest-security.md §4.4): the metadata lint, the tripwires and
-# eslint. CI runs this on the runner; `tools/linux/podman.sh lint NODE_DIR` runs it in the build image. It needs bash,
-# python3, grep -P, and node and npm on PATH; npm installs only what tools/linux/eslint/package-lock.json pins, with
-# install scripts off, into a temporary directory. Nothing from npm runs on the desktop (§4.4), so it refuses to run
-# anywhere but CI or a container.
+# The Linux Tiler's static checks (docs/linux-tiler/devtest-security.md §4.4): the metadata lint, the unit lint, the
+# tripwires and eslint. CI runs this on the runner; `tools/linux/podman.sh lint NODE_DIR` runs it in the build image.
+# It needs bash, python3, grep -P, and node and npm on PATH; npm installs only what
+# tools/linux/eslint/package-lock.json pins, with install scripts off, into a temporary directory. Nothing from npm
+# runs on the desktop (§4.4), so it refuses to run anywhere but CI or a container.
 set -euo pipefail
 
 if [ ! -e /run/.containerenv ] && [ "${GITHUB_ACTIONS:-}" != true ]; then
@@ -16,6 +16,8 @@ cd "$ROOT"
 
 python3 -I tools/linux/lint-metadata.py --self-test
 python3 -I tools/linux/lint-metadata.py vase-gnome/extension
+python3 -I tools/linux/lint-unit.py --self-test
+python3 -I tools/linux/lint-unit.py vase-gnome/systemd/vase-gnome.service.in
 bash tools/linux/tripwires.sh --self-test
 bash tools/linux/tripwires.sh vase-gnome/extension
 

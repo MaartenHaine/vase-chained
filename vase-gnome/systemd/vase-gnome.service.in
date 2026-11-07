@@ -1,0 +1,47 @@
+# vase-gnome's systemd --user unit, a template for Chained to render (wayfinder §3.1, §3.6; S10).
+#
+# tools/linux/lint-unit.py renders it (`--render shipped` or `--render test`) and lints both renderings. The two
+# placeholders, each in double braces below:
+#   EXEC           the daemon: /usr/local/libexec/vase/vase-gnome when shipped, where the peer check expects it
+#   SYSCALL_ERROR  SystemCallErrorNumber=EPERM when shipped, so a call outside the filter that only a rare path makes
+#                  fails quietly instead of crash-looping; nothing in L0/L1 test units, so the default kill action
+#                  shows a missing call there (S10)
+#
+# The sandbox is exactly the option set S10 measured together on this desktop (Seccomp: 2, MDWE on, every effect
+# test refused, a unix socket still binds). It has NO namespace or capability option: under a user manager on Ubuntu
+# each one is a silent no-op, a logged no-op or a unit that won't start, and the no-ops relabel the daemon
+# unprivileged_userns, which hides the AppArmor profile from doctor. The lint rejects them all. File, exec and
+# network limits come from Landlock in the daemon itself and, once S10's AppArmor half has run, from a root-owned
+# AppArmor profile (AppArmorProfile= is added then).
+
+[Unit]
+Description=vase-gnome, the Linux Tiler's daemon (vase on GNOME Shell)
+Documentation=file:///usr/local/share/doc/vase-gnome/README.md
+PartOf=graphical-session.target
+After=graphical-session.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+ExecStart={{EXEC}}
+# SIGTERM (log-out, a restart, an upgrade) saves and detaches; nothing moves.
+KillSignal=SIGTERM
+Restart=on-failure
+RestartSec=1
+NoNewPrivileges=yes
+RestrictAddressFamilies=AF_UNIX
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+SystemCallArchitectures=native
+{{SYSCALL_ERROR}}
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+# A SIGSYS death would otherwise leave an apport report in /var/crash (F34).
+LimitCORE=1
+
+[Install]
+WantedBy=graphical-session.target
