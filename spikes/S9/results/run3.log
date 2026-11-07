@@ -1,0 +1,289 @@
+run.sh: load 29.39 27.82 29.84
+s9: gnome-shell GNOME Shell 50.1, gjs gjs 1.88.0, load 29.39 27.82 29.84, 12 cpus
+s9: shell exit 1
+----- full shell log -----
+dbusrunner: private system bus at unix:path=/var/tmp/s9/dbusmock_data_8xdu9fr3/system_bus.socket
+libmutter-Message: 04:25:58.910: Running GNOME Shell (using mutter 50.1) as a Wayland display server
+libmutter-Message: 04:25:59.063: Created surfaceless renderer without GPU
+libmutter-Message: 04:25:59.111: Added virtual monitor Meta-0
+
+(gnome-shell:30): dbind-WARNING **: 04:25:59.115: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+libmutter-Message: 04:25:59.116: Using public X11 display :0, (using unix:/tmp/.X11-unix/X1 for managed services)
+libmutter-Message: 04:25:59.116: Using Wayland display name 'gnome-shell-test-display'
+Xwayland glamor: GBM Wayland interfaces not available
+Failed to initialize glamor, falling back to sw
+
+(gnome-shell:30): libmutter-WARNING **: 04:25:59.204: There is no colord server available
+dbus-daemon[17]: [session uid=1000 pid=17 pidfd=5] Activating service name='org.gnome.Shell.Screencast' requested by ':1.12' (uid=1000 pid=30 comm="/usr/bin/gnome-shell --automation-script /src/spik" label="crun (unconfined)")
+GNOME Shell-Message: 04:25:59.779: Registering session with GDM
+GNOME Shell-Message: 04:25:59.799: Error registering session with GDM: GDBus.Error:org.freedesktop.DBus.Error.InvalidArgs: Invalid arguments: More items found in D-Bus signature than in Python arguments
+GNOME Shell-Message: 04:25:59.814: Failed to launch ibus-daemon: Failed to execute child process “ibus-daemon” (No such file or directory)
+
+(gnome-shell:30): GNOME Shell-WARNING **: 04:25:59.815: Failed to inhibit suspend: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+
+(gnome-shell:30): GNOME Shell-CRITICAL **: 04:25:59.887: Could not get a proxy for user 1000: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+
+Stack trace:
+  asyncCallback@resource:///org/gnome/gjs/modules/core/overrides/Gio.js:115:23
+  @resource:///org/gnome/shell/ui/init.js:20:20
+  
+
+(gnome-shell:30): GNOME Shell-WARNING **: 04:25:59.888: Failed to start state machine: can't access property "connectObject", this._loginUser is null
+GNOME Shell-Message: 04:25:59.925: Failed to register AuthenticationAgent
+GNOME Shell-Message: 04:25:59.938: [vase-s9] enable
+
+(gnome-shell:30): libmutter-WARNING **: 04:25:59.939: Failed to load background 'file:///usr/share/backgrounds/gnome/adwaita-morning.jpg': Error opening file /usr/share/backgrounds/gnome/adwaita-morning.jpg: No such file or directory
+
+(gnome-shell:30): libmutter-WARNING **: 04:25:59.939: Failed to load background 'file:///usr/share/backgrounds/gnome/adwaita-day.jpg': Error opening file /usr/share/backgrounds/gnome/adwaita-day.jpg: No such file or directory
+GNOME Shell-Message: 04:26:00.010: [vase-s9] connect-failed {"error":"Could not connect: No such file or directory","connect_us":70589,"next_ms":100}
+GNOME Shell-Message: 04:26:00.096: [s9] module loaded
+dbus-daemon[17]: [session uid=1000 pid=17 pidfd=5] Activating service name='org.gnome.Shell.Notifications' requested by ':1.12' (uid=1000 pid=30 comm="/usr/bin/gnome-shell --automation-script /src/spik" label="crun (unconfined)")
+dbus-daemon[17]: [session uid=1000 pid=17 pidfd=5] Successfully activated service 'org.gnome.Shell.Notifications'
+GNOME Shell-Message: 04:26:00.544: GNOME Shell started at Sat Nov 07 2026 04:25:59 GMT+0000 (Coordinated Universal Time)
+GNOME Shell-Message: 04:26:00.544: Registering display with GDM
+** Message: 04:26:00.639: Failed to start camera monitor
+GNOME Shell-Message: 04:26:00.701: [s9] run() started
+GNOME Shell-Message: 04:26:00.702: Not calling RegisterDisplay(): method not exported, GDM too old?
+GNOME Shell-Message: 04:26:00.731: [vase-s9] connect-failed {"error":"Could not connect: No such file or directory","connect_us":177224,"next_ms":200}
+GNOME Shell-Message: 04:26:00.996: [vase-s9] connect-failed {"error":"Could not connect: No such file or directory","connect_us":1063,"next_ms":400}
+GNOME Shell-Message: 04:26:01.110: Failed to launch ibus-daemon: Failed to execute child process “ibus-daemon” (No such file or directory)
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Unsupported maximum keycode 708, clipping.
+>                   X11 cannot support keycodes above 255.
+> Warning:          Virtual modifier Hyper multiply defined
+>                   Using 0, ignoring 0
+> Warning:          Virtual modifier ScrollLock multiply defined
+>                   Using 0, ignoring 0
+Errors from xkbcomp are not fatal to the X server
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+
+(gnome-shell:30): accountsservice-WARNING **: 04:26:01.310: ActUserManager: user (null) has no username (uid: -1)
+GNOME Shell-Message: 04:26:01.310: [s9] RESULT env {"load":"29.04 27.77 29.81 26/2153 520","shell":"user","cpus":12}
+GNOME Shell-Message: 04:26:01.647: [vase-s9] connect-failed {"error":"Could not connect: No such file or directory","connect_us":434,"next_ms":800}
+GNOME Shell-Message: 04:26:02.448: [vase-s9] connect-failed {"error":"Could not connect: No such file or directory","connect_us":270,"next_ms":1600}
+GNOME Shell-Message: 04:26:04.048: [vase-s9] connect-failed {"error":"Could not connect: No such file or directory","connect_us":266,"next_ms":2000}
+GNOME Shell-Message: 04:26:04.051: [s9] RESULT backoff.before-first-daemon {"attempts":6,"gaps_ms":[721,265,651,801,1601],"errors":["Could not connect: No such file or directory"],"connect_us":{"n":6,"min":0.27,"median":1.06,"p90":177.22,"p99":177.22,"max":177.22}}
+[s9-stub     0.000] bound and listening on /run/user/1000/vase/gnome.sock (proto v1, pid 522)
+GNOME Shell-Message: 04:26:04.064: [s9] started /opt/s9/release/s9-stub as pid 522
+[s9-stub     1.987] accepted a connection
+GNOME Shell-Message: 04:26:06.051: [vase-s9] peer-ok {"ok":true,"pid":522,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":176,"connect_us":389}
+[s9-stub     1.988] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+GNOME Shell-Message: 04:26:06.052: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":522,"since_connect_us":504}
+GNOME Shell-Message: 04:26:06.053: [s9] ok: the extension connects to a daemon started while it backs off
+GNOME Shell-Message: 04:26:06.053: [s9] RESULT backoff.first-connect {"spawn_to_hello_ms":1988}
+GNOME Shell-Message: 04:26:06.053: [s9] RESULT peer.ok {"ok":true,"pid":522,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":176}
+GNOME Shell-Message: 04:26:06.053: [s9] ok: SO_PEERCRED names the daemon itself (pid 522 = 522)
+GNOME Shell-Message: 04:26:06.053: [s9] ok: /proc/<pid>/exe is /opt/s9/release/s9-stub
+
+(gnome-shell-perf-helper:205): Gtk-WARNING **: 04:26:06.063: Unable to acquire the address of the accessibility bus: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files. If you are attempting to run GTK without a11y support, GTK_A11Y should be set to 'none'.
+libEGL warning: failed to get driver name for fd -1
+
+libEGL warning: MESA-LOADER: failed to retrieve device information
+
+libEGL warning: failed to get driver name for fd -1
+
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+libEGL warning: egl: failed to create dri2 screen
+GNOME Shell-Message: 04:26:06.199: [s9] RESULT target {"id":2507370280,"wm_class":"org.gnome.Shell.PerfHelper","client":0}
+GNOME Shell-Message: 04:26:18.094: [s9] RESULT press.idle {"label":"idle","n":40,"notArmed":0,"missed":0,"wrongFrame":0,"frames":{"frames":42,"fps":4,"interval":{"n":41,"min":108.32,"median":242.72,"p90":256.44,"p99":268.78,"max":268.78}},"arm":{"n":40,"min":0.43,"median":0.67,"p90":2.37,"p99":4.3,"max":4.3},"dispatch":{"n":40,"min":0.21,"median":0.27,"p90":2.11,"p99":6.15,"max":6.15},"roundtrip":{"n":40,"min":0.27,"median":0.31,"p90":2.5,"p99":2.78,"max":2.78},"applied":{"n":40,"min":0.58,"median":1.08,"p90":3.03,"p99":6.55,"max":6.55},"frame":{"n":40,"min":6.3,"median":12.76,"p90":19.28,"p99":25.8,"max":25.8},"effect":{"n":40,"min":21.44,"median":28.31,"p90":39.16,"p99":89.54,"max":89.54},"configure":{"n":40,"min":5.66,"median":11.37,"p90":16.51,"p99":23,"max":23},"daemon":{"n":40,"min":0.01,"median":0.01,"p90":0.01,"p99":0.02,"max":0.02},"parse":{"n":40,"min":0.01,"median":0.01,"p90":0.02,"p99":0.02,"max":0.02}}
+GNOME Shell-Message: 04:26:18.094: [s9] ok: Clutter virtual-keyboard Alt+A triggers the grab_accelerator binding
+GNOME Shell-Message: 04:26:18.129: [s9] RESULT ping.idle {"label":"idle","n":200,"rtt":{"n":200,"min":0.04,"median":0.05,"p90":0.07,"p99":2.34,"max":3.21},"daemon":{"n":200,"min":0,"median":0,"p90":0,"p99":0,"max":0.01}}
+GNOME Shell-Message: 04:26:18.633: [s9] RESULT load.clients {"windows":["org.gnome.Shell.PerfHelper 768x688","gtk4-demo 0x0","gtk4-demo 0x0"]}
+GNOME Shell-Message: 04:26:24.638: Error connecting to the screencast service
+GNOME Shell-Message: 04:26:40.930: [s9] RESULT press.paint {"label":"paint","n":40,"notArmed":0,"missed":0,"wrongFrame":0,"frames":{"frames":316,"fps":16,"interval":{"n":315,"min":12.41,"median":60.78,"p90":98.4,"p99":138.58,"max":191.6}},"arm":{"n":40,"min":0.38,"median":5.02,"p90":61.07,"p99":80.83,"max":80.83},"dispatch":{"n":40,"min":0.23,"median":7.3,"p90":64.26,"p99":94.41,"max":94.41},"roundtrip":{"n":40,"min":12.39,"median":52.74,"p90":74.43,"p99":95.2,"max":95.2},"applied":{"n":40,"min":32.13,"median":65.25,"p90":127.8,"p99":159.59,"max":159.59},"frame":{"n":40,"min":48.93,"median":130.71,"p90":203.36,"p99":428.3,"max":428.3},"effect":{"n":40,"min":93.67,"median":177.89,"p90":258.29,"p99":475.01,"max":475.01},"configure":{"n":40,"min":7.73,"median":57.43,"p90":112.32,"p99":296.84,"max":296.84},"daemon":{"n":40,"min":0.01,"median":0.01,"p90":0.01,"p99":0.01,"max":0.01},"parse":{"n":40,"min":0.01,"median":0.01,"p90":0.01,"p99":2.61,"max":2.61}}
+GNOME Shell-Message: 04:26:47.861: [s9] RESULT ping.paint {"label":"paint","n":200,"rtt":{"n":200,"min":0.03,"median":36.63,"p90":70.5,"p99":118.24,"max":165.16},"daemon":{"n":200,"min":0,"median":0.01,"p90":0.01,"p99":0.02,"max":0.02}}
+GNOME Shell-Message: 04:27:08.795: [s9] RESULT press.paint-draw16k {"label":"paint-draw16k","n":40,"notArmed":0,"missed":0,"wrongFrame":0,"frames":{"frames":325,"fps":16,"interval":{"n":324,"min":13.05,"median":58.78,"p90":105.32,"p99":150.12,"max":192.66}},"arm":{"n":40,"min":0.36,"median":2.35,"p90":65.17,"p99":86.03,"max":86.03},"dispatch":{"n":40,"min":0.28,"median":16.63,"p90":65.68,"p99":90.4,"max":90.4},"roundtrip":{"n":40,"min":21.31,"median":48.57,"p90":71.45,"p99":125.09,"max":125.09},"applied":{"n":40,"min":21.85,"median":74.42,"p90":125.3,"p99":143.48,"max":143.48},"frame":{"n":40,"min":53.07,"median":143.57,"p90":255.47,"p99":318.2,"max":318.2},"effect":{"n":40,"min":71.99,"median":217.2,"p90":325.31,"p99":375.34,"max":375.34},"configure":{"n":40,"min":8.58,"median":67.59,"p90":159.39,"p99":210.14,"max":210.14},"daemon":{"n":40,"min":0.01,"median":0.01,"p90":0.02,"p99":0.02,"max":0.02},"parse":{"n":40,"min":0.02,"median":0.03,"p90":0.03,"p99":0.04,"max":0.04}}
+GNOME Shell-Message: 04:27:08.796: [vase-s9] reconnect-requested {"detail":"","queued":42}
+[s9-stub    64.732] EOF: the extension went away; back to accept (frozen)
+GNOME Shell-Message: 04:27:08.937: [vase-s9] peer-ok {"ok":true,"pid":522,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":56,"connect_us":340}
+[s9-stub    64.874] accepted a connection
+[s9-stub    64.874] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+GNOME Shell-Message: 04:27:08.984: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":522,"since_connect_us":46418}
+
+(gnome-shell:30): libmutter-WARNING **: 04:27:08.984: Trying to activate unmanaged window 'W0 (gnome-shell-perf-helper)'
+GNOME Shell-Message: 04:27:10.988: [s9] timed out after 2000 ms waiting for the target window to take focus
+GNOME Shell-Message: 04:27:31.053: [s9] RESULT press.paint-chunk {"label":"paint-chunk","n":40,"notArmed":0,"missed":0,"wrongFrame":0,"frames":{"frames":320,"fps":16,"interval":{"n":319,"min":18.28,"median":58.94,"p90":94.96,"p99":131.81,"max":148.47}},"arm":{"n":40,"min":0.36,"median":3.21,"p90":50.96,"p99":103.33,"max":103.33},"dispatch":{"n":40,"min":0.48,"median":4.85,"p90":59.69,"p99":75.86,"max":75.86},"roundtrip":{"n":40,"min":15.3,"median":44.21,"p90":67.86,"p99":84.46,"max":84.46},"applied":{"n":40,"min":15.97,"median":57.3,"p90":103.21,"p99":159.67,"max":159.67},"frame":{"n":40,"min":52.47,"median":143.37,"p90":223.57,"p99":292.11,"max":292.11},"effect":{"n":40,"min":92.06,"median":205.58,"p90":294.17,"p99":332.67,"max":332.67},"configure":{"n":40,"min":8.42,"median":71.93,"p90":161.49,"p99":203.72,"max":203.72},"daemon":{"n":40,"min":0.01,"median":0.01,"p90":0.01,"p99":0.01,"max":0.01},"parse":{"n":40,"min":0.01,"median":0.01,"p90":0.02,"p99":1.86,"max":1.86}}
+GNOME Shell-Message: 04:27:31.053: [vase-s9] reconnect-requested {"detail":"","queued":0}
+[s9-stub    86.990] EOF: the extension went away; back to accept (frozen)
+GNOME Shell-Message: 04:27:31.192: [vase-s9] peer-ok {"ok":true,"pid":522,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":56,"connect_us":342}
+[s9-stub    87.129] accepted a connection
+[s9-stub    87.129] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+GNOME Shell-Message: 04:27:31.261: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":522,"since_connect_us":68441}
+
+(gnome-shell:30): libmutter-WARNING **: 04:27:31.284: Trying to activate unmanaged window 'W0 (gnome-shell-perf-helper)'
+GNOME Shell-Message: 04:27:33.334: [s9] timed out after 2000 ms waiting for the target window to take focus
+GNOME Shell-Message: 04:27:56.001: [s9] RESULT press.heavy {"label":"heavy","n":40,"notArmed":0,"missed":0,"wrongFrame":0,"frames":{"frames":292,"fps":13,"interval":{"n":291,"min":26.53,"median":72.48,"p90":116,"p99":163.54,"max":170.35}},"arm":{"n":40,"min":0.33,"median":1.17,"p90":74.57,"p99":85.47,"max":85.47},"dispatch":{"n":40,"min":0.3,"median":11.54,"p90":80.11,"p99":108.87,"max":108.87},"roundtrip":{"n":40,"min":33.78,"median":68.41,"p90":90.64,"p99":129.98,"max":129.98},"applied":{"n":40,"min":36.85,"median":92.15,"p90":150.63,"p99":194.47,"max":194.47},"frame":{"n":40,"min":57.77,"median":185.26,"p90":282.78,"p99":356.52,"max":356.52},"effect":{"n":40,"min":119.78,"median":245.63,"p90":366.89,"p99":423.89,"max":423.89},"configure":{"n":40,"min":8.92,"median":80.56,"p90":176.95,"p99":211.09,"max":211.09},"daemon":{"n":40,"min":0.01,"median":0.01,"p90":0.01,"p99":0.01,"max":0.01},"parse":{"n":40,"min":0.01,"median":0.01,"p90":0.01,"p99":1.02,"max":1.02}}
+GNOME Shell-Message: 04:27:56.174: [s9] RESULT ping.heavy {"label":"heavy","n":200,"rtt":{"n":200,"min":0.04,"median":0.05,"p90":0.08,"p99":11.19,"max":113.12},"daemon":{"n":200,"min":0,"median":0,"p90":0,"p99":0.01,"max":0.01}}
+GNOME Shell-Message: 04:27:56.289: [s9] RESULT framing.split {"rtt_us":112520,"dt_us":1,"parse_us":10}
+GNOME Shell-Message: 04:27:56.289: [s9] ok: a line split across two writes arrives once, whole
+GNOME Shell-Message: 04:27:56.298: [s9] RESULT framing.json-parse-us {"2048":19,"65536":64,"1048576":729}
+GNOME Shell-Message: 04:27:56.444: [vase-s9] msg-blob {"bytes":8388635,"parse_us":38041,"recv_to_parsed_us":77770}
+GNOME Shell-Message: 04:27:56.445: [s9] RESULT framing.8mb-line-reader {"received":true,"bytes":8388635,"parse_us":38041,"request_to_parsed_ms":146,"frames":{"frames":0,"fps":null,"interval":{"n":0}}}
+GNOME Shell-Message: 04:27:56.445: [vase-s9] reconnect-requested {"detail":"","queued":0}
+[s9-stub   112.381] EOF: the extension went away; back to accept (frozen)
+[s9-stub   112.542] accepted a connection
+GNOME Shell-Message: 04:27:56.606: [vase-s9] peer-ok {"ok":true,"pid":522,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":73,"connect_us":35311}
+GNOME Shell-Message: 04:27:56.607: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":522,"since_connect_us":324}
+[s9-stub   112.543] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+GNOME Shell-Message: 04:27:56.690: [vase-s9] protocol-error {"detail":"line over 1048576 bytes","queued":0}
+[s9-stub   112.630] write: Broken pipe (os error 32)
+GNOME Shell-Message: 04:27:56.695: [s9] RESULT framing.8mb-chunk-reader {"event":{"t":22110646357,"kind":"protocol-error","detail":"line over 1048576 bytes","queued":0},"after_ms":72,"frames":{"frames":1,"fps":null,"interval":{"n":0}}}
+GNOME Shell-Message: 04:27:56.695: [s9] ok: the chunk reader closes the connection on a line over 1 MiB
+[s9-stub   112.890] accepted a connection
+GNOME Shell-Message: 04:27:56.954: [vase-s9] peer-ok {"ok":true,"pid":522,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":57,"connect_us":399}
+[s9-stub   112.890] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+GNOME Shell-Message: 04:27:56.955: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":522,"since_connect_us":274}
+GNOME Shell-Message: 04:27:56.957: [vase-s9] reconnect-requested {"detail":"","queued":0}
+[s9-stub   112.896] EOF: the extension went away; back to accept (frozen)
+[s9-stub   113.074] accepted a connection
+GNOME Shell-Message: 04:27:57.138: [vase-s9] peer-ok {"ok":true,"pid":522,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":64,"connect_us":24781}
+[s9-stub   113.075] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+GNOME Shell-Message: 04:27:57.140: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":522,"since_connect_us":1208}
+GNOME Shell-Message: 04:27:57.148: [vase-s9] protocol-error {"detail":"not JSON: this is not json","queued":0}
+[s9-stub   113.084] EOF: the extension went away; back to accept (frozen)
+[s9-stub   113.205] accepted a connection
+GNOME Shell-Message: 04:27:57.269: [vase-s9] peer-ok {"ok":true,"pid":522,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":65,"connect_us":1474}
+[s9-stub   113.208] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+GNOME Shell-Message: 04:27:57.272: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":522,"since_connect_us":2509}
+GNOME Shell-Message: 04:27:57.272: [s9] RESULT framing.garbage [{"kind":"protocol-error","ms":8,"detail":"not JSON: this is not json"},{"kind":"peer-ok","ms":129},{"kind":"hello","ms":132}]
+GNOME Shell-Message: 04:27:57.328: [s9] ok: the prefix is armed (modal up) before the kill
+GNOME Shell-Message: 04:27:57.398: [vase-s9] eof {"detail":"","queued":0}
+GNOME Shell-Message: 04:27:57.415: [s9] RESULT eof.sigkill {"kill_to_eof_us":69767,"kill_to_pop_us":70156,"pop_reason":"disconnect (eof)","modalCount":0,"prefix_grabbed":false}
+GNOME Shell-Message: 04:27:57.415: [s9] ok: EOF pops the modal and ungrabs Alt+A
+GNOME Shell-Message: 04:27:57.517: [vase-s9] connect-failed {"error":"Could not connect: Connection refused","connect_us":305,"next_ms":200}
+GNOME Shell-Message: 04:27:57.721: [vase-s9] connect-failed {"error":"Could not connect: Connection refused","connect_us":283,"next_ms":400}
+GNOME Shell-Message: 04:27:58.174: [vase-s9] connect-failed {"error":"Could not connect: Connection refused","connect_us":270,"next_ms":800}
+GNOME Shell-Message: 04:27:59.007: [vase-s9] connect-failed {"error":"Could not connect: Connection refused","connect_us":290,"next_ms":1600}
+dbus-daemon[17]: [session uid=1000 pid=17 pidfd=5] Failed to activate service 'org.gnome.Shell.Screencast': timed out (service_start_timeout=120000ms)
+GNOME Shell-Message: 04:28:00.620: [vase-s9] connect-failed {"error":"Could not connect: Connection refused","connect_us":3408,"next_ms":2000}
+GNOME Shell-Message: 04:28:01.948: [s9] RESULT eof.backoff {"attempts":5,"at_ms":[189,393,846,1679,3292],"errors":["Could not connect: Connection refused"]}
+GNOME Shell-Message: 04:28:01.972: [s9] started /opt/s9/release/s9-stub as pid 640
+[s9-stub     0.000] bound and listening on /run/user/1000/vase/gnome.sock (proto v1, pid 640)
+GNOME Shell-Message: 04:28:02.632: [vase-s9] peer-ok {"ok":true,"pid":640,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":65,"connect_us":354}
+[s9-stub     0.632] accepted a connection
+[s9-stub     0.632] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+GNOME Shell-Message: 04:28:02.667: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":640,"since_connect_us":35158}
+GNOME Shell-Message: 04:28:02.667: [s9] ok: the extension reconnects to a restarted daemon
+GNOME Shell-Message: 04:28:02.667: [s9] RESULT eof.reconnect {"spawn_to_hello_ms":695}
+
+(gnome-shell:30): libmutter-WARNING **: 04:28:02.668: Trying to activate unmanaged window 'W0 (gnome-shell-perf-helper)'
+GNOME Shell-Message: 04:28:04.678: [s9] timed out after 2000 ms waiting for the target window to take focus
+GNOME Shell-Message: 04:28:05.253: [vase-s9] missed-reply {"seq":802}
+GNOME Shell-Message: 04:28:05.254: [s9] RESULT hang.missed-reply {"missed":true,"key_to_pop_ms":250,"pop_reason":"200 ms missed reply","modalCount":0}
+GNOME Shell-Message: 04:28:05.254: [s9] ok: a stopped daemon costs a 200 ms missed reply, then the modal pops
+GNOME Shell-Message: 04:28:06.385: [s9] RESULT hang.sync-write {"written":233152,"blocked_ms":1004,"error":"Socket I/O timed out","frames":{"frames":2,"fps":31,"interval":{"n":1,"min":63.59,"median":63.59,"p90":63.59,"p99":63.59,"max":63.59}}}
+GNOME Shell-Message: 04:28:06.385: [vase-s9] reconnect-requested {"detail":"","queued":0}
+[s9-stub     4.390] write: Broken pipe (os error 32)
+[s9-stub     4.490] accepted a connection
+GNOME Shell-Message: 04:28:06.491: [vase-s9] peer-ok {"ok":true,"pid":640,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":65,"connect_us":439}
+[s9-stub     4.491] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+GNOME Shell-Message: 04:28:06.491: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":640,"since_connect_us":313}
+GNOME Shell-Message: 04:28:06.695: [vase-s9] queue-full {"detail":"1047540 bytes waiting","queued":1047540}
+GNOME Shell-Message: 04:28:06.823: [vase-s9] peer-ok {"ok":true,"pid":640,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":68,"connect_us":241}
+GNOME Shell-Message: 04:28:07.237: [s9] RESULT hang.async-flood {"messages_queued":260,"enqueue_loop_ms":5,"cap_event":{"t":22120652043,"kind":"queue-full","detail":"1047540 bytes waiting","queued":1047540},"frames":{"frames":7,"fps":16,"interval":{"n":6,"min":49.62,"median":72.5,"p90":99.14,"p99":99.14,"max":99.14}}}
+[s9-stub     5.241] EOF: the extension went away; back to accept (frozen)
+[s9-stub     5.241] accepted a connection
+[s9-stub     5.241] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+[s9-stub     0.000] bound and listening on /run/user/1000/vase/gnome.sock (proto v1, pid 641)
+GNOME Shell-Message: 04:28:07.279: [s9] started /opt/s9/release/s9-stub as pid 641
+GNOME Shell-Message: 04:28:07.280: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":640,"since_connect_us":456272}
+GNOME Shell-Message: 04:28:07.280: [vase-s9] eof {"detail":"","queued":0}
+
+(gnome-shell:30): GLib-GIO-CRITICAL **: 04:28:07.350: g_subprocess_get_if_exited: assertion 'pid == 0' failed
+
+(gnome-shell:30): GLib-GIO-CRITICAL **: 04:28:07.350: g_subprocess_get_if_signaled: assertion 'pid == 0' failed
+[s9-stub     0.000] bound and listening on /run/user/1000/vase/gnome.sock (proto v2, pid 642)
+GNOME Shell-Message: 04:28:07.489: [s9] started /opt/s9/release/s9-stub --proto 2 as pid 642
+[s9-stub     0.002] accepted a connection
+GNOME Shell-Message: 04:28:07.490: [vase-s9] peer-ok {"ok":true,"pid":642,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":132,"connect_us":37139}
+[s9-stub     0.003] version Some(1.0) != 2; refusing
+GNOME Shell-Message: 04:28:07.492: [vase-s9] version-refused {"detail":"daemon speaks v2, extension v1","queued":0}
+GNOME Shell-Message: 04:28:07.694: [vase-s9] peer-ok {"ok":true,"pid":642,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":66,"connect_us":267}
+[s9-stub     0.206] accepted a connection
+[s9-stub     0.206] version Some(1.0) != 2; refusing
+GNOME Shell-Message: 04:28:07.695: [vase-s9] version-refused {"detail":"daemon speaks v2, extension v1","queued":0}
+GNOME Shell-Message: 04:28:08.098: [vase-s9] peer-ok {"ok":true,"pid":642,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":60,"connect_us":283}
+[s9-stub     0.612] accepted a connection
+[s9-stub     0.612] version Some(1.0) != 2; refusing
+GNOME Shell-Message: 04:28:08.100: [vase-s9] version-refused {"detail":"daemon speaks v2, extension v1","queued":0}
+[s9-stub     1.414] accepted a connection
+GNOME Shell-Message: 04:28:08.902: [vase-s9] peer-ok {"ok":true,"pid":642,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":67,"connect_us":349}
+[s9-stub     1.415] version Some(1.0) != 2; refusing
+GNOME Shell-Message: 04:28:08.902: [vase-s9] version-refused {"detail":"daemon speaks v2, extension v1","queued":0}
+GNOME Shell-Message: 04:28:09.996: [s9] RESULT version.mismatch {"refusals":4,"first":{"t":22121448666,"kind":"version-refused","detail":"daemon speaks v2, extension v1","queued":0},"hellos":0,"prefix_grabbed":false}
+GNOME Shell-Message: 04:28:09.997: [s9] ok: a v2 daemon is refused, never connected
+
+(gnome-shell:30): GLib-GIO-CRITICAL **: 04:28:09.997: g_subprocess_get_if_exited: assertion 'pid == 0' failed
+
+(gnome-shell:30): GLib-GIO-CRITICAL **: 04:28:09.997: g_subprocess_get_if_signaled: assertion 'pid == 0' failed
+GNOME Shell-Message: 04:28:10.035: [s9] started python3 -I /src/spikes/S9/l1/activate.py /run/user/1000/vase/gnome.sock /opt/s9/release/s9-stub as pid 643
+[s9-activate] listening pid 643, daemon pid 644
+[s9-stub     0.000] using the inherited listening socket on fd 3
+[s9-stub     0.434] accepted a connection
+GNOME Shell-Message: 04:28:10.503: [vase-s9] peer-refused {"ok":false,"pid":643,"uid":1000,"myUid":1000,"exe":"/usr/bin/python3.14","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":70,"connect_us":333}
+[s9-stub     0.435] read: Connection reset by peer (os error 104)
+GNOME Shell-Message: 04:28:10.505: [s9] RESULT activation.peer {"t":22124459886,"kind":"peer-refused","ok":false,"pid":643,"uid":1000,"myUid":1000,"exe":"/usr/bin/python3.14","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":70,"connect_us":333,"emulator_pid":643}
+GNOME Shell-Message: 04:28:10.505: [s9] ok: under socket activation SO_PEERCRED names the process that listened, not the daemon
+
+(gnome-shell:30): GLib-GIO-CRITICAL **: 04:28:10.505: g_subprocess_get_if_exited: assertion 'pid == 0' failed
+
+(gnome-shell:30): GLib-GIO-CRITICAL **: 04:28:10.505: g_subprocess_get_if_signaled: assertion 'pid == 0' failed
+[s9-stub     0.000] bound and listening on /run/user/1000/vase/gnome.sock (proto v1, pid 646)
+GNOME Shell-Message: 04:28:10.567: [s9] started /run/user/1000/s9bin/vase-gnome as pid 646
+GNOME Shell-Message: 04:28:12.504: [vase-s9] peer-ok {"ok":true,"pid":646,"uid":1000,"myUid":1000,"exe":"/run/user/1000/s9bin/vase-gnome","exeError":null,"expected":"/run/user/1000/s9bin/vase-gnome","check_us":61,"connect_us":265}
+[s9-stub     1.940] accepted a connection
+[s9-stub     1.940] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+GNOME Shell-Message: 04:28:12.506: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":646,"since_connect_us":1998}
+GNOME Shell-Message: 04:28:12.548: [vase-s9] reconnect-requested {"detail":"","queued":0}
+[s9-stub     1.982] EOF: the extension went away; back to accept (frozen)
+[s9-stub     2.083] accepted a connection
+GNOME Shell-Message: 04:28:12.649: [vase-s9] peer-refused {"ok":false,"pid":646,"uid":1000,"myUid":1000,"exe":"/run/user/1000/s9bin/vase-gnome (deleted)","exeError":null,"expected":"/run/user/1000/s9bin/vase-gnome","check_us":77,"connect_us":308}
+[s9-stub     2.083] read: Connection reset by peer (os error 104)
+GNOME Shell-Message: 04:28:12.650: [s9] RESULT upgrade.exe {"before_exe":"/run/user/1000/s9bin/vase-gnome","after_exe":"/run/user/1000/s9bin/vase-gnome (deleted)","refused":true}
+GNOME Shell-Message: 04:28:12.650: [s9] ok: a daemon whose binary was replaced reads as "<path> (deleted)"
+
+(gnome-shell:30): GLib-GIO-CRITICAL **: 04:28:12.650: g_subprocess_get_if_exited: assertion 'pid == 0' failed
+
+(gnome-shell:30): GLib-GIO-CRITICAL **: 04:28:12.650: g_subprocess_get_if_signaled: assertion 'pid == 0' failed
+[s9-stub     0.000] bound and listening on /run/user/1000/vase/gnome.sock (proto v1, pid 649)
+GNOME Shell-Message: 04:28:12.717: [s9] started /run/user/1000/s9bin/vase-gnome-x as pid 649
+[s9-stub     0.132] accepted a connection
+GNOME Shell-Message: 04:28:12.850: [vase-s9] peer-refused {"ok":false,"pid":649,"uid":1000,"myUid":1000,"exe":null,"exeError":"Failed to read the symbolic link “/proc/649/exe”: Permission denied","expected":"/run/user/1000/s9bin/vase-gnome-x","check_us":352,"connect_us":326}
+[s9-stub     0.133] read: Connection reset by peer (os error 104)
+GNOME Shell-Message: 04:28:12.851: [s9] RESULT unreadable.exe {"t":22126806261,"kind":"peer-refused","ok":false,"pid":649,"uid":1000,"myUid":1000,"exe":null,"exeError":"Failed to read the symbolic link “/proc/649/exe”: Permission denied","expected":"/run/user/1000/s9bin/vase-gnome-x","check_us":352,"connect_us":326}
+GNOME Shell-Message: 04:28:12.851: [s9] ok: an execute-only binary makes the daemon non-dumpable, so /proc/<pid>/exe is denied
+
+(gnome-shell:30): GLib-GIO-CRITICAL **: 04:28:12.851: g_subprocess_get_if_exited: assertion 'pid == 0' failed
+
+(gnome-shell:30): GLib-GIO-CRITICAL **: 04:28:12.851: g_subprocess_get_if_signaled: assertion 'pid == 0' failed
+[s9-stub     0.000] bound and listening on /run/user/1000/vase/gnome.sock (proto v1, pid 650)
+GNOME Shell-Message: 04:28:12.879: [s9] started /opt/s9/release/s9-stub as pid 650
+[s9-stub     0.375] accepted a connection
+GNOME Shell-Message: 04:28:13.253: [vase-s9] peer-ok {"ok":true,"pid":650,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":70,"connect_us":413}
+[s9-stub     0.375] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+GNOME Shell-Message: 04:28:13.254: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":650,"since_connect_us":403}
+GNOME Shell-Message: 04:28:13.271: [vase-s9] disable
+[s9-stub     0.394] EOF: the extension went away; back to accept (frozen)
+GNOME Shell-Message: 04:28:13.585: [s9] RESULT cycle.disable {"leaks":[],"modalCount":0}
+GNOME Shell-Message: 04:28:13.585: [s9] ok: disable leaves no actor, signal, source or grab
+GNOME Shell-Message: 04:28:13.593: [vase-s9] enable
+[s9-stub     0.717] accepted a connection
+GNOME Shell-Message: 04:28:13.596: [vase-s9] peer-ok {"ok":true,"pid":650,"uid":1000,"myUid":1000,"exe":"/opt/s9/release/s9-stub","exeError":null,"expected":"/opt/s9/release/s9-stub","check_us":46,"connect_us":2693}
+[s9-stub     0.718] extension hello: instance Some("shell-30"), work area [0.0, 32.0, 1280.0, 688.0]
+GNOME Shell-Message: 04:28:13.596: [vase-s9] hello {"build":"s9-stub-0.1.0","pid":650,"since_connect_us":302}
+GNOME Shell-Message: 04:28:13.596: [s9] RESULT cycle.enable {"enable_to_hello_ms":11}
+GNOME Shell-Message: 04:28:13.596: [s9] ok: enable reconnects to the running daemon
+GNOME Shell-Message: 04:28:13.600: [s9] PASS
+
+(gnome-shell:30): GNOME Shell-CRITICAL **: 04:28:13.601: Failed to exit helper: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Shell.PerfHelper was not provided by any .service files
+
+Stack trace:
+  _proxyInvoker@resource:///org/gnome/gjs/modules/core/overrides/Gio.js:123:46
+  _makeProxyMethod/<@resource:///org/gnome/gjs/modules/core/overrides/Gio.js:148:30
+  _runPerfScript@resource:///org/gnome/shell/ui/scripting.js:309:24
+  async*runPerfScript/<@resource:///org/gnome/shell/ui/scripting.js:367:29
+  @resource:///org/gnome/shell/ui/init.js:20:20
+  
+(EE) failed to read Wayland events: Connection reset by peer
+args: ['/usr/bin/gnome-shell', '--automation-script', '/src/spikes/S9/l1/s9.js', '--headless', '--virtual-monitor', '1280x720', '--wayland-display', 'gnome-shell-test-display']
