@@ -166,8 +166,8 @@ the extension owns every key until it pops. These cases are missing or wrong:
   - **M1c**: the prefix and the picker list.
 - **M7**'s primary display moves to M1 or M2 (issue 4).
 - **M8**'s fork hardening and Linux CI move to M0. Agent-written compositor code needs the L1 suite in CI from M1 on.
-  The inherited `release*.yaml` files are still present: `release-finalize.yaml` runs with `contents: write` on every
-  merged PR, guarded only by a `release/v` branch-name check.
+  The inherited `release*.yaml` files were still present: `release-finalize.yaml` ran with `contents: write` on every
+  merged PR, guarded only by a `release/v` branch-name check. (Since resolved: M0a's hardening deleted them, `97369fd`.)
 - **The 4-6 week estimate** has no basis. It covers two programs, a protocol, CI from nothing and a container harness.
   Drop it, or re-estimate after M1a.
 

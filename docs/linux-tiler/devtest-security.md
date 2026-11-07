@@ -324,9 +324,9 @@ most behaviour can be tested at L0 with no compositor at all.
   dbusmock runner, two virtual monitors), and `pack` (`gnome-extensions pack`, and checking that the zip
   matches `git archive` of the extension directory at the commit).
 - Hardening as the spec lists for the fork: SHA-pinned actions, top-level `permissions: {}` with
-  `contents: read` per job, Dependabot alerts, the inherited release workflows deleted (they're still
-  present: `release.yaml`, `release-build.yaml`, `release-finalize.yaml` in
-  `~/src/vase-chained/.github/workflows`), and no secrets in test jobs. The extension needs **no release
+  `contents: read` per job, Dependabot alerts, the inherited release workflows deleted (M0a's hardening
+  deleted `release.yaml`, `release-build.yaml` and `release-finalize.yaml`, `97369fd`; the GitHub half is in
+  `github-settings.md`), and no secrets in test jobs. The extension needs **no release
   artifact**: it is source, so Chained installs it from the reviewed checkout (section 5.3).
 
 ### 4.7 What stays manual (spec story 119's checklist)
@@ -366,7 +366,7 @@ Windows (low-level hooks).
 | No network, no subprocesses except fixed documented ones, no telemetry, no minified code | §24.3, review guidelines | The tripwires (section 4.4). If vase-chained's config (TOML) is read, parse it in plain reviewed JS, not with an npm parser | – |
 | Full code review before the first enable, and a diff review at every bump | §24.4 | Same as the vase baseline review. The e.g.o rule "must not be AI-generated ... developers should be able to justify and explain the code" is a good bar for agent-written code | – |
 | Pause disables the extension (`gnome-extensions disable <uuid>`) | §24.5 | **Conflicts** with Chained's "never writes an extension key" stance and its doctor checks, because `disable` rewrites `enabled-extensions` and `disabled-extensions` in the real dconf (`extensionSystem.js:294-312`). See 5.7 | decision needed |
-| The fork's hardening (signed protected `main`, Dependabot, SHA-pinned actions, release workflows deleted, read-only token) and fork CI (tripwires, lint, tests) | spec, vase section, ~line 865 | Extend fork CI with section 4.6. Agent instruction files are prompt-injection surface (spec) | release workflows still present |
+| The fork's hardening (signed protected `main`, Dependabot, SHA-pinned actions, release workflows deleted, read-only token) and fork CI (tripwires, lint, tests) | spec, vase section, ~line 865 | Extend fork CI with section 4.6. Agent instruction files are prompt-injection surface (spec) | release workflows deleted and workflow rules in CONTRIBUTING.md (M0a hardening); GitHub settings and Linux CI pending (`github-settings.md`) |
 | Rule 4: tools with powerful OS access carry a written justification and extra review | ADR-0005 rule 4 | The written justification is section 5.1 of the assessment | – |
 | One update path | audit policy rule 4 | Only Chained's Upgrade moves the reviewed SHA; no Extensions app; installation off | – |
 | Licence | review guidelines (gnome-shell is GPL-2.0-or-later); ADR-0001 (vase is GPL-3.0) | GPL-3.0-or-later is compatible | ok |
@@ -539,4 +539,4 @@ Chained:
 - `docs/research/security-audit.md`: §14 (666-696), §24 (954-965), open decision 14 (1016), policy rule 1 (79), rows 26, 38, 67
 - ticket 13 on the stacked branch: `.claude/worktrees/14-retire/docs/tools/gnome.md:18-26`, `data/gnome.toml:28-40`, `docs/research/tickets/13-facts.md` G3-G6
 
-vase-chained: `CLAUDE.md`, `CONTEXT.md` (Architecture: Backend seam, "Linux is deferred, and Wayland is the known hard case"), `.github/workflows/` (the release workflows are still present), HEAD `022340fe`.
+vase-chained: `CLAUDE.md`, `CONTEXT.md` (Architecture: Backend seam, "Linux is deferred, and Wayland is the known hard case"), `.github/workflows/` (the release workflows were still present at `022340fe`; M0a's hardening deleted them), HEAD `022340fe`.

@@ -101,7 +101,7 @@ Sources are in the notes and in `critique.md`. Copies of the 50.1 sources are in
 | F21 | Ubuntu 26.04 LTS stays on GNOME 50 for its life; stable updates bring 50.x point releases only (https://wiki.ubuntu.com/StableReleaseUpdates/GNOME). The spec puts other Ubuntu versions out of scope. | Per critique; not re-fetched |
 | F22 | The only input source is `('xkb','us')`, with no xkb options. | VERIFIED, read-only |
 | F23 | Window ids start from a random 32-bit base for each shell process (`display.c:3182-3191`), so vase's "match by id first" doesn't collide across logins. | VERIFIED (critique) |
-| F24 | The fork still carries the inherited release workflows. `release-finalize.yaml` runs on every closed PR to `main` with `permissions: contents: write`, guarded only by a `release/v` branch-name check. | VERIFIED, `.github/workflows/release-finalize.yaml:1-18` |
+| F24 | The fork carried the inherited release workflows: `release-finalize.yaml` ran on every closed PR to `main` with `permissions: contents: write`, guarded only by a `release/v` branch-name check. M0a's hardening deleted all three (`97369fd`); they stay live on GitHub's `main` until that lands there (`github-settings.md`). | VERIFIED, `.github/workflows/release-finalize.yaml:1-18` before `97369fd` |
 | F25 | `/usr/local/share/` is on the running shell's `XDG_DATA_DIRS`. | VERIFIED (critique, `/proc/<gnome-shell>/environ`) |
 
 ### 2.2 Corrections
@@ -117,7 +117,7 @@ To the research notes (from the first version, still true):
    (`daemon/input.rs:85`).
 4. **The pane picker is modal whenever an empty pane has focus** (`daemon/input.rs:15-17`,
    `pane_picker/keys.rs:20-46`), and a split always makes one.
-5. The fork CI the spec describes does not exist yet (F24).
+5. The fork CI the spec describes didn't exist (F24). M0a adds it: the hardening, then `.github/workflows/linux.yaml`.
 6. The notes' counts differ (183 or 177 tests). Without the WebAssembly fallback this no longer matters.
 
 To the first version of this map (from `critique.md`):
