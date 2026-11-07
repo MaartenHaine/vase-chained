@@ -1,0 +1,644 @@
+start 05:16:45 load 30.72 29.19 31.48
+s3: shell exit 0
+--- shell log, [s3] lines and errors
+dbusrunner: private system bus at unix:path=/var/tmp/s3/dbusmock_data_fsz3oqdh/system_bus.socket
+(gnome-shell:20): dbind-WARNING **: 04:16:47.691: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+(gnome-shell:20): libmutter-WARNING **: 04:16:47.779: There is no colord server available
+Xwayland glamor: GBM Wayland interfaces not available
+(gnome-shell:20): GNOME Shell-WARNING **: 04:16:48.234: Failed to inhibit suspend: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+(gnome-shell:20): GNOME Shell-CRITICAL **: 04:16:48.299: Could not get a proxy for user 1000: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+(gnome-shell:20): GNOME Shell-WARNING **: 04:16:48.300: Failed to start state machine: can't access property "connectObject", this._loginUser is null
+(gnome-shell:20): libmutter-WARNING **: 04:16:48.330: Failed to load background 'file:///usr/share/backgrounds/gnome/adwaita-morning.jpg': Error opening file /usr/share/backgrounds/gnome/adwaita-morning.jpg: No such file or directory
+(gnome-shell:20): libmutter-WARNING **: 04:16:48.330: Failed to load background 'file:///usr/share/backgrounds/gnome/adwaita-day.jpg': Error opening file /usr/share/backgrounds/gnome/adwaita-day.jpg: No such file or directory
+GNOME Shell-Message: 04:16:48.888: [s3] run() entered
+GNOME Shell-Message: 04:16:49.235: [s3] seat unknown_MetaSeatNative; virtual devices unknown_MetaVirtualInputDeviceNative; added Virtual keyboard device for seat:1, Virtual keyboard device for seat:1, Virtual pointer device for seat:0, Virtual pointer device for seat:0
+(gnome-shell:20): accountsservice-WARNING **: 04:16:49.379: ActUserManager: user (null) has no username (uid: -1)
+GNOME Shell-Message: 04:16:49.741: [s3] grab_accelerator <Alt>a: action 129 name external-grab-129
+GNOME Shell-Message: 04:16:49.741: [s3] addKeybinding s3-kill: action 130
+GNOME Shell-Message: 04:16:50.750: [s3] client wayland: wm_class org.vase.S3Client type 0 frame 200,150 600x400 focused true
+GNOME Shell-Message: 04:16:51.073: [s3] K1/wayland {"q":"virtual Alt+A triggers the grab_accelerator binding","activations":1,"device":"P","activateMs":0.5,"clientGotA":false,"client":["key-press:Alt_L","mods:8","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:16:52.934: [s3] K2/wayland {"q":"a PassThrough key taken by the prefix grab is replayed to the app after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":1.3,"median":3.4,"max":14.6},"armed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:45/P","key-release:45/P"],"activations":["P/modal0"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","key-press:x","key-release:x"],"popToReplayUs":1}
+GNOME Shell-Message: 04:16:53.506: [s3] K3a/wayland {"q":"replay at the command key release, while the taken key is still physically held","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P"],"client":["key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","key-release:x"],"clientGotXPress":false,"clientGotXRelease":true}
+GNOME Shell-Message: 04:16:54.075: [s3] K3b/wayland {"q":"hold the grab until every key pressed under it is released, then replay","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P","key-release:45/P"],"client":["key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","key-press:x","key-release:x"],"clientGotXPress":true,"clientGotXRelease":true}
+GNOME Shell-Message: 04:16:55.403: [s3] K4-naive-altheld/wayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":2,"activationsUnderGrab":1,"reArmedBy":["R"],"clientGotAltA":null,"replayToClientMs":null,"filterSeen":["kept","kept","kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:16:55.467: [s3] K4-naive-altheld/wayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:16:55.797: [s3] K4-allow-altheld/wayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":5,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:16:55.858: [s3] K4-allow-altheld/wayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:16:56.183: [s3] K4-filter-altheld/wayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.7,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:16:56.244: [s3] K4-filter-altheld/wayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:16:56.633: [s3] K4-filter-altup/wayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.1,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-release:Alt_L+alt","mods:0","key-press:Alt_L","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:16:56.694: [s3] K4-filter-altup/wayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:16:57.018: [s3] K4-regrab-altheld/wayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.3,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":{"oldAction":129,"newAction":131,"name":"external-grab-131"},"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:16:57.079: [s3] K4-regrab-altheld/wayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:16:57.443: [s3] O1/wayland {"q":"virtual Alt+A inside a NORMAL pushModal","activations":1,"grab":["key-press:56/P","key-release:30/P+alt","key-release:56/P+alt"],"client":["focus-leave","active:false"]}
+GNOME Shell-Message: 04:16:57.713: [s3] N1/wayland {"q":"virtual Alt+A inside a NONE pushModal","activations":0,"grab":["key-press:56/P","key-press:30/P+alt","key-release:30/P+alt","key-release:56/P+alt"],"client":["focus-leave","active:false"]}
+GNOME Shell-Message: 04:16:58.022: [s3] KC-idle/wayland {"q":"virtual Ctrl+Super+Alt+Esc triggers an addKeybinding NON_MASKABLE chord","fired":1,"dev":"P","client":["mods:0","key-press:Control_L","mods:4","key-press:Super_L","mods:67108868","key-press:Alt_L","mods:67108876","key-release:Escape+alt","key-release:Alt_L+alt","mods:67108868","key-release:Super_L","mods:4","key-release:Control_L"]}
+GNOME Shell-Message: 04:16:58.174: [s3] KC-none/wayland {"q":"the same chord inside a NONE grab (F14: filtered, the grab handler must check it)","fired":0,"grabSawEsc":true,"grab":["key-press:29/P","key-press:125/P","key-press:56/P","key-press:1/P+alt","key-release:1/P+alt","key-release:56/P+alt","key-release:125/P","key-release:29/P"]}
+GNOME Shell-Message: 04:16:59.133: [s3] P1/wayland {"q":"a virtual pointer click reaches the client","target":"500,350","before":{"pointer":"0,600","actor":"Meta_BackgroundActor:","overview":false,"modal":0,"focus":"s3-wayland"},"moved":{"pointer":"500,350","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"after":{"pointer":"500,350","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"client":["focus-leave","active:false","focus-enter","active:true","pointer-enter","click-press:1@300,161","click-release:1@300,161"]}
+GNOME Shell-Message: 04:16:59.320: [s3] P1b/wayland {"q":"a second virtual click","moved":{"pointer":"505,355","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"after":{"pointer":"505,355","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"client":["click-press:1@305,166","click-release:1@305,166"]}
+GNOME Shell-Message: 04:17:01.314: [s3] P2/wayland {"q":"a click taken by an overlay grab is replayed to the window under the pointer after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":2,"median":4.5,"max":6.9},"grab":["button-press:1/ptrP","button-release:1/ptrP"],"client":["pointer-leave","focus-leave","active:false","pointer-enter","focus-enter","active:true","click-press:1@300,161","click-release:1@300,161"]}
+GNOME Shell-Message: 04:17:01.677: [s3] P3/wayland {"q":"replay while the physical button is still down","grab":["button-press:1/ptrP"],"client":["pointer-leave","focus-leave","active:false","pointer-enter","focus-enter","active:true"]}
+(gnome-shell:20): libmutter-WARNING **: 04:17:01.781: Tried to ping window W0 (s3-wayland) with a bad serial! Not allowed.
+(mutter-x11-frames:451): Gtk-WARNING **: 04:17:02.155: Unable to acquire the address of the accessibility bus: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files. If you are attempting to run GTK without a11y support, GTK_A11Y should be set to 'none'.
+GNOME Shell-Message: 04:17:02.952: [s3] client xwayland: wm_class S3client type 1 frame 200,150 600x439 focused true
+GNOME Shell-Message: 04:17:03.265: [s3] K1/xwayland {"q":"virtual Alt+A triggers the grab_accelerator binding","activations":1,"device":"P","activateMs":2.4,"clientGotA":false,"client":["key-press:Alt_L","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:17:05.232: [s3] K2/xwayland {"q":"a PassThrough key taken by the prefix grab is replayed to the app after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":6.8,"median":12.3,"max":17.8},"armed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:45/P","key-release:45/P"],"activations":["P/modal0"],"client":["pointer-leave","key-press:Alt_L","pointer-enter","key-press:x","key-release:x"],"popToReplayUs":1}
+GNOME Shell-Message: 04:17:05.803: [s3] K3a/xwayland {"q":"replay at the command key release, while the taken key is still physically held","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P"],"client":["pointer-leave","key-press:Alt_L","pointer-enter","key-release:x"],"clientGotXPress":false,"clientGotXRelease":true}
+GNOME Shell-Message: 04:17:06.373: [s3] K3b/xwayland {"q":"hold the grab until every key pressed under it is released, then replay","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P","key-release:45/P"],"client":["pointer-leave","key-press:Alt_L","pointer-enter","key-press:x","key-release:x"],"clientGotXPress":true,"clientGotXRelease":true}
+GNOME Shell-Message: 04:17:08.208: [s3] K4-naive-altheld/xwayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":2,"activationsUnderGrab":1,"reArmedBy":["R"],"clientGotAltA":null,"replayToClientMs":null,"filterSeen":["kept","kept","kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:17:08.272: [s3] K4-naive-altheld/xwayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:17:08.619: [s3] K4-allow-altheld/xwayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":15.1,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:17:08.680: [s3] K4-allow-altheld/xwayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:17:09.015: [s3] K4-filter-altheld/xwayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":8.6,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:17:09.076: [s3] K4-filter-altheld/xwayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:17:09.473: [s3] K4-filter-altup/xwayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.2,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-release:Alt_L+alt","key-press:Alt_L","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:17:09.535: [s3] K4-filter-altup/xwayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:17:09.855: [s3] K4-regrab-altheld/xwayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":6.6,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":{"oldAction":131,"newAction":132,"name":"external-grab-132"},"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:17:09.916: [s3] K4-regrab-altheld/xwayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:17:10.281: [s3] O1/xwayland {"q":"virtual Alt+A inside a NORMAL pushModal","activations":1,"grab":["key-press:56/P","key-release:30/P+alt","key-release:56/P+alt"],"client":["pointer-leave"]}
+GNOME Shell-Message: 04:17:10.544: [s3] N1/xwayland {"q":"virtual Alt+A inside a NONE pushModal","activations":0,"grab":["key-press:56/P","key-press:30/P+alt","key-release:30/P+alt","key-release:56/P+alt"],"client":["pointer-leave"]}
+GNOME Shell-Message: 04:17:10.847: [s3] KC-idle/xwayland {"q":"virtual Ctrl+Super+Alt+Esc triggers an addKeybinding NON_MASKABLE chord","fired":1,"dev":"P","client":["key-press:Control_L","key-press:Super_L","key-press:Alt_L","key-release:Alt_L+alt","key-release:Super_L","key-release:Control_L"]}
+GNOME Shell-Message: 04:17:10.998: [s3] KC-none/xwayland {"q":"the same chord inside a NONE grab (F14: filtered, the grab handler must check it)","fired":0,"grabSawEsc":true,"grab":["key-press:29/P","key-press:125/P","key-press:56/P","key-press:1/P+alt","key-release:1/P+alt","key-release:56/P+alt","key-release:125/P","key-release:29/P"]}
+GNOME Shell-Message: 04:17:11.368: [s3] P1/xwayland {"q":"a virtual pointer click reaches the client","target":"500,370","before":{"pointer":"640,600","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"moved":{"pointer":"500,370","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"after":{"pointer":"500,370","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"client":["pointer-leave","pointer-enter","click-press:1@300,181","click-release:1@300,181"]}
+GNOME Shell-Message: 04:17:11.558: [s3] P1b/xwayland {"q":"a second virtual click","moved":{"pointer":"505,375","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"after":{"pointer":"505,375","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"client":["click-press:1@305,186","click-release:1@305,186"]}
+GNOME Shell-Message: 04:17:13.641: [s3] P2/xwayland {"q":"a click taken by an overlay grab is replayed to the window under the pointer after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":3,"median":12,"max":20.1},"grab":["button-press:1/ptrP","button-release:1/ptrP"],"client":["pointer-leave","pointer-enter","click-press:1@300,181","click-release:1@300,181"]}
+GNOME Shell-Message: 04:17:14.011: [s3] P3/xwayland {"q":"replay while the physical button is still down","grab":["button-press:1/ptrP"],"client":["pointer-leave","pointer-enter"]}
+(gnome-shell:20): libmutter-WARNING **: 04:17:14.111: Tried to ping window 0x600001 (s3-xwayland) with a bad serial! Not allowed.
+GNOME Shell-Message: 04:17:14.414: [s3] RESULTS [{"id":"K1/wayland","q":"virtual Alt+A triggers the grab_accelerator binding","activations":1,"device":"P","activateMs":0.5,"clientGotA":false,"client":["key-press:Alt_L","mods:8","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K2/wayland","q":"a PassThrough key taken by the prefix grab is replayed to the app after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":1.3,"median":3.4,"max":14.6},"armed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:45/P","key-release:45/P"],"activations":["P/modal0"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","key-press:x","key-release:x"],"popToReplayUs":1},{"id":"K3a/wayland","q":"replay at the command key release, while the taken key is still physically held","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P"],"client":["key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","key-release:x"],"clientGotXPress":false,"clientGotXRelease":true},{"id":"K3b/wayland","q":"hold the grab until every key pressed under it is released, then replay","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P","key-release:45/P"],"client":["key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","key-press:x","key-release:x"],"clientGotXPress":true,"clientGotXRelease":true},{"id":"K4-naive-altheld/wayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":2,"activationsUnderGrab":1,"reArmedBy":["R"],"clientGotAltA":null,"replayToClientMs":null,"filterSeen":["kept","kept","kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-naive-altheld/wayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-allow-altheld/wayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":5,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-allow-altheld/wayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-filter-altheld/wayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.7,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-filter-altheld/wayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-filter-altup/wayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.1,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-release:Alt_L+alt","mods:0","key-press:Alt_L","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-filter-altup/wayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-regrab-altheld/wayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.3,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":{"oldAction":129,"newAction":131,"name":"external-grab-131"},"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-regrab-altheld/wayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"O1/wayland","q":"virtual Alt+A inside a NORMAL pushModal","activations":1,"grab":["key-press:56/P","key-release:30/P+alt","key-release:56/P+alt"],"client":["focus-leave","active:false"]},{"id":"N1/wayland","q":"virtual Alt+A inside a NONE pushModal","activations":0,"grab":["key-press:56/P","key-press:30/P+alt","key-release:30/P+alt","key-release:56/P+alt"],"client":["focus-leave","active:false"]},{"id":"KC-idle/wayland","q":"virtual Ctrl+Super+Alt+Esc triggers an addKeybinding NON_MASKABLE chord","fired":1,"dev":"P","client":["mods:0","key-press:Control_L","mods:4","key-press:Super_L","mods:67108868","key-press:Alt_L","mods:67108876","key-release:Escape+alt","key-release:Alt_L+alt","mods:67108868","key-release:Super_L","mods:4","key-release:Control_L"]},{"id":"KC-none/wayland","q":"the same chord inside a NONE grab (F14: filtered, the grab handler must check it)","fired":0,"grabSawEsc":true,"grab":["key-press:29/P","key-press:125/P","key-press:56/P","key-press:1/P+alt","key-release:1/P+alt","key-release:56/P+alt","key-release:125/P","key-release:29/P"]},{"id":"P1/wayland","q":"a virtual pointer click reaches the client","target":"500,350","before":{"pointer":"0,600","actor":"Meta_BackgroundActor:","overview":false,"modal":0,"focus":"s3-wayland"},"moved":{"pointer":"500,350","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"after":{"pointer":"500,350","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"client":["focus-leave","active:false","focus-enter","active:true","pointer-enter","click-press:1@300,161","click-release:1@300,161"]},{"id":"P1b/wayland","q":"a second virtual click","moved":{"pointer":"505,355","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"after":{"pointer":"505,355","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"client":["click-press:1@305,166","click-release:1@305,166"]},{"id":"P2/wayland","q":"a click taken by an overlay grab is replayed to the window under the pointer after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":2,"median":4.5,"max":6.9},"grab":["button-press:1/ptrP","button-release:1/ptrP"],"client":["pointer-leave","focus-leave","active:false","pointer-enter","focus-enter","active:true","click-press:1@300,161","click-release:1@300,161"]},{"id":"P3/wayland","q":"replay while the physical button is still down","grab":["button-press:1/ptrP"],"client":["pointer-leave","focus-leave","active:false","pointer-enter","focus-enter","active:true"]},{"id":"K1/xwayland","q":"virtual Alt+A triggers the grab_accelerator binding","activations":1,"device":"P","activateMs":2.4,"clientGotA":false,"client":["key-press:Alt_L","key-release:Alt_L+alt"]},{"id":"K2/xwayland","q":"a PassThrough key taken by the prefix grab is replayed to the app after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":6.8,"median":12.3,"max":17.8},"armed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:45/P","key-release:45/P"],"activations":["P/modal0"],"client":["pointer-leave","key-press:Alt_L","pointer-enter","key-press:x","key-release:x"],"popToReplayUs":1},{"id":"K3a/xwayland","q":"replay at the command key release, while the taken key is still physically held","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P"],"client":["pointer-leave","key-press:Alt_L","pointer-enter","key-release:x"],"clientGotXPress":false,"clientGotXRelease":true},{"id":"K3b/xwayland","q":"hold the grab until every key pressed under it is released, then replay","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P","key-release:45/P"],"client":["pointer-leave","key-press:Alt_L","pointer-enter","key-press:x","key-release:x"],"clientGotXPress":true,"clientGotXRelease":true},{"id":"K4-naive-altheld/xwayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":2,"activationsUnderGrab":1,"reArmedBy":["R"],"clientGotAltA":null,"replayToClientMs":null,"filterSeen":["kept","kept","kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-release:Alt_L+alt"]},{"id":"K4-naive-altheld/xwayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-allow-altheld/xwayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":15.1,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-allow-altheld/xwayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-filter-altheld/xwayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":8.6,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-filter-altheld/xwayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-filter-altup/xwayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.2,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-release:Alt_L+alt","key-press:Alt_L","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-filter-altup/xwayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-regrab-altheld/xwayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":6.6,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":{"oldAction":131,"newAction":132,"name":"external-grab-132"},"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-regrab-altheld/xwayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"O1/xwayland","q":"virtual Alt+A inside a NORMAL pushModal","activations":1,"grab":["key-press:56/P","key-release:30/P+alt","key-release:56/P+alt"],"client":["pointer-leave"]},{"id":"N1/xwayland","q":"virtual Alt+A inside a NONE pushModal","activations":0,"grab":["key-press:56/P","key-press:30/P+alt","key-release:30/P+alt","key-release:56/P+alt"],"client":["pointer-leave"]},{"id":"KC-idle/xwayland","q":"virtual Ctrl+Super+Alt+Esc triggers an addKeybinding NON_MASKABLE chord","fired":1,"dev":"P","client":["key-press:Control_L","key-press:Super_L","key-press:Alt_L","key-release:Alt_L+alt","key-release:Super_L","key-release:Control_L"]},{"id":"KC-none/xwayland","q":"the same chord inside a NONE grab (F14: filtered, the grab handler must check it)","fired":0,"grabSawEsc":true,"grab":["key-press:29/P","key-press:125/P","key-press:56/P","key-press:1/P+alt","key-release:1/P+alt","key-release:56/P+alt","key-release:125/P","key-release:29/P"]},{"id":"P1/xwayland","q":"a virtual pointer click reaches the client","target":"500,370","before":{"pointer":"640,600","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"moved":{"pointer":"500,370","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"after":{"pointer":"500,370","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"client":["pointer-leave","pointer-enter","click-press:1@300,181","click-release:1@300,181"]},{"id":"P1b/xwayland","q":"a second virtual click","moved":{"pointer":"505,375","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"after":{"pointer":"505,375","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"client":["click-press:1@305,186","click-release:1@305,186"]},{"id":"P2/xwayland","q":"a click taken by an overlay grab is replayed to the window under the pointer after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":3,"median":12,"max":20.1},"grab":["button-press:1/ptrP","button-release:1/ptrP"],"client":["pointer-leave","pointer-enter","click-press:1@300,181","click-release:1@300,181"]},{"id":"P3/xwayland","q":"replay while the physical button is still down","grab":["button-press:1/ptrP"],"client":["pointer-leave","pointer-enter"]}]
+GNOME Shell-Message: 04:17:14.414: [s3] DONE
+--- client log
+{"client":"wayland","t":21443895655,"ev":"focus-enter"}
+{"client":"wayland","t":21443899814,"ev":"ready","backend":"wayland","prgname":"s3client","display":"unknown_GdkWaylandDisplay"}
+{"client":"wayland","t":21443955438,"ev":"active","value":true}
+{"client":"wayland","t":21444764121,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21444764216,"ev":"modifiers","state":8}
+{"client":"wayland","t":21444764233,"ev":"key-release","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21444764305,"ev":"key-release","key":"Alt_L","keycode":64,"state":8}
+{"client":"wayland","t":21445183206,"ev":"modifiers","state":0}
+{"client":"wayland","t":21445183316,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21445186476,"ev":"focus-leave"}
+{"client":"wayland","t":21445186636,"ev":"active","value":false}
+{"client":"wayland","t":21445201592,"ev":"focus-enter"}
+{"client":"wayland","t":21445201748,"ev":"active","value":true}
+{"client":"wayland","t":21445201798,"ev":"key-press","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21445201820,"ev":"key-release","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21445356831,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21445356947,"ev":"focus-leave"}
+{"client":"wayland","t":21445356985,"ev":"active","value":false}
+{"client":"wayland","t":21445375084,"ev":"focus-enter"}
+{"client":"wayland","t":21445375192,"ev":"active","value":true}
+{"client":"wayland","t":21445375235,"ev":"key-press","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21445375255,"ev":"key-release","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21445529089,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21445529203,"ev":"focus-leave"}
+{"client":"wayland","t":21445529596,"ev":"active","value":false}
+{"client":"wayland","t":21445547153,"ev":"focus-enter"}
+{"client":"wayland","t":21445547265,"ev":"active","value":true}
+{"client":"wayland","t":21445547313,"ev":"key-press","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21445547334,"ev":"key-release","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21445706140,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21445706265,"ev":"focus-leave"}
+{"client":"wayland","t":21445706306,"ev":"active","value":false}
+{"client":"wayland","t":21445721926,"ev":"focus-enter"}
+{"client":"wayland","t":21445722046,"ev":"active","value":true}
+{"client":"wayland","t":21445722096,"ev":"key-press","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21445722116,"ev":"key-release","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21445882306,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21445882454,"ev":"focus-leave"}
+{"client":"wayland","t":21445882506,"ev":"active","value":false}
+{"client":"wayland","t":21445897982,"ev":"focus-enter"}
+{"client":"wayland","t":21445898114,"ev":"active","value":true}
+{"client":"wayland","t":21445898206,"ev":"key-press","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21445898233,"ev":"key-release","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21446058823,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21446058958,"ev":"focus-leave"}
+{"client":"wayland","t":21446059010,"ev":"active","value":false}
+{"client":"wayland","t":21446079819,"ev":"focus-enter"}
+{"client":"wayland","t":21446079932,"ev":"active","value":true}
+{"client":"wayland","t":21446079974,"ev":"key-press","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21446080004,"ev":"key-release","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21446236774,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21446236902,"ev":"focus-leave"}
+{"client":"wayland","t":21446236945,"ev":"active","value":false}
+{"client":"wayland","t":21446257157,"ev":"focus-enter"}
+{"client":"wayland","t":21446257274,"ev":"active","value":true}
+{"client":"wayland","t":21446257315,"ev":"key-press","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21446257346,"ev":"key-release","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21446417508,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21446417628,"ev":"focus-leave"}
+{"client":"wayland","t":21446417669,"ev":"active","value":false}
+{"client":"wayland","t":21446421618,"ev":"focus-enter"}
+{"client":"wayland","t":21446421724,"ev":"active","value":true}
+{"client":"wayland","t":21446421764,"ev":"key-press","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21446421787,"ev":"key-release","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21446579153,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21446579280,"ev":"focus-leave"}
+{"client":"wayland","t":21446579319,"ev":"active","value":false}
+{"client":"wayland","t":21446598801,"ev":"focus-enter"}
+{"client":"wayland","t":21446598915,"ev":"active","value":true}
+{"client":"wayland","t":21446598958,"ev":"key-press","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21446598999,"ev":"key-release","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21446753104,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21446753301,"ev":"focus-leave"}
+{"client":"wayland","t":21446753350,"ev":"active","value":false}
+{"client":"wayland","t":21446784591,"ev":"focus-enter"}
+{"client":"wayland","t":21446784715,"ev":"active","value":true}
+{"client":"wayland","t":21446784764,"ev":"key-press","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21446784785,"ev":"key-release","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21447046593,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21447046729,"ev":"focus-leave"}
+{"client":"wayland","t":21447046768,"ev":"active","value":false}
+{"client":"wayland","t":21447126262,"ev":"focus-enter"}
+{"client":"wayland","t":21447126390,"ev":"active","value":true}
+{"client":"wayland","t":21447162308,"ev":"key-release","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21447618575,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21447618704,"ev":"focus-leave"}
+{"client":"wayland","t":21447618740,"ev":"active","value":false}
+{"client":"wayland","t":21447732138,"ev":"focus-enter"}
+{"client":"wayland","t":21447732270,"ev":"active","value":true}
+{"client":"wayland","t":21447732319,"ev":"key-press","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21447732341,"ev":"key-release","key":"x","keycode":53,"state":0}
+{"client":"wayland","t":21448186305,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21448186428,"ev":"focus-leave"}
+{"client":"wayland","t":21448186468,"ev":"active","value":false}
+{"client":"wayland","t":21448204962,"ev":"focus-enter"}
+{"client":"wayland","t":21448205087,"ev":"active","value":true}
+{"client":"wayland","t":21448205186,"ev":"modifiers","state":8}
+{"client":"wayland","t":21448205208,"ev":"key-release","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21449209301,"ev":"key-release","key":"Alt_L","keycode":64,"state":8}
+{"client":"wayland","t":21449360684,"ev":"modifiers","state":0}
+{"client":"wayland","t":21449360817,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21449360867,"ev":"modifiers","state":8}
+{"client":"wayland","t":21449360878,"ev":"key-release","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21449360933,"ev":"key-release","key":"Alt_L","keycode":64,"state":8}
+{"client":"wayland","t":21449578037,"ev":"modifiers","state":0}
+{"client":"wayland","t":21449578137,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21449578197,"ev":"focus-leave"}
+{"client":"wayland","t":21449578232,"ev":"active","value":false}
+{"client":"wayland","t":21449599969,"ev":"focus-enter"}
+{"client":"wayland","t":21449600254,"ev":"active","value":true}
+{"client":"wayland","t":21449600367,"ev":"modifiers","state":8}
+{"client":"wayland","t":21449600397,"ev":"key-press","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21449600419,"ev":"key-release","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21449602745,"ev":"key-release","key":"Alt_L","keycode":64,"state":8}
+{"client":"wayland","t":21449754270,"ev":"modifiers","state":0}
+{"client":"wayland","t":21449754349,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21449754382,"ev":"modifiers","state":8}
+{"client":"wayland","t":21449754393,"ev":"key-release","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21449754444,"ev":"key-release","key":"Alt_L","keycode":64,"state":8}
+{"client":"wayland","t":21449968212,"ev":"modifiers","state":0}
+{"client":"wayland","t":21449968296,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21449968348,"ev":"focus-leave"}
+{"client":"wayland","t":21449968381,"ev":"active","value":false}
+{"client":"wayland","t":21449986690,"ev":"focus-enter"}
+{"client":"wayland","t":21449986805,"ev":"active","value":true}
+{"client":"wayland","t":21449986864,"ev":"modifiers","state":8}
+{"client":"wayland","t":21449986881,"ev":"key-press","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21449986900,"ev":"key-release","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21449989174,"ev":"key-release","key":"Alt_L","keycode":64,"state":8}
+{"client":"wayland","t":21450140349,"ev":"modifiers","state":0}
+{"client":"wayland","t":21450140423,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21450140450,"ev":"modifiers","state":8}
+{"client":"wayland","t":21450140459,"ev":"key-release","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21450140506,"ev":"key-release","key":"Alt_L","keycode":64,"state":8}
+{"client":"wayland","t":21450354843,"ev":"modifiers","state":0}
+{"client":"wayland","t":21450354924,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21450354978,"ev":"focus-leave"}
+{"client":"wayland","t":21450355035,"ev":"active","value":false}
+{"client":"wayland","t":21450374014,"ev":"focus-enter"}
+{"client":"wayland","t":21450374141,"ev":"active","value":true}
+{"client":"wayland","t":21450374177,"ev":"modifiers","state":8}
+{"client":"wayland","t":21450374195,"ev":"key-release","key":"Alt_L","keycode":64,"state":8}
+{"client":"wayland","t":21450434946,"ev":"modifiers","state":0}
+{"client":"wayland","t":21450435038,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21450435274,"ev":"modifiers","state":8}
+{"client":"wayland","t":21450435309,"ev":"key-press","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21450435329,"ev":"key-release","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21450435342,"ev":"key-release","key":"Alt_L","keycode":64,"state":8}
+{"client":"wayland","t":21450590224,"ev":"modifiers","state":0}
+{"client":"wayland","t":21450590314,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21450590352,"ev":"modifiers","state":8}
+{"client":"wayland","t":21450590363,"ev":"key-release","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21450590412,"ev":"key-release","key":"Alt_L","keycode":64,"state":8}
+{"client":"wayland","t":21450804860,"ev":"modifiers","state":0}
+{"client":"wayland","t":21450804941,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21450804994,"ev":"focus-leave"}
+{"client":"wayland","t":21450805033,"ev":"active","value":false}
+{"client":"wayland","t":21450822903,"ev":"focus-enter"}
+{"client":"wayland","t":21450823024,"ev":"active","value":true}
+{"client":"wayland","t":21450823066,"ev":"modifiers","state":8}
+{"client":"wayland","t":21450823083,"ev":"key-press","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21450823099,"ev":"key-release","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21450823863,"ev":"key-release","key":"Alt_L","keycode":64,"state":8}
+{"client":"wayland","t":21450975648,"ev":"modifiers","state":0}
+{"client":"wayland","t":21450975735,"ev":"key-press","key":"Alt_L","keycode":64,"state":0}
+{"client":"wayland","t":21450976010,"ev":"modifiers","state":8}
+{"client":"wayland","t":21450976051,"ev":"key-release","key":"a","keycode":38,"state":8}
+{"client":"wayland","t":21450976115,"ev":"key-release","key":"Alt_L","keycode":64,"state":8}
+{"client":"wayland","t":21451189313,"ev":"focus-leave"}
+{"client":"wayland","t":21451189426,"ev":"active","value":false}
+{"client":"wayland","t":21451406157,"ev":"focus-enter"}
+{"client":"wayland","t":21451406283,"ev":"active","value":true}
+{"client":"wayland","t":21451454195,"ev":"focus-leave"}
+{"client":"wayland","t":21451454305,"ev":"active","value":false}
+{"client":"wayland","t":21451670868,"ev":"focus-enter"}
+{"client":"wayland","t":21451670988,"ev":"active","value":true}
+{"client":"wayland","t":21451828133,"ev":"modifiers","state":0}
+{"client":"wayland","t":21451829523,"ev":"key-press","key":"Control_L","keycode":37,"state":0}
+{"client":"wayland","t":21451829586,"ev":"modifiers","state":4}
+{"client":"wayland","t":21451829596,"ev":"key-press","key":"Super_L","keycode":133,"state":4}
+{"client":"wayland","t":21451829611,"ev":"modifiers","state":67108868}
+{"client":"wayland","t":21451829619,"ev":"key-press","key":"Alt_L","keycode":64,"state":67108868}
+{"client":"wayland","t":21451829629,"ev":"modifiers","state":67108876}
+{"client":"wayland","t":21451829637,"ev":"key-release","key":"Escape","keycode":9,"state":67108876}
+{"client":"wayland","t":21451829684,"ev":"key-release","key":"Alt_L","keycode":64,"state":67108876}
+{"client":"wayland","t":21451829694,"ev":"modifiers","state":67108868}
+{"client":"wayland","t":21451829701,"ev":"key-release","key":"Super_L","keycode":133,"state":67108868}
+{"client":"wayland","t":21451829711,"ev":"modifiers","state":4}
+{"client":"wayland","t":21451829718,"ev":"key-release","key":"Control_L","keycode":37,"state":4}
+{"client":"wayland","t":21451983230,"ev":"focus-leave"}
+{"client":"wayland","t":21451983347,"ev":"active","value":false}
+{"client":"wayland","t":21452132365,"ev":"focus-enter"}
+{"client":"wayland","t":21452132490,"ev":"active","value":true}
+{"client":"wayland","t":21452400817,"ev":"focus-leave"}
+{"client":"wayland","t":21452400926,"ev":"active","value":false}
+{"client":"wayland","t":21452400965,"ev":"focus-enter"}
+{"client":"wayland","t":21452400981,"ev":"active","value":true}
+{"client":"wayland","t":21452952733,"ev":"pointer-enter","x":300,"y":161}
+{"client":"wayland","t":21453037247,"ev":"click-press","button":1,"n":1,"x":300,"y":161}
+{"client":"wayland","t":21453037432,"ev":"click-release","button":1,"n":1,"x":300,"y":161}
+{"client":"wayland","t":21453224057,"ev":"click-press","button":1,"n":1,"x":305,"y":166}
+{"client":"wayland","t":21453224285,"ev":"click-release","button":1,"n":1,"x":305,"y":166}
+{"client":"wayland","t":21453376397,"ev":"pointer-leave"}
+{"client":"wayland","t":21453376564,"ev":"focus-leave"}
+{"client":"wayland","t":21453376604,"ev":"active","value":false}
+{"client":"wayland","t":21453395155,"ev":"pointer-enter","x":300,"y":161}
+{"client":"wayland","t":21453395276,"ev":"focus-enter"}
+{"client":"wayland","t":21453395313,"ev":"active","value":true}
+{"client":"wayland","t":21453395429,"ev":"click-press","button":1,"n":1,"x":300,"y":161}
+{"client":"wayland","t":21453395525,"ev":"click-release","button":1,"n":1,"x":300,"y":161}
+{"client":"wayland","t":21453571592,"ev":"pointer-leave"}
+{"client":"wayland","t":21453571754,"ev":"focus-leave"}
+{"client":"wayland","t":21453571795,"ev":"active","value":false}
+{"client":"wayland","t":21453589974,"ev":"pointer-enter","x":301,"y":161}
+{"client":"wayland","t":21453590675,"ev":"focus-enter"}
+{"client":"wayland","t":21453590757,"ev":"active","value":true}
+{"client":"wayland","t":21453590872,"ev":"click-press","button":1,"n":2,"x":301,"y":161}
+{"client":"wayland","t":21453590965,"ev":"click-release","button":1,"n":2,"x":301,"y":161}
+{"client":"wayland","t":21453771884,"ev":"pointer-leave"}
+{"client":"wayland","t":21453772039,"ev":"focus-leave"}
+{"client":"wayland","t":21453772080,"ev":"active","value":false}
+{"client":"wayland","t":21453790187,"ev":"pointer-enter","x":302,"y":161}
+{"client":"wayland","t":21453790310,"ev":"focus-enter"}
+{"client":"wayland","t":21453790351,"ev":"active","value":true}
+{"client":"wayland","t":21453790477,"ev":"click-press","button":1,"n":3,"x":302,"y":161}
+{"client":"wayland","t":21453790574,"ev":"click-release","button":1,"n":3,"x":302,"y":161}
+{"client":"wayland","t":21453964277,"ev":"pointer-leave"}
+{"client":"wayland","t":21453964432,"ev":"focus-leave"}
+{"client":"wayland","t":21453964480,"ev":"active","value":false}
+{"client":"wayland","t":21453995044,"ev":"pointer-enter","x":303,"y":161}
+{"client":"wayland","t":21453995637,"ev":"focus-enter"}
+{"client":"wayland","t":21453995694,"ev":"active","value":true}
+{"client":"wayland","t":21453995800,"ev":"click-press","button":1,"n":4,"x":303,"y":161}
+{"client":"wayland","t":21453995882,"ev":"click-release","button":1,"n":4,"x":303,"y":161}
+{"client":"wayland","t":21454175125,"ev":"pointer-leave"}
+{"client":"wayland","t":21454175284,"ev":"focus-leave"}
+{"client":"wayland","t":21454175328,"ev":"active","value":false}
+{"client":"wayland","t":21454195849,"ev":"pointer-enter","x":304,"y":161}
+{"client":"wayland","t":21454195961,"ev":"focus-enter"}
+{"client":"wayland","t":21454196007,"ev":"active","value":true}
+{"client":"wayland","t":21454196122,"ev":"click-press","button":1,"n":5,"x":304,"y":161}
+{"client":"wayland","t":21454196212,"ev":"click-release","button":1,"n":5,"x":304,"y":161}
+{"client":"wayland","t":21454374751,"ev":"pointer-leave"}
+{"client":"wayland","t":21454374908,"ev":"focus-leave"}
+{"client":"wayland","t":21454374954,"ev":"active","value":false}
+{"client":"wayland","t":21454397399,"ev":"pointer-enter","x":305,"y":161}
+{"client":"wayland","t":21454397517,"ev":"focus-enter"}
+{"client":"wayland","t":21454397553,"ev":"active","value":true}
+{"client":"wayland","t":21454397662,"ev":"click-press","button":1,"n":1,"x":305,"y":161}
+{"client":"wayland","t":21454397747,"ev":"click-release","button":1,"n":1,"x":305,"y":161}
+{"client":"wayland","t":21454574425,"ev":"pointer-leave"}
+{"client":"wayland","t":21454574574,"ev":"focus-leave"}
+{"client":"wayland","t":21454574611,"ev":"active","value":false}
+{"client":"wayland","t":21454594072,"ev":"pointer-enter","x":306,"y":161}
+{"client":"wayland","t":21454594471,"ev":"focus-enter"}
+{"client":"wayland","t":21454594594,"ev":"active","value":true}
+{"client":"wayland","t":21454594706,"ev":"click-press","button":1,"n":1,"x":306,"y":161}
+{"client":"wayland","t":21454594797,"ev":"click-release","button":1,"n":1,"x":306,"y":161}
+{"client":"wayland","t":21454770090,"ev":"pointer-leave"}
+{"client":"wayland","t":21454770248,"ev":"focus-leave"}
+{"client":"wayland","t":21454770300,"ev":"active","value":false}
+{"client":"wayland","t":21454791349,"ev":"pointer-enter","x":307,"y":161}
+{"client":"wayland","t":21454791483,"ev":"focus-enter"}
+{"client":"wayland","t":21454791532,"ev":"active","value":true}
+{"client":"wayland","t":21454791648,"ev":"click-press","button":1,"n":2,"x":307,"y":161}
+{"client":"wayland","t":21454791749,"ev":"click-release","button":1,"n":2,"x":307,"y":161}
+{"client":"wayland","t":21454969310,"ev":"pointer-leave"}
+{"client":"wayland","t":21454969464,"ev":"focus-leave"}
+{"client":"wayland","t":21454969512,"ev":"active","value":false}
+{"client":"wayland","t":21454988634,"ev":"pointer-enter","x":308,"y":161}
+{"client":"wayland","t":21454988757,"ev":"focus-enter"}
+{"client":"wayland","t":21454988803,"ev":"active","value":true}
+{"client":"wayland","t":21454988962,"ev":"click-press","button":1,"n":3,"x":308,"y":161}
+{"client":"wayland","t":21454989080,"ev":"click-release","button":1,"n":3,"x":308,"y":161}
+{"client":"wayland","t":21455164124,"ev":"pointer-leave"}
+{"client":"wayland","t":21455164284,"ev":"focus-leave"}
+{"client":"wayland","t":21455164328,"ev":"active","value":false}
+{"client":"wayland","t":21455187252,"ev":"pointer-enter","x":309,"y":161}
+{"client":"wayland","t":21455187376,"ev":"focus-enter"}
+{"client":"wayland","t":21455187421,"ev":"active","value":true}
+{"client":"wayland","t":21455187535,"ev":"click-press","button":1,"n":4,"x":309,"y":161}
+{"client":"wayland","t":21455187634,"ev":"click-release","button":1,"n":4,"x":309,"y":161}
+{"client":"wayland","t":21455328377,"ev":"pointer-leave"}
+{"client":"wayland","t":21455328571,"ev":"focus-leave"}
+{"client":"wayland","t":21455328618,"ev":"active","value":false}
+{"client":"wayland","t":21455328798,"ev":"pointer-enter","x":309,"y":161}
+{"client":"wayland","t":21455328832,"ev":"focus-enter"}
+{"client":"wayland","t":21455328848,"ev":"active","value":true}
+{"client":"wayland","t":21455737652,"ev":"pointer-leave"}
+{"client":"wayland","t":21455737783,"ev":"focus-leave"}
+{"client":"wayland","t":21455737815,"ev":"active","value":false}
+{"client": "xwayland", "t": 21456096868, "ev": "ready", "backend": "x11-xlib"}
+{"client": "xwayland", "t": 21456124992, "ev": "focus-enter"}
+{"client": "xwayland", "t": 21456260553, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21456966063, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21456966131, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 8}
+{"client": "xwayland", "t": 21457380065, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21457380151, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21457404618, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21457404699, "ev": "key-press", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21457404716, "ev": "key-release", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21457562043, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21457562264, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21457589065, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21457589416, "ev": "key-press", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21457589442, "ev": "key-release", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21457744738, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21457744816, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21457773107, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21457773186, "ev": "key-press", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21457773200, "ev": "key-release", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21457928781, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21457928866, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21457958253, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21457958344, "ev": "key-press", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21457958359, "ev": "key-release", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21458115800, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21458115889, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21458139263, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21458139760, "ev": "key-press", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21458139799, "ev": "key-release", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21458296214, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21458296304, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21458327869, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21458328243, "ev": "key-press", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21458328391, "ev": "key-release", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21458484875, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21458485770, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21458514067, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21458514153, "ev": "key-press", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21458514167, "ev": "key-release", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21458675233, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21458675320, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21458695531, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21458695621, "ev": "key-press", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21458695635, "ev": "key-release", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21458853748, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21458854417, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21458883475, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21458888044, "ev": "key-press", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21458888098, "ev": "key-release", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21459047318, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21459047443, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21459084806, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21459084972, "ev": "key-press", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21459085417, "ev": "key-release", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21459341739, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21459342671, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21459420655, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21459458324, "ev": "key-release", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21459916102, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21459916195, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21460033498, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21460033585, "ev": "key-press", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21460033599, "ev": "key-release", "key": "x", "keycode": 53, "state": 0}
+{"client": "xwayland", "t": 21460484607, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21460485575, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21460510379, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21462013088, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 8}
+{"client": "xwayland", "t": 21462169080, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21462169143, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 8}
+{"client": "xwayland", "t": 21462384760, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21462384817, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21462417331, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21462417423, "ev": "key-press", "key": "a", "keycode": 38, "state": 8}
+{"client": "xwayland", "t": 21462417440, "ev": "key-release", "key": "a", "keycode": 38, "state": 8}
+{"client": "xwayland", "t": 21462424495, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 8}
+{"client": "xwayland", "t": 21462578127, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21462579116, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 8}
+{"client": "xwayland", "t": 21462793099, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21462793158, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21462818424, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21462818498, "ev": "key-press", "key": "a", "keycode": 38, "state": 8}
+{"client": "xwayland", "t": 21462818511, "ev": "key-release", "key": "a", "keycode": 38, "state": 8}
+{"client": "xwayland", "t": 21462820664, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 8}
+{"client": "xwayland", "t": 21462972672, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21462972733, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 8}
+{"client": "xwayland", "t": 21463188858, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21463188918, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21463215340, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21463215587, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 8}
+{"client": "xwayland", "t": 21463276228, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21463276285, "ev": "key-press", "key": "a", "keycode": 38, "state": 8}
+{"client": "xwayland", "t": 21463276297, "ev": "key-release", "key": "a", "keycode": 38, "state": 8}
+{"client": "xwayland", "t": 21463276305, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 8}
+{"client": "xwayland", "t": 21463431869, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21463431933, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 8}
+{"client": "xwayland", "t": 21463644953, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21463645010, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21463652944, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21463653029, "ev": "key-press", "key": "a", "keycode": 38, "state": 8}
+{"client": "xwayland", "t": 21463653045, "ev": "key-release", "key": "a", "keycode": 38, "state": 8}
+{"client": "xwayland", "t": 21463656290, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 8}
+{"client": "xwayland", "t": 21463812531, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 0}
+{"client": "xwayland", "t": 21463812793, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 8}
+{"client": "xwayland", "t": 21464028290, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21464242880, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21464290281, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21464502201, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21464653268, "ev": "key-press", "key": "Control_L", "keycode": 37, "state": 0}
+{"client": "xwayland", "t": 21464653486, "ev": "key-press", "key": "Super_L", "keycode": 133, "state": 4}
+{"client": "xwayland", "t": 21464653536, "ev": "key-press", "key": "Alt_L", "keycode": 64, "state": 68}
+{"client": "xwayland", "t": 21464653589, "ev": "key-release", "key": "Alt_L", "keycode": 64, "state": 76}
+{"client": "xwayland", "t": 21464653625, "ev": "key-release", "key": "Super_L", "keycode": 133, "state": 68}
+{"client": "xwayland", "t": 21464653660, "ev": "key-release", "key": "Control_L", "keycode": 37, "state": 4}
+{"client": "xwayland", "t": 21464804984, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21464955618, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21465109308, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21465189656, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21465272457, "ev": "click-press", "button": 1, "x": 300, "y": 181}
+{"client": "xwayland", "t": 21465272524, "ev": "click-release", "button": 1, "x": 300, "y": 181}
+{"client": "xwayland", "t": 21465463131, "ev": "click-press", "button": 1, "x": 305, "y": 186}
+{"client": "xwayland", "t": 21465463305, "ev": "click-release", "button": 1, "x": 305, "y": 186}
+{"client": "xwayland", "t": 21465613333, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21465645479, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21465645551, "ev": "click-press", "button": 1, "x": 300, "y": 181}
+{"client": "xwayland", "t": 21465645563, "ev": "click-release", "button": 1, "x": 300, "y": 181}
+{"client": "xwayland", "t": 21465824003, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21465850928, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21465851012, "ev": "click-press", "button": 1, "x": 301, "y": 181}
+{"client": "xwayland", "t": 21465851024, "ev": "click-release", "button": 1, "x": 301, "y": 181}
+{"client": "xwayland", "t": 21466033120, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21466058722, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21466058796, "ev": "click-press", "button": 1, "x": 302, "y": 181}
+{"client": "xwayland", "t": 21466058806, "ev": "click-release", "button": 1, "x": 302, "y": 181}
+{"client": "xwayland", "t": 21466233748, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21466253688, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21466254028, "ev": "click-press", "button": 1, "x": 303, "y": 181}
+{"client": "xwayland", "t": 21466254065, "ev": "click-release", "button": 1, "x": 303, "y": 181}
+{"client": "xwayland", "t": 21466435481, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21466457256, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21466457335, "ev": "click-press", "button": 1, "x": 304, "y": 181}
+{"client": "xwayland", "t": 21466457347, "ev": "click-release", "button": 1, "x": 304, "y": 181}
+{"client": "xwayland", "t": 21466631654, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21466660165, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21466660359, "ev": "click-press", "button": 1, "x": 305, "y": 181}
+{"client": "xwayland", "t": 21466660392, "ev": "click-release", "button": 1, "x": 305, "y": 181}
+{"client": "xwayland", "t": 21466838193, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21466875603, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21466875677, "ev": "click-press", "button": 1, "x": 306, "y": 181}
+{"client": "xwayland", "t": 21466875690, "ev": "click-release", "button": 1, "x": 306, "y": 181}
+{"client": "xwayland", "t": 21467056911, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21467088601, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21467088690, "ev": "click-press", "button": 1, "x": 307, "y": 181}
+{"client": "xwayland", "t": 21467088702, "ev": "click-release", "button": 1, "x": 307, "y": 181}
+{"client": "xwayland", "t": 21467268322, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21467299713, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21467299787, "ev": "click-press", "button": 1, "x": 308, "y": 181}
+{"client": "xwayland", "t": 21467299799, "ev": "click-release", "button": 1, "x": 308, "y": 181}
+{"client": "xwayland", "t": 21467475151, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21467509164, "ev": "pointer-enter"}
+{"client": "xwayland", "t": 21467510161, "ev": "click-press", "button": 1, "x": 309, "y": 181}
+{"client": "xwayland", "t": 21467510208, "ev": "click-release", "button": 1, "x": 309, "y": 181}
+{"client": "xwayland", "t": 21467653452, "ev": "pointer-leave"}
+{"client": "xwayland", "t": 21467665866, "ev": "pointer-enter"}
+--- full shell log
+dbusrunner: private system bus at unix:path=/var/tmp/s3/dbusmock_data_fsz3oqdh/system_bus.socket
+libmutter-Message: 04:16:47.560: Running GNOME Shell (using mutter 50.1) as a Wayland display server
+libmutter-Message: 04:16:47.658: Created surfaceless renderer without GPU
+libmutter-Message: 04:16:47.685: Added virtual monitor Meta-0
+
+(gnome-shell:20): dbind-WARNING **: 04:16:47.691: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+libmutter-Message: 04:16:47.692: Using public X11 display :0, (using unix:/tmp/.X11-unix/X1 for managed services)
+libmutter-Message: 04:16:47.692: Using Wayland display name 'gnome-shell-test-display'
+
+(gnome-shell:20): libmutter-WARNING **: 04:16:47.779: There is no colord server available
+Xwayland glamor: GBM Wayland interfaces not available
+Failed to initialize glamor, falling back to sw
+dbus-daemon[8]: [session uid=1000 pid=8 pidfd=5] Activating service name='org.gnome.Shell.Screencast' requested by ':1.12' (uid=1000 pid=20 comm="/usr/bin/gnome-shell --automation-script /src/spik" label="crun (unconfined)")
+GNOME Shell-Message: 04:16:48.214: Registering session with GDM
+GNOME Shell-Message: 04:16:48.225: Error registering session with GDM: GDBus.Error:org.freedesktop.DBus.Error.InvalidArgs: Invalid arguments: More items found in D-Bus signature than in Python arguments
+GNOME Shell-Message: 04:16:48.233: Failed to launch ibus-daemon: Failed to execute child process “ibus-daemon” (No such file or directory)
+
+(gnome-shell:20): GNOME Shell-WARNING **: 04:16:48.234: Failed to inhibit suspend: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+
+(gnome-shell:20): GNOME Shell-CRITICAL **: 04:16:48.299: Could not get a proxy for user 1000: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+
+Stack trace:
+  asyncCallback@resource:///org/gnome/gjs/modules/core/overrides/Gio.js:115:23
+  @resource:///org/gnome/shell/ui/init.js:20:20
+  
+
+(gnome-shell:20): GNOME Shell-WARNING **: 04:16:48.300: Failed to start state machine: can't access property "connectObject", this._loginUser is null
+GNOME Shell-Message: 04:16:48.325: Failed to register AuthenticationAgent
+
+(gnome-shell:20): libmutter-WARNING **: 04:16:48.330: Failed to load background 'file:///usr/share/backgrounds/gnome/adwaita-morning.jpg': Error opening file /usr/share/backgrounds/gnome/adwaita-morning.jpg: No such file or directory
+
+(gnome-shell:20): libmutter-WARNING **: 04:16:48.330: Failed to load background 'file:///usr/share/backgrounds/gnome/adwaita-day.jpg': Error opening file /usr/share/backgrounds/gnome/adwaita-day.jpg: No such file or directory
+dbus-daemon[8]: [session uid=1000 pid=8 pidfd=5] Activating service name='org.gnome.Shell.Notifications' requested by ':1.12' (uid=1000 pid=20 comm="/usr/bin/gnome-shell --automation-script /src/spik" label="crun (unconfined)")
+dbus-daemon[8]: [session uid=1000 pid=8 pidfd=5] Successfully activated service 'org.gnome.Shell.Notifications'
+GNOME Shell-Message: 04:16:48.751: GNOME Shell started at Sat Nov 07 2026 04:16:48 GMT+0000 (Coordinated Universal Time)
+GNOME Shell-Message: 04:16:48.751: Registering display with GDM
+GNOME Shell-Message: 04:16:48.804: Not calling RegisterDisplay(): method not exported, GDM too old?
+** Message: 04:16:48.835: Failed to start camera monitor
+GNOME Shell-Message: 04:16:48.888: [s3] run() entered
+GNOME Shell-Message: 04:16:49.235: [s3] seat unknown_MetaSeatNative; virtual devices unknown_MetaVirtualInputDeviceNative; added Virtual keyboard device for seat:1, Virtual keyboard device for seat:1, Virtual pointer device for seat:0, Virtual pointer device for seat:0
+GNOME Shell-Message: 04:16:49.271: Failed to launch ibus-daemon: Failed to execute child process “ibus-daemon” (No such file or directory)
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Unsupported maximum keycode 708, clipping.
+>                   X11 cannot support keycodes above 255.
+> Warning:          Virtual modifier Hyper multiply defined
+>                   Using 0, ignoring 0
+> Warning:          Virtual modifier ScrollLock multiply defined
+>                   Using 0, ignoring 0
+Errors from xkbcomp are not fatal to the X server
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+
+(gnome-shell:20): accountsservice-WARNING **: 04:16:49.379: ActUserManager: user (null) has no username (uid: -1)
+GNOME Shell-Message: 04:16:49.741: [s3] grab_accelerator <Alt>a: action 129 name external-grab-129
+GNOME Shell-Message: 04:16:49.741: [s3] addKeybinding s3-kill: action 130
+GNOME Shell-Message: 04:16:50.750: [s3] client wayland: wm_class org.vase.S3Client type 0 frame 200,150 600x400 focused true
+GNOME Shell-Message: 04:16:51.073: [s3] K1/wayland {"q":"virtual Alt+A triggers the grab_accelerator binding","activations":1,"device":"P","activateMs":0.5,"clientGotA":false,"client":["key-press:Alt_L","mods:8","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:16:52.934: [s3] K2/wayland {"q":"a PassThrough key taken by the prefix grab is replayed to the app after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":1.3,"median":3.4,"max":14.6},"armed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:45/P","key-release:45/P"],"activations":["P/modal0"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","key-press:x","key-release:x"],"popToReplayUs":1}
+GNOME Shell-Message: 04:16:53.506: [s3] K3a/wayland {"q":"replay at the command key release, while the taken key is still physically held","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P"],"client":["key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","key-release:x"],"clientGotXPress":false,"clientGotXRelease":true}
+GNOME Shell-Message: 04:16:54.075: [s3] K3b/wayland {"q":"hold the grab until every key pressed under it is released, then replay","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P","key-release:45/P"],"client":["key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","key-press:x","key-release:x"],"clientGotXPress":true,"clientGotXRelease":true}
+GNOME Shell-Message: 04:16:55.403: [s3] K4-naive-altheld/wayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":2,"activationsUnderGrab":1,"reArmedBy":["R"],"clientGotAltA":null,"replayToClientMs":null,"filterSeen":["kept","kept","kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:16:55.467: [s3] K4-naive-altheld/wayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:16:55.797: [s3] K4-allow-altheld/wayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":5,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:16:55.858: [s3] K4-allow-altheld/wayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:16:56.183: [s3] K4-filter-altheld/wayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.7,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:16:56.244: [s3] K4-filter-altheld/wayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:16:56.633: [s3] K4-filter-altup/wayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.1,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-release:Alt_L+alt","mods:0","key-press:Alt_L","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:16:56.694: [s3] K4-filter-altup/wayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:16:57.018: [s3] K4-regrab-altheld/wayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.3,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":{"oldAction":129,"newAction":131,"name":"external-grab-131"},"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:16:57.079: [s3] K4-regrab-altheld/wayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:16:57.443: [s3] O1/wayland {"q":"virtual Alt+A inside a NORMAL pushModal","activations":1,"grab":["key-press:56/P","key-release:30/P+alt","key-release:56/P+alt"],"client":["focus-leave","active:false"]}
+GNOME Shell-Message: 04:16:57.713: [s3] N1/wayland {"q":"virtual Alt+A inside a NONE pushModal","activations":0,"grab":["key-press:56/P","key-press:30/P+alt","key-release:30/P+alt","key-release:56/P+alt"],"client":["focus-leave","active:false"]}
+GNOME Shell-Message: 04:16:58.022: [s3] KC-idle/wayland {"q":"virtual Ctrl+Super+Alt+Esc triggers an addKeybinding NON_MASKABLE chord","fired":1,"dev":"P","client":["mods:0","key-press:Control_L","mods:4","key-press:Super_L","mods:67108868","key-press:Alt_L","mods:67108876","key-release:Escape+alt","key-release:Alt_L+alt","mods:67108868","key-release:Super_L","mods:4","key-release:Control_L"]}
+GNOME Shell-Message: 04:16:58.174: [s3] KC-none/wayland {"q":"the same chord inside a NONE grab (F14: filtered, the grab handler must check it)","fired":0,"grabSawEsc":true,"grab":["key-press:29/P","key-press:125/P","key-press:56/P","key-press:1/P+alt","key-release:1/P+alt","key-release:56/P+alt","key-release:125/P","key-release:29/P"]}
+GNOME Shell-Message: 04:16:59.133: [s3] P1/wayland {"q":"a virtual pointer click reaches the client","target":"500,350","before":{"pointer":"0,600","actor":"Meta_BackgroundActor:","overview":false,"modal":0,"focus":"s3-wayland"},"moved":{"pointer":"500,350","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"after":{"pointer":"500,350","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"client":["focus-leave","active:false","focus-enter","active:true","pointer-enter","click-press:1@300,161","click-release:1@300,161"]}
+GNOME Shell-Message: 04:16:59.320: [s3] P1b/wayland {"q":"a second virtual click","moved":{"pointer":"505,355","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"after":{"pointer":"505,355","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"client":["click-press:1@305,166","click-release:1@305,166"]}
+GNOME Shell-Message: 04:17:01.314: [s3] P2/wayland {"q":"a click taken by an overlay grab is replayed to the window under the pointer after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":2,"median":4.5,"max":6.9},"grab":["button-press:1/ptrP","button-release:1/ptrP"],"client":["pointer-leave","focus-leave","active:false","pointer-enter","focus-enter","active:true","click-press:1@300,161","click-release:1@300,161"]}
+GNOME Shell-Message: 04:17:01.677: [s3] P3/wayland {"q":"replay while the physical button is still down","grab":["button-press:1/ptrP"],"client":["pointer-leave","focus-leave","active:false","pointer-enter","focus-enter","active:true"]}
+
+(gnome-shell:20): libmutter-WARNING **: 04:17:01.781: Tried to ping window W0 (s3-wayland) with a bad serial! Not allowed.
+
+(mutter-x11-frames:451): Gtk-WARNING **: 04:17:02.155: Unable to acquire the address of the accessibility bus: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files. If you are attempting to run GTK without a11y support, GTK_A11Y should be set to 'none'.
+GNOME Shell-Message: 04:17:02.952: [s3] client xwayland: wm_class S3client type 1 frame 200,150 600x439 focused true
+GNOME Shell-Message: 04:17:03.265: [s3] K1/xwayland {"q":"virtual Alt+A triggers the grab_accelerator binding","activations":1,"device":"P","activateMs":2.4,"clientGotA":false,"client":["key-press:Alt_L","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:17:05.232: [s3] K2/xwayland {"q":"a PassThrough key taken by the prefix grab is replayed to the app after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":6.8,"median":12.3,"max":17.8},"armed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:45/P","key-release:45/P"],"activations":["P/modal0"],"client":["pointer-leave","key-press:Alt_L","pointer-enter","key-press:x","key-release:x"],"popToReplayUs":1}
+GNOME Shell-Message: 04:17:05.803: [s3] K3a/xwayland {"q":"replay at the command key release, while the taken key is still physically held","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P"],"client":["pointer-leave","key-press:Alt_L","pointer-enter","key-release:x"],"clientGotXPress":false,"clientGotXRelease":true}
+GNOME Shell-Message: 04:17:06.373: [s3] K3b/xwayland {"q":"hold the grab until every key pressed under it is released, then replay","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P","key-release:45/P"],"client":["pointer-leave","key-press:Alt_L","pointer-enter","key-press:x","key-release:x"],"clientGotXPress":true,"clientGotXRelease":true}
+GNOME Shell-Message: 04:17:08.208: [s3] K4-naive-altheld/xwayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":2,"activationsUnderGrab":1,"reArmedBy":["R"],"clientGotAltA":null,"replayToClientMs":null,"filterSeen":["kept","kept","kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:17:08.272: [s3] K4-naive-altheld/xwayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:17:08.619: [s3] K4-allow-altheld/xwayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":15.1,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:17:08.680: [s3] K4-allow-altheld/xwayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:17:09.015: [s3] K4-filter-altheld/xwayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":8.6,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:17:09.076: [s3] K4-filter-altheld/xwayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:17:09.473: [s3] K4-filter-altup/xwayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.2,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-release:Alt_L+alt","key-press:Alt_L","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:17:09.535: [s3] K4-filter-altup/xwayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:17:09.855: [s3] K4-regrab-altheld/xwayland {"q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":6.6,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":{"oldAction":131,"newAction":132,"name":"external-grab-132"},"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]}
+GNOME Shell-Message: 04:17:09.916: [s3] K4-regrab-altheld/xwayland/after {"q":"Alt+A still arms after the replay","armsAgain":true}
+GNOME Shell-Message: 04:17:10.281: [s3] O1/xwayland {"q":"virtual Alt+A inside a NORMAL pushModal","activations":1,"grab":["key-press:56/P","key-release:30/P+alt","key-release:56/P+alt"],"client":["pointer-leave"]}
+GNOME Shell-Message: 04:17:10.544: [s3] N1/xwayland {"q":"virtual Alt+A inside a NONE pushModal","activations":0,"grab":["key-press:56/P","key-press:30/P+alt","key-release:30/P+alt","key-release:56/P+alt"],"client":["pointer-leave"]}
+GNOME Shell-Message: 04:17:10.847: [s3] KC-idle/xwayland {"q":"virtual Ctrl+Super+Alt+Esc triggers an addKeybinding NON_MASKABLE chord","fired":1,"dev":"P","client":["key-press:Control_L","key-press:Super_L","key-press:Alt_L","key-release:Alt_L+alt","key-release:Super_L","key-release:Control_L"]}
+GNOME Shell-Message: 04:17:10.998: [s3] KC-none/xwayland {"q":"the same chord inside a NONE grab (F14: filtered, the grab handler must check it)","fired":0,"grabSawEsc":true,"grab":["key-press:29/P","key-press:125/P","key-press:56/P","key-press:1/P+alt","key-release:1/P+alt","key-release:56/P+alt","key-release:125/P","key-release:29/P"]}
+GNOME Shell-Message: 04:17:11.368: [s3] P1/xwayland {"q":"a virtual pointer click reaches the client","target":"500,370","before":{"pointer":"640,600","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"moved":{"pointer":"500,370","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"after":{"pointer":"500,370","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"client":["pointer-leave","pointer-enter","click-press:1@300,181","click-release:1@300,181"]}
+GNOME Shell-Message: 04:17:11.558: [s3] P1b/xwayland {"q":"a second virtual click","moved":{"pointer":"505,375","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"after":{"pointer":"505,375","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"client":["click-press:1@305,186","click-release:1@305,186"]}
+GNOME Shell-Message: 04:17:13.086: Error connecting to the screencast service
+GNOME Shell-Message: 04:17:13.641: [s3] P2/xwayland {"q":"a click taken by an overlay grab is replayed to the window under the pointer after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":3,"median":12,"max":20.1},"grab":["button-press:1/ptrP","button-release:1/ptrP"],"client":["pointer-leave","pointer-enter","click-press:1@300,181","click-release:1@300,181"]}
+GNOME Shell-Message: 04:17:14.011: [s3] P3/xwayland {"q":"replay while the physical button is still down","grab":["button-press:1/ptrP"],"client":["pointer-leave","pointer-enter"]}
+
+(gnome-shell:20): libmutter-WARNING **: 04:17:14.111: Tried to ping window 0x600001 (s3-xwayland) with a bad serial! Not allowed.
+XIO:  fatal IO error 0 (Success) on X server ":0"
+      after 14 requests (14 known processed) with 0 events remaining.
+GNOME Shell-Message: 04:17:14.414: [s3] RESULTS [{"id":"K1/wayland","q":"virtual Alt+A triggers the grab_accelerator binding","activations":1,"device":"P","activateMs":0.5,"clientGotA":false,"client":["key-press:Alt_L","mods:8","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K2/wayland","q":"a PassThrough key taken by the prefix grab is replayed to the app after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":1.3,"median":3.4,"max":14.6},"armed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:45/P","key-release:45/P"],"activations":["P/modal0"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","key-press:x","key-release:x"],"popToReplayUs":1},{"id":"K3a/wayland","q":"replay at the command key release, while the taken key is still physically held","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P"],"client":["key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","key-release:x"],"clientGotXPress":false,"clientGotXRelease":true},{"id":"K3b/wayland","q":"hold the grab until every key pressed under it is released, then replay","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P","key-release:45/P"],"client":["key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","key-press:x","key-release:x"],"clientGotXPress":true,"clientGotXRelease":true},{"id":"K4-naive-altheld/wayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":2,"activationsUnderGrab":1,"reArmedBy":["R"],"clientGotAltA":null,"replayToClientMs":null,"filterSeen":["kept","kept","kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-naive-altheld/wayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-allow-altheld/wayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":5,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-allow-altheld/wayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-filter-altheld/wayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.7,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-filter-altheld/wayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-filter-altup/wayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.1,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-release:Alt_L+alt","mods:0","key-press:Alt_L","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-filter-altup/wayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-regrab-altheld/wayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.3,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":{"oldAction":129,"newAction":131,"name":"external-grab-131"},"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["mods:0","key-press:Alt_L","focus-leave","active:false","focus-enter","active:true","mods:8","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-regrab-altheld/wayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"O1/wayland","q":"virtual Alt+A inside a NORMAL pushModal","activations":1,"grab":["key-press:56/P","key-release:30/P+alt","key-release:56/P+alt"],"client":["focus-leave","active:false"]},{"id":"N1/wayland","q":"virtual Alt+A inside a NONE pushModal","activations":0,"grab":["key-press:56/P","key-press:30/P+alt","key-release:30/P+alt","key-release:56/P+alt"],"client":["focus-leave","active:false"]},{"id":"KC-idle/wayland","q":"virtual Ctrl+Super+Alt+Esc triggers an addKeybinding NON_MASKABLE chord","fired":1,"dev":"P","client":["mods:0","key-press:Control_L","mods:4","key-press:Super_L","mods:67108868","key-press:Alt_L","mods:67108876","key-release:Escape+alt","key-release:Alt_L+alt","mods:67108868","key-release:Super_L","mods:4","key-release:Control_L"]},{"id":"KC-none/wayland","q":"the same chord inside a NONE grab (F14: filtered, the grab handler must check it)","fired":0,"grabSawEsc":true,"grab":["key-press:29/P","key-press:125/P","key-press:56/P","key-press:1/P+alt","key-release:1/P+alt","key-release:56/P+alt","key-release:125/P","key-release:29/P"]},{"id":"P1/wayland","q":"a virtual pointer click reaches the client","target":"500,350","before":{"pointer":"0,600","actor":"Meta_BackgroundActor:","overview":false,"modal":0,"focus":"s3-wayland"},"moved":{"pointer":"500,350","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"after":{"pointer":"500,350","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"client":["focus-leave","active:false","focus-enter","active:true","pointer-enter","click-press:1@300,161","click-release:1@300,161"]},{"id":"P1b/wayland","q":"a second virtual click","moved":{"pointer":"505,355","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"after":{"pointer":"505,355","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-wayland"},"client":["click-press:1@305,166","click-release:1@305,166"]},{"id":"P2/wayland","q":"a click taken by an overlay grab is replayed to the window under the pointer after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":2,"median":4.5,"max":6.9},"grab":["button-press:1/ptrP","button-release:1/ptrP"],"client":["pointer-leave","focus-leave","active:false","pointer-enter","focus-enter","active:true","click-press:1@300,161","click-release:1@300,161"]},{"id":"P3/wayland","q":"replay while the physical button is still down","grab":["button-press:1/ptrP"],"client":["pointer-leave","focus-leave","active:false","pointer-enter","focus-enter","active:true"]},{"id":"K1/xwayland","q":"virtual Alt+A triggers the grab_accelerator binding","activations":1,"device":"P","activateMs":2.4,"clientGotA":false,"client":["key-press:Alt_L","key-release:Alt_L+alt"]},{"id":"K2/xwayland","q":"a PassThrough key taken by the prefix grab is replayed to the app after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":6.8,"median":12.3,"max":17.8},"armed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:45/P","key-release:45/P"],"activations":["P/modal0"],"client":["pointer-leave","key-press:Alt_L","pointer-enter","key-press:x","key-release:x"],"popToReplayUs":1},{"id":"K3a/xwayland","q":"replay at the command key release, while the taken key is still physically held","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P"],"client":["pointer-leave","key-press:Alt_L","pointer-enter","key-release:x"],"clientGotXPress":false,"clientGotXRelease":true},{"id":"K3b/xwayland","q":"hold the grab until every key pressed under it is released, then replay","replayed":true,"grab":["key-release:30/P+alt","key-release:56/P+alt","key-press:43/P","key-press:45/P","key-release:43/P","key-release:45/P"],"client":["pointer-leave","key-press:Alt_L","pointer-enter","key-press:x","key-release:x"],"clientGotXPress":true,"clientGotXRelease":true},{"id":"K4-naive-altheld/xwayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":2,"activationsUnderGrab":1,"reArmedBy":["R"],"clientGotAltA":null,"replayToClientMs":null,"filterSeen":["kept","kept","kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-release:Alt_L+alt"]},{"id":"K4-naive-altheld/xwayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-allow-altheld/xwayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":15.1,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-allow-altheld/xwayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-filter-altheld/xwayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":8.6,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-filter-altheld/xwayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-filter-altup/xwayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":1.2,"filterSeen":["kept","passed","passed"],"filterPassLeft":0,"regrabbed":null,"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-release:Alt_L+alt","key-press:Alt_L","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-filter-altup/xwayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"K4-regrab-altheld/xwayland","q":"Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming","replayDone":true,"activationsTotal":1,"activationsUnderGrab":1,"reArmedBy":[],"clientGotAltA":"a state 8 alt=true","replayToClientMs":6.6,"filterSeen":["kept"],"filterPassLeft":0,"regrabbed":{"oldAction":131,"newAction":132,"name":"external-grab-132"},"grab":["key-release:30/P+alt","key-press:30/P+alt","key-release:30/P+alt"],"client":["key-press:Alt_L","pointer-leave","pointer-enter","key-press:a+alt","key-release:a+alt","key-release:Alt_L+alt"]},{"id":"K4-regrab-altheld/xwayland/after","q":"Alt+A still arms after the replay","armsAgain":true},{"id":"O1/xwayland","q":"virtual Alt+A inside a NORMAL pushModal","activations":1,"grab":["key-press:56/P","key-release:30/P+alt","key-release:56/P+alt"],"client":["pointer-leave"]},{"id":"N1/xwayland","q":"virtual Alt+A inside a NONE pushModal","activations":0,"grab":["key-press:56/P","key-press:30/P+alt","key-release:30/P+alt","key-release:56/P+alt"],"client":["pointer-leave"]},{"id":"KC-idle/xwayland","q":"virtual Ctrl+Super+Alt+Esc triggers an addKeybinding NON_MASKABLE chord","fired":1,"dev":"P","client":["key-press:Control_L","key-press:Super_L","key-press:Alt_L","key-release:Alt_L+alt","key-release:Super_L","key-release:Control_L"]},{"id":"KC-none/xwayland","q":"the same chord inside a NONE grab (F14: filtered, the grab handler must check it)","fired":0,"grabSawEsc":true,"grab":["key-press:29/P","key-press:125/P","key-press:56/P","key-press:1/P+alt","key-release:1/P+alt","key-release:56/P+alt","key-release:125/P","key-release:29/P"]},{"id":"P1/xwayland","q":"a virtual pointer click reaches the client","target":"500,370","before":{"pointer":"640,600","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"moved":{"pointer":"500,370","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"after":{"pointer":"500,370","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"client":["pointer-leave","pointer-enter","click-press:1@300,181","click-release:1@300,181"]},{"id":"P1b/xwayland","q":"a second virtual click","moved":{"pointer":"505,375","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"after":{"pointer":"505,375","actor":"unknown_MetaSurfaceActorWayland:","overview":false,"modal":0,"focus":"s3-xwayland"},"client":["click-press:1@305,186","click-release:1@305,186"]},{"id":"P2/xwayland","q":"a click taken by an overlay grab is replayed to the window under the pointer after popModal","delivered":"10/10","replayToClientMs":{"n":10,"min":3,"median":12,"max":20.1},"grab":["button-press:1/ptrP","button-release:1/ptrP"],"client":["pointer-leave","pointer-enter","click-press:1@300,181","click-release:1@300,181"]},{"id":"P3/xwayland","q":"replay while the physical button is still down","grab":["button-press:1/ptrP"],"client":["pointer-leave","pointer-enter"]}]
+GNOME Shell-Message: 04:17:14.414: [s3] DONE
+** Message: 04:17:14.417: Shutting down GNOME Shell
+(EE) failed to read Wayland events: Connection reset by peer
+libmutter-Message: 04:17:14.575: Removed virtual monitor Meta-0
+args: ['/usr/bin/gnome-shell', '--automation-script', '/src/spikes/S3/s3.js', '--headless', '--virtual-monitor', '1280x720', '--wayland-display', 'gnome-shell-test-display']
+------------------------------------------------------------
+------------------------------------------------------------
+exit 0 at 05:17:15

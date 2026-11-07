@@ -1,0 +1,69 @@
+start 05:29:42 load 39.75 34.47 32.08
+s3: shell exit 124
+--- shell log, [s3] lines and errors
+dbusrunner: private system bus at unix:path=/var/tmp/s3/dbusmock_data_houaec1a/system_bus.socket
+(gnome-shell:20): dbind-WARNING **: 04:29:48.754: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+(gnome-shell:20): libmutter-WARNING **: 04:29:48.850: There is no colord server available
+Xwayland glamor: GBM Wayland interfaces not available
+(gnome-shell:20): GNOME Shell-WARNING **: 04:29:49.369: Failed to inhibit suspend: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+(gnome-shell:20): GNOME Shell-CRITICAL **: 04:29:49.416: Could not get a proxy for user 1000: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+(gnome-shell:20): GNOME Shell-WARNING **: 04:29:49.417: Failed to start state machine: can't access property "connectObject", this._loginUser is null
+(gnome-shell:20): libmutter-WARNING **: 04:29:49.452: Failed to load background 'file:///usr/share/backgrounds/gnome/adwaita-morning.jpg': Error opening file /usr/share/backgrounds/gnome/adwaita-morning.jpg: No such file or directory
+(gnome-shell:20): libmutter-WARNING **: 04:29:49.452: Failed to load background 'file:///usr/share/backgrounds/gnome/adwaita-day.jpg': Error opening file /usr/share/backgrounds/gnome/adwaita-day.jpg: No such file or directory
+(gnome-shell:20): accountsservice-WARNING **: 04:29:50.676: ActUserManager: user (null) has no username (uid: -1)
+(gnome-shell:20): libmutter-WARNING **: 04:31:26.809: Connection to xwayland lost
+(gnome-shell:20): libmutter-WARNING **: 04:31:26.812: Xwayland terminated, exiting since it was mandatory
+(gnome-shell:20): Gjs-CRITICAL **: 04:31:26.843: JS ERROR: Gio.IOErrorEnum: Xwayland exited unexpectedly
+--- client log
+--- full shell log
+dbusrunner: private system bus at unix:path=/var/tmp/s3/dbusmock_data_houaec1a/system_bus.socket
+libmutter-Message: 04:29:48.508: Running GNOME Shell (using mutter 50.1) as a Wayland display server
+libmutter-Message: 04:29:48.689: Created surfaceless renderer without GPU
+libmutter-Message: 04:29:48.751: Added virtual monitor Meta-0
+
+(gnome-shell:20): dbind-WARNING **: 04:29:48.754: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+libmutter-Message: 04:29:48.755: Using public X11 display :0, (using unix:/tmp/.X11-unix/X1 for managed services)
+libmutter-Message: 04:29:48.755: Using Wayland display name 'gnome-shell-test-display'
+
+(gnome-shell:20): libmutter-WARNING **: 04:29:48.850: There is no colord server available
+Xwayland glamor: GBM Wayland interfaces not available
+Failed to initialize glamor, falling back to sw
+dbus-daemon[8]: [session uid=1000 pid=8 pidfd=5] Activating service name='org.gnome.Shell.Screencast' requested by ':1.12' (uid=1000 pid=20 comm="/usr/bin/gnome-shell --automation-script /src/spik" label="crun (unconfined)")
+GNOME Shell-Message: 04:29:49.336: Registering session with GDM
+GNOME Shell-Message: 04:29:49.356: Error registering session with GDM: GDBus.Error:org.freedesktop.DBus.Error.InvalidArgs: Invalid arguments: More items found in D-Bus signature than in Python arguments
+GNOME Shell-Message: 04:29:49.368: Failed to launch ibus-daemon: Failed to execute child process “ibus-daemon” (No such file or directory)
+
+(gnome-shell:20): GNOME Shell-WARNING **: 04:29:49.369: Failed to inhibit suspend: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+
+(gnome-shell:20): GNOME Shell-CRITICAL **: 04:29:49.416: Could not get a proxy for user 1000: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+
+Stack trace:
+  asyncCallback@resource:///org/gnome/gjs/modules/core/overrides/Gio.js:115:23
+  @resource:///org/gnome/shell/ui/init.js:20:20
+  
+
+(gnome-shell:20): GNOME Shell-WARNING **: 04:29:49.417: Failed to start state machine: can't access property "connectObject", this._loginUser is null
+GNOME Shell-Message: 04:29:49.447: Failed to register AuthenticationAgent
+
+(gnome-shell:20): libmutter-WARNING **: 04:29:49.452: Failed to load background 'file:///usr/share/backgrounds/gnome/adwaita-morning.jpg': Error opening file /usr/share/backgrounds/gnome/adwaita-morning.jpg: No such file or directory
+
+(gnome-shell:20): libmutter-WARNING **: 04:29:49.452: Failed to load background 'file:///usr/share/backgrounds/gnome/adwaita-day.jpg': Error opening file /usr/share/backgrounds/gnome/adwaita-day.jpg: No such file or directory
+dbus-daemon[8]: [session uid=1000 pid=8 pidfd=5] Activating service name='org.gnome.Shell.Notifications' requested by ':1.12' (uid=1000 pid=20 comm="/usr/bin/gnome-shell --automation-script /src/spik" label="crun (unconfined)")
+GNOME Shell-Message: 04:29:49.958: Failed to launch ibus-daemon: Failed to execute child process “ibus-daemon” (No such file or directory)
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+dbus-daemon[8]: [session uid=1000 pid=8 pidfd=5] Successfully activated service 'org.gnome.Shell.Notifications'
+** Message: 04:29:50.048: Failed to start camera monitor
+
+(gnome-shell:20): accountsservice-WARNING **: 04:29:50.676: ActUserManager: user (null) has no username (uid: -1)
+GNOME Shell-Message: 04:30:14.230: Error connecting to the screencast service
+
+(gnome-shell:20): libmutter-WARNING **: 04:31:26.809: Connection to xwayland lost
+
+(gnome-shell:20): libmutter-WARNING **: 04:31:26.812: Xwayland terminated, exiting since it was mandatory
+
+(gnome-shell:20): Gjs-CRITICAL **: 04:31:26.843: JS ERROR: Gio.IOErrorEnum: Xwayland exited unexpectedly
+@resource:///org/gnome/shell/ui/init.js:20:20
+
+** Message: 04:31:26.843: Execution of main.js threw exception: Module resource:///org/gnome/shell/ui/init.js threw an exception
+exit 0 at 05:31:27

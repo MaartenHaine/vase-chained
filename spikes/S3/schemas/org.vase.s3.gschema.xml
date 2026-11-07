@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Spike S3: one addKeybinding chord with NON_MASKABLE, standing in for the kill chord. -->
+<schemalist>
+  <schema id="org.vase.s3" path="/org/vase/s3/">
+    <key name="s3-kill" type="as">
+      <default><![CDATA[['<Control><Super><Alt>Escape']]]></default>
+      <summary>The spike's kill chord</summary>
+    </key>
+  </schema>
+</schemalist>

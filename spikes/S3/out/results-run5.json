@@ -1,0 +1,859 @@
+[
+    {
+        "id": "K1/wayland",
+        "q": "virtual Alt+A triggers the grab_accelerator binding",
+        "activations": 1,
+        "device": "P",
+        "activateMs": 0.5,
+        "clientGotA": false,
+        "client": [
+            "key-press:Alt_L",
+            "mods:8",
+            "key-release:a+alt",
+            "key-release:Alt_L+alt"
+        ]
+    },
+    {
+        "id": "K2/wayland",
+        "q": "a PassThrough key taken by the prefix grab is replayed to the app after popModal",
+        "delivered": "10/10",
+        "replayToClientMs": {
+            "n": 10,
+            "min": 1.3,
+            "median": 3.4,
+            "max": 14.6
+        },
+        "armed": true,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-release:56/P+alt",
+            "key-press:45/P",
+            "key-release:45/P"
+        ],
+        "activations": [
+            "P/modal0"
+        ],
+        "client": [
+            "mods:0",
+            "key-press:Alt_L",
+            "focus-leave",
+            "active:false",
+            "focus-enter",
+            "active:true",
+            "key-press:x",
+            "key-release:x"
+        ],
+        "popToReplayUs": 1
+    },
+    {
+        "id": "K3a/wayland",
+        "q": "replay at the command key release, while the taken key is still physically held",
+        "replayed": true,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-release:56/P+alt",
+            "key-press:43/P",
+            "key-press:45/P",
+            "key-release:43/P"
+        ],
+        "client": [
+            "key-press:Alt_L",
+            "focus-leave",
+            "active:false",
+            "focus-enter",
+            "active:true",
+            "key-release:x"
+        ],
+        "clientGotXPress": false,
+        "clientGotXRelease": true
+    },
+    {
+        "id": "K3b/wayland",
+        "q": "hold the grab until every key pressed under it is released, then replay",
+        "replayed": true,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-release:56/P+alt",
+            "key-press:43/P",
+            "key-press:45/P",
+            "key-release:43/P",
+            "key-release:45/P"
+        ],
+        "client": [
+            "key-press:Alt_L",
+            "focus-leave",
+            "active:false",
+            "focus-enter",
+            "active:true",
+            "key-press:x",
+            "key-release:x"
+        ],
+        "clientGotXPress": true,
+        "clientGotXRelease": true
+    },
+    {
+        "id": "K4-naive-altheld/wayland",
+        "q": "Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming",
+        "replayDone": true,
+        "activationsTotal": 2,
+        "activationsUnderGrab": 1,
+        "reArmedBy": [
+            "R"
+        ],
+        "clientGotAltA": null,
+        "replayToClientMs": null,
+        "filterSeen": [
+            "kept",
+            "kept",
+            "kept"
+        ],
+        "filterPassLeft": 0,
+        "regrabbed": null,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-press:30/P+alt",
+            "key-release:30/P+alt"
+        ],
+        "client": [
+            "key-press:Alt_L",
+            "focus-leave",
+            "active:false",
+            "focus-enter",
+            "active:true",
+            "mods:8",
+            "key-release:a+alt",
+            "key-release:Alt_L+alt"
+        ]
+    },
+    {
+        "id": "K4-naive-altheld/wayland/after",
+        "q": "Alt+A still arms after the replay",
+        "armsAgain": true
+    },
+    {
+        "id": "K4-allow-altheld/wayland",
+        "q": "Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming",
+        "replayDone": true,
+        "activationsTotal": 1,
+        "activationsUnderGrab": 1,
+        "reArmedBy": [],
+        "clientGotAltA": "a state 8 alt=true",
+        "replayToClientMs": 5,
+        "filterSeen": [
+            "kept"
+        ],
+        "filterPassLeft": 0,
+        "regrabbed": null,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-press:30/P+alt",
+            "key-release:30/P+alt"
+        ],
+        "client": [
+            "mods:0",
+            "key-press:Alt_L",
+            "focus-leave",
+            "active:false",
+            "focus-enter",
+            "active:true",
+            "mods:8",
+            "key-press:a+alt",
+            "key-release:a+alt",
+            "key-release:Alt_L+alt"
+        ]
+    },
+    {
+        "id": "K4-allow-altheld/wayland/after",
+        "q": "Alt+A still arms after the replay",
+        "armsAgain": true
+    },
+    {
+        "id": "K4-filter-altheld/wayland",
+        "q": "Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming",
+        "replayDone": true,
+        "activationsTotal": 1,
+        "activationsUnderGrab": 1,
+        "reArmedBy": [],
+        "clientGotAltA": "a state 8 alt=true",
+        "replayToClientMs": 1.7,
+        "filterSeen": [
+            "kept",
+            "passed",
+            "passed"
+        ],
+        "filterPassLeft": 0,
+        "regrabbed": null,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-press:30/P+alt",
+            "key-release:30/P+alt"
+        ],
+        "client": [
+            "mods:0",
+            "key-press:Alt_L",
+            "focus-leave",
+            "active:false",
+            "focus-enter",
+            "active:true",
+            "mods:8",
+            "key-press:a+alt",
+            "key-release:a+alt",
+            "key-release:Alt_L+alt"
+        ]
+    },
+    {
+        "id": "K4-filter-altheld/wayland/after",
+        "q": "Alt+A still arms after the replay",
+        "armsAgain": true
+    },
+    {
+        "id": "K4-filter-altup/wayland",
+        "q": "Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming",
+        "replayDone": true,
+        "activationsTotal": 1,
+        "activationsUnderGrab": 1,
+        "reArmedBy": [],
+        "clientGotAltA": "a state 8 alt=true",
+        "replayToClientMs": 1.1,
+        "filterSeen": [
+            "kept",
+            "passed",
+            "passed"
+        ],
+        "filterPassLeft": 0,
+        "regrabbed": null,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-press:30/P+alt",
+            "key-release:30/P+alt"
+        ],
+        "client": [
+            "mods:0",
+            "key-press:Alt_L",
+            "focus-leave",
+            "active:false",
+            "focus-enter",
+            "active:true",
+            "mods:8",
+            "key-release:Alt_L+alt",
+            "mods:0",
+            "key-press:Alt_L",
+            "mods:8",
+            "key-press:a+alt",
+            "key-release:a+alt",
+            "key-release:Alt_L+alt"
+        ]
+    },
+    {
+        "id": "K4-filter-altup/wayland/after",
+        "q": "Alt+A still arms after the replay",
+        "armsAgain": true
+    },
+    {
+        "id": "K4-regrab-altheld/wayland",
+        "q": "Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming",
+        "replayDone": true,
+        "activationsTotal": 1,
+        "activationsUnderGrab": 1,
+        "reArmedBy": [],
+        "clientGotAltA": "a state 8 alt=true",
+        "replayToClientMs": 1.3,
+        "filterSeen": [
+            "kept"
+        ],
+        "filterPassLeft": 0,
+        "regrabbed": {
+            "oldAction": 129,
+            "newAction": 131,
+            "name": "external-grab-131"
+        },
+        "grab": [
+            "key-release:30/P+alt",
+            "key-press:30/P+alt",
+            "key-release:30/P+alt"
+        ],
+        "client": [
+            "mods:0",
+            "key-press:Alt_L",
+            "focus-leave",
+            "active:false",
+            "focus-enter",
+            "active:true",
+            "mods:8",
+            "key-press:a+alt",
+            "key-release:a+alt",
+            "key-release:Alt_L+alt"
+        ]
+    },
+    {
+        "id": "K4-regrab-altheld/wayland/after",
+        "q": "Alt+A still arms after the replay",
+        "armsAgain": true
+    },
+    {
+        "id": "O1/wayland",
+        "q": "virtual Alt+A inside a NORMAL pushModal",
+        "activations": 1,
+        "grab": [
+            "key-press:56/P",
+            "key-release:30/P+alt",
+            "key-release:56/P+alt"
+        ],
+        "client": [
+            "focus-leave",
+            "active:false"
+        ]
+    },
+    {
+        "id": "N1/wayland",
+        "q": "virtual Alt+A inside a NONE pushModal",
+        "activations": 0,
+        "grab": [
+            "key-press:56/P",
+            "key-press:30/P+alt",
+            "key-release:30/P+alt",
+            "key-release:56/P+alt"
+        ],
+        "client": [
+            "focus-leave",
+            "active:false"
+        ]
+    },
+    {
+        "id": "KC-idle/wayland",
+        "q": "virtual Ctrl+Super+Alt+Esc triggers an addKeybinding NON_MASKABLE chord",
+        "fired": 1,
+        "dev": "P",
+        "client": [
+            "mods:0",
+            "key-press:Control_L",
+            "mods:4",
+            "key-press:Super_L",
+            "mods:67108868",
+            "key-press:Alt_L",
+            "mods:67108876",
+            "key-release:Escape+alt",
+            "key-release:Alt_L+alt",
+            "mods:67108868",
+            "key-release:Super_L",
+            "mods:4",
+            "key-release:Control_L"
+        ]
+    },
+    {
+        "id": "KC-none/wayland",
+        "q": "the same chord inside a NONE grab (F14: filtered, the grab handler must check it)",
+        "fired": 0,
+        "grabSawEsc": true,
+        "grab": [
+            "key-press:29/P",
+            "key-press:125/P",
+            "key-press:56/P",
+            "key-press:1/P+alt",
+            "key-release:1/P+alt",
+            "key-release:56/P+alt",
+            "key-release:125/P",
+            "key-release:29/P"
+        ]
+    },
+    {
+        "id": "P1/wayland",
+        "q": "a virtual pointer click reaches the client",
+        "target": "500,350",
+        "before": {
+            "pointer": "0,600",
+            "actor": "Meta_BackgroundActor:",
+            "overview": false,
+            "modal": 0,
+            "focus": "s3-wayland"
+        },
+        "moved": {
+            "pointer": "500,350",
+            "actor": "unknown_MetaSurfaceActorWayland:",
+            "overview": false,
+            "modal": 0,
+            "focus": "s3-wayland"
+        },
+        "after": {
+            "pointer": "500,350",
+            "actor": "unknown_MetaSurfaceActorWayland:",
+            "overview": false,
+            "modal": 0,
+            "focus": "s3-wayland"
+        },
+        "client": [
+            "focus-leave",
+            "active:false",
+            "focus-enter",
+            "active:true",
+            "pointer-enter",
+            "click-press:1@300,161",
+            "click-release:1@300,161"
+        ]
+    },
+    {
+        "id": "P1b/wayland",
+        "q": "a second virtual click",
+        "moved": {
+            "pointer": "505,355",
+            "actor": "unknown_MetaSurfaceActorWayland:",
+            "overview": false,
+            "modal": 0,
+            "focus": "s3-wayland"
+        },
+        "after": {
+            "pointer": "505,355",
+            "actor": "unknown_MetaSurfaceActorWayland:",
+            "overview": false,
+            "modal": 0,
+            "focus": "s3-wayland"
+        },
+        "client": [
+            "click-press:1@305,166",
+            "click-release:1@305,166"
+        ]
+    },
+    {
+        "id": "P2/wayland",
+        "q": "a click taken by an overlay grab is replayed to the window under the pointer after popModal",
+        "delivered": "10/10",
+        "replayToClientMs": {
+            "n": 10,
+            "min": 2,
+            "median": 4.5,
+            "max": 6.9
+        },
+        "grab": [
+            "button-press:1/ptrP",
+            "button-release:1/ptrP"
+        ],
+        "client": [
+            "pointer-leave",
+            "focus-leave",
+            "active:false",
+            "pointer-enter",
+            "focus-enter",
+            "active:true",
+            "click-press:1@300,161",
+            "click-release:1@300,161"
+        ]
+    },
+    {
+        "id": "P3/wayland",
+        "q": "replay while the physical button is still down",
+        "grab": [
+            "button-press:1/ptrP"
+        ],
+        "client": [
+            "pointer-leave",
+            "focus-leave",
+            "active:false",
+            "pointer-enter",
+            "focus-enter",
+            "active:true"
+        ]
+    },
+    {
+        "id": "K1/xwayland",
+        "q": "virtual Alt+A triggers the grab_accelerator binding",
+        "activations": 1,
+        "device": "P",
+        "activateMs": 2.4,
+        "clientGotA": false,
+        "client": [
+            "key-press:Alt_L",
+            "key-release:Alt_L+alt"
+        ]
+    },
+    {
+        "id": "K2/xwayland",
+        "q": "a PassThrough key taken by the prefix grab is replayed to the app after popModal",
+        "delivered": "10/10",
+        "replayToClientMs": {
+            "n": 10,
+            "min": 6.8,
+            "median": 12.3,
+            "max": 17.8
+        },
+        "armed": true,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-release:56/P+alt",
+            "key-press:45/P",
+            "key-release:45/P"
+        ],
+        "activations": [
+            "P/modal0"
+        ],
+        "client": [
+            "pointer-leave",
+            "key-press:Alt_L",
+            "pointer-enter",
+            "key-press:x",
+            "key-release:x"
+        ],
+        "popToReplayUs": 1
+    },
+    {
+        "id": "K3a/xwayland",
+        "q": "replay at the command key release, while the taken key is still physically held",
+        "replayed": true,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-release:56/P+alt",
+            "key-press:43/P",
+            "key-press:45/P",
+            "key-release:43/P"
+        ],
+        "client": [
+            "pointer-leave",
+            "key-press:Alt_L",
+            "pointer-enter",
+            "key-release:x"
+        ],
+        "clientGotXPress": false,
+        "clientGotXRelease": true
+    },
+    {
+        "id": "K3b/xwayland",
+        "q": "hold the grab until every key pressed under it is released, then replay",
+        "replayed": true,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-release:56/P+alt",
+            "key-press:43/P",
+            "key-press:45/P",
+            "key-release:43/P",
+            "key-release:45/P"
+        ],
+        "client": [
+            "pointer-leave",
+            "key-press:Alt_L",
+            "pointer-enter",
+            "key-press:x",
+            "key-release:x"
+        ],
+        "clientGotXPress": true,
+        "clientGotXRelease": true
+    },
+    {
+        "id": "K4-naive-altheld/xwayland",
+        "q": "Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming",
+        "replayDone": true,
+        "activationsTotal": 2,
+        "activationsUnderGrab": 1,
+        "reArmedBy": [
+            "R"
+        ],
+        "clientGotAltA": null,
+        "replayToClientMs": null,
+        "filterSeen": [
+            "kept",
+            "kept",
+            "kept"
+        ],
+        "filterPassLeft": 0,
+        "regrabbed": null,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-press:30/P+alt",
+            "key-release:30/P+alt"
+        ],
+        "client": [
+            "key-press:Alt_L",
+            "pointer-leave",
+            "pointer-enter",
+            "key-release:Alt_L+alt"
+        ]
+    },
+    {
+        "id": "K4-naive-altheld/xwayland/after",
+        "q": "Alt+A still arms after the replay",
+        "armsAgain": true
+    },
+    {
+        "id": "K4-allow-altheld/xwayland",
+        "q": "Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming",
+        "replayDone": true,
+        "activationsTotal": 1,
+        "activationsUnderGrab": 1,
+        "reArmedBy": [],
+        "clientGotAltA": "a state 8 alt=true",
+        "replayToClientMs": 15.1,
+        "filterSeen": [
+            "kept"
+        ],
+        "filterPassLeft": 0,
+        "regrabbed": null,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-press:30/P+alt",
+            "key-release:30/P+alt"
+        ],
+        "client": [
+            "key-press:Alt_L",
+            "pointer-leave",
+            "pointer-enter",
+            "key-press:a+alt",
+            "key-release:a+alt",
+            "key-release:Alt_L+alt"
+        ]
+    },
+    {
+        "id": "K4-allow-altheld/xwayland/after",
+        "q": "Alt+A still arms after the replay",
+        "armsAgain": true
+    },
+    {
+        "id": "K4-filter-altheld/xwayland",
+        "q": "Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming",
+        "replayDone": true,
+        "activationsTotal": 1,
+        "activationsUnderGrab": 1,
+        "reArmedBy": [],
+        "clientGotAltA": "a state 8 alt=true",
+        "replayToClientMs": 8.6,
+        "filterSeen": [
+            "kept",
+            "passed",
+            "passed"
+        ],
+        "filterPassLeft": 0,
+        "regrabbed": null,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-press:30/P+alt",
+            "key-release:30/P+alt"
+        ],
+        "client": [
+            "key-press:Alt_L",
+            "pointer-leave",
+            "pointer-enter",
+            "key-press:a+alt",
+            "key-release:a+alt",
+            "key-release:Alt_L+alt"
+        ]
+    },
+    {
+        "id": "K4-filter-altheld/xwayland/after",
+        "q": "Alt+A still arms after the replay",
+        "armsAgain": true
+    },
+    {
+        "id": "K4-filter-altup/xwayland",
+        "q": "Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming",
+        "replayDone": true,
+        "activationsTotal": 1,
+        "activationsUnderGrab": 1,
+        "reArmedBy": [],
+        "clientGotAltA": "a state 8 alt=true",
+        "replayToClientMs": 1.2,
+        "filterSeen": [
+            "kept",
+            "passed",
+            "passed"
+        ],
+        "filterPassLeft": 0,
+        "regrabbed": null,
+        "grab": [
+            "key-release:30/P+alt",
+            "key-press:30/P+alt",
+            "key-release:30/P+alt"
+        ],
+        "client": [
+            "key-press:Alt_L",
+            "pointer-leave",
+            "pointer-enter",
+            "key-release:Alt_L+alt",
+            "key-press:Alt_L",
+            "key-press:a+alt",
+            "key-release:a+alt",
+            "key-release:Alt_L+alt"
+        ]
+    },
+    {
+        "id": "K4-filter-altup/xwayland/after",
+        "q": "Alt+A still arms after the replay",
+        "armsAgain": true
+    },
+    {
+        "id": "K4-regrab-altheld/xwayland",
+        "q": "Alt+A, Alt+A: replay one Alt+A to the app after the pop without re-arming",
+        "replayDone": true,
+        "activationsTotal": 1,
+        "activationsUnderGrab": 1,
+        "reArmedBy": [],
+        "clientGotAltA": "a state 8 alt=true",
+        "replayToClientMs": 6.6,
+        "filterSeen": [
+            "kept"
+        ],
+        "filterPassLeft": 0,
+        "regrabbed": {
+            "oldAction": 131,
+            "newAction": 132,
+            "name": "external-grab-132"
+        },
+        "grab": [
+            "key-release:30/P+alt",
+            "key-press:30/P+alt",
+            "key-release:30/P+alt"
+        ],
+        "client": [
+            "key-press:Alt_L",
+            "pointer-leave",
+            "pointer-enter",
+            "key-press:a+alt",
+            "key-release:a+alt",
+            "key-release:Alt_L+alt"
+        ]
+    },
+    {
+        "id": "K4-regrab-altheld/xwayland/after",
+        "q": "Alt+A still arms after the replay",
+        "armsAgain": true
+    },
+    {
+        "id": "O1/xwayland",
+        "q": "virtual Alt+A inside a NORMAL pushModal",
+        "activations": 1,
+        "grab": [
+            "key-press:56/P",
+            "key-release:30/P+alt",
+            "key-release:56/P+alt"
+        ],
+        "client": [
+            "pointer-leave"
+        ]
+    },
+    {
+        "id": "N1/xwayland",
+        "q": "virtual Alt+A inside a NONE pushModal",
+        "activations": 0,
+        "grab": [
+            "key-press:56/P",
+            "key-press:30/P+alt",
+            "key-release:30/P+alt",
+            "key-release:56/P+alt"
+        ],
+        "client": [
+            "pointer-leave"
+        ]
+    },
+    {
+        "id": "KC-idle/xwayland",
+        "q": "virtual Ctrl+Super+Alt+Esc triggers an addKeybinding NON_MASKABLE chord",
+        "fired": 1,
+        "dev": "P",
+        "client": [
+            "key-press:Control_L",
+            "key-press:Super_L",
+            "key-press:Alt_L",
+            "key-release:Alt_L+alt",
+            "key-release:Super_L",
+            "key-release:Control_L"
+        ]
+    },
+    {
+        "id": "KC-none/xwayland",
+        "q": "the same chord inside a NONE grab (F14: filtered, the grab handler must check it)",
+        "fired": 0,
+        "grabSawEsc": true,
+        "grab": [
+            "key-press:29/P",
+            "key-press:125/P",
+            "key-press:56/P",
+            "key-press:1/P+alt",
+            "key-release:1/P+alt",
+            "key-release:56/P+alt",
+            "key-release:125/P",
+            "key-release:29/P"
+        ]
+    },
+    {
+        "id": "P1/xwayland",
+        "q": "a virtual pointer click reaches the client",
+        "target": "500,370",
+        "before": {
+            "pointer": "640,600",
+            "actor": "unknown_MetaSurfaceActorWayland:",
+            "overview": false,
+            "modal": 0,
+            "focus": "s3-xwayland"
+        },
+        "moved": {
+            "pointer": "500,370",
+            "actor": "unknown_MetaSurfaceActorWayland:",
+            "overview": false,
+            "modal": 0,
+            "focus": "s3-xwayland"
+        },
+        "after": {
+            "pointer": "500,370",
+            "actor": "unknown_MetaSurfaceActorWayland:",
+            "overview": false,
+            "modal": 0,
+            "focus": "s3-xwayland"
+        },
+        "client": [
+            "pointer-leave",
+            "pointer-enter",
+            "click-press:1@300,181",
+            "click-release:1@300,181"
+        ]
+    },
+    {
+        "id": "P1b/xwayland",
+        "q": "a second virtual click",
+        "moved": {
+            "pointer": "505,375",
+            "actor": "unknown_MetaSurfaceActorWayland:",
+            "overview": false,
+            "modal": 0,
+            "focus": "s3-xwayland"
+        },
+        "after": {
+            "pointer": "505,375",
+            "actor": "unknown_MetaSurfaceActorWayland:",
+            "overview": false,
+            "modal": 0,
+            "focus": "s3-xwayland"
+        },
+        "client": [
+            "click-press:1@305,186",
+            "click-release:1@305,186"
+        ]
+    },
+    {
+        "id": "P2/xwayland",
+        "q": "a click taken by an overlay grab is replayed to the window under the pointer after popModal",
+        "delivered": "10/10",
+        "replayToClientMs": {
+            "n": 10,
+            "min": 3,
+            "median": 12,
+            "max": 20.1
+        },
+        "grab": [
+            "button-press:1/ptrP",
+            "button-release:1/ptrP"
+        ],
+        "client": [
+            "pointer-leave",
+            "pointer-enter",
+            "click-press:1@300,181",
+            "click-release:1@300,181"
+        ]
+    },
+    {
+        "id": "P3/xwayland",
+        "q": "replay while the physical button is still down",
+        "grab": [
+            "button-press:1/ptrP"
+        ],
+        "client": [
+            "pointer-leave",
+            "pointer-enter"
+        ]
+    }
+]
