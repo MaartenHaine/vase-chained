@@ -33,6 +33,8 @@ pub struct World {
     pub list: bool,
     /// Whether the shortcut sheet is shown.
     pub help: bool,
+    /// What the pane picker offers to launch.
+    pub apps: Vec<String>,
 }
 
 pub type Shared = Rc<RefCell<World>>;
@@ -140,7 +142,7 @@ impl Backend for FakeBackend {
     }
 
     fn launchable_apps(&self) -> Vec<String> {
-        Vec::new()
+        self.0.borrow().apps.clone()
     }
 
     fn launch(&self, _app: &str) {}
