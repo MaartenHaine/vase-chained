@@ -42,11 +42,16 @@ fn confined_the_daemon_touches_only_its_own_dirs_and_execs_nothing() {
         .unwrap();
     let report = format!("{}{}", String::from_utf8_lossy(&out.stdout), String::from_utf8_lossy(&out.stderr));
     assert!(out.status.success(), "{report}");
-    if kernel_abi() > 0 {
-        assert!(report.contains("landlock: full"), "the kernel has Landlock ABI {}, so it must hold fully:\n{report}", kernel_abi());
+    // Full from the ABI the confinement targets (`confine::ABI`, 8) up; below it, what the kernel knows.
+    let abi = kernel_abi();
+    if abi >= 8 {
+        assert!(report.contains("landlock: full"), "the kernel has Landlock ABI {abi}, so it must hold fully:\n{report}");
+    } else if abi > 0 {
+        assert!(report.contains("landlock: partial"), "the kernel has Landlock ABI {abi} (< 8), so it must hold partially:\n{report}");
     } else {
         eprintln!("no Landlock in this kernel or container: only the best-effort path was checked\n{report}");
     }
+    assert!(abi == 0 || report.contains("every denial held"), "{report}");
 }
 
 fn denied(r: std::io::Result<impl Sized>, what: &str) {
@@ -76,6 +81,9 @@ fn child(root: &Path) {
     denied(std::fs::write(d.config_file(), "x"), "writing its config");
     denied(Command::new("/bin/true").status(), "an execve");
     denied(Command::new(std::env::current_exe().unwrap()).arg("--list").status(), "an execve of its own binary");
-    denied(std::net::TcpListener::bind("127.0.0.1:0"), "a TCP bind");
+    // Landlock handles TCP from ABI 4.
+    if kernel_abi() >= 4 {
+        denied(std::net::TcpListener::bind("127.0.0.1:0"), "a TCP bind");
+    }
     println!("landlock child: every denial held");
 }
