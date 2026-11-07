@@ -8,6 +8,7 @@
 #   tools/linux/podman.sh supply BIN   cargo-deny and cargo-audit, with the binaries tools/linux/cargo-tools.sh put in BIN
 #   tools/linux/podman.sh lint NODE    tools/linux/lint.sh in the build image, with a Node.js install mounted from NODE
 #   tools/linux/podman.sh l1           the L1 hello test: headless GNOME Shell in chained-tiler-test
+#   tools/linux/podman.sh spike S#     a throwaway M0b spike, spikes/S#/run.sh, in the same image as l1
 #
 # Rules (docs/linux-tiler/devtest-security.md §3.5, §4.5): images, containers and volumes are all named chained-tiler-*;
 # every container is --rm; only the checkout is mounted, read-only; nothing from the host's /run/user, D-Bus or
@@ -107,5 +108,14 @@ case "${1:-}" in
 		run l1 "$(image test)" --network=none -e L1_VERBOSE="${L1_VERBOSE:-}" -e L1_TIMEOUT="${L1_TIMEOUT:-120}" -- \
 			bash /src/vase-gnome/tests/l1/run.sh
 		;;
-	*) die "usage: podman.sh build | test | check | supply BIN_DIR | lint NODE_DIR | l1" ;;
+	spike)
+		# A throwaway M0b spike at L1 (wayfinder.md §5): spikes/<S#>/run.sh in chained-tiler-test, like l1.
+		s=${2:?usage: podman.sh spike S#}
+		[[ $s =~ ^S[0-9]+$ ]] || die "spike name must look like S6, not $s"
+		[ -f "$ROOT/spikes/$s/run.sh" ] || die "spikes/$s/run.sh not found"
+		envs=()
+		while IFS='=' read -r k _; do envs+=(-e "$k"); done < <(env | grep -E '^S[0-9]+_[A-Z_]+=' || true)
+		run "spike-$s" "$(image test)" --network=none "${envs[@]}" -- bash "/src/spikes/$s/run.sh"
+		;;
+	*) die "usage: podman.sh build | test | check | supply BIN_DIR | lint NODE_DIR | l1 | spike S#" ;;
 esac
