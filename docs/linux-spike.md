@@ -4,9 +4,16 @@ One finding per spike (docs/linux-tiler/wayfinder.md §5, "M0b"). Each feeds rou
 
 ## S11: does the devkit run under the L3 recipe? (M0a, 2026-11-07)
 
-**Result: not answered yet.** The recipe refused to start, at its own check, before gnome-shell ran. The devkit
-never started and no viewer window opened, so S11's question (does the devkit run on private, empty buses, and does
-the viewer reach the host compositor through an absolute `WAYLAND_DISPLAY`) is still open.
+**Result: yes (second run, below). L3 is kept.** The devkit shell ran on the private, empty system and session buses
+and a private `XDG_RUNTIME_DIR`, in the `tiler-dev` mode with the hello extension enabled, and the viewer reached the
+host compositor through the absolute `WAYLAND_DISPLAY`. The before-after check found no change at all on the host.
+
+The first run, recorded next, stopped at the recipe's own mode check before gnome-shell ran.
+
+### First run: stopped at the mode check
+
+The recipe refused to start, at its own check, before gnome-shell ran. The devkit never started and no viewer window
+opened.
 
 **Host:** Ubuntu, GNOME Shell 50.1-0ubuntu1.5 Wayland session, libmutter-18-0 and mutter-dev-bin 50.1-0ubuntu2.5.
 The host was under heavy load (load average about 64).
@@ -42,8 +49,8 @@ file before stderr is redirected, so dash prints `cannot open /proc/N/environ: P
 of another user. The result is still correct, but the output is full of noise. The fix is `2>/dev/null <"$e"`, or a
 `{ ...; } 2>/dev/null` around the loop.
 
-**Decision the map asks for (keep L3, or drop it for L1 plus L4): not taken.** The finding says nothing about the
-devkit itself, only about one of the recipe's checks. M0a stays at "S11 first", and nothing is built on L3 until S11
+**Decision the map asks for (keep L3, or drop it for L1 plus L4): not taken after the first run** (taken after the
+second, below). The finding says nothing about the devkit itself, only about one of the recipe's checks. M0a stays at "S11 first", and nothing is built on L3 until S11
 runs to the end. Options for the owner:
 
 - **(a) Keep L3 and replace the check.** Prove that the mode loaded without `--list-modes`, for example by loading
@@ -54,9 +61,10 @@ runs to the end. Options for the owner:
 
 Recommendation: (a). The failure is a bug in one check, not evidence against the devkit.
 
-### S11 fix: the mode check without `--list-modes` (2026-11-07, not run yet)
+### S11 fix: the mode check without `--list-modes` (2026-11-07)
 
-Option (a) above, taken so S11 can run again; it needs its own review first. gnome-shell wasn't started for it.
+Option (a) above, taken so S11 can run again. It passed two reviews before the second run. gnome-shell wasn't started
+while it was written.
 
 **What the shell does with a mode** (gnome-shell 50.1 `ui/sessionMode.js` and `misc/fileUtils.js`, read from the
 installed `libshell-18.so`): `_loadModes()` walks `gnome-shell/modes` in each `XDG_DATA_DIRS` entry in order (not
@@ -116,3 +124,71 @@ core.
 names only, since other users' reports aren't readable). A report that appears or changes fails the check; one that
 goes away is listed but doesn't. Snapshots are v2, and a v1 snapshot is refused. Both scripts' `/proc/*/environ`
 scans now redirect stderr before opening the file, so permission errors are silent.
+
+### Second run: the devkit runs (2026-11-07, 03:59-04:01)
+
+**Setup:** the same host and packages as the first run (load average about 46). `sh tools/dev-shell.sh` with no
+arguments (`just` isn't installed), started from the agent's shell with the desktop's `WAYLAND_DISPLAY=wayland-0`,
+`XDG_RUNTIME_DIR=/run/user/1000` and session bus; run dir `~/.cache/tiler-dev.PaTCIzQe` (6.1 MB, kept with its logs).
+
+**What happened:**
+
+1. Stages A to C passed, the mode check included, and gnome-shell started as
+   `gnome-shell --wayland --devkit --mode=tiler-dev --no-x11` (03:59:17.5).
+2. The extension logged `vase-hello@vase-chained: enable` at 03:59:20.65, and the bus check passed right after:
+   `Mode 'tiler-dev', vase-hello@vase-chained enabled, no keyring prompter`. The shell logged `GNOME Shell started` at
+   03:59:24. It ran for about two minutes, with nothing new in its log after startup.
+3. It was stopped the way Ctrl+C stops it: SIGTERM to the stage C shell, which passes it on to gnome-shell
+   (`Shutting down GNOME Shell`, `Removed virtual monitor Meta-0`, 04:01:21). The run exited 0, the cleanup trap ran,
+   no process with a `TILER_DEV_RUN` marker was left, and only the host shell (pid 5222) and no `mutter-devkit` ran
+   afterwards.
+
+**Where the devkit's connections went** (read from `/proc` and `ss -xp` while it ran, without touching any bus):
+
+- The viewer, `/usr/libexec/mutter-devkit`, had `WAYLAND_DISPLAY=/run/user/1000/wayland-0`, and that socket's peer
+  was the host shell (pid 5222). Its other sockets went to the run's two dbus-daemons, to the nested shell, and to
+  the host's `/run/user/1000/pipewire-0`, where the host's PipeWire linked `gnome-shell:output_1` to
+  `mutter-devkit:input_1`. So the absolute `WAYLAND_DISPLAY` works, and so does `PIPEWIRE_REMOTE`.
+- The nested shell listened on `<run dir>/run/wayland-0`. Its crash marker `gnome-shell-disable-extensions` was in
+  the private runtime dir, and ibus-daemon's socket was in the run dir's cache.
+- Neither the nested shell nor the viewer held a connection on the host session or system bus (`busctl --user` and
+  `--system list`), and `org.gnome.Mutter.Devkit` had no owner on the host session bus.
+
+**The shell's log** (`log/shell.log`, 94 lines). Every warning and error, and why:
+
+- `Unknown experimental feature 'scale-monitor-framebuffer'` and `'xwayland-native-scaling'`: INFERENCE: the
+  default of `org.gnome.mutter experimental-features` in Ubuntu's schema still lists features that mutter 50 no
+  longer has; the keyfile doesn't set the key.
+- `There is no colord server available`; `Error registering session with GDM` and `Error registering display with
+  GDM` (`org.gnome.DisplayManager` unknown); `Failed to inhibit suspend` (`org.freedesktop.login1` unknown): the
+  private buses have none of these services, as intended.
+- timeLimitsManager: `Could not get a proxy for user 1000` (login1 unknown), then `Failed to start state machine`
+  (`this._loginUser is null`), and accountsservice: `user (null) has no username`. The same cause: no logind and no
+  AccountsService.
+- `portal is not running: ... org.freedesktop.portal.IBus`: no portal on the private session bus.
+- `CRITICAL: TypeError: can't access property "join", this._xkbOptions is undefined`, in
+  `keyboardManager.js:208` (`_buildOptionsString`), reached from `ibusManager` `_onConnected` →
+  `keyboard.js` `_ibusReadyCallback` → `activateInputSource`. INFERENCE: IBus became ready before the input source
+  manager had read the xkb options, so the first keymap apply threw. The shell carried on. This is the only error
+  that may matter later: S2 tests keys at L3, so check whether the nested keymap is right before trusting a key
+  result there.
+- No error came from the extension. Its label wasn't checked on screen (no one was at the desktop). The log has
+  `enable` and no `disable`: INFERENCE: the shell doesn't disable extensions when it shuts down on SIGTERM.
+
+**Before-after** (`tools/before-after.sh`, v2 snapshots at 03:58:59 and 04:02:08): **no watched item changed, and
+nothing else changed either**; the compare listed no difference at all. dconf hash, LockedHint (`no`), crash marker
+(absent), the `~/.local/share/gnome-shell` tree hash, the `monitors.xml` mtime and hash, the owners of
+`org.gnome.Shell` (pid 5222), `org.gnome.Mutter.Devkit` (none), polkit, NetworkManager and login1, the host shell's
+bus connections, `shell_pids` (5222), `leftovers=0` and the crash report list match. `/var/crash` gained nothing:
+the first run's `_usr_bin_gnome-shell.1000.crash` is still there for the owner.
+
+**The disable/enable cycle wasn't tried.** The recipe offers no way to do it, and the map puts extension toggles at
+L1 only ("Locks, unlocks and extension toggles are tested here, and nowhere nearer the real session", §5). It stays
+for the L1 hello run in `chained-tiler-test`.
+
+**Decision: keep L3.** S11's question is answered yes: the devkit runs with private, empty system and session buses
+and a private `XDG_RUNTIME_DIR`, in the `tiler-dev` mode, and the viewer reaches the host compositor through an
+absolute `WAYLAND_DISPLAY`, with no change on the real desktop. The fallback to L1 plus the owner's L4 assessment is
+not needed. M0a's "the hello extension runs at L3" is met, but only on the log and bus evidence; whether the label
+shows in the viewer is for the owner's first look. Still open for later spikes: the `_xkbOptions` error above, and
+the `Lock` signal question (only relevant if the private bus were dropped, which it isn't).
