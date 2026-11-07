@@ -56,12 +56,12 @@ impl Backend for GnomeBackend {
         self.0.borrow().mirror.stack().iter().map(info).collect()
     }
 
-    /// A placement the extension already reports as done is not sent again: re-sending a frame the
-    /// window has is a no-op on screen, and leaving it out is what keeps a restart or a reconnect from
-    /// touching any window.
+    /// A placement the extension already reports as done (within the §6.2 tolerance, so an xterm a
+    /// few pixels short counts) is not sent again: re-sending it changes nothing on screen, and leaving
+    /// it out is what keeps a restart or a reconnect from touching any window.
     fn set_frame(&mut self, window: WindowId, frame: Rect) {
         let mut shared = self.0.borrow_mut();
-        if !shared.mirror.placing(window.0) && shared.mirror.reported_frame(window.0) == Some(frame) {
+        if !shared.mirror.placing(window.0) && shared.mirror.placed_as(window.0, frame) {
             return;
         }
         shared.mirror.set_frame(window.0, frame);

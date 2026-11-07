@@ -291,3 +291,21 @@ fn deliver(m: &mut Mirror, d: Delta) -> u64 {
         }
     }
 }
+
+#[test]
+fn an_x11_window_a_few_pixels_short_counts_as_placed_and_a_wayland_one_does_not() {
+    let mut m = Mirror::default();
+    let mut xterm = win(1, [0.0, 0.0, 997.0, 1043.0]);
+    xterm.x11 = true;
+    let wayland = win(2, [0.0, 0.0, 997.0, 1043.0]);
+    m.load(vec![display()], 0, vec![xterm, wayland], Some(1), Vec::new());
+    let want = Rect::new(0.0, 0.0, 1000.0, 1048.0);
+    assert!(m.placed_as(1, want), "short by less than one resize increment (§6.2)");
+    assert!(!m.placed_as(2, want), "exact on Wayland");
+    assert!(m.placed_as(2, Rect::new(0.0, 0.0, 997.0, 1043.0)));
+    // Never larger, never moved, never short by a whole increment.
+    assert!(!m.placed_as(1, Rect::new(0.0, 0.0, 990.0, 1048.0)));
+    assert!(!m.placed_as(1, Rect::new(4.0, 0.0, 1000.0, 1048.0)));
+    assert!(!m.placed_as(1, Rect::new(0.0, 0.0, 997.0 + X11_MAX_INC.0, 1048.0)));
+    assert!(!m.placed_as(3, want), "an unknown window is never placed");
+}

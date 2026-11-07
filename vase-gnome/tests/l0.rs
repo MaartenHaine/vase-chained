@@ -181,6 +181,31 @@ fn a_restarted_daemon_takes_over_the_stale_socket_and_restores_the_layout() {
 }
 
 #[test]
+fn a_restart_leaves_an_xwayland_window_a_few_pixels_short_where_it_is() {
+    let dir = tempdir("l0-x11");
+    let mut d = Daemon::start(&dir);
+    let mut ext = Fake::connect(&d.socket());
+    ext.handshake("boot:1:1", two_windows());
+    d.child.kill().unwrap();
+    d.child.wait().unwrap();
+    // An xterm in Ghostty's place settles short of its rect by part of a cell (S4); a Wayland window is exact.
+    let c = content();
+    let mut xterm = window(10, "Ghostty", [c[0], c[1], c[2] - 7.0, c[3] - 10.0]);
+    xterm["x11"] = json!(true);
+    let d = Daemon::start(&dir);
+    let mut ext = Fake::connect(&d.socket());
+    let lines = ext.handshake("boot:1:1", json!([xterm.clone(), window(11, "Files", [900.0, 100.0, 800.0, 600.0])]));
+    assert!(places(&lines).is_empty(), "within the x11 tolerance, nothing is placed again: {:?}", places(&lines));
+    drop(ext);
+    drop(d);
+    let d = Daemon::start(&dir);
+    let mut ext = Fake::connect(&d.socket());
+    xterm["x11"] = json!(false);
+    let lines = ext.handshake("boot:1:1", json!([xterm, window(11, "Files", [900.0, 100.0, 800.0, 600.0])]));
+    assert_eq!(places(&lines), vec![(10, c)], "a Wayland window short of its rect is placed again");
+}
+
+#[test]
 fn disconnected_the_daemon_is_frozen_and_the_same_shell_resumes_without_a_move() {
     let dir = tempdir("l0-freeze");
     let d = Daemon::start(&dir);

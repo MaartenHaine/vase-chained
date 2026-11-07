@@ -19,6 +19,11 @@ use crate::protocol::{rect, WireApp, WireDisplay, WireRect, WireWindow};
 /// The batch of an op whose effects line hasn't been sent yet: newer than any `ack`.
 pub const UNSENT: u64 = u64::MAX;
 
+/// The largest resize increment the daemon allows for, per axis, in stage pixels: an `x11` window can
+/// only take sizes in its increments (S4: an xterm 2-7 px short at 9x18, a 2x xterm up to 13 px short
+/// at 18x35), and the extension doesn't report them, so this bounds the §6.2 tolerance instead.
+pub const X11_MAX_INC: (f64, f64) = (48.0, 48.0);
+
 #[derive(Debug, Clone, Copy, PartialEq)]
 enum OpKind {
     Frame(Rect),
@@ -158,9 +163,17 @@ impl Mirror {
         self.ops.iter().filter(|op| matches!(op.kind, OpKind::Frame(_))).map(|op| op.window).collect()
     }
 
-    /// The frame the extension last reported for `id`, ignoring the daemon's own placements.
-    pub fn reported_frame(&self, id: u64) -> Option<Rect> {
-        self.windows.get(&id).and_then(|w| w.frame).map(rect)
+    /// Whether the extension already reports `id` at `frame`, as §6.2 accepts a placement: exactly, or
+    /// for an `x11` window at the same origin and short by less than one resize increment per axis
+    /// (never larger). Ignores the daemon's own placements.
+    pub fn placed_as(&self, id: u64, frame: Rect) -> bool {
+        let Some(w) = self.windows.get(&id) else { return false };
+        let Some(got) = w.frame.map(rect) else { return false };
+        if got == frame {
+            return true;
+        }
+        let short = |want: f64, have: f64, inc: f64| have <= want && want - have < inc;
+        w.x11 && got.x == frame.x && got.y == frame.y && short(frame.w, got.w, X11_MAX_INC.0) && short(frame.h, got.h, X11_MAX_INC.1)
     }
 
     /// A window as the daemon should see it now: its report with the unconfirmed ops on top.

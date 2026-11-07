@@ -295,8 +295,11 @@ key or click that caused it, when one did.
   as the starting default; M1b tunes it at L1, and the desktop's number comes from the L3 feel check).
   If the frame then equals an older request rather than the newest, the newest is re-sent once (S4: a late ack can
   revert it, 8 of 18 across monitors with `workspaces-only-on-primary=true`).
-- Tolerance: exact on Wayland; for an `x11` window short by less than one resize increment per axis, never larger.
-  The daemon accepts a `settled` frame within that tolerance as the placement.
+- Tolerance: exact on Wayland; for an `x11` window at the requested origin and short by less than one resize
+  increment per axis, never larger. The daemon accepts a `settled` frame within that tolerance as the placement, and
+  sends no `place` for a window the extension already reports within it (§6.1), so an xterm a few pixels short is not
+  placed again on every render or restart. The extension doesn't report increments, so the daemon takes one as at most
+  48 px per axis (S4's largest, a 2x xterm, is 18x35).
 - vase's own `tick_reframe` (re-assert a frame 150 ms after a move to another monitor) still runs in the daemon. It
   arrives as one more `place` of the same rect, which the one-in-flight rule holds until the first settles.
 
@@ -582,6 +585,7 @@ The core seams have their own unit tests in vase-core (`vase-core/tests/unit/dae
 - **`draw` is one line per answer with only what changed** (§6.7), and hiding everything is every surface `null`; the
   `hide_all` field is gone. The command line and the shortcut sheet have their object shapes.
 - **No `place` for a frame the extension already reports** (§6.1).
+- **The x11 tolerance bounds the increment at 48 px** (§6.2), because the window object carries no increment.
 - **`kill` is honoured before the snapshot** (§5.5): it quits with only the `bye`, rather than being an `order` error
   that would leave tiling running.
 
