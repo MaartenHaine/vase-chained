@@ -1,0 +1,6 @@
+Running as unit: s10-n18-ProtectKernelLogs-94810.service; invocation ID: d90d2a9aa7fb4e7587562016a35fe8c3
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=218/CAPABILITIES
+               Service runtime: 36ms
+             CPU time consumed: 5ms
+                   Memory peak: 2.2M (swap: 0B)

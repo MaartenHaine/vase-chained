@@ -1,0 +1,6 @@
+Running as unit: s10-n28-RestrictFileSystems-94810.service; invocation ID: de5a8e415315470daa05e08034ab7aa8
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 316ms
+             CPU time consumed: 35ms
+                   Memory peak: 6M (swap: 0B)

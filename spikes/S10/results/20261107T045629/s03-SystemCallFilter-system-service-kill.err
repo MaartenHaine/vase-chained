@@ -1,0 +1,6 @@
+Running as unit: s10-s03-SystemCallFilter-system-service-kill-94810.service; invocation ID: cb7b68041cfd44959b14c12675afc88a
+          Finished with result: core-dump
+Main processes terminated with: code=dumped, status=31/SYS
+               Service runtime: 4.084s
+             CPU time consumed: 53ms
+                   Memory peak: 5.7M (swap: 0B)

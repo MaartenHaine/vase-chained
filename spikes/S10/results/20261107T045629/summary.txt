@@ -1,0 +1,44 @@
+c00-baseline                               rc=0 NoNewPrivs=0 Seccomp=0 
+n01-PrivateUsers-yes                       rc=0 NoNewPrivs=0 Seccomp=0 
+n02-PrivateUsers-identity                  rc=217 
+n03-ProtectSystem-strict                   rc=0 NoNewPrivs=0 Seccomp=0 
+n04-ProtectSystem-full                     rc=0 NoNewPrivs=0 Seccomp=0 
+n05-ProtectHome-yes                        rc=0 NoNewPrivs=0 Seccomp=0 
+n06-ProtectHome-read-only                  rc=0 NoNewPrivs=0 Seccomp=0 
+n07-ProtectHome-tmpfs                      rc=0 NoNewPrivs=0 Seccomp=0 
+n08-PrivateTmp                             rc=0 NoNewPrivs=0 Seccomp=0 
+n09-PrivateDevices                         rc=218 
+n10-PrivateNetwork                         rc=0 NoNewPrivs=0 Seccomp=0 
+n11-PrivateIPC                             rc=0 NoNewPrivs=0 Seccomp=0 
+n12-PrivatePIDs                            rc=226 
+n13-PrivateMounts                          rc=0 NoNewPrivs=0 Seccomp=0 
+n14-ProtectHostname                        rc=0 NoNewPrivs=1 Seccomp=0 
+n15-ProtectClock                           rc=218 
+n16-ProtectKernelTunables                  rc=0 NoNewPrivs=1 Seccomp=2 
+n17-ProtectKernelModules                   rc=218 
+n18-ProtectKernelLogs                      rc=218 
+n19-ProtectControlGroups                   rc=0 NoNewPrivs=0 Seccomp=0 
+n20-ProtectProc-invisible                  rc=0 NoNewPrivs=0 Seccomp=0 
+n21-ProcSubset-pid                         rc=0 NoNewPrivs=0 Seccomp=0 
+n22-ReadOnlyPaths                          rc=0 NoNewPrivs=0 Seccomp=0 
+n23-InaccessiblePaths                      rc=0 NoNewPrivs=0 Seccomp=0 
+n24-TemporaryFileSystem                    rc=226 
+n25-strict-plus-ReadWritePaths             rc=0 NoNewPrivs=0 Seccomp=0 
+n26-NoExecPaths                            rc=0 NoNewPrivs=0 Seccomp=0 
+n27-old-plan-namespaces                    rc=0 NoNewPrivs=0 Seccomp=0 
+n28-RestrictFileSystems                    rc=0 NoNewPrivs=0 Seccomp=0 
+n29-IPAddressDeny                          rc=0 NoNewPrivs=0 Seccomp=0 
+n30-CapabilityBoundingSet-empty            rc=218 
+s01-NoNewPrivileges                        rc=0 NoNewPrivs=1 Seccomp=0 
+s02-SystemCallFilter-system-service        rc=0 NoNewPrivs=1 Seccomp=2 
+s03-SystemCallFilter-system-service-kill   rc=1 
+s04-SystemCallFilter-denylist              rc=0 NoNewPrivs=1 Seccomp=2 
+s05-SystemCallFilter-deny-execve           rc=203 
+s06-SystemCallFilter-deny-process          rc=0 NoNewPrivs=1 Seccomp=2 
+s07-SystemCallArchitectures-native         rc=0 NoNewPrivs=1 Seccomp=2 
+s08-RestrictAddressFamilies-unix           rc=0 NoNewPrivs=1 Seccomp=2 
+s09-LockPersonality                        rc=0 NoNewPrivs=1 Seccomp=2 
+s10-MemoryDenyWriteExecute                 rc=0 NoNewPrivs=1 Seccomp=0 
+s11-RestrictNamespaces                     rc=0 NoNewPrivs=1 Seccomp=2 
+s12-RestrictRealtime                       rc=0 NoNewPrivs=1 Seccomp=2 
+s13-RestrictSUIDSGID                       rc=0 NoNewPrivs=1 Seccomp=2 

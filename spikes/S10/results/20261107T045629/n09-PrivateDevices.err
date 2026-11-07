@@ -1,0 +1,6 @@
+Running as unit: s10-n09-PrivateDevices-94810.service; invocation ID: cf8ce7c15bd84939849fb192553b71e2
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=218/CAPABILITIES
+               Service runtime: 74ms
+             CPU time consumed: 5ms
+                   Memory peak: 2.4M (swap: 0B)

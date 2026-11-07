@@ -1,0 +1,6 @@
+Running as unit: s10-p01-plan-483344.service; invocation ID: d43bbfbd6a2e4dc6b52d96aeda815bf0
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 357ms
+             CPU time consumed: 39ms
+                   Memory peak: 6.4M (swap: 0B)

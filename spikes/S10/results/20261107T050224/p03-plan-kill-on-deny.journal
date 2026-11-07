@@ -1,0 +1,3 @@
+Started s10-p03-plan-kill-on-deny-483344.service - [systemd-run] /usr/bin/python3 -I -c "import os; exec(os.environ[\"S10_CODE\"])".
+s10-p03-plan-kill-on-deny-483344.service: Main process exited, code=dumped, status=31/SYS
+s10-p03-plan-kill-on-deny-483344.service: Failed with result 'core-dump'.

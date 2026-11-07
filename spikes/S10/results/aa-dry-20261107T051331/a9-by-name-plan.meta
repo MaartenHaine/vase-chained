@@ -1,0 +1,3 @@
+props=NoNewPrivileges=yes;RestrictAddressFamilies=AF_UNIX;SystemCallFilter=@system-service;SystemCallFilter=~@privileged @resources;SystemCallArchitectures=native;SystemCallErrorNumber=EPERM;LockPersonality=yes;MemoryDenyWriteExecute=yes;RestrictNamespaces=yes;RestrictRealtime=yes;RestrictSUIDSGID=yes;AppArmorProfile=vase-s10-probe
+cmd=/usr/bin/gnucat /proc/self/attr/current /usr/lib/os-release /home/martin/.cache/s10-probe.DATSlbq7/secret
+rc=231

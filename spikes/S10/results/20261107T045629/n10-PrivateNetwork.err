@@ -1,0 +1,6 @@
+Running as unit: s10-n10-PrivateNetwork-94810.service; invocation ID: 35798a560bc942dfbd4e9369bbbfd166
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 593ms
+             CPU time consumed: 37ms
+                   Memory peak: 6.2M (swap: 0B)

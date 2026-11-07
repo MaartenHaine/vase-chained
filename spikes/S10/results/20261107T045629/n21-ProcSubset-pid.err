@@ -1,0 +1,6 @@
+Running as unit: s10-n21-ProcSubset-pid-94810.service
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 449ms
+             CPU time consumed: 37ms
+                   Memory peak: 6.3M (swap: 0B)

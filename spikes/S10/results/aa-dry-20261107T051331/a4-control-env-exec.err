@@ -1,0 +1,6 @@
+Running as unit: s10-aa-a4-control-env-exec-1266027.service; invocation ID: b6275918a6a54800998abc8849657fcf
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 10ms
+             CPU time consumed: 6ms
+                   Memory peak: 1.9M (swap: 0B)

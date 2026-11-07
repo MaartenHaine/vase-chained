@@ -1,0 +1,6 @@
+Running as unit: s10-n16-ProtectKernelTunables-94810.service; invocation ID: de25f754a2ce4ce8b83af2e6ef8dae6a
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 558ms
+             CPU time consumed: 38ms
+                   Memory peak: 6.4M (swap: 0B)

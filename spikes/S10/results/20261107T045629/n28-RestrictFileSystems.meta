@@ -1,0 +1,2 @@
+props=RestrictFileSystems=ext4 tmpfs proc
+systemd-run.rc=0

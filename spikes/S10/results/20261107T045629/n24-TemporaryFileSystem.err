@@ -1,0 +1,6 @@
+Running as unit: s10-n24-TemporaryFileSystem-94810.service; invocation ID: 1bf2ad5dae664733a29fe0d53fe4eb86
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=226/NAMESPACE
+               Service runtime: 74ms
+             CPU time consumed: 5ms
+                   Memory peak: 2.1M (swap: 0B)

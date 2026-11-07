@@ -1,0 +1,6 @@
+Running as unit: s10-p03-plan-kill-on-deny-483344.service; invocation ID: dbd4138d50cd46fe812c85722bd76392
+          Finished with result: core-dump
+Main processes terminated with: code=dumped, status=31/SYS
+               Service runtime: 1.637s
+             CPU time consumed: 34ms
+                   Memory peak: 5.5M (swap: 0B)

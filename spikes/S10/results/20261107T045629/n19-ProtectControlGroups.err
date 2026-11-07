@@ -1,0 +1,6 @@
+Running as unit: s10-n19-ProtectControlGroups-94810.service; invocation ID: 9957dea4cb5b462f9ed8ccdfbf08bb81
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 223ms
+             CPU time consumed: 39ms
+                   Memory peak: 6.4M (swap: 0B)

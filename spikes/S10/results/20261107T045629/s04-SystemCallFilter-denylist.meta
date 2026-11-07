@@ -1,0 +1,2 @@
+props=SystemCallFilter=~@privileged @resources @debug @mount @swap @reboot @module @raw-io @cpu-emulation @obsolete @clock;SystemCallErrorNumber=EBADE
+systemd-run.rc=0

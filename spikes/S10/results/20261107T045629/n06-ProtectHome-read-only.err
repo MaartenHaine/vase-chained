@@ -1,0 +1,6 @@
+Running as unit: s10-n06-ProtectHome-read-only-94810.service; invocation ID: 597c6af5bf314332b23c0a8a1519d729
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 721ms
+             CPU time consumed: 38ms
+                   Memory peak: 6.1M (swap: 0B)

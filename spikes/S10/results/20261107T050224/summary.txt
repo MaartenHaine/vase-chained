@@ -1,0 +1,5 @@
+c00-baseline                               rc=0 NoNewPrivs=0 Seccomp=0 
+p00-plan-with-CapabilityBoundingSet        rc=218 
+p01-plan                                   rc=0 NoNewPrivs=1 Seccomp=2 
+p02-plan-plus-namespaces                   rc=0 NoNewPrivs=1 Seccomp=2 
+p03-plan-kill-on-deny                      rc=1 

@@ -1,0 +1,6 @@
+Running as unit: s10-p03-plan-kill-on-deny-570725.service; invocation ID: 229108a17b53419dbbed3db2cd380e80
+          Finished with result: signal
+Main processes terminated with: code=killed, status=31/SYS
+               Service runtime: 98ms
+             CPU time consumed: 32ms
+                   Memory peak: 5.7M (swap: 0B)

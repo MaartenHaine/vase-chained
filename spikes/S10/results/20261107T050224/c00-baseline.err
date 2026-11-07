@@ -1,0 +1,6 @@
+Running as unit: s10-c00-baseline-483344.service; invocation ID: 05e7f28e2ba24f16bc04340cebdd8143
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 642ms
+             CPU time consumed: 37ms
+                   Memory peak: 6.1M (swap: 0B)

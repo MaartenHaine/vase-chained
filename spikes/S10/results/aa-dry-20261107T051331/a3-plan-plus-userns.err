@@ -1,0 +1,6 @@
+Running as unit: s10-aa-a3-plan-plus-userns-1266027.service
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 15ms
+             CPU time consumed: 10ms
+                   Memory peak: 2.7M (swap: 0B)

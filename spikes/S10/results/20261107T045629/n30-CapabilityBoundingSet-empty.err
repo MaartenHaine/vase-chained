@@ -1,0 +1,6 @@
+Running as unit: s10-n30-CapabilityBoundingSet-empty-94810.service; invocation ID: be28cd231ef04247aee91d14f8dda2e8
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=218/CAPABILITIES
+               Service runtime: 19ms
+             CPU time consumed: 5ms
+                   Memory peak: 2.2M (swap: 0B)

@@ -1,0 +1,3 @@
+props=
+cmd=/usr/bin/gnuenv /usr/bin/true
+rc=0

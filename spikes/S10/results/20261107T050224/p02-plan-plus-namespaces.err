@@ -1,0 +1,6 @@
+Running as unit: s10-p02-plan-plus-namespaces-483344.service; invocation ID: ec9be3bc603940ddb3bdc1a2f76adde8
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 400ms
+             CPU time consumed: 43ms
+                   Memory peak: 6.3M (swap: 0B)

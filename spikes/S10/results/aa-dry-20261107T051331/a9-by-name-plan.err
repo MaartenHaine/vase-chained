@@ -1,0 +1,6 @@
+Running as unit: s10-aa-a9-by-name-plan-1266027.service; invocation ID: ccec60e29aa94e9c9b8a5a573e87d9a0
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=231/APPARMOR
+               Service runtime: 13ms
+             CPU time consumed: 5ms
+                   Memory peak: 2.2M (swap: 0B)

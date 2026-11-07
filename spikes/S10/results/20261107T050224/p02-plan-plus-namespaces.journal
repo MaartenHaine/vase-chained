@@ -1,0 +1,2 @@
+Started s10-p02-plan-plus-namespaces-483344.service - [systemd-run] /usr/bin/python3 -I -c "import os; exec(os.environ[\"S10_CODE\"])".
+s10-p02-plan-plus-namespaces-483344.service: PrivateNetwork=yes is configured, but the kernel does not support or we lack privileges for network namespace, proceeding without.

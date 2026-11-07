@@ -1,0 +1,2 @@
+props=RestrictRealtime=yes
+systemd-run.rc=0

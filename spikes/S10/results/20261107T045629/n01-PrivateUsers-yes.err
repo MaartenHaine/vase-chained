@@ -1,0 +1,6 @@
+Running as unit: s10-n01-PrivateUsers-yes-94810.service; invocation ID: 6f3a412381bf4ef88eb7bf2e34425ca9
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 427ms
+             CPU time consumed: 38ms
+                   Memory peak: 6M (swap: 0B)

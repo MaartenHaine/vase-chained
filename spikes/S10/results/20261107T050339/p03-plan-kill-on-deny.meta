@@ -1,0 +1,2 @@
+props=NoNewPrivileges=yes;RestrictAddressFamilies=AF_UNIX;SystemCallFilter=@system-service;SystemCallFilter=~@privileged @resources;SystemCallArchitectures=native;LockPersonality=yes;MemoryDenyWriteExecute=yes;RestrictNamespaces=yes;RestrictRealtime=yes;RestrictSUIDSGID=yes
+systemd-run.rc=255

@@ -1,0 +1,6 @@
+Running as unit: s10-n02-PrivateUsers-identity-94810.service; invocation ID: dbc4c5d9d00742a4ad7d9708302bcda4
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=217/USER
+               Service runtime: 24ms
+             CPU time consumed: 5ms
+                   Memory peak: 2.2M (swap: 0B)

@@ -1,0 +1,6 @@
+Running as unit: s10-n20-ProtectProc-invisible-94810.service; invocation ID: b8e42e8da41c47bcb358e3dfe5aaf314
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 174ms
+             CPU time consumed: 36ms
+                   Memory peak: 6.6M (swap: 0B)

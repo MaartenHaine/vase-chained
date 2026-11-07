@@ -1,0 +1,6 @@
+Running as unit: s10-s03-SystemCallFilter-system-service-kill-570725.service; invocation ID: f86a2ea44a0b4d1b9aed7adf03f6ef0d
+          Finished with result: signal
+Main processes terminated with: code=killed, status=31/SYS
+               Service runtime: 679ms
+             CPU time consumed: 47ms
+                   Memory peak: 6M (swap: 0B)

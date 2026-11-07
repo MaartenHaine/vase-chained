@@ -1,0 +1,6 @@
+Running as unit: s10-s08-RestrictAddressFamilies-unix-94810.service; invocation ID: e5710cec5b61454b85b05a3b7fcb9da4
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 915ms
+             CPU time consumed: 38ms
+                   Memory peak: 6M (swap: 0B)

@@ -1,0 +1,13 @@
+a0-control-cat               rc=0   label=unconfined
+a1-plain                     rc=0   label=unconfined
+a2-plan                      rc=0   label=unconfined
+a3-plan-plus-userns          rc=0   label=unprivileged_userns (enforce)
+a4-control-env-exec          rc=0   label=
+a5-env-exec                  rc=0   label=
+a6-plan-env-exec             rc=0   label=
+a8-by-name                   rc=231 label=
+a9-by-name-plan              rc=231 label=
+a7-live                      MainPID=1280816 exe=/usr/bin/gnucat attr/current=unconfined NoNewPrivs:	1 Seccomp:	2 Seccomp_filters:	14 
+kernel audit lines: 4
+units left: 0
+new crash reports: 0

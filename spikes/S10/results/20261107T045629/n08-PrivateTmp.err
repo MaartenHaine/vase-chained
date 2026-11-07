@@ -1,0 +1,6 @@
+Running as unit: s10-n08-PrivateTmp-94810.service; invocation ID: ab6e4e587edd4e47b5f0fb3bcc4959ab
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 599ms
+             CPU time consumed: 37ms
+                   Memory peak: 6.1M (swap: 0B)

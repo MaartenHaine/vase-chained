@@ -1,0 +1,6 @@
+Running as unit: s10-n14-ProtectHostname-94810.service; invocation ID: 3b62d4a4f0fe4267bc0f20399ec31781
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 1.220s
+             CPU time consumed: 39ms
+                   Memory peak: 6.2M (swap: 0B)

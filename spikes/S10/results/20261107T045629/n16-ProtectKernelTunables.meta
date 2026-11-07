@@ -1,0 +1,2 @@
+props=ProtectKernelTunables=yes
+systemd-run.rc=0

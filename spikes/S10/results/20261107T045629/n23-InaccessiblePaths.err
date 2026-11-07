@@ -1,0 +1,6 @@
+Running as unit: s10-n23-InaccessiblePaths-94810.service; invocation ID: f1b011369bdc4e42a39d103c29f00fa1
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 515ms
+             CPU time consumed: 35ms
+                   Memory peak: 6.1M (swap: 0B)

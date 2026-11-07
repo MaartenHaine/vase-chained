@@ -1,0 +1,2 @@
+props=PrivateTmp=yes
+systemd-run.rc=0

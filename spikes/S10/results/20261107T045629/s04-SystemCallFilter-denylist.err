@@ -1,0 +1,6 @@
+Running as unit: s10-s04-SystemCallFilter-denylist-94810.service; invocation ID: fc28563ac7d842dcb8b742007316580b
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 1.570s
+             CPU time consumed: 40ms
+                   Memory peak: 5.9M (swap: 0B)
