@@ -1,0 +1,33 @@
+# Dependabot version updates, weekly. On a fork they run only once the owner enables
+# them (docs/linux-tiler/github-settings.md). Security updates come from the repository
+# settings, not from this file.
+version: 2
+updates:
+  # Moves the commit-SHA pins in .github/workflows (and the version comment beside each).
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: ci
+      include: scope
+    groups:
+      actions:
+        patterns: ["*"]
+
+  # The Cargo workspace at the root (vase-core, vase-macos, vase-windows).
+  - package-ecosystem: cargo
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: chore
+      include: scope
+    groups:
+      cargo-minor-and-patch:
+        patterns: ["*"]
+        update-types: [minor, patch]
