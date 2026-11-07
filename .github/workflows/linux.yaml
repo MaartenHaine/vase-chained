@@ -1,0 +1,66 @@
+# The Linux Tiler's CI (docs/linux-tiler/wayfinder.md §5, M0a). It grows with each milestone.
+#
+# Hardening (devtest-security.md §4.6): no permissions at the top, contents: read per job, every action pinned to a
+# full commit SHA, no secrets, no pull_request_target, and the checkout keeps no token. Each job runs the same scripts
+# as the local just recipes, in the same chained-tiler-* images (Ubuntu 26.04 by digest, Ubuntu's own toolchain, every
+# package from the apt snapshot the Containerfiles name), so a green run here means the same thing as a green run on
+# the desktop.
+name: linux
+
+on:
+  pull_request:
+  push:
+    branches: [main, linux-tiler]
+
+permissions: {}
+
+concurrency:
+  group: linux-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  rust:
+    name: cargo test, clippy, cargo-deny, cargo audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: cargo test (fetched with the lock, run offline, in chained-tiler-build)
+        run: tools/linux/podman.sh test
+      - name: clippy (warnings denied) and rustfmt
+        run: tools/linux/podman.sh check
+      - name: cargo-deny and cargo audit (release binaries pinned by sha256)
+        run: |
+          tools/linux/cargo-tools.sh "$RUNNER_TEMP/cargo-tools"
+          tools/linux/podman.sh supply "$RUNNER_TEMP/cargo-tools"
+
+  lint:
+    name: metadata lint, tripwires, eslint
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # eslint comes from tools/linux/eslint/package-lock.json, installed with --ignore-scripts.
+      - name: lint
+        run: tools/linux/lint.sh
+
+  l1:
+    name: L1 hello (headless GNOME Shell 50 in chained-tiler-test)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: L1
+        run: tools/linux/podman.sh l1

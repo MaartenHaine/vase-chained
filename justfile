@@ -24,6 +24,21 @@ check:
 check-windows:
     cargo clippy -p vase-windows --target {{ windows_target }} --all-targets -- -D warnings
 
+# Linux (docs/linux-tiler/): each step runs in rootless podman, in the chained-tiler-build or chained-tiler-test image
+# (tools/linux/podman.sh), so the host needs podman and no Rust. The Linux build skips vase-macos and vase-windows.
+
+# Build the Linux workspace in chained-tiler-build: fetched with the lock, built offline.
+build-linux:
+    tools/linux/podman.sh build
+
+# Run the Linux workspace's tests in chained-tiler-build.
+test-linux:
+    tools/linux/podman.sh test
+
+# The L1 hello test: the extension in a headless GNOME Shell 50, inside podman only, never on the desktop.
+l1:
+    tools/linux/podman.sh l1
+
 # Assemble dist/vase.app around an already-built binary at `binpath`.
 _bundle binpath ver:
     rm -rf "{{ app }}"

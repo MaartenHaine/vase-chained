@@ -1,0 +1,33 @@
+# cargo-deny for the whole workspace, every platform (the Linux CI runs it through tools/linux/podman.sh supply).
+
+[advisories]
+# Every RustSec advisory fails, including unmaintained and unsound crates; an exception goes in `ignore`, with a reason.
+yanked = "deny"
+ignore = []
+
+[licenses]
+# The workspace is GPL-3.0 (LICENSE); every dependency must carry a licence compatible with it.
+allow = ["MIT", "Apache-2.0", "Unicode-3.0", "Zlib"]
+confidence-threshold = 0.9
+
+[licenses.private]
+# The workspace's own crates are `publish = false` and carry no licence field; LICENSE at the root covers them.
+ignore = true
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+allow-wildcard-paths = true
+# Nothing in the Tiler talks to the network (wayfinder §3.6), so no HTTP or TLS stack may come in.
+deny = [
+    { name = "openssl-sys" },
+    { name = "native-tls" },
+    { name = "reqwest" },
+    { name = "hyper" },
+    { name = "curl-sys" },
+]
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
