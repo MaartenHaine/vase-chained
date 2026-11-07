@@ -253,7 +253,9 @@ pub fn serve(bound: Bound, mut host: Host) -> i32 {
         let now = Instant::now();
         if now >= next_tick {
             next_tick = (next_tick + TICK).max(now);
-            if let Some(c) = &mut conn {
+            // A connection already known to be gone gets no tick: the freeze below comes first, so a
+            // half-typed tab number can't commit into a dead queue (§7.1).
+            if let Some(c) = conn.as_mut().filter(|_| !gone) {
                 c.queue(host.tick(now));
             }
         }
