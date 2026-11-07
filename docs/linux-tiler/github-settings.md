@@ -1,12 +1,22 @@
 # GitHub settings for vase-chained
 
 The fork's hardening (wayfinder Q1.4, M0a) is half in the repository and half in GitHub's settings. The repository
-half is done: the inherited release workflows are deleted, the workflow rules are in
+half is committed: the inherited release workflows are deleted, the workflow rules are in
 [CONTRIBUTING.md](../../CONTRIBUTING.md#github-actions-workflows), and `.github/dependabot.yml` asks for weekly
 updates of the action pins and the Cargo workspace. This page is the other half: the settings the owner clicks on
 `github.com/MaartenHaine/vase-chained`. Nothing here can be set from a commit.
 
-Do them in this order. Each section ends with a read-only `gh api` call that shows the setting took.
+The repository half takes effect on GitHub only once it is on `main`, the default branch. Dependabot reads
+`.github/dependabot.yml` only from there, and `main`'s `release*.yaml` stay live until they are deleted there. So
+first land the repository half on `main` (a pull request from `linux-tiler`, or a cherry-pick), and check:
+
+```sh
+git fetch origin && git ls-tree --name-only origin/main .github/ .github/workflows/
+#   .github/dependabot.yml, and no .github/workflows/release*.yaml
+```
+
+Change no setting below until that check passes. Then do them in this order. Each section ends with a read-only
+`gh api` call that shows the setting took.
 
 ## 1. Dependabot (Settings > Advanced Security)
 
@@ -23,13 +33,14 @@ In **Settings**, open **Advanced Security** in the sidebar ("Security and qualit
 Check:
 
 ```sh
-gh api repos/MaartenHaine/vase-chained/vulnerability-alerts --include | head -1   # HTTP/2.0 204: alerts on
-gh api repos/MaartenHaine/vase-chained/automated-security-fixes                   # "enabled": true
+gh api repos/MaartenHaine/vase-chained/vulnerability-alerts --include | head -1     # HTTP/2.0 204: alerts on
+gh api repos/MaartenHaine/vase-chained/automated-security-fixes                     # "enabled": true
+gh api repos/MaartenHaine/vase-chained/contents/.github/dependabot.yml --jq .path   # on main: .github/dependabot.yml
 ```
 
 Dependabot's own pull requests then show under **Insights > Dependency graph > Dependabot**. Until the first workflow
-lands in `.github/workflows/`, the `github-actions` entry there has nothing to update and may report that it found no
-files. That is expected and goes away with the Linux CI job.
+lands in `main`'s `.github/workflows/`, the `github-actions` entry there has nothing to update and may report that it
+found no files. That is expected and goes away with the Linux CI job.
 
 ## 2. Actions (Settings > Actions > General)
 
