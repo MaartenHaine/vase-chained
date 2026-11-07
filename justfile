@@ -35,6 +35,10 @@ build-linux:
 test-linux:
     tools/linux/podman.sh test
 
+# The L1 hello test: the extension in a headless GNOME Shell 50, inside podman only, never on the desktop.
+l1:
+    tools/linux/podman.sh l1
+
 # Assemble dist/vase.app around an already-built binary at `binpath`.
 _bundle binpath ver:
     rm -rf "{{ app }}"

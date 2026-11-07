@@ -5,6 +5,7 @@
 #   tools/linux/podman.sh build        cargo build of the Linux workspace, fetched with the lock, built offline
 #   tools/linux/podman.sh test         cargo test of the same packages
 #   tools/linux/podman.sh check        clippy (warnings denied) and rustfmt --check on the same packages
+#   tools/linux/podman.sh l1           the L1 hello test: headless GNOME Shell in chained-tiler-test
 #
 # Rules (docs/linux-tiler/devtest-security.md §3.5, §4.5): images, containers and volumes are all named chained-tiler-*;
 # every container is --rm; only the checkout is mounted, read-only; nothing from the host's /run/user, D-Bus or
@@ -62,5 +63,10 @@ case "${1:-}" in
 		cargo_offline clippy --all-targets -- -D warnings
 		run fmt "$(image build)" --network=none -- cargo fmt --all --check
 		;;
-	*) die "usage: podman.sh build | test | check" ;;
+	l1)
+		# The shell gets no network: everything it talks to is a bus inside the container.
+		run l1 "$(image test)" --network=none -e L1_VERBOSE="${L1_VERBOSE:-}" -e L1_TIMEOUT="${L1_TIMEOUT:-120}" -- \
+			bash /src/vase-gnome/tests/l1/run.sh
+		;;
+	*) die "usage: podman.sh build | test | check | l1" ;;
 esac
