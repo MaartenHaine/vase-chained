@@ -25,8 +25,10 @@ scan() { # dir
 	done <"$WIRES"
 }
 
-allowed() { # path id text
-	awk -F'\t' -v p="$1" -v i="$2" -v t="$3" '$1 == p && $2 == i && $3 == t { found = 1 } END { exit !found }' "$ALLOW"
+# The values go to awk through the environment: awk -v would turn backslash escapes in the line into other characters.
+allowed() { # path id text [allow-file]
+	P="$1" I="$2" T="$3" awk -F'\t' '$1 == ENVIRON["P"] && $2 == ENVIRON["I"] && $3 == ENVIRON["T"] { found = 1 }
+		END { exit !found }' "${4:-$ALLOW}"
 }
 
 check() { # dir
@@ -67,6 +69,15 @@ self_test() {
 			failed=1
 		fi
 	done <"$WIRES"
+	# An allow entry matches its line exactly, backslashes included, and no other line.
+	printf '%s\t%s\t%s\t%s\n' a.js proc-spawn 'x(/\s+/, "a\\b")' 'self-test' >"$tmp/allow"
+	if allowed a.js proc-spawn 'x(/\s+/, "a\\b")' "$tmp/allow" && ! allowed a.js proc-spawn 'x(/\s+/, "a\b")' "$tmp/allow" \
+		&& ! allowed a.js proc-spawn 'x(/s+/, "a\\b")' "$tmp/allow"; then
+		printf 'tripwires self-test: ok: the allow-list compares lines with backslashes exactly\n'
+	else
+		printf 'tripwires self-test: FAIL: the allow-list does not compare lines with backslashes exactly\n' >&2
+		failed=1
+	fi
 	if check "$tmp" >/dev/null 2>&1; then
 		printf 'tripwires self-test: FAIL: a directory full of samples passed\n' >&2
 		failed=1
