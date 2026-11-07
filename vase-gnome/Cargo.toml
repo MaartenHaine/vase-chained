@@ -1,0 +1,18 @@
+[package]
+name = "vase-gnome"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "The Linux Tiler's daemon: vase-core's Daemon behind the GNOME Shell extension's protocol"
+
+[[bin]]
+name = "vase-gnome"
+path = "src/main.rs"
+
+# Linux only. On macOS and Windows the crate builds to an empty library and a binary that exits, so a
+# `cargo build --workspace` there pulls in none of these and changes nothing.
+[target.'cfg(target_os = "linux")'.dependencies]
+vase-core = { path = "../vase-core" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1.0.151"
+libc = "0.2.189"

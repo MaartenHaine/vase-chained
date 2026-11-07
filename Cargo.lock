@@ -473,6 +473,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "vase-gnome"
+version = "0.1.0"
+dependencies = [
+ "libc",
+ "serde",
+ "serde_json",
+ "vase-core",
+]
+
+[[package]]
 name = "vase-macos"
 version = "0.4.0"
 dependencies = [
