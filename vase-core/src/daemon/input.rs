@@ -187,4 +187,13 @@ impl<B: Backend, C: Painter> Daemon<B, C> {
         }
         false
     }
+
+    /// End a sticky resize or move-tab the way any other key would, for a platform that cannot see
+    /// that other key and ends the mode on a timer instead. Returns whether one was on.
+    pub fn end_sticky(&mut self) -> bool {
+        let was = self.resize_sticky || self.movetab_sticky;
+        self.resize_sticky = false;
+        self.movetab_sticky = false;
+        was
+    }
 }

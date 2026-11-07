@@ -3,6 +3,7 @@
 mod fake;
 mod key_mode;
 mod prefix;
+mod sticky;
 
 use crate::geometry::Rect;
 use crate::input::InputCommand;
