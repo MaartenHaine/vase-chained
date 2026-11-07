@@ -20,7 +20,13 @@ Every commit message and pull request title follows the
 [CONTRIBUTING.md](CONTRIBUTING.md#conventional-commits). `CHANGELOG.md` is generated from the commit history with
 git-cliff, which drops commits that don't follow it.
 
-Commit or push only when asked, and branch off `main` first: the release workflow reads `main`'s history.
+Commit or push only when asked, and never on `main`: work on a branch and reach `main` through a pull request.
+Chained builds the fork only at commits that descend from `main`, so `main` is never rewritten.
+
+## Workflows
+
+Every GitHub Actions workflow follows the rules in [CONTRIBUTING.md](CONTRIBUTING.md#github-actions-workflows):
+top-level `permissions: {}`, least privilege per job, actions pinned to a full commit SHA, no `pull_request_target`.
 
 ## Checks
 

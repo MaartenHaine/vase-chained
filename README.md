@@ -5,9 +5,6 @@
 <p align="center">A cross-platform manual tiling window manager.</p>
 
 <p align="center">
-  <a href="https://github.com/CasperTeirlinck/vase/releases/latest"><img src="https://img.shields.io/github/v/release/CasperTeirlinck/vase?style=flat-square&color=blue" alt="Latest release"></a>
-  <a href="https://github.com/CasperTeirlinck/vase/releases"><img src="https://img.shields.io/github/downloads/CasperTeirlinck/vase/total?style=flat-square&color=blue" alt="Downloads"></a>
-  <a href="https://github.com/CasperTeirlinck/homebrew-vase"><img src="https://img.shields.io/badge/homebrew-tap-fbb040?style=flat-square&logo=homebrew&logoColor=white" alt="Homebrew tap"></a>
   <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows-lightgrey?style=flat-square" alt="Platforms: macOS and Windows">
   <img src="https://img.shields.io/badge/rust-2021-b7410e?style=flat-square&logo=rust&logoColor=white" alt="Rust 2021 edition">
   <a href="LICENSE"><img src="https://img.shields.io/github/license/CasperTeirlinck/vase?style=flat-square&color=blue" alt="License: GPL-3.0"></a>
@@ -50,29 +47,9 @@ backend crate. macOS and Windows are available today; Linux is planned.
 
 ### macOS
 
-Packaged builds ship for macOS; pick whichever fits you.
-
-**Homebrew cask** (recommended):
-
-```sh
-brew install --cask CasperTeirlinck/vase/vase
-```
-
-**Homebrew formula**:
-
-```sh
-brew install CasperTeirlinck/vase/vase
-```
-
-**Install script** (downloads the latest `vase.app` into `/Applications`):
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/CasperTeirlinck/vase/main/install.sh | bash
-```
-
-**Manual download**: grab `vase-vX.Y.Z-macos.zip` from the
-[latest release](https://github.com/CasperTeirlinck/vase/releases/latest),
-unzip it, and move `vase.app` to Applications.
+This fork, vase-chained, publishes no packaged builds: it has no release workflows, and Chained builds the macOS app
+from source at a reviewed commit. The Homebrew tap, the install script and the release downloads belong to
+[upstream vase](https://github.com/CasperTeirlinck/vase) and install upstream's code, not this fork's.
 
 **Build from source** (needs a Rust toolchain and [`just`](https://github.com/casey/just)): `just app` produces `dist/vase.app`,
 or `cargo build --release` if you just want the binary.

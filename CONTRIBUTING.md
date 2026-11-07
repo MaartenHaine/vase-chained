@@ -39,6 +39,19 @@ draw the shortcut sheet as well.
 [CONTEXT.md](CONTEXT.md) defines the vocabulary the code is named after (tab, pane, stack, chrome, prefix). Read it
 before naming anything new.
 
+### GitHub Actions workflows
+
+This fork has no release workflows and publishes no build artifacts. A workflow under `.github/workflows/` must:
+
+- set `permissions: {}` at the top level, and give each job only the permissions it needs, usually just
+  `contents: read`;
+- pin every action to a full 40-character commit SHA, with the version in a comment
+  (`uses: actions/checkout@<full-sha> # vX.Y.Z`); Dependabot moves the pins weekly;
+- use an action only after it is added to the repository's allowed-actions list
+  ([docs/linux-tiler/github-settings.md](docs/linux-tiler/github-settings.md));
+- never trigger on `pull_request_target`, and never pass a secret to a job that runs pull-request code;
+- run on GitHub-hosted runners only, never a self-hosted runner.
+
 ### Creating a Pull Request
 
 1. Create a pull request from your feature branch, and describe what changed and why.
@@ -62,7 +75,7 @@ Requests, and for the individual commit messages: `CHANGELOG.md` is generated fr
 - _refactor_: A code change that neither fixes a bug nor adds a feature
 - _perf_: A code change that improves performance
 - _test_: Adding missing or correcting existing tests
-- _ci_: Changes to the GitHub Actions workflows or release pipeline
+- _ci_: Changes to the GitHub Actions workflows or the Dependabot config
 - _chore_: Auxiliary changes to the build process, tooling, dependencies, or other
 - _revert_: Reverts a previous commit
 
@@ -76,7 +89,7 @@ included, separated by commas.
 - _macos_: the macOS backend crate (`vase-macos`)
 - _windows_: the Windows backend crate (`vase-windows`)
 - _docs_: README, ADRs, and other documentation
-- _packaging_: the app bundle, Homebrew formula/cask, and install script
+- _packaging_: the app bundle (`just app`)
 
 ### Contributing with an AI Coding Agent
 
