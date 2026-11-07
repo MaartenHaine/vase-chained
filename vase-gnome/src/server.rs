@@ -186,7 +186,10 @@ pub fn serve(bound: Bound, mut host: Host) -> i32 {
             return 1;
         }
 
-        if fds[0].revents & libc::POLLIN != 0 {
+        // A live extension that has hung up (a rebase, a disable then enable) is read to its EOF first,
+        // and its successor waits in the backlog meanwhile instead of being refused as busy.
+        let hung_up = fds.get(1).is_some_and(|p| p.revents & libc::POLLHUP != 0);
+        if fds[0].revents & libc::POLLIN != 0 && !hung_up {
             loop {
                 let stream = match listener.accept() {
                     Ok((stream, _)) => stream,

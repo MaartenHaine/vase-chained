@@ -142,6 +142,29 @@ fn a_second_extension_is_turned_away_while_one_is_live() {
 }
 
 #[test]
+fn a_reconnect_that_arrives_with_the_old_connections_eof_is_not_busy() {
+    let dir = tempdir("l0-rebase");
+    let d = Daemon::start(&dir);
+    let mut first = Fake::connect(&d.socket());
+    first.handshake("boot:1:1", two_windows());
+    // Stopped, the daemon wakes to both at once: the old stream's EOF and the new connection (a rebase).
+    d.signal(libc::SIGSTOP);
+    let stat = format!("/proc/{}/stat", d.child.id());
+    let deadline = std::time::Instant::now() + Duration::from_secs(5);
+    while std::fs::read_to_string(&stat).unwrap().rsplit(')').next().unwrap().split_whitespace().next() != Some("T") {
+        assert!(std::time::Instant::now() < deadline, "the daemon never stopped");
+        std::thread::sleep(Duration::from_millis(10));
+    }
+    drop(first);
+    let second = connect(&d.socket());
+    d.signal(libc::SIGCONT);
+    // The newcomer is greeted and resumes, not refused as busy.
+    let lines = Fake::over(second).handshake("boot:1:1", json!([window(10, "Ghostty", content()), window(11, "Files", [900.0, 100.0, 800.0, 600.0])]));
+    assert!(of(&lines, "error").is_empty(), "{lines:?}");
+    assert!(!d.log().contains("refused (busy)"), "{}", d.log());
+}
+
+#[test]
 fn a_second_daemon_leaves_a_live_ones_socket_alone() {
     let dir = tempdir("l0-lock");
     let d = Daemon::start(&dir);
