@@ -6,7 +6,8 @@
 The rules:
 - `uuid` is under the owner's domain;
 - `shell-version` is exactly the supported majors: no future versions, which would load untested code;
-- no `session-modes` key: the Tiler must not run on the lock screen (wayfinder §3.7, `unlock-dialog` rejected);
+- `session-modes`, if present, names only 'user' and the L3 dev shell's 'tiler-dev' (tools/dev-shell.sh): the Tiler
+  must not run on the lock screen or the login screen (wayfinder §3.7, `unlock-dialog` rejected);
 - a `settings-schema`, if any, is under org.gnome.shell.extensions;
 - only known keys;
 - the directory holds only reviewable text files (the review guidelines forbid binaries), and an extension.js.
@@ -20,8 +21,11 @@ import tempfile
 
 OWNER_DOMAIN = 'maartenhaine.github.io'
 SUPPORTED_SHELL_VERSIONS = ['50']
-KNOWN_KEYS = {'uuid', 'name', 'description', 'shell-version', 'url', 'settings-schema', 'gettext-domain',
-              'version-name', 'donations'}
+# 'tiler-dev' is the L3 dev shell's session mode (tools/dev-shell.sh). It has no parent mode and no unlock dialog, and
+# the dev shell only enables an extension that lists it.
+ALLOWED_SESSION_MODES = ['user', 'tiler-dev']
+KNOWN_KEYS = {'uuid', 'name', 'description', 'shell-version', 'session-modes', 'url', 'settings-schema',
+              'gettext-domain', 'version-name', 'donations'}
 REQUIRED_KEYS = {'uuid', 'name', 'description', 'shell-version'}
 TEXT_SUFFIXES = {'.js', '.json', '.css', '.xml', '.md'}
 
@@ -41,14 +45,18 @@ def lint(directory):
     for key in sorted(REQUIRED_KEYS - meta.keys()):
         problems.append(f'missing key {key!r}')
     for key in sorted(meta.keys() - KNOWN_KEYS):
-        problems.append(f'unknown key {key!r}' + (': the Tiler must not run on the lock screen'
-                                                  if key == 'session-modes' else ''))
+        problems.append(f'unknown key {key!r}')
 
     uuid = meta.get('uuid', '')
     if not isinstance(uuid, str) or not re.fullmatch(r'[A-Za-z0-9._-]+@' + re.escape(OWNER_DOMAIN), uuid):
         problems.append(f'uuid {uuid!r} is not NAME@{OWNER_DOMAIN}')
     if meta.get('shell-version') != SUPPORTED_SHELL_VERSIONS:
         problems.append(f'shell-version {meta.get("shell-version")!r} is not exactly {SUPPORTED_SHELL_VERSIONS!r}')
+    modes = meta.get('session-modes', ['user'])
+    if not (isinstance(modes, list) and modes and all(m in ALLOWED_SESSION_MODES for m in modes)
+            and len(set(modes)) == len(modes)):
+        problems.append(f'session-modes {modes!r} is not a subset of {ALLOWED_SESSION_MODES!r}: the Tiler must not run'
+                        ' on the lock screen or the login screen')
     schema = meta.get('settings-schema')
     if schema is not None and not (isinstance(schema, str) and schema.startswith('org.gnome.shell.extensions.')):
         problems.append(f'settings-schema {schema!r} is not under org.gnome.shell.extensions.')
@@ -82,7 +90,10 @@ def self_test():
     cases = [
         ('a good extension', good, {}, 0),
         ('a future shell version', dict(good, **{'shell-version': ['50', '51']}), {}, 1),
-        ('a session-modes key', dict(good, **{'session-modes': ['user', 'unlock-dialog']}), {}, 1),
+        ('the user and tiler-dev session modes', dict(good, **{'session-modes': ['user', 'tiler-dev']}), {}, 0),
+        ('the unlock-dialog session mode', dict(good, **{'session-modes': ['user', 'unlock-dialog']}), {}, 1),
+        ('the gdm session mode', dict(good, **{'session-modes': ['gdm']}), {}, 1),
+        ('an empty session-modes list', dict(good, **{'session-modes': []}), {}, 1),
         ('a uuid under another domain', dict(good, uuid='tiler@example.com'), {}, 1),
         ('a schema outside org.gnome.shell.extensions', dict(good, **{'settings-schema': 'org.example'}), {}, 1),
         ('a missing name', {k: v for k, v in good.items() if k != 'name'}, {}, 1),

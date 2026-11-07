@@ -3,5 +3,6 @@
   "name": "vase hello",
   "description": "The Linux Tiler's first extension: it logs enable and disable and draws one label. A test fixture for the L1 harness, not the Tiler.",
   "shell-version": ["50"],
+  "session-modes": ["user", "tiler-dev"],
   "url": "https://github.com/MaartenHaine/vase-chained"
 }

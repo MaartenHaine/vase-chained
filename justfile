@@ -39,6 +39,17 @@ test-linux:
 l1:
     tools/linux/podman.sh l1
 
+# The L3 dev shell: gnome-shell --devkit in a window on this GNOME desktop, on private buses, loading only
+# vase-gnome/extension (tools/dev-shell.sh explains the isolation). Args: --x11, --debug, or `clean`.
+[linux]
+dev-shell *args:
+    sh tools/dev-shell.sh {{ args }}
+
+# Read-only snapshot of the real desktop, and the comparison of two (the M0a exit check).
+[linux]
+before-after *args:
+    sh tools/before-after.sh {{ args }}
+
 # Assemble dist/vase.app around an already-built binary at `binpath`.
 _bundle binpath ver:
     rm -rf "{{ app }}"

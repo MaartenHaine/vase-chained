@@ -563,8 +563,8 @@ sources, grabs or inhibited windows.
 
 ### M0b: the spikes, in order of kill risk
 
-One finding each in `docs/linux-spike.md` in the fork, feeding round 2 and the engineering defaults. Spike code is
-throwaway JS.
+One finding each in `docs/linux-spike/<S#>.md` in the fork (question, method, evidence, answer, and what it decides),
+feeding round 2 and the engineering defaults. Spike code is throwaway JS, under `spikes/<S#>/`.
 
 | Order | # | Question | Level | Feeds |
 |---|---|---|---|---|

@@ -285,7 +285,8 @@ most behaviour can be tested at L0 with no compositor at all.
 - `shexli`, the extensions.gnome.org static analyser. Tiling Assistant's CI installs it from an unpinned
   git branch (`run-ci.yml`, job `shexli`); pin it to a full commit instead.
 - A metadata lint: `uuid` under the owner's domain, `shell-version` exactly the supported majors (no future
-  versions), no `session-modes` key (the Tiler must not run on the lock screen), and a
+  versions), `session-modes` naming only `user` and the L3 dev shell's `tiler-dev`, never `unlock-dialog` or
+  `gdm` (the Tiler must not run on the lock screen), and a
   `settings-schema` under `org.gnome.shell.extensions.*` if GSettings is used (review guidelines).
   `getSettings()` loads `schemas/` with `SettingsSchemaSource.new_from_directory`, so
   `gschemas.compiled` must be built (`js/extensions/sharedInternals.js:92-111`).
@@ -464,8 +465,9 @@ way back (remove Tiling Assistant from `disabled-extensions`).
   `gsettings set org.gnome.shell disable-user-extensions true` (with `DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus`),
   or `sudo mv /usr/local/share/gnome-shell/extensions/<uuid> /root/`, then log in again on the GDM screen.
   On option B, the second command always works even when dconf is unreachable.
-- **No `session-modes` key:** the Tiler doesn't run on the lock screen, so all its key handling stops while
-  locked (the guidelines' rule for `unlock-dialog`).
+- **No `unlock-dialog` session mode:** the Tiler doesn't run on the lock screen, so all its key handling stops while
+  locked (the guidelines' rule for `unlock-dialog`). `session-modes` may name only `user` and `tiler-dev`, the L3 dev
+  shell's mode (`tools/dev-shell.sh`), which has no unlock dialog; the metadata lint enforces it.
 
 ---
 
