@@ -27,6 +27,10 @@
 #                  as a connection from a new pid.
 #   shell_pids     gnome-shell and mutter-devkit processes of this user
 #   leftovers      processes still carrying a dev shell's TILER_DEV_RUN marker
+#   crash          a line per entry of /var/crash and ~/.local/share/apport (if present): type, size, mtime,
+#                  path. Names, sizes and times only: other users' reports aren't readable. A crash of anything
+#                  the dev shell starts would land here as a .crash report (apport, through kernel.core_pattern),
+#                  which Ubuntu offers to report at the next login
 #
 # Watched vs not: the running host shell itself writes application_state, session-active-history.json and
 # session.gvdb in ~/.local/share/gnome-shell, and the owner's apps write dconf keys all the time. Those changes are
@@ -34,7 +38,8 @@
 # [shell] enabled-extensions, disabled-extensions, disable-user-extensions, allow-extension-installation,
 # development-tools, disable-extension-version-validation; anything under [shell/extensions/...], [mutter...]
 # (the devkit's launchers live in /org/gnome/mutter/), [desktop/screensaver], [desktop/lockdown],
-# [desktop/session] and [settings-daemon/...].
+# [desktop/session] and [settings-daemon/...]. A crash entry that appears or changes is watched too; one that goes
+# away (the owner deleting a report) is listed but isn't.
 set -eu
 
 die() { printf 'before-after: %s\n' "$*" >&2; exit 2; }
@@ -44,6 +49,7 @@ real_home=$(getent passwd "$uid" | cut -d: -f6)
 runtime=/run/user/$uid
 gs_dir=$real_home/.local/share/gnome-shell
 monitors=$real_home/.config/monitors.xml
+apport_dir=$real_home/.local/share/apport
 
 on_desktop() {
 	[ "$uid" -ne 0 ] || die "run this as the desktop user, not root"
@@ -76,7 +82,7 @@ conns() { # user|system
 leftovers() {
 	n=0
 	for e in /proc/[0-9]*/environ; do
-		if tr '\0' '\n' <"$e" 2>/dev/null | grep -q '^TILER_DEV_RUN='; then n=$((n + 1)); fi
+		if tr '\0' '\n' 2>/dev/null <"$e" | grep -q '^TILER_DEV_RUN='; then n=$((n + 1)); fi
 	done
 	printf '%s\n' "$n"
 }
@@ -95,6 +101,14 @@ tree_lines() {
 	)
 }
 
+# One line per entry of the crash report dirs: "crash TYPE SIZE MTIME PATH".
+crash_lines() {
+	for d in /var/crash "$apport_dir"; do
+		[ -d "$d" ] || continue
+		LC_ALL=C find -P "$d" -mindepth 1 -printf 'crash %y %s %Ts %p\n' 2>/dev/null || true
+	done | LC_ALL=C sort
+}
+
 snapshot() {
 	file=$1
 	on_desktop
@@ -107,8 +121,9 @@ snapshot() {
 	dump=$(dconf dump /org/gnome/)
 	session=$(loginctl show-user "$(id -un)" -p Display --value 2>/dev/null || true)
 	tree=$(tree_lines)
+	crashes=$(crash_lines)
 	{
-		printf '# before-after snapshot v1\n'
+		printf '# before-after snapshot v2\n'
 		printf 'taken=%s\n' "$(date -Is)"
 		printf 'dconf_sha256=%s\n' "$(printf '%s\n' "$dump" | sha)"
 		printf 'session=%s\n' "${session:-none}"
@@ -139,8 +154,10 @@ snapshot() {
 		printf 'leftovers=%s\n' "$(leftovers)"
 		printf '%s\n' "$dump" | awk '/^\[.*\]$/ { s = substr($0, 2, length($0) - 2); next } NF { print "dconf", s, $0 }'
 		printf '%s\n' "$tree"
+		[ -z "$crashes" ] || printf '%s\n' "$crashes"
 	} >"$file"
-	grep -v -e '^dconf ' -e '^tree ' "$file"
+	grep -v -e '^dconf ' -e '^tree ' -e '^crash ' "$file"
+	printf 'crash reports: %s\n' "$(printf '%s' "$crashes" | grep -c '^crash f .*\.crash$' || true)"
 }
 
 # Whether a changed line is watched (fails the check) or the expected churn of normal use.
@@ -175,8 +192,8 @@ compare() {
 	b=$2
 	[ -f "$a" ] && [ -f "$b" ] || die "both arguments must be snapshot files"
 	# shellcheck disable=SC2015 # die runs when either file isn't a snapshot
-	head -n1 "$a" | grep -qx '# before-after snapshot v1' && head -n1 "$b" | grep -qx '# before-after snapshot v1' ||
-		die "not before-after snapshots"
+	head -n1 "$a" | grep -qx '# before-after snapshot v2' && head -n1 "$b" | grep -qx '# before-after snapshot v2' ||
+		die "not v2 before-after snapshots (v1 had no crash lines: take a new pair)"
 	tmp=$(mktemp -d "$real_home/.cache/before-after.XXXXXXXX")
 	trap 'rm -rf "$tmp"' EXIT
 	LC_ALL=C sort "$a" >"$tmp/a"
@@ -186,6 +203,9 @@ compare() {
 	: >"$tmp/watched"
 	: >"$tmp/other"
 	while IFS= read -r line; do
+		case $line in
+		'- crash '*) printf '%s\n' "$line" >>"$tmp/other"; continue ;; # a report went away
+		esac
 		if watched "${line#? }"; then
 			printf '%s\n' "$line" >>"$tmp/watched"
 		else

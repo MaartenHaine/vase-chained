@@ -53,3 +53,66 @@ runs to the end. Options for the owner:
 - **(b) Drop L3 now** and use L1 plus the owner's L4 assessment, as the map's fallback says.
 
 Recommendation: (a). The failure is a bug in one check, not evidence against the devkit.
+
+### S11 fix: the mode check without `--list-modes` (2026-11-07, not run yet)
+
+Option (a) above, taken so S11 can run again; it needs its own review first. gnome-shell wasn't started for it.
+
+**What the shell does with a mode** (gnome-shell 50.1 `ui/sessionMode.js` and `misc/fileUtils.js`, read from the
+installed `libshell-18.so`): `_loadModes()` walks `gnome-shell/modes` in each `XDG_DATA_DIRS` entry in order (not
+`XDG_DATA_HOME`), names a mode after its file name up to the first `.json`, keeps the first file of each name that
+`JSON.parse` accepts, skips a failed one without a word, and marks every loaded mode primary. SessionMode's
+constructor then uses `--mode` if that mode is loaded and primary, and `'user'` otherwise.
+
+**Before the start, the shell's own loader** (`tools/mode-check.js`, run with plain gjs in stage C's environment):
+the two files are extracted from `libshell-18.so` at run time and must match pinned sha256s (another build is
+refused until they are read again); four stubs stand in for imports the loader never reads. The check proves the
+mode file is the only file in any modes dir that can define `tiler-dev`, that it sits in the first data dir, that it
+parses the way `_loadMode` parses it (same libgjs and libmozjs-140 as gnome-shell) with no `parentMode`, no
+components and only the extension; then it runs the real `listModes()`, which prints exactly the modes the
+constructor accepts, and the recipe requires `tiler-dev` among them. Tried in a scratch tree: a good file passes;
+broken JSON, a `parentMode`, a second `tiler-dev.json.bak` and a wrong first data dir are each refused, and the real
+loader alone drops the broken file from its list.
+
+**After the start, signs on the private session bus**, polled every 0.2 s; the shell is killed (SIGKILL) at the
+first wrong sign, or if there is no proof 90 s after the start:
+- `org.gnome.keyring.SystemPrompter` has no owner. Only `user` has components, and the keyring component claims
+  that name, so a fallback shows as soon as the components start, before `org.gnome.Shell` is exported.
+- `org.gnome.Shell`'s `Mode` is `tiler-dev`. **This alone proves nothing about the fallback:** `Mode` returns
+  `global.session_mode`, the `--mode` argument (`shellDBus.js`, `get Mode`), not the mode SessionMode settled on.
+  It only proves the option arrived.
+- `GetExtensionInfo(uuid)` says `enabled: true`. That field is whether the uuid is on the extension manager's enabled
+  list, which with the keyfile's `disable-user-extensions=true` is the running mode's `enabledExtensions` and nothing
+  else; `user` has none. It doesn't depend on the extension's own code working. This is the positive proof.
+
+Tried against a fake shell on a private bus: the right signs pass; `Mode` `user`, `enabled: false` and an owned
+keyring prompter are each refused.
+
+**How bad a few seconds in `user` would be.** It can only happen before the kill, since the components start
+inside `_initializeUI()`, before `org.gnome.Shell` exists. On these buses:
+- the polkit agent and the NetworkManager secret agent register with services that aren't on the private system
+  bus, and nothing can activate them, so no authentication or Wi-Fi secret is ever asked for;
+- the keyring prompter claims its name on the private session bus, where the real gnome-keyring-daemon never looks;
+- no ScreenShield, as in `tiler-dev`: `canLock()` asks GDM on the private system bus and gets no answer;
+- the automount manager mounts, once at startup, every volume the volume monitor offers. With
+  `GIO_USE_VOLUME_MONITOR=unix` and no gvfs or udisks on the buses that is fstab entries marked `user`, and this
+  host's fstab has none (its NFS entries are `noauto,x-systemd.automount`);
+- the rest is UI inside the viewer: the fuller panel and quick settings (whose NetworkManager, Bluetooth and power
+  items find nothing on the buses, and whose sound item finds no PulseAudio socket in the private runtime dir),
+  and maybe the welcome dialog; no extension runs.
+Files, the host Wayland socket and PipeWire are the same in both modes. So a short fallback is a nested shell with a
+fuller UI and three agents talking to nobody. The checks keep it short, and the owner's "never in a `user`-parent
+mode" rule still holds for any run that gets past them.
+
+**Crash reports.** Apport writes a report whatever the core ulimit: the `--list-modes` crash came in at `core limit
+0` (`/var/log/apport.log`). A limit of exactly 1 byte is the kernel's own "skip the `core_pattern` pipe" value. Tried
+with an unpackaged copy of `sleep`: at 0, apport was called and ignored it; at 1, the kernel logged
+`RLIMIT_CORE is set to 1, aborting core`, apport wasn't called, and `/var/crash` didn't change. The recipe now runs
+stages B and C under `prlimit --core=1` (soft and hard, so nothing inside can raise it), and stage C refuses if the
+limit isn't 1. A crash still prints its backtrace to `shell.log` (`SHELL_DEBUG=backtrace-segfaults`), but leaves no
+core.
+
+**before-after.sh** now records every entry of `/var/crash` and `~/.local/share/apport` (type, size, mtime, path:
+names only, since other users' reports aren't readable). A report that appears or changes fails the check; one that
+goes away is listed but doesn't. Snapshots are v2, and a v1 snapshot is refused. Both scripts' `/proc/*/environ`
+scans now redirect stderr before opening the file, so permission errors are silent.
