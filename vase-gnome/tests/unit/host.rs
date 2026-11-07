@@ -396,6 +396,40 @@ fn the_kill_chord_restores_every_window_then_says_bye() {
     assert_eq!(ext.host.exit(), Some(Exit::Quit));
 }
 
+/// Accept, hello, then the kill chord with no snapshot: the whole answer to the kill.
+fn kill_in_handshake(ext: &mut Ext) -> Output {
+    ext.seq = 0;
+    ext.ack = 0;
+    let out = ext.host.accept(ext.now);
+    ext.read(out);
+    ext.send("hello", json!({"role": "extension", "instance": "i", "build": "x", "shell": "50.1"}));
+    ext.seq += 1;
+    ext.host.receive(json!({"v": 1, "t": "kill", "seq": ext.seq, "ack": 0}).to_string().as_bytes(), ext.now)
+}
+
+#[test]
+fn the_kill_chord_before_the_snapshot_quits_with_only_a_bye() {
+    // Starting: no daemon yet.
+    let mut ext = Ext::new(None);
+    let out = kill_in_handshake(&mut ext);
+    assert!(out.close);
+    let lines = ext.read(out);
+    assert_eq!(lines.iter().map(|l| l["t"].as_str().unwrap()).collect::<Vec<_>>(), vec!["bye"], "{lines:?}");
+    assert_eq!(lines[0]["reason"], "quit");
+    assert_eq!(ext.host.exit(), Some(Exit::Quit));
+
+    // Disconnected: the frozen daemon restores and quits, but no effect goes out before a snapshot (§4).
+    let mut ext = Ext::new(None);
+    ext.connect("i", windows());
+    ext.host.eof();
+    let out = kill_in_handshake(&mut ext);
+    assert!(out.close);
+    let lines = ext.read(out);
+    assert_eq!(lines.iter().map(|l| l["t"].as_str().unwrap()).collect::<Vec<_>>(), vec!["bye"], "{lines:?}");
+    assert_eq!(lines[0]["reason"], "quit");
+    assert_eq!(ext.host.exit(), Some(Exit::Quit));
+}
+
 #[test]
 fn lines_out_of_order_are_refused() {
     let mut ext = Ext::new(None);

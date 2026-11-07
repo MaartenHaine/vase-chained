@@ -276,7 +276,9 @@ impl Host {
             (_, false, _) => Some("hello first"),
             (Incoming::Hello(_), true, _) => Some("a second hello"),
             (Incoming::Snapshot(_), true, true) => Some("a second snapshot"),
-            (Incoming::Snapshot(_) | Incoming::Measure { .. } | Incoming::Ping | Incoming::Pause | Incoming::Unknown(_), true, _) => None,
+            // The kill chord works in every state (§8), Handshake included: before a snapshot it quits
+            // without the restore's effects, which can't be sent yet (§4).
+            (Incoming::Snapshot(_) | Incoming::Measure { .. } | Incoming::Ping | Incoming::Pause | Incoming::Kill | Incoming::Unknown(_), true, _) => None,
             (_, true, false) => Some("the snapshot first"),
             (_, true, true) => None,
         };

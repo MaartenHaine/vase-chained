@@ -217,7 +217,7 @@ it (§6.1).
 | `t` | Fields | Meaning | Daemon does |
 |---|---|---|---|
 | `end` | `what`: `"prefix"`, `"overlay"`, `"sticky"`; `reason`: `"timeout"`, `"revoked"`, `"focus"`, `"missed_reply"` | The extension ended a state on its own (§8) | prefix: `KeyRouter::disarm` and `Daemon::cancel_prefix` (K1). sticky: `Daemon::end_sticky` (K3). overlay: §12.2. Then a `mode` reply |
-| `kill` | – | The kill chord (Ctrl+Super+Alt+Esc): the extension has already popped every grab | Quitting (§7.1): `restore()`, `bye`, exit |
+| `kill` | – | The kill chord (Ctrl+Super+Alt+Esc): the extension has already popped every grab | Quitting (§7.1): `restore()`, `bye`, exit. Allowed after the extension's `hello` and before its `snapshot` too (Handshake, §7.2): the daemon then quits with only the `bye`, because nothing else may be sent before the snapshot (§4), so the windows stay where they are |
 | `pause` | `paused`: bool | The Pause chord (M6, seam P1) | Reserved in v1: answered with a non-fatal `unsupported` error |
 
 ### 5.6 `measure`
@@ -582,6 +582,8 @@ The core seams have their own unit tests in vase-core (`vase-core/tests/unit/dae
 - **`draw` is one line per answer with only what changed** (§6.7), and hiding everything is every surface `null`; the
   `hide_all` field is gone. The command line and the shortcut sheet have their object shapes.
 - **No `place` for a frame the extension already reports** (§6.1).
+- **`kill` is honoured before the snapshot** (§5.5): it quits with only the `bye`, rather than being an `order` error
+  that would leave tiling running.
 
 Where each L0 check of §11 lives: the line-by-line ones in `vase-gnome/tests/unit/host.rs` (the prefix command and its
 modes, replay order, the timeout, sticky, pending launch, the hint, freezing and thawing, a new instance, SIGTERM,
