@@ -1,0 +1,85 @@
+Outer window is 0x400001, inner window is 0x400002
+
+FocusIn event, serial 25, synthetic NO, window 0x400001,
+    mode NotifyNormal, detail NotifyNonlinear
+
+KeymapNotify event, serial 25, synthetic NO, window 0x0,
+    keys:  84  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   
+           0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   
+
+KeyPress event, serial 25, synthetic NO, window 0x400001,
+    root 0x37b, subw 0x0, time 21142247, (1280,698), root:(1280,800),
+    state 0x0, keycode 53 (keysym 0x78, x), same_screen YES,
+    XLookupString gives 1 bytes: (78) "x"
+    XmbLookupString gives 1 bytes: (78) "x"
+    XFilterEvent returns: False
+
+KeyRelease event, serial 28, synthetic NO, window 0x400001,
+    root 0x37b, subw 0x0, time 21142272, (1280,698), root:(1280,800),
+    state 0x0, keycode 53 (keysym 0x78, x), same_screen YES,
+    XLookupString gives 1 bytes: (78) "x"
+    XFilterEvent returns: False
+
+KeyPress event, serial 28, synthetic NO, window 0x400001,
+    root 0x37b, subw 0x0, time 21142302, (1280,698), root:(1280,800),
+    state 0x0, keycode 51 (keysym 0x5c, backslash), same_screen YES,
+    XLookupString gives 1 bytes: (5c) "\"
+    XmbLookupString gives 1 bytes: (5c) "\"
+    XFilterEvent returns: False
+
+KeyRelease event, serial 28, synthetic NO, window 0x400001,
+    root 0x37b, subw 0x0, time 21142335, (1280,698), root:(1280,800),
+    state 0x0, keycode 51 (keysym 0x5c, backslash), same_screen YES,
+    XLookupString gives 1 bytes: (5c) "\"
+    XFilterEvent returns: False
+
+KeyPress event, serial 28, synthetic NO, window 0x400001,
+    root 0x37b, subw 0x0, time 21142371, (1280,698), root:(1280,800),
+    state 0x0, keycode 20 (keysym 0x2d, minus), same_screen YES,
+    XLookupString gives 1 bytes: (2d) "-"
+    XmbLookupString gives 1 bytes: (2d) "-"
+    XFilterEvent returns: False
+
+KeyRelease event, serial 28, synthetic NO, window 0x400001,
+    root 0x37b, subw 0x0, time 21142428, (1280,698), root:(1280,800),
+    state 0x0, keycode 20 (keysym 0x2d, minus), same_screen YES,
+    XLookupString gives 1 bytes: (2d) "-"
+    XFilterEvent returns: False
+
+KeyPress event, serial 28, synthetic NO, window 0x400001,
+    root 0x37b, subw 0x0, time 21142930, (1280,698), root:(1280,800),
+    state 0x0, keycode 64 (keysym 0xffe9, Alt_L), same_screen YES,
+    XLookupString gives 0 bytes: 
+    XmbLookupString gives 0 bytes: 
+    XFilterEvent returns: False
+
+KeyPress event, serial 28, synthetic NO, window 0x400001,
+    root 0x37b, subw 0x0, time 21143786, (1280,698), root:(1280,800),
+    state 0x0, keycode 64 (keysym 0xffe9, Alt_L), same_screen YES,
+    XLookupString gives 0 bytes: 
+    XmbLookupString gives 0 bytes: 
+    XFilterEvent returns: False
+
+KeyRelease event, serial 28, synthetic NO, window 0x400001,
+    root 0x37b, subw 0x0, time 21144111, (1280,698), root:(1280,800),
+    state 0x0, keycode 51 (keysym 0x5c, backslash), same_screen YES,
+    XLookupString gives 1 bytes: (5c) "\"
+    XFilterEvent returns: False
+
+KeyPress event, serial 28, synthetic NO, window 0x400001,
+    root 0x37b, subw 0x0, time 21144575, (1280,698), root:(1280,800),
+    state 0x0, keycode 64 (keysym 0xffe9, Alt_L), same_screen YES,
+    XLookupString gives 0 bytes: 
+    XmbLookupString gives 0 bytes: 
+    XFilterEvent returns: False
+
+KeyPress event, serial 28, synthetic NO, window 0x400001,
+    root 0x37b, subw 0x0, time 21145145, (1280,698), root:(1280,800),
+    state 0x0, keycode 64 (keysym 0xffe9, Alt_L), same_screen YES,
+    XLookupString gives 0 bytes: 
+    XmbLookupString gives 0 bytes: 
+    XFilterEvent returns: False
+
+FocusOut event, serial 28, synthetic NO, window 0x400001,
+    mode NotifyNormal, detail NotifyNonlinear
+X connection to :2 broken (explicit kill or server shutdown).

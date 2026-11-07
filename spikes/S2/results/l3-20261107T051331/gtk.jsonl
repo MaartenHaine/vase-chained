@@ -1,0 +1,175 @@
+{"im_module": null, "wall": 1794024816.2199306, "gtk": "4.22.4", "kind": "start", "t": 21250.176238233}
+{"kind": "focus-enter", "t": 21250.535378974}
+{"value": true, "kind": "is-active", "t": 21252.360214641}
+{"name": "x", "keycode": 53, "state": 0, "evtime": 21253099, "kind": "key-pressed", "t": 21253.101531357}
+{"text": "x", "kind": "changed", "t": 21253.101792378}
+{"name": "x", "keycode": 53, "state": 0, "evtime": 21253125, "kind": "key-released", "t": 21253.126109595}
+{"name": "backslash", "keycode": 51, "state": 0, "evtime": 21253150, "kind": "key-pressed", "t": 21253.152617372}
+{"text": "x\\", "kind": "changed", "t": 21253.152885513}
+{"name": "backslash", "keycode": 51, "state": 0, "evtime": 21253176, "kind": "key-released", "t": 21253.181825739}
+{"name": "minus", "keycode": 20, "state": 0, "evtime": 21253202, "kind": "key-pressed", "t": 21253.203596006}
+{"text": "x\\-", "kind": "changed", "t": 21253.203882588}
+{"name": "minus", "keycode": 20, "state": 0, "evtime": 21253227, "kind": "key-released", "t": 21253.228705657}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21253653, "kind": "key-pressed", "t": 21253.657089877}
+{"kind": "focus-leave", "t": 21253.67272615}
+{"value": false, "kind": "is-active", "t": 21253.67283848}
+{"kind": "focus-enter", "t": 21253.935911456}
+{"value": true, "kind": "is-active", "t": 21253.936165627}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21254367, "kind": "key-pressed", "t": 21254.37023922}
+{"kind": "focus-leave", "t": 21254.388326013}
+{"value": false, "kind": "is-active", "t": 21254.388465053}
+{"kind": "focus-enter", "t": 21254.619592082}
+{"value": true, "kind": "is-active", "t": 21254.619831333}
+{"name": "backslash", "keycode": 51, "state": 0, "evtime": 21254641, "kind": "key-released", "t": 21254.642341713}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21255090, "kind": "key-pressed", "t": 21255.092085688}
+{"kind": "focus-leave", "t": 21255.123998596}
+{"value": false, "kind": "is-active", "t": 21255.124185567}
+{"kind": "focus-enter", "t": 21255.168817577}
+{"value": true, "kind": "is-active", "t": 21255.169059707}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21255593, "kind": "key-pressed", "t": 21255.596825674}
+{"kind": "focus-leave", "t": 21255.62817669}
+{"value": false, "kind": "is-active", "t": 21255.628294681}
+{"kind": "focus-enter", "t": 21255.686112483}
+{"value": true, "kind": "is-active", "t": 21255.686355424}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21256110, "kind": "key-pressed", "t": 21256.112135743}
+{"kind": "focus-leave", "t": 21256.144811984}
+{"value": false, "kind": "is-active", "t": 21256.144931125}
+{"kind": "focus-enter", "t": 21256.205669759}
+{"value": true, "kind": "is-active", "t": 21256.20591962}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21256631, "kind": "key-pressed", "t": 21256.635448394}
+{"kind": "focus-leave", "t": 21256.663788598}
+{"value": false, "kind": "is-active", "t": 21256.663882039}
+{"kind": "focus-enter", "t": 21256.718265607}
+{"value": true, "kind": "is-active", "t": 21256.718510048}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21257143, "kind": "key-pressed", "t": 21257.146238975}
+{"kind": "focus-leave", "t": 21257.179137007}
+{"value": false, "kind": "is-active", "t": 21257.179248168}
+{"kind": "focus-enter", "t": 21257.253293685}
+{"value": true, "kind": "is-active", "t": 21257.253582716}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21257679, "kind": "key-pressed", "t": 21257.680968232}
+{"kind": "focus-leave", "t": 21257.721319784}
+{"value": false, "kind": "is-active", "t": 21257.721469774}
+{"kind": "focus-enter", "t": 21257.769154876}
+{"value": true, "kind": "is-active", "t": 21257.769395657}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21258197, "kind": "key-pressed", "t": 21258.199159712}
+{"kind": "focus-leave", "t": 21258.240357998}
+{"value": false, "kind": "is-active", "t": 21258.240474408}
+{"kind": "focus-enter", "t": 21258.301482773}
+{"value": true, "kind": "is-active", "t": 21258.301715964}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21258736, "kind": "key-pressed", "t": 21258.74157096}
+{"kind": "focus-leave", "t": 21258.75397622}
+{"value": false, "kind": "is-active", "t": 21258.754113081}
+{"kind": "focus-enter", "t": 21258.968995903}
+{"value": true, "kind": "is-active", "t": 21258.969270444}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21259385, "kind": "key-pressed", "t": 21259.387806835}
+{"kind": "focus-leave", "t": 21259.404603332}
+{"value": false, "kind": "is-active", "t": 21259.404732923}
+{"kind": "focus-enter", "t": 21262.407009896}
+{"value": true, "kind": "is-active", "t": 21262.407261817}
+{"name": "y", "keycode": 29, "state": 0, "evtime": 21262770, "kind": "key-pressed", "t": 21262.771560589}
+{"text": "x\\-y", "kind": "changed", "t": 21262.77179194}
+{"name": "y", "keycode": 29, "state": 0, "evtime": 21262795, "kind": "key-released", "t": 21262.797858045}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21263244, "kind": "key-pressed", "t": 21263.247168799}
+{"kind": "focus-leave", "t": 21263.267997282}
+{"value": false, "kind": "is-active", "t": 21263.268145783}
+{"kind": "focus-enter", "t": 21263.436096918}
+{"value": true, "kind": "is-active", "t": 21263.436341399}
+{"name": "Escape", "keycode": 9, "state": 0, "evtime": 21263452, "kind": "key-released", "t": 21263.453722948}
+{"name": "y", "keycode": 29, "state": 0, "evtime": 21263578, "kind": "key-pressed", "t": 21263.579254632}
+{"text": "x\\-yy", "kind": "changed", "t": 21263.579520633}
+{"name": "y", "keycode": 29, "state": 0, "evtime": 21263604, "kind": "key-released", "t": 21263.606293681}
+{"name": "Control_L", "keycode": 37, "state": 0, "evtime": 21264044, "kind": "key-pressed", "t": 21264.046714569}
+{"state": 4, "kind": "modifiers", "t": 21264.061333608}
+{"name": "Super_L", "keycode": 133, "state": 4, "evtime": 21264059, "kind": "key-pressed", "t": 21264.061413858}
+{"state": 67108868, "kind": "modifiers", "t": 21264.077556943}
+{"name": "Alt_L", "keycode": 64, "state": 67108868, "evtime": 21264075, "kind": "key-pressed", "t": 21264.078667737}
+{"state": 67108876, "kind": "modifiers", "t": 21264.118776809}
+{"name": "Escape", "keycode": 9, "state": 67108876, "evtime": 21264115, "kind": "key-released", "t": 21264.118920539}
+{"name": "Alt_L", "keycode": 64, "state": 67108876, "evtime": 21264141, "kind": "key-released", "t": 21264.144366041}
+{"state": 67108868, "kind": "modifiers", "t": 21264.158502047}
+{"name": "Super_L", "keycode": 133, "state": 67108868, "evtime": 21264156, "kind": "key-released", "t": 21264.158805129}
+{"state": 4, "kind": "modifiers", "t": 21264.173522528}
+{"name": "Control_L", "keycode": 37, "state": 4, "evtime": 21264172, "kind": "key-released", "t": 21264.173600549}
+{"state": 0, "kind": "modifiers", "t": 21264.604064627}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21264602, "kind": "key-pressed", "t": 21264.604147167}
+{"kind": "focus-leave", "t": 21264.623152053}
+{"value": false, "kind": "is-active", "t": 21264.623280234}
+{"kind": "focus-enter", "t": 21264.852296223}
+{"value": true, "kind": "is-active", "t": 21264.852547624}
+{"state": 67108876, "kind": "modifiers", "t": 21264.862573295}
+{"name": "Escape", "keycode": 9, "state": 67108876, "evtime": 21264861, "kind": "key-released", "t": 21264.862652005}
+{"name": "Alt_L", "keycode": 64, "state": 67108876, "evtime": 21264886, "kind": "key-released", "t": 21264.887994577}
+{"state": 67108868, "kind": "modifiers", "t": 21264.904193792}
+{"name": "Super_L", "keycode": 133, "state": 67108868, "evtime": 21264902, "kind": "key-released", "t": 21264.904273542}
+{"state": 4, "kind": "modifiers", "t": 21264.921786332}
+{"name": "Control_L", "keycode": 37, "state": 4, "evtime": 21264917, "kind": "key-released", "t": 21264.921859722}
+{"state": 0, "kind": "modifiers", "t": 21265.35712169}
+{"name": "Super_L", "keycode": 133, "state": 0, "evtime": 21265355, "kind": "key-pressed", "t": 21265.35719808}
+{"state": 67108864, "kind": "modifiers", "t": 21265.397158701}
+{"name": "l", "keycode": 46, "state": 67108864, "evtime": 21265396, "kind": "key-released", "t": 21265.397245041}
+{"name": "Super_L", "keycode": 133, "state": 67108864, "evtime": 21265421, "kind": "key-released", "t": 21265.422597613}
+{"state": 0, "kind": "modifiers", "t": 21265.859592937}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21265858, "kind": "key-pressed", "t": 21265.859658727}
+{"kind": "focus-leave", "t": 21265.87523169}
+{"value": false, "kind": "is-active", "t": 21265.87534392}
+{"kind": "focus-enter", "t": 21266.085028052}
+{"value": true, "kind": "is-active", "t": 21266.085260193}
+{"state": 67108864, "kind": "modifiers", "t": 21266.1069714}
+{"name": "Super_L", "keycode": 133, "state": 67108864, "evtime": 21266105, "kind": "key-released", "t": 21266.10705227}
+{"state": 0, "kind": "modifiers", "t": 21266.226041508}
+{"name": "Escape", "keycode": 9, "state": 0, "evtime": 21266221, "kind": "key-pressed", "t": 21266.226108068}
+{"name": "Escape", "keycode": 9, "state": 0, "evtime": 21266246, "kind": "key-released", "t": 21266.256141339}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21266713, "kind": "key-pressed", "t": 21266.823467157}
+{"kind": "focus-leave", "t": 21266.976936643}
+{"value": false, "kind": "is-active", "t": 21266.977051794}
+{"kind": "focus-enter", "t": 21267.506410509}
+{"value": true, "kind": "is-active", "t": 21267.50664891}
+{"name": "Escape", "keycode": 9, "state": 0, "evtime": 21267531, "kind": "key-released", "t": 21267.532247493}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21267995, "kind": "key-pressed", "t": 21268.145215394}
+{"kind": "focus-leave", "t": 21268.145394654}
+{"value": false, "kind": "is-active", "t": 21268.145442775}
+{"kind": "focus-enter", "t": 21268.409450124}
+{"value": true, "kind": "is-active", "t": 21268.409687395}
+{"state": 67108876, "kind": "modifiers", "t": 21268.515220429}
+{"name": "Escape", "keycode": 9, "state": 67108876, "evtime": 21268430, "kind": "key-released", "t": 21268.515285289}
+{"name": "Alt_L", "keycode": 64, "state": 67108876, "evtime": 21268473, "kind": "key-released", "t": 21268.554247015}
+{"state": 67108868, "kind": "modifiers", "t": 21269.198604023}
+{"name": "Super_L", "keycode": 133, "state": 67108868, "evtime": 21268504, "kind": "key-released", "t": 21269.198669213}
+{"state": 4, "kind": "modifiers", "t": 21269.380246432}
+{"name": "Control_L", "keycode": 37, "state": 4, "evtime": 21269194, "kind": "key-released", "t": 21269.380312652}
+{"state": 0, "kind": "modifiers", "t": 21269.933448313}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21269821, "kind": "key-pressed", "t": 21269.933513593}
+{"kind": "focus-leave", "t": 21269.933680024}
+{"value": false, "kind": "is-active", "t": 21269.933727184}
+{"kind": "focus-enter", "t": 21270.574270635}
+{"value": true, "kind": "is-active", "t": 21270.574493516}
+{"name": "z", "keycode": 52, "state": 0, "evtime": 21271138, "kind": "key-pressed", "t": 21271.281233144}
+{"text": "x\\-yyz", "kind": "changed", "t": 21271.281499075}
+{"name": "z", "keycode": 52, "state": 0, "evtime": 21271165, "kind": "key-released", "t": 21271.281595955}
+{"name": "z", "keycode": 52, "state": 0, "evtime": 21271195, "kind": "key-pressed", "t": 21271.281670836}
+{"text": "x\\-yyzz", "kind": "changed", "t": 21271.281738016}
+{"name": "z", "keycode": 52, "state": 0, "evtime": 21271223, "kind": "key-released", "t": 21271.281774126}
+{"name": "Shift_L", "keycode": 50, "state": 0, "evtime": 21271807, "kind": "key-pressed", "t": 21271.932701759}
+{"state": 1, "kind": "modifiers", "t": 21271.988860285}
+{"name": "Left", "keycode": 113, "state": 1, "evtime": 21271968, "kind": "key-released", "t": 21271.988932505}
+{"name": "Shift_L", "keycode": 50, "state": 1, "evtime": 21271995, "kind": "key-released", "t": 21272.067989432}
+{"state": 0, "kind": "modifiers", "t": 21272.068125813}
+{"name": "q", "keycode": 24, "state": 0, "evtime": 21272011, "kind": "key-pressed", "t": 21272.068146693}
+{"text": "x\\-yyzzq", "kind": "changed", "t": 21272.068343624}
+{"name": "q", "keycode": 24, "state": 0, "evtime": 21272059, "kind": "key-released", "t": 21272.068419904}
+{"name": "Shift_L", "keycode": 50, "state": 0, "evtime": 21272145, "kind": "key-pressed", "t": 21272.192217281}
+{"state": 1, "kind": "modifiers", "t": 21272.192362282}
+{"name": "Left", "keycode": 113, "state": 1, "evtime": 21272162, "kind": "key-pressed", "t": 21272.192391192}
+{"name": "Left", "keycode": 113, "state": 1, "evtime": 21272192, "kind": "key-released", "t": 21272.24427093}
+{"name": "Shift_L", "keycode": 50, "state": 1, "evtime": 21272218, "kind": "key-released", "t": 21272.244402891}
+{"state": 0, "kind": "modifiers", "t": 21272.850218633}
+{"name": "Shift_L", "keycode": 50, "state": 0, "evtime": 21272681, "kind": "key-pressed", "t": 21272.850282163}
+{"state": 1, "kind": "modifiers", "t": 21272.898119295}
+{"name": "Shift_L", "keycode": 50, "state": 1, "evtime": 21272845, "kind": "key-released", "t": 21272.898185885}
+{"state": 0, "kind": "modifiers", "t": 21272.898282276}
+{"name": "q", "keycode": 24, "state": 0, "evtime": 21272875, "kind": "key-pressed", "t": 21272.898299856}
+{"text": "x\\-yyzzq", "kind": "changed", "t": 21272.898576767}
+{"name": "q", "keycode": 24, "state": 0, "evtime": 21272920, "kind": "key-released", "t": 21272.991160229}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21273399, "kind": "key-pressed", "t": 21273.410212561}
+{"kind": "focus-leave", "t": 21273.487345601}
+{"value": false, "kind": "is-active", "t": 21273.487460651}

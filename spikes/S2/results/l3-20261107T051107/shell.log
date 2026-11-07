@@ -1,0 +1,211 @@
+libmutter-Message: 05:11:11.493: Running GNOME Shell (using mutter 50.1) as a Wayland display server
+
+(gnome-shell:1020932): libmutter-WARNING **: 05:11:11.494: Unknown experimental feature 'scale-monitor-framebuffer'
+
+(gnome-shell:1020932): libmutter-WARNING **: 05:11:11.494: Unknown experimental feature 'xwayland-native-scaling'
+libmutter-Message: 05:11:11.734: Added device '/dev/dri/renderD128' (nvidia-drm) using no mode setting.
+libmutter-Message: 05:11:11.768: Added device '/dev/dri/renderD129' (amdgpu) using no mode setting.
+libmutter-Message: 05:11:11.770: Created gbm renderer for '/dev/dri/renderD128'
+libmutter-Message: 05:11:11.772: Created gbm renderer for '/dev/dri/renderD129'
+libmutter-Message: 05:11:11.772: Boot VGA GPU /dev/dri/renderD128 selected as primary
+** Message: 05:11:11.773: Obtained a high priority EGL context
+libmutter-Message: 05:11:11.795: Using public X11 display :2, (using unix:/tmp/.X11-unix/X3 for managed services)
+libmutter-Message: 05:11:11.795: Using Wayland display name 'wayland-0'
+
+(gnome-shell:1020932): libmutter-WARNING **: 05:11:11.862: There is no colord server available
+== Stack trace for context 0x606fcd59d360 ==
+#0   606fcd69e268 i   resource:///org/gnome/shell/ui/init.js:20 (1a2c3f58d8d0 @ 48)
+GNOME Shell-Message: 05:11:12.378: Registering session with GDM
+GNOME Shell-Message: 05:11:12.386: Error registering session with GDM: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.DisplayManager was not provided by any .service files
+
+(gnome-shell:1020932): GNOME Shell-WARNING **: 05:11:12.402: Failed to inhibit suspend: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+== Stack trace for context 0x606fcd59d360 ==
+#0   7ffee21c4db0 b   resource:///org/gnome/gjs/modules/core/overrides/GLib.js:359 (1a2c3f5abb00 @ 718)
+#1   606fcd69e508 i   resource:///org/gnome/gjs/modules/esm/console.js:599 (1a2c3f583e20 @ 2160)
+#2   7ffee21c5720 b   resource:///org/gnome/gjs/modules/esm/console.js:396 (1a2c3f583d80 @ 320)
+#3   606fcd69e448 i   resource:///org/gnome/gjs/modules/esm/console.js:183 (1a2c3f583880 @ 39)
+#4   606fcd69e398 i   resource:///org/gnome/shell/misc/timeLimitsManager.js:471 (2f0a3cd5b740 @ 245)
+#5   606fcd69e2f8 i   self-hosted:805 (2f0a3cd70c90 @ 15)
+#6   606fcd69e268 i   resource:///org/gnome/shell/ui/init.js:20 (1a2c3f58d8d0 @ 48)
+
+(gnome-shell:1020932): GNOME Shell-CRITICAL **: 05:11:12.404: Could not get a proxy for user 1000: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+
+Stack trace:
+  asyncCallback@resource:///org/gnome/gjs/modules/core/overrides/Gio.js:115:23
+  @resource:///org/gnome/shell/ui/init.js:20:20
+  
+== Stack trace for context 0x606fcd59d360 ==
+#0   7ffee21c4bd0 b   resource:///org/gnome/gjs/modules/core/overrides/GLib.js:359 (1a2c3f5abb00 @ 718)
+#1   606fcd69e5c8 i   resource:///org/gnome/gjs/modules/esm/console.js:599 (1a2c3f583e20 @ 2160)
+#2   7ffee21c55b0 b   resource:///org/gnome/gjs/modules/esm/console.js:402 (1a2c3f583d80 @ 405)
+#3   606fcd69e508 i   resource:///org/gnome/gjs/modules/esm/console.js:139 (1a2c3f5836f0 @ 39)
+#4   606fcd69e450 i   resource:///org/gnome/shell/ui/main.js:175 (1a2c3f5fb600 @ 227)
+#5   606fcd69e398 i   resource:///org/gnome/shell/misc/loginManager.js:136 (25b5021414c0 @ 510)
+#6   606fcd69e2f8 i   self-hosted:805 (2f0a3cd70c90 @ 15)
+#7   606fcd69e268 i   resource:///org/gnome/shell/ui/init.js:20 (1a2c3f58d8d0 @ 48)
+
+(gnome-shell:1020932): GNOME Shell-WARNING **: 05:11:12.405: Failed to start state machine: can't access property "connectObject", this._loginUser is null
+== Stack trace for context 0x606fcd59d360 ==
+#0   7ffee21c4980 b   resource:///org/gnome/gjs/modules/core/overrides/GLib.js:359 (1a2c3f5abb00 @ 718)
+#1   7ffee21c5140 b   resource:///org/gnome/gjs/modules/esm/console.js:599 (1a2c3f583e20 @ 2160)
+#2   7ffee21c5880 b   resource:///org/gnome/gjs/modules/esm/console.js:396 (1a2c3f583d80 @ 320)
+#3   606fcd69e388 i   resource:///org/gnome/gjs/modules/esm/console.js:183 (1a2c3f583880 @ 39)
+#4   606fcd69e2f8 i   resource:///org/gnome/shell/misc/timeLimitsManager.js:323 (2f0a3cd5b4c0 @ 27)
+#5   606fcd69e268 i   resource:///org/gnome/shell/ui/init.js:20 (1a2c3f58d8d0 @ 48)
+
+(gnome-shell:1020932): accountsservice-WARNING **: 05:11:12.408: ActUserManager: user (null) has no username (uid: -1)
+== Stack trace for context 0x606fcd59d360 ==
+#0   606fcd69e268 i   resource:///org/gnome/shell/ui/init.js:20 (1a2c3f58d8d0 @ 48)
+GNOME Shell-Message: 05:11:12.415: [s2] enable
+portal is not running: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.portal.IBus was not provided by any .service files
+
+(gnome-shell:1020932): GNOME Shell-CRITICAL **: 05:11:12.589: TypeError: can't access property "join", this._xkbOptions is undefined
+
+Stack trace:
+  _buildOptionsString@resource:///org/gnome/shell/misc/keyboardManager.js:208:25
+  _updateCurrentKeymap@resource:///org/gnome/shell/misc/keyboardManager.js:58:30
+  _doApply@resource:///org/gnome/shell/misc/keyboardManager.js:107:18
+  apply@resource:///org/gnome/shell/misc/keyboardManager.js:126:14
+  activateInputSource@resource:///org/gnome/shell/ui/status/keyboard.js:511:31
+  _callHandlers@resource:///org/gnome/gjs/modules/core/_signals.js:130:42
+  _emit@resource:///org/gnome/gjs/modules/core/_signals.js:119:10
+  activate@resource:///org/gnome/shell/ui/status/keyboard.js:63:14
+  _inputSourcesChanged@resource:///org/gnome/shell/ui/status/keyboard.js:657:33
+  _ibusReadyCallback@resource:///org/gnome/shell/ui/status/keyboard.js:404:14
+  _callHandlers@resource:///org/gnome/gjs/modules/core/_signals.js:130:42
+  _emit@resource:///org/gnome/gjs/modules/core/_signals.js:119:10
+  _updateReadiness@resource:///org/gnome/shell/misc/ibusManager.js:231:14
+  _initPanelService@resource:///org/gnome/shell/misc/ibusManager.js:218:14
+  async*_onConnected@resource:///org/gnome/shell/misc/ibusManager.js:164:14
+  @resource:///org/gnome/shell/ui/init.js:20:20
+  
+== Stack trace for context 0x606fcd59d360 ==
+#0   7ffee21c54c0 b   resource:///org/gnome/gjs/modules/core/overrides/GLib.js:359 (1a2c3f5abb00 @ 718)
+#1   7ffee21c55f0 b   resource:///org/gnome/gjs/modules/esm/console.js:599 (1a2c3f583e20 @ 2160)
+#2   7ffee21c5710 b   resource:///org/gnome/gjs/modules/esm/console.js:396 (1a2c3f583d80 @ 320)
+#3   606fcd69e3d0 i   resource:///org/gnome/gjs/modules/esm/console.js:139 (1a2c3f5836f0 @ 39)
+#4   606fcd69e318 i   resource:///org/gnome/shell/ui/main.js:175 (1a2c3f5fb600 @ 227)
+#5   606fcd69e268 i   resource:///org/gnome/shell/ui/init.js:20 (1a2c3f58d8d0 @ 48)
+libmutter-Message: 05:11:12.820: Added virtual monitor Meta-0
+GNOME Shell-Message: 05:11:14.066: GNOME Shell started at Sat Nov 07 2026 05:11:12 GMT+0100 (Central European Standard Time)
+GNOME Shell-Message: 05:11:14.066: Registering display with GDM
+GNOME Shell-Message: 05:11:14.067: [s2] {"ev":"note","what":"start","keymap":{"xkbOptions":"undefined","currentKeymap":null,"shortName":"en","ibusReady":true,"sources":["xkb:us"]},"im":{"imFocus":false,"ibusContext":true,"inputSource":"us"},"display":":2","wayland":"wayland-0","t":21108023798}
+GNOME Shell-Message: 05:11:14.067: [s2] {"ev":"note","what":"ibus","im":{"imFocus":false,"ibusContext":true,"inputSource":"us"},"keymap":{"xkbOptions":"undefined","currentKeymap":null,"shortName":"en","ibusReady":true,"sources":["xkb:us"]},"t":21108023940}
+GNOME Shell-Message: 05:11:14.068: [s2] {"ev":"note","what":"setup","altA":129,"superL":130,"killAction":131,"t":21108024528}
+GNOME Shell-Message: 05:11:14.089: [s2] {"ev":"note","what":"spawned","cmd":"WAYLAND_DEBUG=1 exec /usr/bin/python3 -I /home/martin/.cache/tiler-dev.lNQMf09c/share/gnome-shell/extensions/vase-s2@maartenhaine.github.io/probe_gtk.py /home/martin/.cache/tiler-dev.lNQMf09c/home/s2/gtk.jsonl 2>/home/martin/.cache/tiler-dev.lNQMf09c/home/s2/gtk-wayland.log","t":21108045757}
+GNOME Shell-Message: 05:11:14.104: [s2] {"ev":"note","what":"spawned","cmd":"exec /usr/bin/ghostty --gtk-single-instance=false --title=s2-ghostty -e /usr/bin/python3 -I /home/martin/.cache/tiler-dev.lNQMf09c/share/gnome-shell/extensions/vase-s2@maartenhaine.github.io/bytelog.py /home/martin/.cache/tiler-dev.lNQMf09c/home/s2/ghostty.jsonl >/home/martin/.cache/tiler-dev.lNQMf09c/home/s2/ghostty.log 2>&1","t":21108061038}
+GNOME Shell-Message: 05:11:14.118: [s2] {"ev":"note","what":"spawned","cmd":"exec /usr/bin/stdbuf -oL /usr/bin/xev -name s2-xev -event keyboard -event focus >/home/martin/.cache/tiler-dev.lNQMf09c/home/s2/xev.log 2>&1","t":21108074080}
+GNOME Shell-Message: 05:11:14.140: Error registering display with GDM: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.DisplayManager was not provided by any .service files
+
+(gnome-shell:1020932): GNOME Shell-CRITICAL **: 05:11:14.547: TypeError: can't access property "join", this._xkbOptions is undefined
+
+Stack trace:
+  _buildOptionsString@resource:///org/gnome/shell/misc/keyboardManager.js:208:25
+  _updateCurrentKeymap@resource:///org/gnome/shell/misc/keyboardManager.js:58:30
+  _doApply@resource:///org/gnome/shell/misc/keyboardManager.js:107:18
+  apply@resource:///org/gnome/shell/misc/keyboardManager.js:126:14
+  activateInputSource@resource:///org/gnome/shell/ui/status/keyboard.js:511:31
+  _callHandlers@resource:///org/gnome/gjs/modules/core/_signals.js:130:42
+  _emit@resource:///org/gnome/gjs/modules/core/_signals.js:119:10
+  activate@resource:///org/gnome/shell/ui/status/keyboard.js:63:14
+  _inputSourcesChanged@resource:///org/gnome/shell/ui/status/keyboard.js:657:33
+  _ibusReadyCallback@resource:///org/gnome/shell/ui/status/keyboard.js:404:14
+  _callHandlers@resource:///org/gnome/gjs/modules/core/_signals.js:130:42
+  _emit@resource:///org/gnome/gjs/modules/core/_signals.js:119:10
+  _clear@resource:///org/gnome/shell/misc/ibusManager.js:158:14
+  @resource:///org/gnome/shell/ui/init.js:20:20
+  
+== Stack trace for context 0x606fcd59d360 ==
+#0   7ffee21c54c0 b   resource:///org/gnome/gjs/modules/core/overrides/GLib.js:359 (1a2c3f5abb00 @ 718)
+#1   7ffee21c55f0 b   resource:///org/gnome/gjs/modules/esm/console.js:599 (1a2c3f583e20 @ 2160)
+#2   7ffee21c5710 b   resource:///org/gnome/gjs/modules/esm/console.js:396 (1a2c3f583d80 @ 320)
+#3   606fcd69e3d0 i   resource:///org/gnome/gjs/modules/esm/console.js:139 (1a2c3f5836f0 @ 39)
+#4   606fcd69e318 i   resource:///org/gnome/shell/ui/main.js:175 (1a2c3f5fb600 @ 227)
+#5   606fcd69e268 i   resource:///org/gnome/shell/ui/init.js:20 (1a2c3f58d8d0 @ 48)
+portal is not running: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.portal.IBus was not provided by any .service files
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Unsupported maximum keycode 708, clipping.
+>                   X11 cannot support keycodes above 255.
+> Warning:          Virtual modifier Hyper multiply defined
+>                   Using 0, ignoring 0
+> Warning:          Virtual modifier ScrollLock multiply defined
+>                   Using 0, ignoring 0
+Errors from xkbcomp are not fatal to the X server
+
+(gnome-shell:1020932): GNOME Shell-CRITICAL **: 05:11:14.608: TypeError: can't access property "join", this._xkbOptions is undefined
+
+Stack trace:
+  _buildOptionsString@resource:///org/gnome/shell/misc/keyboardManager.js:208:25
+  _updateCurrentKeymap@resource:///org/gnome/shell/misc/keyboardManager.js:58:30
+  _doApply@resource:///org/gnome/shell/misc/keyboardManager.js:107:18
+  apply@resource:///org/gnome/shell/misc/keyboardManager.js:126:14
+  activateInputSource@resource:///org/gnome/shell/ui/status/keyboard.js:511:31
+  _callHandlers@resource:///org/gnome/gjs/modules/core/_signals.js:130:42
+  _emit@resource:///org/gnome/gjs/modules/core/_signals.js:119:10
+  activate@resource:///org/gnome/shell/ui/status/keyboard.js:63:14
+  _inputSourcesChanged@resource:///org/gnome/shell/ui/status/keyboard.js:657:33
+  _ibusReadyCallback@resource:///org/gnome/shell/ui/status/keyboard.js:404:14
+  _callHandlers@resource:///org/gnome/gjs/modules/core/_signals.js:130:42
+  _emit@resource:///org/gnome/gjs/modules/core/_signals.js:119:10
+  _updateReadiness@resource:///org/gnome/shell/misc/ibusManager.js:231:14
+  _initPanelService@resource:///org/gnome/shell/misc/ibusManager.js:218:14
+  async*_onConnected@resource:///org/gnome/shell/misc/ibusManager.js:164:14
+  @resource:///org/gnome/shell/ui/init.js:20:20
+  
+== Stack trace for context 0x606fcd59d360 ==
+#0   7ffee21c54c0 b   resource:///org/gnome/gjs/modules/core/overrides/GLib.js:359 (1a2c3f5abb00 @ 718)
+#1   7ffee21c55f0 b   resource:///org/gnome/gjs/modules/esm/console.js:599 (1a2c3f583e20 @ 2160)
+#2   7ffee21c5710 b   resource:///org/gnome/gjs/modules/esm/console.js:396 (1a2c3f583d80 @ 320)
+#3   606fcd69e3d0 i   resource:///org/gnome/gjs/modules/esm/console.js:139 (1a2c3f5836f0 @ 39)
+#4   606fcd69e318 i   resource:///org/gnome/shell/ui/main.js:175 (1a2c3f5fb600 @ 227)
+#5   606fcd69e268 i   resource:///org/gnome/shell/ui/init.js:20 (1a2c3f58d8d0 @ 48)
+*** BUG ***
+In pixman_region32_init_rect: Invalid rectangle passed
+Set a breakpoint on '_pixman_log_error' to debug
+
+*** BUG ***
+In pixman_region32_init_rect: Invalid rectangle passed
+Set a breakpoint on '_pixman_log_error' to debug
+
+GNOME Shell-Message: 05:11:17.402: [s2] {"ev":"scenario-start","t":21111358378,"scenario":"baseline","target":"gtk"}
+GNOME Shell-Message: 05:11:17.961: [s2] {"ev":"scenario-start","t":21111917495,"scenario":"prefix-slow","target":"gtk"}
+GNOME Shell-Message: 05:11:18.679: [s2] {"ev":"scenario-start","t":21112635121,"scenario":"prefix-slow-pop-on-press","target":"gtk"}
+GNOME Shell-Message: 05:11:19.395: [s2] {"ev":"scenario-start","t":21113351165,"scenario":"fast-0ms","target":"gtk"}
+GNOME Shell-Message: 05:11:19.898: [s2] {"ev":"scenario-start","t":21113854472,"scenario":"fast-2ms","target":"gtk"}
+GNOME Shell-Message: 05:11:20.410: [s2] {"ev":"scenario-start","t":21114366710,"scenario":"fast-5ms","target":"gtk"}
+GNOME Shell-Message: 05:11:20.914: [s2] {"ev":"scenario-start","t":21114870153,"scenario":"fast-10ms","target":"gtk"}
+GNOME Shell-Message: 05:11:21.428: [s2] {"ev":"scenario-start","t":21115384231,"scenario":"fast-20ms","target":"gtk"}
+GNOME Shell-Message: 05:11:21.963: [s2] {"ev":"scenario-start","t":21115919975,"scenario":"fast-5ms-blocked","target":"gtk"}
+GNOME Shell-Message: 05:11:22.476: [s2] {"ev":"scenario-start","t":21116431792,"scenario":"fast-10ms-blocked","target":"gtk"}
+GNOME Shell-Message: 05:11:22.999: [s2] {"ev":"scenario-start","t":21116955748,"scenario":"keys-before-pop","target":"gtk"}
+GNOME Shell-Message: 05:11:23.661: [s2] {"ev":"scenario-start","t":21117617209,"scenario":"timeout","target":"gtk"}
+GNOME Shell-Message: 05:11:27.517: [s2] {"ev":"scenario-start","t":21121473099,"scenario":"escape","target":"gtk"}
+GNOME Shell-Message: 05:11:28.321: [s2] {"ev":"scenario-start","t":21122278071,"scenario":"kill-chord-outside-grab","target":"gtk"}
+GNOME Shell-Message: 05:11:28.885: [s2] {"ev":"scenario-start","t":21122841257,"scenario":"kill-chord-in-none-grab","target":"gtk"}
+GNOME Shell-Message: 05:11:29.638: [s2] {"ev":"scenario-start","t":21123594502,"scenario":"super-l-outside-grab","target":"gtk"}
+GNOME Shell-Message: 05:11:30.137: [s2] {"ev":"scenario-start","t":21124093138,"scenario":"super-l-in-none-grab","target":"gtk"}
+GNOME Shell-Message: 05:11:30.969: [s2] {"ev":"scenario-start","t":21124925694,"scenario":"normal-grab-super-l-and-alt-a","target":"gtk"}
+GNOME Shell-Message: 05:11:32.005: [s2] {"ev":"scenario-start","t":21125961581,"scenario":"normal-grab-kill-chord","target":"gtk"}
+GNOME Shell-Message: 05:11:32.815: [s2] {"ev":"scenario-start","t":21126771273,"scenario":"revoked-by-modal","target":"gtk"}
+GNOME Shell-Message: 05:11:33.000: [s2] {"ev":"note","what":"pushed second modal","prefixRevoked":true,"t":21126956149,"scenario":"revoked-by-modal","target":"gtk"}
+GNOME Shell-Message: 05:11:33.252: [s2] {"ev":"note","what":"popped second modal","prefixRevoked":false,"t":21127208388,"scenario":"revoked-by-modal","target":"gtk"}
+GNOME Shell-Message: 05:11:33.833: [s2] {"ev":"scenario-start","t":21127789409,"scenario":"observe-without-grab","target":"gtk"}
+GNOME Shell-Message: 05:11:34.516: [s2] {"ev":"scenario-start","t":21128472150,"scenario":"temporary-accelerator","target":"gtk"}
+GNOME Shell-Message: 05:11:34.722: [s2] {"ev":"note","what":"ungrabbed Shift+Left","t":21128678351,"scenario":"temporary-accelerator","target":"gtk"}
+GNOME Shell-Message: 05:11:35.385: [s2] {"ev":"scenario-start","t":21129341160,"scenario":"normal-grab-alt-tab","target":"gtk"}
+GNOME Shell-Message: 05:11:36.736: [s2] {"ev":"note","what":"after alt-tab","focus":"s2-ghostty","prefixArmed":true,"prefixRevoked":false,"t":21130692516,"scenario":"normal-grab-alt-tab","target":"gtk"}
+GNOME Shell-Message: 05:11:38.886: [s2] {"ev":"scenario-start","t":21132842338,"scenario":"baseline","target":"ghostty"}
+GNOME Shell-Message: 05:11:39.641: [s2] {"ev":"scenario-start","t":21133597165,"scenario":"prefix-slow","target":"ghostty"}
+GNOME Shell-Message: 05:11:40.865: [s2] {"ev":"scenario-start","t":21134821434,"scenario":"prefix-slow-pop-on-press","target":"ghostty"}
+GNOME Shell-Message: 05:11:43.135: [s2] {"ev":"scenario-start","t":21137033387,"scenario":"fast-5ms","target":"ghostty"}
+GNOME Shell-Message: 05:11:44.705: [s2] {"ev":"scenario-start","t":21138661038,"scenario":"fast-10ms","target":"ghostty"}
+GNOME Shell-Message: 05:11:48.250: [s2] {"ev":"scenario-start","t":21142206501,"scenario":"baseline","target":"xev"}
+GNOME Shell-Message: 05:11:48.928: [s2] {"ev":"scenario-start","t":21142884195,"scenario":"prefix-slow","target":"xev"}
+GNOME Shell-Message: 05:11:49.801: [s2] {"ev":"scenario-start","t":21143758081,"scenario":"prefix-slow-pop-on-press","target":"xev"}
+GNOME Shell-Message: 05:11:50.617: [s2] {"ev":"scenario-start","t":21144572512,"scenario":"fast-5ms","target":"xev"}
+GNOME Shell-Message: 05:11:51.188: [s2] {"ev":"scenario-start","t":21145144472,"scenario":"fast-10ms","target":"xev"}
+GNOME Shell-Message: 05:11:51.748: [s2] {"ev":"note","what":"done","keymap":{"xkbOptions":"undefined","currentKeymap":null,"shortName":"en","ibusReady":true,"sources":["xkb:us"]},"im":{"imFocus":false,"ibusContext":true,"inputSource":"us"},"t":21145704685}
+GNOME Shell-Message: 05:11:51.761: [s2] DONE
+** Message: 05:11:53.262: Shutting down GNOME Shell
+libmutter-Message: 05:11:53.317: Removed virtual monitor Meta-0
+ 05:11:53 | INFO | Disconnected by EIS

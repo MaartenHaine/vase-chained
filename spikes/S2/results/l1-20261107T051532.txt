@@ -1,0 +1,982 @@
+s2-l1: S2_PROBE=1
+gir1.2-gtk-4.0:amd64	4.22.4+ds-0ubuntu0.1
+gjs	1.88.0-1
+gnome-shell	50.1-0ubuntu1.5
+ibus	
+libmutter-18-0:amd64	50.1-0ubuntu2.5
+python3-gi	3.56.2-1
+s2-l1: shell exit 0
+=== shell.log (s2, errors)
+(gnome-shell:26): GNOME Shell-CRITICAL **: 04:15:37.242: Could not get a proxy for user 1000: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+GNOME Shell-Message: 04:15:38.892: [s2] {"ev":"note","what":"start","keymap":{"xkbOptions":[],"currentKeymap":{"layouts":"us,us","variants":",","options":"","model":"pc105+inet","displayNames":["English (US)"],"shortNames":["en"]},"shortName":"en","ibusReady":false,"sources":["xkb:us"]},"im":{"imFocus":false,"ibusContext":false,"inputSource":"us"},"mode":"user","t":21372848555}
+GNOME Shell-Message: 04:15:38.893: [s2] {"ev":"note","what":"setup","altA":129,"superL":130,"killAction":131,"t":21372849320}
+GNOME Shell-Message: 04:15:38.915: [s2] {"ev":"note","what":"spawned","cmd":"WAYLAND_DEBUG=1 exec /usr/bin/python3 -I /var/tmp/l1/tmp.I5htHzznwu/ext/probe_gtk.py /var/tmp/l1/tmp.I5htHzznwu/out/gtk.jsonl 2>/var/tmp/l1/tmp.I5htHzznwu/out/gtk-wayland.log","t":21372871109}
+GNOME Shell-Message: 04:15:41.711: [s2] {"ev":"scenario-start","t":21375667298,"scenario":"baseline","target":"l1-client"}
+GNOME Shell-Message: 04:15:42.267: [s2] {"ev":"scenario-start","t":21376223459,"scenario":"prefix-slow","target":"l1-client"}
+GNOME Shell-Message: 04:15:42.972: [s2] {"ev":"scenario-start","t":21376928476,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+GNOME Shell-Message: 04:15:43.670: [s2] {"ev":"scenario-start","t":21377626874,"scenario":"fast-0ms","target":"l1-client"}
+GNOME Shell-Message: 04:15:44.183: [s2] {"ev":"scenario-start","t":21378139853,"scenario":"fast-5ms","target":"l1-client"}
+GNOME Shell-Message: 04:15:44.749: [s2] {"ev":"scenario-start","t":21378705871,"scenario":"fast-10ms","target":"l1-client"}
+GNOME Shell-Message: 04:15:45.262: [s2] {"ev":"scenario-start","t":21379218475,"scenario":"fast-5ms-blocked","target":"l1-client"}
+GNOME Shell-Message: 04:15:45.773: [s2] {"ev":"scenario-start","t":21379729584,"scenario":"fast-10ms-blocked","target":"l1-client"}
+GNOME Shell-Message: 04:15:46.286: [s2] {"ev":"scenario-start","t":21380242478,"scenario":"keys-before-pop","target":"l1-client"}
+GNOME Shell-Message: 04:15:46.935: [s2] {"ev":"scenario-start","t":21380891918,"scenario":"timeout","target":"l1-client"}
+GNOME Shell-Message: 04:15:50.770: [s2] {"ev":"scenario-start","t":21384725809,"scenario":"escape","target":"l1-client"}
+GNOME Shell-Message: 04:15:51.558: [s2] {"ev":"scenario-start","t":21385514593,"scenario":"kill-chord-outside-grab","target":"l1-client"}
+GNOME Shell-Message: 04:15:52.103: [s2] {"ev":"scenario-start","t":21386059680,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+GNOME Shell-Message: 04:15:52.828: [s2] {"ev":"scenario-start","t":21386784747,"scenario":"super-l-outside-grab","target":"l1-client"}
+GNOME Shell-Message: 04:15:53.319: [s2] {"ev":"scenario-start","t":21387275684,"scenario":"super-l-in-none-grab","target":"l1-client"}
+GNOME Shell-Message: 04:15:54.143: [s2] {"ev":"scenario-start","t":21388099737,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+GNOME Shell-Message: 04:15:55.145: [s2] {"ev":"scenario-start","t":21389101216,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+GNOME Shell-Message: 04:15:55.874: [s2] {"ev":"scenario-start","t":21389830999,"scenario":"revoked-by-modal","target":"l1-client"}
+GNOME Shell-Message: 04:15:56.056: [s2] {"ev":"note","what":"pushed second modal","prefixRevoked":true,"t":21390012782,"scenario":"revoked-by-modal","target":"l1-client"}
+GNOME Shell-Message: 04:15:56.308: [s2] {"ev":"note","what":"popped second modal","prefixRevoked":false,"t":21390264522,"scenario":"revoked-by-modal","target":"l1-client"}
+GNOME Shell-Message: 04:15:56.862: [s2] {"ev":"scenario-start","t":21390818584,"scenario":"observe-without-grab","target":"l1-client"}
+GNOME Shell-Message: 04:15:57.472: [s2] {"ev":"scenario-start","t":21391428363,"scenario":"temporary-accelerator","target":"l1-client"}
+GNOME Shell-Message: 04:15:57.605: [s2] {"ev":"note","what":"ungrabbed Shift+Left","t":21391561919,"scenario":"temporary-accelerator","target":"l1-client"}
+GNOME Shell-Message: 04:15:58.142: [s2] {"ev":"scenario-start","t":21392098823,"scenario":"temporary-accelerator-trigger-release","target":"l1-client"}
+GNOME Shell-Message: 04:15:58.681: [s2] {"ev":"scenario-start","t":21392637768,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+GNOME Shell-Message: 04:15:59.657: [s2] {"ev":"note","what":"after alt-tab","focus":"gnome-shell-perf-helper","prefixArmed":true,"prefixRevoked":false,"t":21393613159,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+GNOME Shell-Message: 04:16:00.109: [s2] {"ev":"note","what":"done","keymap":{"xkbOptions":[],"currentKeymap":{"layouts":"us,us","variants":",","options":"","model":"pc105+inet","displayNames":["English (US)"],"shortNames":["en"]},"shortName":"en","ibusReady":false,"sources":["xkb:us"]},"im":{"imFocus":false,"ibusContext":false,"inputSource":"us"},"t":21394065622}
+GNOME Shell-Message: 04:16:00.110: [s2] DONE
+=== shell.jsonl
+{"ev":"note","what":"start","keymap":{"xkbOptions":[],"currentKeymap":{"layouts":"us,us","variants":",","options":"","model":"pc105+inet","displayNames":["English (US)"],"shortNames":["en"]},"shortName":"en","ibusReady":false,"sources":["xkb:us"]},"im":{"imFocus":false,"ibusContext":false,"inputSource":"us"},"mode":"user","t":21372848555}
+{"ev":"note","what":"setup","altA":129,"superL":130,"killAction":131,"t":21372849320}
+{"ev":"note","what":"spawned","cmd":"WAYLAND_DEBUG=1 exec /usr/bin/python3 -I /var/tmp/l1/tmp.I5htHzznwu/ext/probe_gtk.py /var/tmp/l1/tmp.I5htHzznwu/out/gtk.jsonl 2>/var/tmp/l1/tmp.I5htHzznwu/out/gtk-wayland.log","t":21372871109}
+{"ev":"focus","ok":true,"title":"s2-gtk-probe","wmClass":"io.github.maartenhaine.S2Probe","overview":false,"actionMode":1,"client":"wayland","imFocus":true,"ibusContext":false,"inputSource":"us","t":21375667240,"target":"l1-client"}
+{"ev":"scenario-start","t":21375667298,"scenario":"baseline","target":"l1-client"}
+{"ev":"inject","code":45,"down":true,"tIssue":21375667528,"t":21375667614,"scenario":"baseline","target":"l1-client"}
+{"ev":"inject","code":45,"down":false,"tIssue":21375692831,"t":21375692872,"scenario":"baseline","target":"l1-client"}
+{"ev":"inject","code":43,"down":true,"tIssue":21375719585,"t":21375719615,"scenario":"baseline","target":"l1-client"}
+{"ev":"inject","code":43,"down":false,"tIssue":21375746137,"t":21375746174,"scenario":"baseline","target":"l1-client"}
+{"ev":"inject","code":12,"down":true,"tIssue":21375771462,"t":21375771495,"scenario":"baseline","target":"l1-client"}
+{"ev":"inject","code":12,"down":false,"tIssue":21375796661,"t":21375796698,"scenario":"baseline","target":"l1-client"}
+{"ev":"scenario-end","t":21376223137,"scenario":"baseline","target":"l1-client"}
+{"ev":"scenario-start","t":21376223459,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21376223694,"t":21376223723,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21376238948,"t":21376238982,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21376238948,"im":false,"state":8,"tAccel":21376239243,"tArmed":21376240338,"accelLagUs":295,"armLagUs":1390,"pushModalUs":1095,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21376240431,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21376267882,"t":21376267918,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21376267882,"lagUs":260,"revoked":false,"t":21376268214,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21376296177,"t":21376296209,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21376296177,"lagUs":2157,"revoked":false,"t":21376298371,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"inject","code":43,"down":true,"tIssue":21376462189,"t":21376462246,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"grab-press","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21376462189,"lagUs":1962,"revoked":false,"t":21376464196,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"command","sym":92,"code":51,"uni":"\\","state":0,"im":false,"lagUs":1962,"sinceArmUs":223813,"t":21376464220,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"inject","code":43,"down":false,"tIssue":21376502454,"t":21376502501,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"grab-release","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21376502454,"lagUs":2655,"revoked":false,"t":21376505153,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"popped","why":"command-release","heldMs":265.759,"error":null,"actionMode":1,"grabActor":null,"t":21376506105,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"scenario-end","t":21376928139,"scenario":"prefix-slow","target":"l1-client"}
+{"ev":"scenario-start","t":21376928476,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21376928692,"t":21376928725,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21376944337,"t":21376944365,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21376944337,"im":false,"state":8,"tAccel":21376944601,"tArmed":21376944919,"accelLagUs":264,"armLagUs":582,"pushModalUs":318,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21376944969,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21376970125,"t":21376970156,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21376970125,"lagUs":1667,"revoked":false,"t":21376971836,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21376995389,"t":21376995448,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21376995389,"lagUs":9760,"revoked":false,"t":21377005197,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"inject","code":43,"down":true,"tIssue":21377160848,"t":21377160905,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"grab-press","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21377160848,"lagUs":10970,"revoked":false,"t":21377171864,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"command","sym":92,"code":51,"uni":"\\","state":0,"im":false,"lagUs":10970,"sinceArmUs":226899,"t":21377171876,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"popped","why":"command-press","heldMs":227.23,"error":null,"actionMode":1,"grabActor":null,"t":21377172156,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"inject","code":43,"down":false,"tIssue":21377201089,"t":21377201117,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"scenario-end","t":21377626534,"scenario":"prefix-slow-pop-on-press","target":"l1-client"}
+{"ev":"scenario-start","t":21377626874,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21377627070,"t":21377627093,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21377660133,"t":21377660199,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21377660206,"t":21377660223,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21377660224,"t":21377660238,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"inject","code":43,"down":true,"tIssue":21377660240,"t":21377660253,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21377660133,"im":false,"state":8,"tAccel":21377660434,"tArmed":21377660742,"accelLagUs":301,"armLagUs":609,"pushModalUs":308,"modsAtArm":0,"altHeldAtArm":false,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21377660783,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21377660206,"lagUs":12825,"revoked":false,"t":21377673061,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21377660224,"lagUs":12850,"revoked":false,"t":21377673082,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"grab-press","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21377660240,"lagUs":12850,"revoked":false,"t":21377673097,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"command","sym":92,"code":51,"uni":"\\","state":0,"im":false,"lagUs":12850,"sinceArmUs":12348,"t":21377673144,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"inject","code":43,"down":false,"tIssue":21377701169,"t":21377701194,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"grab-release","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21377701169,"lagUs":14125,"revoked":false,"t":21377715394,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"popped","why":"command-release","heldMs":54.917,"error":null,"actionMode":1,"grabActor":null,"t":21377715666,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"scenario-end","t":21378139455,"scenario":"fast-0ms","target":"l1-client"}
+{"ev":"scenario-start","t":21378139853,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21378140063,"t":21378142112,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21378172336,"t":21378172402,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21378172336,"im":false,"state":8,"tAccel":21378172595,"tArmed":21378172944,"accelLagUs":259,"armLagUs":608,"pushModalUs":349,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21378172995,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21378185249,"t":21378185276,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21378187417,"t":21378187454,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21378185249,"lagUs":4131,"revoked":false,"t":21378189414,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21378187417,"lagUs":2013,"revoked":false,"t":21378189438,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"inject","code":43,"down":true,"tIssue":21378238743,"t":21378238802,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"grab-press","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21378238743,"lagUs":1972,"revoked":false,"t":21378240754,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"command","sym":92,"code":51,"uni":"\\","state":0,"im":false,"lagUs":1972,"sinceArmUs":67771,"t":21378240828,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"inject","code":43,"down":false,"tIssue":21378280129,"t":21378280197,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"grab-release","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21378280129,"lagUs":13966,"revoked":false,"t":21378294135,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"popped","why":"command-release","heldMs":121.48,"error":null,"actionMode":1,"grabActor":null,"t":21378294431,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"scenario-end","t":21378705501,"scenario":"fast-5ms","target":"l1-client"}
+{"ev":"scenario-start","t":21378705871,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21378706090,"t":21378706118,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21378736321,"t":21378736350,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21378736321,"im":false,"state":8,"tAccel":21378736596,"tArmed":21378736961,"accelLagUs":275,"armLagUs":640,"pushModalUs":365,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21378737012,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21378739508,"t":21378739554,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21378739508,"lagUs":1179,"revoked":false,"t":21378740714,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21378746080,"t":21378746101,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"inject","code":43,"down":true,"tIssue":21378760754,"t":21378760778,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21378746080,"lagUs":14803,"revoked":false,"t":21378760914,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"grab-press","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21378760754,"lagUs":13312,"revoked":false,"t":21378774104,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"command","sym":92,"code":51,"uni":"\\","state":0,"im":false,"lagUs":13312,"sinceArmUs":37105,"t":21378774117,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"inject","code":43,"down":false,"tIssue":21378800955,"t":21378801017,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"grab-release","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21378800955,"lagUs":6434,"revoked":false,"t":21378807426,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"popped","why":"command-release","heldMs":70.758,"error":null,"actionMode":1,"grabActor":null,"t":21378807726,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"scenario-end","t":21379218027,"scenario":"fast-10ms","target":"l1-client"}
+{"ev":"scenario-start","t":21379218475,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21379218694,"t":21379218766,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21379248987,"t":21379249061,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21379250760,"t":21379250798,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21379253063,"t":21379253100,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"inject","code":43,"down":true,"tIssue":21379254776,"t":21379258046,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21379248987,"im":false,"state":8,"tAccel":21379258340,"tArmed":21379258745,"accelLagUs":9353,"armLagUs":9758,"pushModalUs":405,"modsAtArm":0,"altHeldAtArm":false,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21379258793,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21379250760,"lagUs":8552,"revoked":false,"t":21379259332,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21379253063,"lagUs":6277,"revoked":false,"t":21379259347,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"grab-press","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21379254776,"lagUs":4580,"revoked":false,"t":21379259362,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"command","sym":92,"code":51,"uni":"\\","state":0,"im":false,"lagUs":4580,"sinceArmUs":611,"t":21379259368,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"inject","code":43,"down":false,"tIssue":21379298423,"t":21379298485,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"grab-release","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21379298423,"lagUs":10923,"revoked":false,"t":21379309379,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"popped","why":"command-release","heldMs":50.908,"error":null,"actionMode":1,"grabActor":null,"t":21379309721,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"scenario-end","t":21379729149,"scenario":"fast-5ms-blocked","target":"l1-client"}
+{"ev":"scenario-start","t":21379729584,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21379729840,"t":21379729907,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21379760139,"t":21379760207,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21379763560,"t":21379767060,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21379773022,"t":21379773067,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"inject","code":43,"down":true,"tIssue":21379776824,"t":21379776925,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21379760139,"im":false,"state":8,"tAccel":21379777202,"tArmed":21379777567,"accelLagUs":17063,"armLagUs":17428,"pushModalUs":365,"modsAtArm":0,"altHeldAtArm":false,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21379777609,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21379763560,"lagUs":16530,"revoked":false,"t":21379780114,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21379773022,"lagUs":7102,"revoked":false,"t":21379780132,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"grab-press","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21379776824,"lagUs":3317,"revoked":false,"t":21379780148,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"command","sym":92,"code":51,"uni":"\\","state":0,"im":false,"lagUs":3317,"sinceArmUs":2574,"t":21379780155,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"inject","code":43,"down":false,"tIssue":21379819157,"t":21379819951,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"grab-release","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21379819157,"lagUs":11067,"revoked":false,"t":21379830258,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"popped","why":"command-release","heldMs":52.97,"error":null,"actionMode":1,"grabActor":null,"t":21379830545,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"scenario-end","t":21380240983,"scenario":"fast-10ms-blocked","target":"l1-client"}
+{"ev":"scenario-start","t":21380242478,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21380242716,"t":21380242786,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21380258015,"t":21380258079,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21380258015,"im":false,"state":8,"tAccel":21380258262,"tArmed":21380258634,"accelLagUs":247,"armLagUs":619,"pushModalUs":372,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21380258679,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21380283299,"t":21380283325,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21380283299,"lagUs":13550,"revoked":false,"t":21380296891,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21380308571,"t":21380308601,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21380308571,"lagUs":4891,"revoked":false,"t":21380313497,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"inject","code":43,"down":true,"tIssue":21380383991,"t":21380384020,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"inject","code":16,"down":true,"tIssue":21380394265,"t":21380394328,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"grab-press","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21380383991,"lagUs":12816,"revoked":false,"t":21380396843,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"command","sym":92,"code":51,"uni":"\\","state":0,"im":false,"lagUs":12816,"sinceArmUs":138173,"t":21380396858,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"grab-press","sym":113,"code":24,"uni":"q","state":0,"im":false,"repeated":false,"evTime":21380394265,"lagUs":2604,"revoked":false,"t":21380396876,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"key-after-command","sym":113,"code":24,"t":21380396900,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"inject","code":16,"down":false,"tIssue":21380404483,"t":21380404538,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"grab-release","sym":113,"code":24,"uni":"q","state":0,"im":false,"repeated":false,"evTime":21380404483,"lagUs":8983,"revoked":false,"t":21380413501,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"inject","code":44,"down":true,"tIssue":21380429826,"t":21380429858,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"grab-press","sym":122,"code":52,"uni":"z","state":0,"im":false,"repeated":false,"evTime":21380429826,"lagUs":308,"revoked":false,"t":21380430168,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"key-after-command","sym":122,"code":52,"t":21380430176,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"inject","code":44,"down":false,"tIssue":21380443113,"t":21380443175,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"grab-release","sym":122,"code":52,"uni":"z","state":0,"im":false,"repeated":false,"evTime":21380443113,"lagUs":3696,"revoked":false,"t":21380446849,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"inject","code":43,"down":false,"tIssue":21380468529,"t":21380468587,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"grab-release","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21380468529,"lagUs":11617,"revoked":false,"t":21380480186,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"popped","why":"command-release","heldMs":221.848,"error":null,"actionMode":1,"grabActor":null,"t":21380480490,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"scenario-end","t":21380891462,"scenario":"keys-before-pop","target":"l1-client"}
+{"ev":"scenario-start","t":21380891918,"scenario":"timeout","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21380892145,"t":21380892211,"scenario":"timeout","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21380907431,"t":21380907490,"scenario":"timeout","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21380907431,"im":false,"state":8,"tAccel":21380907670,"tArmed":21380910065,"accelLagUs":239,"armLagUs":2634,"pushModalUs":2395,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21380910134,"scenario":"timeout","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21380933042,"t":21380933112,"scenario":"timeout","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21380933042,"lagUs":13826,"revoked":false,"t":21380946912,"scenario":"timeout","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21380958330,"t":21380958392,"scenario":"timeout","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21380958330,"lagUs":5148,"revoked":false,"t":21380963514,"scenario":"timeout","target":"l1-client"}
+{"ev":"popped","why":"timeout","heldMs":3002.509,"error":null,"actionMode":1,"grabActor":null,"t":21383912613,"scenario":"timeout","target":"l1-client"}
+{"ev":"inject","code":21,"down":true,"tIssue":21384273877,"t":21384273949,"scenario":"timeout","target":"l1-client"}
+{"ev":"inject","code":21,"down":false,"tIssue":21384299184,"t":21384299372,"scenario":"timeout","target":"l1-client"}
+{"ev":"scenario-end","t":21384725139,"scenario":"timeout","target":"l1-client"}
+{"ev":"scenario-start","t":21384725809,"scenario":"escape","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21384727199,"t":21384727230,"scenario":"escape","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21384742458,"t":21384742492,"scenario":"escape","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21384742458,"im":false,"state":8,"tAccel":21384742732,"tArmed":21384743273,"accelLagUs":274,"armLagUs":815,"pushModalUs":541,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21384743330,"scenario":"escape","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21384767677,"t":21384767743,"scenario":"escape","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21384767677,"lagUs":13134,"revoked":false,"t":21384780862,"scenario":"escape","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21384792994,"t":21384793506,"scenario":"escape","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21384792994,"lagUs":4442,"revoked":false,"t":21384797480,"scenario":"escape","target":"l1-client"}
+{"ev":"inject","code":1,"down":true,"tIssue":21384911235,"t":21384911274,"scenario":"escape","target":"l1-client"}
+{"ev":"grab-press","sym":65307,"code":9,"uni":"\u001b","state":0,"im":false,"repeated":false,"evTime":21384911235,"lagUs":4874,"revoked":false,"t":21384916156,"scenario":"escape","target":"l1-client"}
+{"ev":"popped","why":"escape","heldMs":173.268,"error":null,"actionMode":1,"grabActor":null,"t":21384916548,"scenario":"escape","target":"l1-client"}
+{"ev":"inject","code":1,"down":false,"tIssue":21384936471,"t":21384936535,"scenario":"escape","target":"l1-client"}
+{"ev":"inject","code":21,"down":true,"tIssue":21385062104,"t":21385063307,"scenario":"escape","target":"l1-client"}
+{"ev":"inject","code":21,"down":false,"tIssue":21385088529,"t":21385088558,"scenario":"escape","target":"l1-client"}
+{"ev":"scenario-end","t":21385514077,"scenario":"escape","target":"l1-client"}
+{"ev":"scenario-start","t":21385514593,"scenario":"kill-chord-outside-grab","target":"l1-client"}
+{"ev":"inject","code":29,"down":true,"tIssue":21385514906,"t":21385514990,"scenario":"kill-chord-outside-grab","target":"l1-client"}
+{"ev":"inject","code":125,"down":true,"tIssue":21385530170,"t":21385530229,"scenario":"kill-chord-outside-grab","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21385545519,"t":21385545559,"scenario":"kill-chord-outside-grab","target":"l1-client"}
+{"ev":"inject","code":1,"down":true,"tIssue":21385560807,"t":21385560873,"scenario":"kill-chord-outside-grab","target":"l1-client"}
+{"ev":"binding","name":"kill-chord","armed":false,"t":21385561061,"scenario":"kill-chord-outside-grab","target":"l1-client"}
+{"ev":"inject","code":1,"down":false,"tIssue":21385586138,"t":21385586210,"scenario":"kill-chord-outside-grab","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21385611965,"t":21385611999,"scenario":"kill-chord-outside-grab","target":"l1-client"}
+{"ev":"inject","code":125,"down":false,"tIssue":21385627213,"t":21385627271,"scenario":"kill-chord-outside-grab","target":"l1-client"}
+{"ev":"inject","code":29,"down":false,"tIssue":21385642470,"t":21385642529,"scenario":"kill-chord-outside-grab","target":"l1-client"}
+{"ev":"scenario-end","t":21386059135,"scenario":"kill-chord-outside-grab","target":"l1-client"}
+{"ev":"scenario-start","t":21386059680,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21386059949,"t":21386059977,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21386075135,"t":21386075194,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21386075135,"im":false,"state":8,"tAccel":21386075432,"tArmed":21386075866,"accelLagUs":297,"armLagUs":731,"pushModalUs":434,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21386075984,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21386100363,"t":21386100420,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21386100363,"lagUs":9894,"revoked":false,"t":21386110302,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21386125631,"t":21386125688,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21386125631,"lagUs":1291,"revoked":false,"t":21386126960,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":29,"down":true,"tIssue":21386241109,"t":21386241139,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"grab-press","sym":65507,"code":37,"uni":"","state":0,"im":false,"repeated":false,"evTime":21386241109,"lagUs":2495,"revoked":false,"t":21386243650,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":125,"down":true,"tIssue":21386256308,"t":21386256370,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"grab-press","sym":65515,"code":133,"uni":"","state":4,"im":false,"repeated":false,"evTime":21386256308,"lagUs":3966,"revoked":false,"t":21386260320,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21386271562,"t":21386271814,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"grab-press","sym":65513,"code":64,"uni":"","state":68,"im":false,"repeated":false,"evTime":21386271562,"lagUs":5374,"revoked":false,"t":21386276982,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":1,"down":true,"tIssue":21386287034,"t":21386287058,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"grab-press","sym":65307,"code":9,"uni":"\u001b","state":76,"im":false,"repeated":false,"evTime":21386287034,"lagUs":6567,"revoked":false,"t":21386293647,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"popped","why":"kill-chord-in-grab","heldMs":218.133,"error":null,"actionMode":1,"grabActor":null,"t":21386294036,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":1,"down":false,"tIssue":21386312558,"t":21386312587,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21386337816,"t":21386338047,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":125,"down":false,"tIssue":21386353291,"t":21386353428,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":29,"down":false,"tIssue":21386368681,"t":21386368746,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"scenario-end","t":21386784169,"scenario":"kill-chord-in-none-grab","target":"l1-client"}
+{"ev":"scenario-start","t":21386784747,"scenario":"super-l-outside-grab","target":"l1-client"}
+{"ev":"inject","code":125,"down":true,"tIssue":21386785161,"t":21386785222,"scenario":"super-l-outside-grab","target":"l1-client"}
+{"ev":"inject","code":38,"down":true,"tIssue":21386800427,"t":21386807078,"scenario":"super-l-outside-grab","target":"l1-client"}
+{"ev":"binding","name":"super-l","evTime":21386800427,"im":false,"state":64,"armed":false,"t":21386807434,"scenario":"super-l-outside-grab","target":"l1-client"}
+{"ev":"inject","code":38,"down":false,"tIssue":21386832374,"t":21386832439,"scenario":"super-l-outside-grab","target":"l1-client"}
+{"ev":"inject","code":125,"down":false,"tIssue":21386857846,"t":21386857919,"scenario":"super-l-outside-grab","target":"l1-client"}
+{"ev":"scenario-end","t":21387275146,"scenario":"super-l-outside-grab","target":"l1-client"}
+{"ev":"scenario-start","t":21387275684,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21387275980,"t":21387276059,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21387291278,"t":21387293055,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21387291278,"im":false,"state":8,"tAccel":21387293290,"tArmed":21387293621,"accelLagUs":2012,"armLagUs":2343,"pushModalUs":331,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21387293665,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21387318247,"t":21387318307,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21387318247,"lagUs":8056,"revoked":false,"t":21387326350,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21387344356,"t":21387344407,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21387344356,"lagUs":15417,"revoked":false,"t":21387359864,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":125,"down":true,"tIssue":21387464194,"t":21387464221,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"grab-press","sym":65515,"code":133,"uni":"","state":0,"im":false,"repeated":false,"evTime":21387464194,"lagUs":14925,"revoked":false,"t":21387479166,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":38,"down":true,"tIssue":21387480608,"t":21387480662,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"grab-press","sym":108,"code":46,"uni":"l","state":64,"im":false,"repeated":false,"evTime":21387480608,"lagUs":12379,"revoked":false,"t":21387493039,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"command","sym":108,"code":46,"uni":"l","state":64,"im":false,"lagUs":12379,"sinceArmUs":199366,"t":21387493114,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":38,"down":false,"tIssue":21387505840,"t":21387505866,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"grab-release","sym":108,"code":46,"uni":"l","state":64,"im":false,"repeated":false,"evTime":21387505840,"lagUs":4239,"revoked":false,"t":21387510120,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"popped","why":"command-release","heldMs":216.78,"error":null,"actionMode":1,"grabActor":null,"t":21387510408,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":125,"down":false,"tIssue":21387531085,"t":21387531140,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":1,"down":true,"tIssue":21387647368,"t":21387647430,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"inject","code":1,"down":false,"tIssue":21387672628,"t":21387672656,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"scenario-end","t":21388099141,"scenario":"super-l-in-none-grab","target":"l1-client"}
+{"ev":"scenario-start","t":21388099737,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21388100280,"t":21388100344,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21388115591,"t":21388115659,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"armed","mode":1,"evTime":21388115591,"im":false,"state":8,"tAccel":21388115840,"tArmed":21388116222,"accelLagUs":249,"armLagUs":631,"pushModalUs":382,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":1,"t":21388116265,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21388140827,"t":21388140853,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21388140827,"lagUs":9783,"revoked":false,"t":21388150654,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21388166109,"t":21388166174,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21388166109,"lagUs":1128,"revoked":false,"t":21388167270,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":125,"down":true,"tIssue":21388281648,"t":21388281713,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"grab-press","sym":65515,"code":133,"uni":"","state":0,"im":false,"repeated":false,"evTime":21388281648,"lagUs":2280,"revoked":false,"t":21388283966,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":38,"down":true,"tIssue":21388296917,"t":21388296945,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"binding","name":"super-l","evTime":21388296917,"im":false,"state":64,"armed":true,"t":21388300244,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":38,"down":false,"tIssue":21388325361,"t":21388325393,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"grab-release","sym":108,"code":46,"uni":"l","state":64,"im":false,"repeated":false,"evTime":21388325361,"lagUs":8558,"revoked":false,"t":21388333958,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":125,"down":false,"tIssue":21388350634,"t":21388350696,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"grab-release","sym":65515,"code":133,"uni":"","state":64,"im":false,"repeated":false,"evTime":21388350634,"lagUs":232,"revoked":false,"t":21388350897,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21388466199,"t":21388466276,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"grab-press","sym":65513,"code":64,"uni":"","state":0,"im":false,"repeated":false,"evTime":21388466199,"lagUs":261,"revoked":false,"t":21388466494,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21388481522,"t":21388481586,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"alt-a-while-armed","evTime":21388481522,"im":false,"state":8,"t":21388481790,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21388506877,"t":21388506947,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21388506877,"lagUs":286,"revoked":false,"t":21388507193,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21388532177,"t":21388533068,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21388532177,"lagUs":1103,"revoked":false,"t":21388533313,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":1,"down":true,"tIssue":21388649073,"t":21388649149,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"grab-press","sym":65307,"code":9,"uni":"\u001b","state":0,"im":false,"repeated":false,"evTime":21388649073,"lagUs":242,"revoked":false,"t":21388649349,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"popped","why":"escape","heldMs":533.421,"error":null,"actionMode":1,"grabActor":null,"t":21388649649,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"inject","code":1,"down":false,"tIssue":21388674325,"t":21388674391,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"scenario-end","t":21389100598,"scenario":"normal-grab-super-l-and-alt-a","target":"l1-client"}
+{"ev":"scenario-start","t":21389101216,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21389101491,"t":21389105058,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21389120236,"t":21389120290,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"armed","mode":1,"evTime":21389120236,"im":false,"state":8,"tAccel":21389120433,"tArmed":21389120751,"accelLagUs":197,"armLagUs":515,"pushModalUs":318,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":1,"t":21389120792,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21389145499,"t":21389145525,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21389145499,"lagUs":3836,"revoked":false,"t":21389149371,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21389170843,"t":21389170893,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21389170843,"lagUs":11850,"revoked":false,"t":21389182731,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"inject","code":29,"down":true,"tIssue":21389286567,"t":21389286625,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"grab-press","sym":65507,"code":37,"uni":"","state":0,"im":false,"repeated":false,"evTime":21389286567,"lagUs":12798,"revoked":false,"t":21389299404,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"inject","code":125,"down":true,"tIssue":21389301983,"t":21389302009,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"grab-press","sym":65515,"code":133,"uni":"","state":4,"im":false,"repeated":false,"evTime":21389301983,"lagUs":14065,"revoked":false,"t":21389316087,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21389317377,"t":21389317422,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"inject","code":1,"down":true,"tIssue":21389332649,"t":21389332711,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"binding","name":"kill-chord","armed":true,"t":21389332885,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"popped","why":"kill-binding","heldMs":212.448,"error":null,"actionMode":1,"grabActor":null,"t":21389333206,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"inject","code":1,"down":false,"tIssue":21389357866,"t":21389357929,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21389384199,"t":21389384256,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"inject","code":125,"down":false,"tIssue":21389399558,"t":21389399764,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"inject","code":29,"down":false,"tIssue":21389414965,"t":21389415030,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"scenario-end","t":21389830440,"scenario":"normal-grab-kill-chord","target":"l1-client"}
+{"ev":"scenario-start","t":21389830999,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21389831237,"t":21389831300,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21389846470,"t":21389846525,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"armed","mode":0,"evTime":21389846470,"im":false,"state":8,"tAccel":21389846671,"tArmed":21389847050,"accelLagUs":201,"armLagUs":580,"pushModalUs":379,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":0,"t":21389847096,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21389871693,"t":21389871750,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21389871693,"lagUs":11009,"revoked":false,"t":21389882747,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21389896955,"t":21389897017,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21389896955,"lagUs":2388,"revoked":false,"t":21389899374,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"revoked","value":true,"topActor":"[0x56edac44aca0 StWidget]","t":21390012684,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"note","what":"pushed second modal","prefixRevoked":true,"t":21390012782,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"inject","code":45,"down":true,"tIssue":21390113238,"t":21390113310,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"other-modal-key","sym":120,"t":21390116052,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"inject","code":45,"down":false,"tIssue":21390138483,"t":21390138541,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"revoked","value":false,"topActor":"[0x56edacffad80 StWidget]","t":21390264365,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"note","what":"popped second modal","prefixRevoked":false,"t":21390264522,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"inject","code":43,"down":true,"tIssue":21390365190,"t":21390367081,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"grab-press","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21390365190,"lagUs":2080,"revoked":false,"t":21390367301,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"command","sym":92,"code":51,"uni":"\\","state":0,"im":false,"lagUs":2080,"sinceArmUs":520220,"t":21390367313,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"inject","code":43,"down":false,"tIssue":21390392381,"t":21390392447,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"grab-release","sym":92,"code":51,"uni":"\\","state":0,"im":false,"repeated":false,"evTime":21390392381,"lagUs":225,"revoked":false,"t":21390392638,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"popped","why":"command-release","heldMs":545.853,"error":null,"actionMode":1,"grabActor":null,"t":21390392910,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"scenario-end","t":21390817941,"scenario":"revoked-by-modal","target":"l1-client"}
+{"ev":"scenario-start","t":21390818584,"scenario":"observe-without-grab","target":"l1-client"}
+{"ev":"inject","code":44,"down":true,"tIssue":21390818939,"t":21390821056,"scenario":"observe-without-grab","target":"l1-client"}
+{"ev":"inject","code":44,"down":false,"tIssue":21390846222,"t":21390846280,"scenario":"observe-without-grab","target":"l1-client"}
+{"ev":"inject","code":44,"down":true,"tIssue":21390874168,"t":21390874235,"scenario":"observe-without-grab","target":"l1-client"}
+{"ev":"inject","code":44,"down":false,"tIssue":21390899398,"t":21390899455,"scenario":"observe-without-grab","target":"l1-client"}
+{"ev":"observed","filterKeys":0,"capturedKeys":0,"injectedKeyEvents":4,"error":null,"t":21391027177,"scenario":"observe-without-grab","target":"l1-client"}
+{"ev":"scenario-end","t":21391427580,"scenario":"observe-without-grab","target":"l1-client"}
+{"ev":"scenario-start","t":21391428363,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"inject","code":42,"down":true,"tIssue":21391429218,"t":21391429373,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"inject","code":105,"down":true,"tIssue":21391444666,"t":21391444729,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"binding","name":"shift-left","evTime":21391444666,"im":false,"state":1,"armed":false,"t":21391444931,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"inject","code":105,"down":false,"tIssue":21391469974,"t":21391470051,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"inject","code":42,"down":false,"tIssue":21391495442,"t":21391495509,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"inject","code":16,"down":true,"tIssue":21391510813,"t":21391510883,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"inject","code":16,"down":false,"tIssue":21391536095,"t":21391536165,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"note","what":"ungrabbed Shift+Left","t":21391561919,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"inject","code":42,"down":true,"tIssue":21391615222,"t":21391615296,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"inject","code":105,"down":true,"tIssue":21391630544,"t":21391630625,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"inject","code":105,"down":false,"tIssue":21391655863,"t":21391655932,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"inject","code":42,"down":false,"tIssue":21391681170,"t":21391681347,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"scenario-end","t":21392098159,"scenario":"temporary-accelerator","target":"l1-client"}
+{"ev":"scenario-start","t":21392098823,"scenario":"temporary-accelerator-trigger-release","target":"l1-client"}
+{"ev":"inject","code":42,"down":true,"tIssue":21392099201,"t":21392099308,"scenario":"temporary-accelerator-trigger-release","target":"l1-client"}
+{"ev":"inject","code":105,"down":true,"tIssue":21392114553,"t":21392115056,"scenario":"temporary-accelerator-trigger-release","target":"l1-client"}
+{"ev":"binding","name":"shift-left","evTime":21392114553,"im":false,"state":1,"armed":false,"t":21392115302,"scenario":"temporary-accelerator-trigger-release","target":"l1-client"}
+{"ev":"inject","code":105,"down":false,"tIssue":21392140353,"t":21392145053,"scenario":"temporary-accelerator-trigger-release","target":"l1-client"}
+{"ev":"accelerator-deactivated","action":133,"t":21392145274,"scenario":"temporary-accelerator-trigger-release","target":"l1-client"}
+{"ev":"inject","code":42,"down":false,"tIssue":21392170418,"t":21392170455,"scenario":"temporary-accelerator-trigger-release","target":"l1-client"}
+{"ev":"inject","code":16,"down":true,"tIssue":21392185739,"t":21392185818,"scenario":"temporary-accelerator-trigger-release","target":"l1-client"}
+{"ev":"inject","code":16,"down":false,"tIssue":21392211100,"t":21392211170,"scenario":"temporary-accelerator-trigger-release","target":"l1-client"}
+{"ev":"scenario-end","t":21392637119,"scenario":"temporary-accelerator-trigger-release","target":"l1-client"}
+{"ev":"scenario-start","t":21392637768,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21392638143,"t":21392638168,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"inject","code":30,"down":true,"tIssue":21392653357,"t":21392653422,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"armed","mode":1,"evTime":21392653357,"im":false,"state":8,"tAccel":21392653593,"tArmed":21392653942,"accelLagUs":236,"armLagUs":585,"pushModalUs":349,"modsAtArm":8,"altHeldAtArm":true,"keyFocusIsCatcher":true,"grabActorIsCatcher":true,"actionMode":1,"t":21392653996,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"inject","code":30,"down":false,"tIssue":21392678590,"t":21392678645,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"grab-release","sym":97,"code":38,"uni":"a","state":8,"im":false,"repeated":false,"evTime":21392678590,"lagUs":494,"revoked":false,"t":21392679126,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21392703853,"t":21392703881,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"grab-release","sym":65513,"code":64,"uni":"","state":8,"im":false,"repeated":false,"evTime":21392703853,"lagUs":8610,"revoked":false,"t":21392712507,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"inject","code":56,"down":true,"tIssue":21392823112,"t":21392823174,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"grab-press","sym":65513,"code":64,"uni":"","state":0,"im":false,"repeated":false,"evTime":21392823112,"lagUs":7977,"revoked":false,"t":21392831138,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"inject","code":15,"down":true,"tIssue":21392844983,"t":21392845046,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"revoked","value":true,"topActor":"[0x56edad7083f0 Gjs_ui_altTab_AppSwitcherPopup.switcher-popup]","t":21392852192,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"inject","code":15,"down":false,"tIssue":21392871747,"t":21392871769,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"inject","code":56,"down":false,"tIssue":21393309146,"t":21393311058,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"revoked","value":false,"topActor":"[0x56edab3cb730 StWidget]","t":21393315599,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"note","what":"after alt-tab","focus":"gnome-shell-perf-helper","prefixArmed":true,"prefixRevoked":false,"t":21393613159,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"inject","code":1,"down":true,"tIssue":21393613520,"t":21393613584,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"grab-press","sym":65307,"code":9,"uni":"\u001b","state":0,"im":false,"repeated":false,"evTime":21393613520,"lagUs":9892,"revoked":false,"t":21393623457,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"popped","why":"escape","heldMs":969.813,"error":null,"actionMode":1,"grabActor":null,"t":21393623763,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"inject","code":1,"down":false,"tIssue":21393638761,"t":21393638789,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"scenario-end","t":21394064840,"scenario":"normal-grab-alt-tab","target":"l1-client"}
+{"ev":"note","what":"done","keymap":{"xkbOptions":[],"currentKeymap":{"layouts":"us,us","variants":",","options":"","model":"pc105+inet","displayNames":["English (US)"],"shortNames":["en"]},"shortName":"en","ibusReady":false,"sources":["xkb:us"]},"im":{"imFocus":false,"ibusContext":false,"inputSource":"us"},"t":21394065622}
+=== gtk.jsonl
+{"im_module": null, "wall": 1794024939.1074162, "gtk": "4.22.4", "kind": "start", "t": 21373.063723657}
+{"kind": "focus-enter", "t": 21373.497812108}
+{"value": true, "kind": "is-active", "t": 21375.309693267}
+{"name": "x", "keycode": 53, "state": 0, "evtime": 21375667, "kind": "key-pressed", "t": 21375.669598567}
+{"text": "x", "kind": "changed", "t": 21375.669882358}
+{"name": "x", "keycode": 53, "state": 0, "evtime": 21375692, "kind": "key-released", "t": 21375.693896605}
+{"name": "backslash", "keycode": 51, "state": 0, "evtime": 21375719, "kind": "key-pressed", "t": 21375.720601683}
+{"text": "x\\", "kind": "changed", "t": 21375.720891215}
+{"name": "backslash", "keycode": 51, "state": 0, "evtime": 21375746, "kind": "key-released", "t": 21375.747842804}
+{"name": "minus", "keycode": 20, "state": 0, "evtime": 21375771, "kind": "key-pressed", "t": 21375.773553748}
+{"text": "x\\-", "kind": "changed", "t": 21375.773839339}
+{"name": "minus", "keycode": 20, "state": 0, "evtime": 21375796, "kind": "key-released", "t": 21375.797246975}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21376223, "kind": "key-pressed", "t": 21376.22532092}
+{"kind": "focus-leave", "t": 21376.241352306}
+{"value": false, "kind": "is-active", "t": 21376.241488436}
+{"kind": "focus-enter", "t": 21376.517389505}
+{"value": true, "kind": "is-active", "t": 21376.517658167}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21376928, "kind": "key-pressed", "t": 21376.929315516}
+{"kind": "focus-leave", "t": 21376.9451196}
+{"value": false, "kind": "is-active", "t": 21376.945246171}
+{"kind": "focus-enter", "t": 21377.1916044}
+{"value": true, "kind": "is-active", "t": 21377.191872801}
+{"name": "backslash", "keycode": 51, "state": 0, "evtime": 21377201, "kind": "key-released", "t": 21377.203292177}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21377627, "kind": "key-pressed", "t": 21377.627472158}
+{"kind": "focus-leave", "t": 21377.661032344}
+{"value": false, "kind": "is-active", "t": 21377.661164965}
+{"kind": "focus-enter", "t": 21377.740223465}
+{"value": true, "kind": "is-active", "t": 21377.740490856}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21378140, "kind": "key-pressed", "t": 21378.14322224}
+{"kind": "focus-leave", "t": 21378.173651563}
+{"value": false, "kind": "is-active", "t": 21378.173777584}
+{"kind": "focus-enter", "t": 21378.305559138}
+{"value": true, "kind": "is-active", "t": 21378.305815289}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21378706, "kind": "key-pressed", "t": 21378.707376728}
+{"kind": "focus-leave", "t": 21378.737246409}
+{"value": false, "kind": "is-active", "t": 21378.73737747}
+{"kind": "focus-enter", "t": 21378.818202077}
+{"value": true, "kind": "is-active", "t": 21378.818464428}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21379218, "kind": "key-pressed", "t": 21379.221219972}
+{"kind": "focus-leave", "t": 21379.259080175}
+{"value": false, "kind": "is-active", "t": 21379.259216316}
+{"kind": "focus-enter", "t": 21379.326174658}
+{"value": true, "kind": "is-active", "t": 21379.326444569}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21379729, "kind": "key-pressed", "t": 21379.730286736}
+{"kind": "focus-leave", "t": 21379.778222261}
+{"value": false, "kind": "is-active", "t": 21379.778348922}
+{"kind": "focus-enter", "t": 21379.8420912}
+{"value": true, "kind": "is-active", "t": 21379.842379421}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21380242, "kind": "key-pressed", "t": 21380.243182857}
+{"kind": "focus-leave", "t": 21380.25885904}
+{"value": false, "kind": "is-active", "t": 21380.258987061}
+{"kind": "focus-enter", "t": 21380.491580085}
+{"value": true, "kind": "is-active", "t": 21380.491849646}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21380892, "kind": "key-pressed", "t": 21380.892564381}
+{"kind": "focus-leave", "t": 21380.910325973}
+{"value": false, "kind": "is-active", "t": 21380.910461963}
+{"kind": "focus-enter", "t": 21383.916219195}
+{"value": true, "kind": "is-active", "t": 21383.916480866}
+{"name": "y", "keycode": 29, "state": 0, "evtime": 21384273, "kind": "key-pressed", "t": 21384.274329507}
+{"text": "x\\-y", "kind": "changed", "t": 21384.274609288}
+{"name": "y", "keycode": 29, "state": 0, "evtime": 21384299, "kind": "key-released", "t": 21384.29979082}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21384727, "kind": "key-pressed", "t": 21384.730987939}
+{"kind": "focus-leave", "t": 21384.74352753}
+{"value": false, "kind": "is-active", "t": 21384.743660651}
+{"kind": "focus-enter", "t": 21384.917564426}
+{"value": true, "kind": "is-active", "t": 21384.917830987}
+{"name": "Escape", "keycode": 9, "state": 0, "evtime": 21384936, "kind": "key-released", "t": 21384.936845164}
+{"name": "y", "keycode": 29, "state": 0, "evtime": 21385062, "kind": "key-pressed", "t": 21385.063702379}
+{"text": "x\\-yy", "kind": "changed", "t": 21385.06398799}
+{"name": "y", "keycode": 29, "state": 0, "evtime": 21385088, "kind": "key-released", "t": 21385.088904451}
+{"name": "Control_L", "keycode": 37, "state": 0, "evtime": 21385514, "kind": "key-pressed", "t": 21385.515381251}
+{"state": 4, "kind": "modifiers", "t": 21385.530555992}
+{"name": "Super_L", "keycode": 133, "state": 4, "evtime": 21385530, "kind": "key-pressed", "t": 21385.530644823}
+{"state": 67108868, "kind": "modifiers", "t": 21385.546049935}
+{"name": "Alt_L", "keycode": 64, "state": 67108868, "evtime": 21385545, "kind": "key-pressed", "t": 21385.546132415}
+{"state": 67108876, "kind": "modifiers", "t": 21385.586585479}
+{"name": "Escape", "keycode": 9, "state": 67108876, "evtime": 21385586, "kind": "key-released", "t": 21385.58665645}
+{"name": "Alt_L", "keycode": 64, "state": 67108876, "evtime": 21385611, "kind": "key-released", "t": 21385.614502733}
+{"state": 67108868, "kind": "modifiers", "t": 21385.627621026}
+{"name": "Super_L", "keycode": 133, "state": 67108868, "evtime": 21385627, "kind": "key-released", "t": 21385.627698846}
+{"state": 4, "kind": "modifiers", "t": 21385.642867948}
+{"name": "Control_L", "keycode": 37, "state": 4, "evtime": 21385642, "kind": "key-released", "t": 21385.642943128}
+{"state": 0, "kind": "modifiers", "t": 21386.063208813}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21386059, "kind": "key-pressed", "t": 21386.063288143}
+{"kind": "focus-leave", "t": 21386.076181755}
+{"value": false, "kind": "is-active", "t": 21386.076297986}
+{"kind": "focus-enter", "t": 21386.297211112}
+{"value": true, "kind": "is-active", "t": 21386.297478863}
+{"state": 67108876, "kind": "modifiers", "t": 21386.314520302}
+{"name": "Escape", "keycode": 9, "state": 67108876, "evtime": 21386312, "kind": "key-released", "t": 21386.314603542}
+{"name": "Alt_L", "keycode": 64, "state": 67108876, "evtime": 21386337, "kind": "key-released", "t": 21386.338414049}
+{"state": 67108868, "kind": "modifiers", "t": 21386.353768541}
+{"name": "Super_L", "keycode": 133, "state": 67108868, "evtime": 21386353, "kind": "key-released", "t": 21386.353848542}
+{"state": 4, "kind": "modifiers", "t": 21386.37070376}
+{"name": "Control_L", "keycode": 37, "state": 4, "evtime": 21386368, "kind": "key-released", "t": 21386.37078321}
+{"state": 0, "kind": "modifiers", "t": 21386.785527342}
+{"name": "Super_L", "keycode": 133, "state": 0, "evtime": 21386785, "kind": "key-pressed", "t": 21386.785607753}
+{"state": 67108864, "kind": "modifiers", "t": 21386.832848054}
+{"name": "l", "keycode": 46, "state": 67108864, "evtime": 21386832, "kind": "key-released", "t": 21386.832929765}
+{"name": "Super_L", "keycode": 133, "state": 67108864, "evtime": 21386857, "kind": "key-released", "t": 21386.858394628}
+{"state": 0, "kind": "modifiers", "t": 21387.276485014}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21387275, "kind": "key-pressed", "t": 21387.276566604}
+{"kind": "focus-leave", "t": 21387.294284296}
+{"value": false, "kind": "is-active", "t": 21387.294414166}
+{"kind": "focus-enter", "t": 21387.527461632}
+{"value": true, "kind": "is-active", "t": 21387.527732363}
+{"state": 67108864, "kind": "modifiers", "t": 21387.531400287}
+{"name": "Super_L", "keycode": 133, "state": 67108864, "evtime": 21387531, "kind": "key-released", "t": 21387.531459378}
+{"state": 0, "kind": "modifiers", "t": 21387.64781158}
+{"name": "Escape", "keycode": 9, "state": 0, "evtime": 21387647, "kind": "key-pressed", "t": 21387.64790705}
+{"name": "Escape", "keycode": 9, "state": 0, "evtime": 21387672, "kind": "key-released", "t": 21387.673021052}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21388100, "kind": "key-pressed", "t": 21388.101227399}
+{"kind": "focus-leave", "t": 21388.116454041}
+{"value": false, "kind": "is-active", "t": 21388.116582951}
+{"kind": "focus-enter", "t": 21388.661106009}
+{"value": true, "kind": "is-active", "t": 21388.661376571}
+{"name": "Escape", "keycode": 9, "state": 0, "evtime": 21388674, "kind": "key-released", "t": 21388.674689145}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21389101, "kind": "key-pressed", "t": 21389.105465872}
+{"kind": "focus-leave", "t": 21389.120974725}
+{"value": false, "kind": "is-active", "t": 21389.121107795}
+{"kind": "focus-enter", "t": 21389.333398976}
+{"value": true, "kind": "is-active", "t": 21389.333664778}
+{"state": 67108876, "kind": "modifiers", "t": 21389.358236977}
+{"name": "Escape", "keycode": 9, "state": 67108876, "evtime": 21389357, "kind": "key-released", "t": 21389.358314637}
+{"name": "Alt_L", "keycode": 64, "state": 67108876, "evtime": 21389384, "kind": "key-released", "t": 21389.384651614}
+{"state": 67108868, "kind": "modifiers", "t": 21389.400167057}
+{"name": "Super_L", "keycode": 133, "state": 67108868, "evtime": 21389399, "kind": "key-released", "t": 21389.400245728}
+{"state": 4, "kind": "modifiers", "t": 21389.415365789}
+{"name": "Control_L", "keycode": 37, "state": 4, "evtime": 21389414, "kind": "key-released", "t": 21389.415446239}
+{"state": 0, "kind": "modifiers", "t": 21389.831602447}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21389831, "kind": "key-pressed", "t": 21389.831677487}
+{"kind": "focus-leave", "t": 21389.850156383}
+{"value": false, "kind": "is-active", "t": 21389.850281983}
+{"kind": "focus-enter", "t": 21390.403337006}
+{"value": true, "kind": "is-active", "t": 21390.403591637}
+{"name": "z", "keycode": 52, "state": 0, "evtime": 21390818, "kind": "key-pressed", "t": 21390.821367051}
+{"text": "x\\-yyz", "kind": "changed", "t": 21390.821608942}
+{"name": "z", "keycode": 52, "state": 0, "evtime": 21390846, "kind": "key-released", "t": 21390.849184594}
+{"name": "z", "keycode": 52, "state": 0, "evtime": 21390874, "kind": "key-pressed", "t": 21390.874558757}
+{"text": "x\\-yyzz", "kind": "changed", "t": 21390.874813578}
+{"name": "z", "keycode": 52, "state": 0, "evtime": 21390899, "kind": "key-released", "t": 21390.89973755}
+{"name": "Shift_L", "keycode": 50, "state": 0, "evtime": 21391429, "kind": "key-pressed", "t": 21391.429797379}
+{"state": 1, "kind": "modifiers", "t": 21391.470443164}
+{"name": "Left", "keycode": 113, "state": 1, "evtime": 21391469, "kind": "key-released", "t": 21391.470520994}
+{"name": "Shift_L", "keycode": 50, "state": 1, "evtime": 21391495, "kind": "key-released", "t": 21391.495946787}
+{"state": 0, "kind": "modifiers", "t": 21391.511202699}
+{"name": "q", "keycode": 24, "state": 0, "evtime": 21391510, "kind": "key-pressed", "t": 21391.51127585}
+{"text": "x\\-yyzzq", "kind": "changed", "t": 21391.511491751}
+{"name": "q", "keycode": 24, "state": 0, "evtime": 21391536, "kind": "key-released", "t": 21391.536481072}
+{"name": "Shift_L", "keycode": 50, "state": 0, "evtime": 21391615, "kind": "key-pressed", "t": 21391.615755294}
+{"state": 1, "kind": "modifiers", "t": 21391.630930855}
+{"name": "Left", "keycode": 113, "state": 1, "evtime": 21391630, "kind": "key-pressed", "t": 21391.631044376}
+{"name": "Left", "keycode": 113, "state": 1, "evtime": 21391655, "kind": "key-released", "t": 21391.656294118}
+{"name": "Shift_L", "keycode": 50, "state": 1, "evtime": 21391681, "kind": "key-released", "t": 21391.681781741}
+{"state": 0, "kind": "modifiers", "t": 21392.099740016}
+{"name": "Shift_L", "keycode": 50, "state": 0, "evtime": 21392099, "kind": "key-pressed", "t": 21392.099820527}
+{"state": 1, "kind": "modifiers", "t": 21392.170913335}
+{"name": "Shift_L", "keycode": 50, "state": 1, "evtime": 21392170, "kind": "key-released", "t": 21392.170994346}
+{"state": 0, "kind": "modifiers", "t": 21392.186172417}
+{"name": "q", "keycode": 24, "state": 0, "evtime": 21392185, "kind": "key-pressed", "t": 21392.186249907}
+{"text": "x\\-yyzzq", "kind": "changed", "t": 21392.186545358}
+{"name": "q", "keycode": 24, "state": 0, "evtime": 21392211, "kind": "key-released", "t": 21392.21154024}
+{"name": "Alt_L", "keycode": 64, "state": 0, "evtime": 21392638, "kind": "key-pressed", "t": 21392.638533252}
+{"kind": "focus-leave", "t": 21392.654215555}
+{"value": false, "kind": "is-active", "t": 21392.654347836}
+{"kind": "focus-enter", "t": 21394.131677348}
+{"value": true, "kind": "is-active", "t": 21394.131954959}
+=== gtk-wayland.log (keyboard, text-input)
+[4214610.917] {Default Queue} wl_registry#2.global(26, "zwp_text_input_manager_v3", 1)
+[4214616.063] {Default Queue}  -> wl_seat#3.get_keyboard(new id wl_keyboard#10)
+[4214739.757] {mesa egl display queue} wl_registry#41.global(26, "zwp_text_input_manager_v3", 1)
+[4215000.767] {mesa egl display queue} wl_registry#42.global(26, "zwp_text_input_manager_v3", 1)
+[4215040.823] {mesa egl swrast display queue} wl_registry#46.global(26, "zwp_text_input_manager_v3", 1)
+[4215164.781] {Default Queue} wl_keyboard#10.keymap(1, fd 12, 36351)
+[4215165.962] {Default Queue} wl_registry#49.global(26, "zwp_text_input_manager_v3", 1)
+[4215165.965] {Default Queue}  -> wl_registry#49.bind(26, "zwp_text_input_manager_v3", 1, new id [unknown]#51)
+[4215165.969] {Default Queue}  -> zwp_text_input_manager_v3#51.get_text_input(new id zwp_text_input_v3#52, wl_seat#3)
+[4216911.826] {Default Queue} wl_keyboard#10.enter(3, wl_surface#7, array[0])
+[4216911.840] {Default Queue} wl_keyboard#10.modifiers(3, 0, 0, 0, 0)
+[4216911.874] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4216911.878] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4216911.896] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("", 0, 0)
+[4216911.899] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4216911.906] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4216911.916] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(23, 52, 0, 79)
+[4216911.919] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4216927.242] {Default Queue} zwp_text_input_v3#52.done(1)
+[4217271.658] {Default Queue} wl_keyboard#10.key(4, 21375667, 45, 1)
+[4217272.547] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x", 1, 1)
+[4217272.554] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(0)
+[4217272.559] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4217272.568] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(30, 52, 0, 79)
+[4217272.571] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4217273.647] {Default Queue} zwp_text_input_v3#52.done(2)
+[4217296.338] {Default Queue} wl_keyboard#10.key(5, 21375692, 45, 0)
+[4217323.071] {Default Queue} wl_keyboard#10.key(6, 21375719, 43, 1)
+[4217323.544] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\", 2, 2)
+[4217323.549] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(0)
+[4217323.554] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4217323.562] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(35, 52, 0, 79)
+[4217323.566] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4217323.695] {Default Queue} zwp_text_input_v3#52.done(3)
+[4217350.318] {Default Queue} wl_keyboard#10.key(7, 21375746, 43, 0)
+[4217376.031] {Default Queue} wl_keyboard#10.key(8, 21375771, 12, 1)
+[4217376.491] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-", 3, 3)
+[4217376.496] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(0)
+[4217376.502] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4217376.510] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(40, 52, 0, 79)
+[4217376.512] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4217376.641] {Default Queue} zwp_text_input_v3#52.done(4)
+[4217399.730] {Default Queue} wl_keyboard#10.key(9, 21375796, 12, 0)
+[4217827.778] {Default Queue} wl_keyboard#10.key(10, 21376223, 56, 1)
+[4217827.807] {Default Queue} wl_keyboard#10.modifiers(11, 8, 0, 0, 0)
+[4217843.843] {Default Queue} wl_keyboard#10.leave(12, wl_surface#7)
+[4217843.867] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4217843.872] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4217843.878] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4218119.880] {Default Queue} wl_keyboard#10.enter(13, wl_surface#7, array[0])
+[4218119.892] {Default Queue} wl_keyboard#10.modifiers(13, 0, 0, 0, 0)
+[4218119.930] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4218120.097] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4218120.110] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-", 3, 3)
+[4218120.113] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4218120.118] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4218120.184] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(40, 52, 0, 79)
+[4218120.187] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4218120.486] {Default Queue} zwp_text_input_v3#52.done(6)
+[4218531.770] {Default Queue} wl_keyboard#10.key(14, 21376928, 56, 1)
+[4218531.798] {Default Queue} wl_keyboard#10.modifiers(15, 8, 0, 0, 0)
+[4218547.633] {Default Queue} wl_keyboard#10.leave(16, wl_surface#7)
+[4218547.649] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4218547.653] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4218547.658] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4218794.096] {Default Queue} wl_keyboard#10.enter(17, wl_surface#7, array[4])
+[4218794.108] {Default Queue} wl_keyboard#10.modifiers(17, 0, 0, 0, 0)
+[4218794.147] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4218794.307] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4218794.320] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-", 3, 3)
+[4218794.323] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4218794.329] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4218794.397] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(40, 52, 0, 79)
+[4218794.400] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4218794.696] {Default Queue} zwp_text_input_v3#52.done(8)
+[4218805.782] {Default Queue} wl_keyboard#10.key(18, 21377201, 43, 0)
+[4219229.946] {Default Queue} wl_keyboard#10.key(19, 21377627, 56, 1)
+[4219229.965] {Default Queue} wl_keyboard#10.modifiers(20, 8, 0, 0, 0)
+[4219263.521] {Default Queue} wl_keyboard#10.leave(21, wl_surface#7)
+[4219263.549] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4219263.554] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4219263.559] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4219342.709] {Default Queue} wl_keyboard#10.enter(22, wl_surface#7, array[0])
+[4219342.723] {Default Queue} wl_keyboard#10.modifiers(22, 0, 0, 0, 0)
+[4219342.761] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4219342.928] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4219342.940] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-", 3, 3)
+[4219342.944] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4219342.949] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4219343.017] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(40, 52, 0, 79)
+[4219343.020] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4219347.202] {Default Queue} zwp_text_input_v3#52.done(10)
+[4219745.663] {Default Queue} wl_keyboard#10.key(23, 21378140, 56, 1)
+[4219745.699] {Default Queue} wl_keyboard#10.modifiers(24, 8, 0, 0, 0)
+[4219776.132] {Default Queue} wl_keyboard#10.leave(25, wl_surface#7)
+[4219776.166] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4219776.171] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4219776.177] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4219908.048] {Default Queue} wl_keyboard#10.enter(26, wl_surface#7, array[0])
+[4219908.060] {Default Queue} wl_keyboard#10.modifiers(26, 0, 0, 0, 0)
+[4219908.096] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4219908.261] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4219908.273] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-", 3, 3)
+[4219908.276] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4219908.282] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4219908.343] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(40, 52, 0, 79)
+[4219908.346] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4219911.684] {Default Queue} zwp_text_input_v3#52.done(12)
+[4220309.823] {Default Queue} wl_keyboard#10.key(27, 21378706, 56, 1)
+[4220309.858] {Default Queue} wl_keyboard#10.modifiers(28, 8, 0, 0, 0)
+[4220339.721] {Default Queue} wl_keyboard#10.leave(29, wl_surface#7)
+[4220339.758] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4220339.763] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4220339.769] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4220420.685] {Default Queue} wl_keyboard#10.enter(30, wl_surface#7, array[0])
+[4220420.707] {Default Queue} wl_keyboard#10.modifiers(30, 0, 0, 0, 0)
+[4220420.745] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4220420.906] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4220420.918] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-", 3, 3)
+[4220420.921] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4220420.926] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4220420.992] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(40, 52, 0, 79)
+[4220420.994] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4220421.327] {Default Queue} zwp_text_input_v3#52.done(14)
+[4220823.657] {Default Queue} wl_keyboard#10.key(31, 21379218, 56, 1)
+[4220823.696] {Default Queue} wl_keyboard#10.modifiers(32, 8, 0, 0, 0)
+[4220861.537] {Default Queue} wl_keyboard#10.leave(33, wl_surface#7)
+[4220861.585] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4220861.590] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4220861.596] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4220928.660] {Default Queue} wl_keyboard#10.enter(34, wl_surface#7, array[0])
+[4220928.672] {Default Queue} wl_keyboard#10.modifiers(34, 0, 0, 0, 0)
+[4220928.715] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4220928.876] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4220928.889] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-", 3, 3)
+[4220928.892] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4220928.907] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4220928.972] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(40, 52, 0, 79)
+[4220928.975] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4220929.953] {Default Queue} zwp_text_input_v3#52.done(16)
+[4221332.724] {Default Queue} wl_keyboard#10.key(35, 21379729, 56, 1)
+[4221332.762] {Default Queue} wl_keyboard#10.modifiers(36, 8, 0, 0, 0)
+[4221380.702] {Default Queue} wl_keyboard#10.leave(37, wl_surface#7)
+[4221380.739] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4221380.744] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4221380.749] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4221443.516] {Default Queue} wl_keyboard#10.enter(38, wl_surface#7, array[0])
+[4221443.529] {Default Queue} wl_keyboard#10.modifiers(38, 0, 0, 0, 0)
+[4221443.569] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4221444.812] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4221444.828] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-", 3, 3)
+[4221444.832] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4221444.839] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4221444.906] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(40, 52, 0, 79)
+[4221444.909] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4221445.212] {Default Queue} zwp_text_input_v3#52.done(18)
+[4221845.603] {Default Queue} wl_keyboard#10.key(39, 21380242, 56, 1)
+[4221845.656] {Default Queue} wl_keyboard#10.modifiers(40, 8, 0, 0, 0)
+[4221861.353] {Default Queue} wl_keyboard#10.leave(41, wl_surface#7)
+[4221861.378] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4221861.383] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4221861.389] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4222094.066] {Default Queue} wl_keyboard#10.enter(42, wl_surface#7, array[0])
+[4222094.079] {Default Queue} wl_keyboard#10.modifiers(42, 0, 0, 0, 0)
+[4222094.118] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4222094.284] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4222094.297] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-", 3, 3)
+[4222094.300] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4222094.306] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4222094.374] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(40, 52, 0, 79)
+[4222094.377] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4222095.664] {Default Queue} zwp_text_input_v3#52.done(20)
+[4222495.013] {Default Queue} wl_keyboard#10.key(43, 21380892, 56, 1)
+[4222495.044] {Default Queue} wl_keyboard#10.modifiers(44, 8, 0, 0, 0)
+[4222512.818] {Default Queue} wl_keyboard#10.leave(45, wl_surface#7)
+[4222512.842] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4222512.847] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4222512.853] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4225518.692] {Default Queue} wl_keyboard#10.enter(46, wl_surface#7, array[0])
+[4225518.734] {Default Queue} wl_keyboard#10.modifiers(46, 0, 0, 0, 0)
+[4225518.775] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4225518.920] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4225518.933] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-", 3, 3)
+[4225518.936] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4225518.942] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4225519.010] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(40, 52, 0, 79)
+[4225519.013] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4225534.701] {Default Queue} zwp_text_input_v3#52.done(22)
+[4225876.784] {Default Queue} wl_keyboard#10.key(47, 21384273, 21, 1)
+[4225877.277] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-y", 4, 4)
+[4225877.283] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(0)
+[4225877.288] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4225877.297] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(47, 52, 0, 79)
+[4225877.300] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4225877.560] {Default Queue} zwp_text_input_v3#52.done(23)
+[4225902.277] {Default Queue} wl_keyboard#10.key(48, 21384299, 21, 0)
+[4226333.418] {Default Queue} wl_keyboard#10.key(49, 21384727, 56, 1)
+[4226333.462] {Default Queue} wl_keyboard#10.modifiers(50, 8, 0, 0, 0)
+[4226346.018] {Default Queue} wl_keyboard#10.leave(51, wl_surface#7)
+[4226346.044] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4226346.049] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4226346.055] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4226520.052] {Default Queue} wl_keyboard#10.enter(52, wl_surface#7, array[4])
+[4226520.065] {Default Queue} wl_keyboard#10.modifiers(52, 0, 0, 0, 0)
+[4226520.104] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4226520.266] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4226520.279] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-y", 4, 4)
+[4226520.284] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4226520.289] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4226520.357] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(47, 52, 0, 79)
+[4226520.360] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4226526.994] {Default Queue} zwp_text_input_v3#52.done(25)
+[4226539.323] {Default Queue} wl_keyboard#10.key(53, 21384936, 1, 0)
+[4226666.149] {Default Queue} wl_keyboard#10.key(54, 21385062, 21, 1)
+[4226666.664] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yy", 5, 5)
+[4226666.672] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(0)
+[4226666.677] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4226666.686] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(55, 52, 0, 79)
+[4226666.690] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4226668.666] {Default Queue} zwp_text_input_v3#52.done(26)
+[4226691.369] {Default Queue} wl_keyboard#10.key(55, 21385088, 21, 0)
+[4227117.820] {Default Queue} wl_keyboard#10.key(56, 21385514, 29, 1)
+[4227117.855] {Default Queue} wl_keyboard#10.modifiers(57, 4, 0, 0, 0)
+[4227133.033] {Default Queue} wl_keyboard#10.key(58, 21385530, 125, 1)
+[4227133.063] {Default Queue} wl_keyboard#10.modifiers(59, 68, 0, 0, 0)
+[4227148.460] {Default Queue} wl_keyboard#10.key(60, 21385545, 56, 1)
+[4227148.504] {Default Queue} wl_keyboard#10.modifiers(61, 76, 0, 0, 0)
+[4227189.044] {Default Queue} wl_keyboard#10.key(62, 21385586, 1, 0)
+[4227216.926] {Default Queue} wl_keyboard#10.key(63, 21385611, 56, 0)
+[4227216.975] {Default Queue} wl_keyboard#10.modifiers(64, 68, 0, 0, 0)
+[4227230.095] {Default Queue} wl_keyboard#10.key(65, 21385627, 125, 0)
+[4227230.136] {Default Queue} wl_keyboard#10.modifiers(66, 4, 0, 0, 0)
+[4227245.337] {Default Queue} wl_keyboard#10.key(67, 21385642, 29, 0)
+[4227245.381] {Default Queue} wl_keyboard#10.modifiers(68, 0, 0, 0, 0)
+[4227665.656] {Default Queue} wl_keyboard#10.key(69, 21386059, 56, 1)
+[4227665.705] {Default Queue} wl_keyboard#10.modifiers(70, 8, 0, 0, 0)
+[4227678.689] {Default Queue} wl_keyboard#10.leave(71, wl_surface#7)
+[4227678.716] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4227678.721] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4227678.726] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4227899.705] {Default Queue} wl_keyboard#10.enter(72, wl_surface#7, array[16])
+[4227899.717] {Default Queue} wl_keyboard#10.modifiers(72, 76, 0, 0, 0)
+[4227899.754] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4227899.916] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4227899.930] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yy", 5, 5)
+[4227899.933] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4227899.939] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4227900.006] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(55, 52, 0, 79)
+[4227900.009] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4227902.932] {Default Queue} zwp_text_input_v3#52.done(28)
+[4227917.024] {Default Queue} wl_keyboard#10.key(73, 21386312, 1, 0)
+[4227940.857] {Default Queue} wl_keyboard#10.key(74, 21386337, 56, 0)
+[4227940.895] {Default Queue} wl_keyboard#10.modifiers(75, 68, 0, 0, 0)
+[4227956.238] {Default Queue} wl_keyboard#10.key(76, 21386353, 125, 0)
+[4227956.273] {Default Queue} wl_keyboard#10.modifiers(77, 4, 0, 0, 0)
+[4227973.172] {Default Queue} wl_keyboard#10.key(78, 21386368, 29, 0)
+[4227973.207] {Default Queue} wl_keyboard#10.modifiers(79, 0, 0, 0, 0)
+[4228388.002] {Default Queue} wl_keyboard#10.key(80, 21386785, 125, 1)
+[4228388.031] {Default Queue} wl_keyboard#10.modifiers(81, 64, 0, 0, 0)
+[4228435.317] {Default Queue} wl_keyboard#10.key(82, 21386832, 38, 0)
+[4228460.816] {Default Queue} wl_keyboard#10.key(83, 21386857, 125, 0)
+[4228460.869] {Default Queue} wl_keyboard#10.modifiers(84, 0, 0, 0, 0)
+[4228878.940] {Default Queue} wl_keyboard#10.key(85, 21387275, 56, 1)
+[4228878.983] {Default Queue} wl_keyboard#10.modifiers(86, 8, 0, 0, 0)
+[4228896.767] {Default Queue} wl_keyboard#10.leave(87, wl_surface#7)
+[4228896.808] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4228896.813] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4228896.819] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4229129.956] {Default Queue} wl_keyboard#10.enter(88, wl_surface#7, array[4])
+[4229129.968] {Default Queue} wl_keyboard#10.modifiers(88, 64, 0, 0, 0)
+[4229130.004] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4229130.167] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4229130.181] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yy", 5, 5)
+[4229130.184] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4229130.190] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4229130.257] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(55, 52, 0, 79)
+[4229130.259] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4229131.920] {Default Queue} zwp_text_input_v3#52.done(30)
+[4229133.914] {Default Queue} wl_keyboard#10.key(89, 21387531, 125, 0)
+[4229133.938] {Default Queue} wl_keyboard#10.modifiers(90, 0, 0, 0, 0)
+[4229250.306] {Default Queue} wl_keyboard#10.key(91, 21387647, 1, 1)
+[4229250.602] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yy", 5, 5)
+[4229250.608] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4229250.615] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4229250.624] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(55, 52, 0, 79)
+[4229250.634] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4229252.533] {Default Queue} zwp_text_input_v3#52.done(31)
+[4229275.481] {Default Queue} wl_keyboard#10.key(92, 21387672, 1, 0)
+[4229703.658] {Default Queue} wl_keyboard#10.key(93, 21388100, 56, 1)
+[4229703.706] {Default Queue} wl_keyboard#10.modifiers(94, 8, 0, 0, 0)
+[4229718.945] {Default Queue} wl_keyboard#10.leave(95, wl_surface#7)
+[4229718.979] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4229718.984] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4229718.989] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4230263.568] {Default Queue} wl_keyboard#10.enter(96, wl_surface#7, array[4])
+[4230263.615] {Default Queue} wl_keyboard#10.modifiers(96, 0, 0, 0, 0)
+[4230263.660] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4230263.811] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4230263.824] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yy", 5, 5)
+[4230263.827] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4230263.833] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4230263.900] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(55, 52, 0, 79)
+[4230263.902] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4230266.518] {Default Queue} zwp_text_input_v3#52.done(33)
+[4230277.168] {Default Queue} wl_keyboard#10.key(97, 21388674, 1, 0)
+[4230707.924] {Default Queue} wl_keyboard#10.key(98, 21389101, 56, 1)
+[4230707.947] {Default Queue} wl_keyboard#10.modifiers(99, 8, 0, 0, 0)
+[4230723.478] {Default Queue} wl_keyboard#10.leave(100, wl_surface#7)
+[4230723.499] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4230723.512] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4230723.517] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4230935.890] {Default Queue} wl_keyboard#10.enter(101, wl_surface#7, array[16])
+[4230935.922] {Default Queue} wl_keyboard#10.modifiers(101, 76, 0, 0, 0)
+[4230935.962] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4230936.105] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4230936.119] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yy", 5, 5)
+[4230936.122] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4230936.128] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4230936.193] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(55, 52, 0, 79)
+[4230936.197] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4230937.192] {Default Queue} zwp_text_input_v3#52.done(35)
+[4230960.735] {Default Queue} wl_keyboard#10.key(102, 21389357, 1, 0)
+[4230987.113] {Default Queue} wl_keyboard#10.key(103, 21389384, 56, 0)
+[4230987.134] {Default Queue} wl_keyboard#10.modifiers(104, 68, 0, 0, 0)
+[4231002.639] {Default Queue} wl_keyboard#10.key(105, 21389399, 125, 0)
+[4231002.676] {Default Queue} wl_keyboard#10.modifiers(106, 4, 0, 0, 0)
+[4231017.835] {Default Queue} wl_keyboard#10.key(107, 21389414, 29, 0)
+[4231017.873] {Default Queue} wl_keyboard#10.modifiers(108, 0, 0, 0, 0)
+[4231434.080] {Default Queue} wl_keyboard#10.key(109, 21389831, 56, 1)
+[4231434.111] {Default Queue} wl_keyboard#10.modifiers(110, 8, 0, 0, 0)
+[4231452.657] {Default Queue} wl_keyboard#10.leave(111, wl_surface#7)
+[4231452.680] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4231452.684] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4231452.689] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4232005.819] {Default Queue} wl_keyboard#10.enter(112, wl_surface#7, array[0])
+[4232005.859] {Default Queue} wl_keyboard#10.modifiers(112, 0, 0, 0, 0)
+[4232005.897] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4232006.037] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4232006.049] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yy", 5, 5)
+[4232006.052] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4232006.057] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4232006.124] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(55, 52, 0, 79)
+[4232006.126] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4232007.351] {Default Queue} zwp_text_input_v3#52.done(37)
+[4232423.841] {Default Queue} wl_keyboard#10.key(113, 21390818, 44, 1)
+[4232424.270] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yyz", 6, 6)
+[4232424.276] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(0)
+[4232424.281] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4232424.289] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(62, 52, 0, 79)
+[4232424.292] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4232424.455] {Default Queue} zwp_text_input_v3#52.done(38)
+[4232451.663] {Default Queue} wl_keyboard#10.key(114, 21390846, 44, 0)
+[4232477.024] {Default Queue} wl_keyboard#10.key(115, 21390874, 44, 1)
+[4232477.467] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yyzz", 7, 7)
+[4232477.472] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(0)
+[4232477.478] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4232477.486] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(69, 52, 0, 79)
+[4232477.489] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4232477.632] {Default Queue} zwp_text_input_v3#52.done(39)
+[4232502.214] {Default Queue} wl_keyboard#10.key(116, 21390899, 44, 0)
+[4233032.250] {Default Queue} wl_keyboard#10.key(117, 21391429, 42, 1)
+[4233032.286] {Default Queue} wl_keyboard#10.modifiers(118, 1, 0, 0, 0)
+[4233072.913] {Default Queue} wl_keyboard#10.key(119, 21391469, 105, 0)
+[4233098.377] {Default Queue} wl_keyboard#10.key(120, 21391495, 42, 0)
+[4233098.427] {Default Queue} wl_keyboard#10.modifiers(121, 0, 0, 0, 0)
+[4233113.682] {Default Queue} wl_keyboard#10.key(122, 21391510, 16, 1)
+[4233114.143] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yyzzq", 8, 8)
+[4233114.150] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(0)
+[4233114.155] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4233114.162] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(78, 52, 0, 79)
+[4233114.164] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4233114.307] {Default Queue} zwp_text_input_v3#52.done(40)
+[4233138.955] {Default Queue} wl_keyboard#10.key(123, 21391536, 16, 0)
+[4233218.180] {Default Queue} wl_keyboard#10.key(124, 21391615, 42, 1)
+[4233218.233] {Default Queue} wl_keyboard#10.modifiers(125, 1, 0, 0, 0)
+[4233233.416] {Default Queue} wl_keyboard#10.key(126, 21391630, 105, 1)
+[4233233.804] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yyzzq", 8, 8)
+[4233233.810] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4233233.816] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4233233.824] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(78, 52, 0, 79)
+[4233233.827] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4233233.989] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yyzzq", 7, 8)
+[4233234.002] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4233234.004] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4233234.008] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(69, 52, 0, 79)
+[4233234.010] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4233236.111] {Default Queue} zwp_text_input_v3#52.done(42)
+[4233258.747] {Default Queue} wl_keyboard#10.key(127, 21391655, 105, 0)
+[4233284.215] {Default Queue} wl_keyboard#10.key(128, 21391681, 42, 0)
+[4233284.265] {Default Queue} wl_keyboard#10.modifiers(129, 0, 0, 0, 0)
+[4233702.194] {Default Queue} wl_keyboard#10.key(130, 21392099, 42, 1)
+[4233702.240] {Default Queue} wl_keyboard#10.modifiers(131, 1, 0, 0, 0)
+[4233773.361] {Default Queue} wl_keyboard#10.key(132, 21392170, 42, 0)
+[4233773.414] {Default Queue} wl_keyboard#10.modifiers(133, 0, 0, 0, 0)
+[4233788.645] {Default Queue} wl_keyboard#10.key(134, 21392185, 16, 1)
+[4233789.198] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yyzzq", 8, 8)
+[4233789.202] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(0)
+[4233789.207] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4233789.214] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(78, 52, 0, 79)
+[4233789.217] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4233789.647] {Default Queue} zwp_text_input_v3#52.done(43)
+[4233813.992] {Default Queue} wl_keyboard#10.key(135, 21392211, 16, 0)
+[4234240.988] {Default Queue} wl_keyboard#10.key(136, 21392638, 56, 1)
+[4234241.017] {Default Queue} wl_keyboard#10.modifiers(137, 8, 0, 0, 0)
+[4234256.718] {Default Queue} wl_keyboard#10.leave(138, wl_surface#7)
+[4234256.738] {Default Queue} zwp_text_input_v3#52.leave(wl_surface#7)
+[4234256.742] {Default Queue}  -> zwp_text_input_v3#52.disable()
+[4234256.747] {Default Queue}  -> zwp_text_input_v3#52.commit()
+[4235734.093] {Default Queue} wl_keyboard#10.enter(142, wl_surface#7, array[0])
+[4235734.140] {Default Queue} wl_keyboard#10.modifiers(142, 0, 0, 0, 0)
+[4235734.179] {Default Queue} zwp_text_input_v3#52.enter(wl_surface#7)
+[4235734.385] {Default Queue}  -> zwp_text_input_v3#52.enable()
+[4235734.397] {Default Queue}  -> zwp_text_input_v3#52.set_surrounding_text("x\-yyzzq", 8, 8)
+[4235734.399] {Default Queue}  -> zwp_text_input_v3#52.set_text_change_cause(1)
+[4235734.405] {Default Queue}  -> zwp_text_input_v3#52.set_content_type(0, 0)
+[4235734.482] {Default Queue}  -> zwp_text_input_v3#52.set_cursor_rectangle(78, 52, 0, 79)
+[4235734.485] {Default Queue}  -> zwp_text_input_v3#52.commit()
+run-l1: podman.sh l1 exit 0

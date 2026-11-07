@@ -1,0 +1,921 @@
+dev-shell: run dir /home/martin/.cache/tiler-dev.RSt3HoJi
+dev-shell: isolation checks passed; starting gnome-shell --wayland --devkit --mode=tiler-dev
+libmutter-Message: 05:03:12.116: Running GNOME Shell (using mutter 50.1) as a Wayland display server
+
+(gnome-shell:538014): libmutter-WARNING **: 05:03:12.116: Unknown experimental feature 'scale-monitor-framebuffer'
+
+(gnome-shell:538014): libmutter-WARNING **: 05:03:12.116: Unknown experimental feature 'xwayland-native-scaling'
+libmutter-Message: 05:03:16.608: Added device '/dev/dri/renderD128' (nvidia-drm) using no mode setting.
+libmutter-Message: 05:03:17.924: Added device '/dev/dri/renderD129' (amdgpu) using no mode setting.
+libmutter-Message: 05:03:17.926: Created gbm renderer for '/dev/dri/renderD128'
+libmutter-Message: 05:03:17.930: Created gbm renderer for '/dev/dri/renderD129'
+libmutter-Message: 05:03:17.930: Boot VGA GPU /dev/dri/renderD128 selected as primary
+** Message: 05:03:17.935: Obtained a high priority EGL context
+libmutter-Message: 05:03:18.188: Using public X11 display :2, (using unix:/tmp/.X11-unix/X3 for managed services)
+libmutter-Message: 05:03:18.188: Using Wayland display name 'wayland-0'
+GNOME Shell-Message: 05:03:21.764: Registering session with GDM
+
+(gnome-shell:538014): libmutter-WARNING **: 05:03:21.852: There is no colord server available
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccfea8 i   resource:///org/gnome/shell/ui/init.js:20 (2f9e9f88d8d0 @ 48)
+GNOME Shell-Message: 05:03:21.861: Error registering session with GDM: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.DisplayManager was not provided by any .service files
+
+(gnome-shell:538014): GNOME Shell-WARNING **: 05:03:22.014: Failed to inhibit suspend: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbacf0 b   resource:///org/gnome/gjs/modules/core/overrides/GLib.js:359 (2f9e9f8acb00 @ 718)
+#1   60980ecd0148 i   resource:///org/gnome/gjs/modules/esm/console.js:599 (2f9e9f883e20 @ 2160)
+#2   7ffddafbb660 b   resource:///org/gnome/gjs/modules/esm/console.js:396 (2f9e9f883d80 @ 320)
+#3   60980ecd0088 i   resource:///org/gnome/gjs/modules/esm/console.js:183 (2f9e9f883880 @ 39)
+#4   60980eccffd8 i   resource:///org/gnome/shell/misc/timeLimitsManager.js:471 (195873162740 @ 245)
+#5   60980eccff38 i   self-hosted:805 (195873178c90 @ 15)
+#6   60980eccfea8 i   resource:///org/gnome/shell/ui/init.js:20 (2f9e9f88d8d0 @ 48)
+
+(gnome-shell:538014): GNOME Shell-CRITICAL **: 05:03:22.039: Could not get a proxy for user 1000: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.login1 was not provided by any .service files
+
+Stack trace:
+  asyncCallback@resource:///org/gnome/gjs/modules/core/overrides/Gio.js:115:23
+  @resource:///org/gnome/shell/ui/init.js:20:20
+  
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbab10 b   resource:///org/gnome/gjs/modules/core/overrides/GLib.js:359 (2f9e9f8acb00 @ 718)
+#1   60980ecd0208 i   resource:///org/gnome/gjs/modules/esm/console.js:599 (2f9e9f883e20 @ 2160)
+#2   7ffddafbb4f0 b   resource:///org/gnome/gjs/modules/esm/console.js:402 (2f9e9f883d80 @ 405)
+#3   60980ecd0148 i   resource:///org/gnome/gjs/modules/esm/console.js:139 (2f9e9f8836f0 @ 39)
+#4   60980ecd0090 i   resource:///org/gnome/shell/ui/main.js:175 (8309b70b600 @ 227)
+#5   60980eccffd8 i   resource:///org/gnome/shell/misc/loginManager.js:136 (8309b7424c0 @ 510)
+#6   60980eccff38 i   self-hosted:805 (195873178c90 @ 15)
+#7   60980eccfea8 i   resource:///org/gnome/shell/ui/init.js:20 (2f9e9f88d8d0 @ 48)
+
+(gnome-shell:538014): GNOME Shell-WARNING **: 05:03:22.049: Failed to start state machine: can't access property "connectObject", this._loginUser is null
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafba8c0 b   resource:///org/gnome/gjs/modules/core/overrides/GLib.js:359 (2f9e9f8acb00 @ 718)
+#1   7ffddafbb080 b   resource:///org/gnome/gjs/modules/esm/console.js:599 (2f9e9f883e20 @ 2160)
+#2   7ffddafbb7c0 b   resource:///org/gnome/gjs/modules/esm/console.js:396 (2f9e9f883d80 @ 320)
+#3   60980eccffc8 i   resource:///org/gnome/gjs/modules/esm/console.js:183 (2f9e9f883880 @ 39)
+#4   60980eccff38 i   resource:///org/gnome/shell/misc/timeLimitsManager.js:323 (1958731624c0 @ 27)
+#5   60980eccfea8 i   resource:///org/gnome/shell/ui/init.js:20 (2f9e9f88d8d0 @ 48)
+GNOME Shell-Message: 05:03:22.065: [s2] enable
+
+(gnome-shell:538014): accountsservice-WARNING **: 05:03:22.078: ActUserManager: user (null) has no username (uid: -1)
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccfea8 i   resource:///org/gnome/shell/ui/init.js:20 (2f9e9f88d8d0 @ 48)
+dev-shell: the shell runs the tiler-dev mode (Mode 'tiler-dev', vase-s2@maartenhaine.github.io enabled, no keyring prompter)
+dev-shell: the viewer window is on this desktop; close it (or Ctrl+C here) to end the dev shell
+portal is not running: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.portal.IBus was not provided by any .service files
+
+(gnome-shell:538014): GNOME Shell-CRITICAL **: 05:03:25.185: TypeError: can't access property "join", this._xkbOptions is undefined
+
+Stack trace:
+  _buildOptionsString@resource:///org/gnome/shell/misc/keyboardManager.js:208:25
+  _updateCurrentKeymap@resource:///org/gnome/shell/misc/keyboardManager.js:58:30
+  _doApply@resource:///org/gnome/shell/misc/keyboardManager.js:107:18
+  apply@resource:///org/gnome/shell/misc/keyboardManager.js:126:14
+  activateInputSource@resource:///org/gnome/shell/ui/status/keyboard.js:511:31
+  _callHandlers@resource:///org/gnome/gjs/modules/core/_signals.js:130:42
+  _emit@resource:///org/gnome/gjs/modules/core/_signals.js:119:10
+  activate@resource:///org/gnome/shell/ui/status/keyboard.js:63:14
+  _inputSourcesChanged@resource:///org/gnome/shell/ui/status/keyboard.js:657:33
+  _ibusReadyCallback@resource:///org/gnome/shell/ui/status/keyboard.js:404:14
+  _callHandlers@resource:///org/gnome/gjs/modules/core/_signals.js:130:42
+  _emit@resource:///org/gnome/gjs/modules/core/_signals.js:119:10
+  _updateReadiness@resource:///org/gnome/shell/misc/ibusManager.js:231:14
+  _initPanelService@resource:///org/gnome/shell/misc/ibusManager.js:218:14
+  async*_onConnected@resource:///org/gnome/shell/misc/ibusManager.js:164:14
+  @resource:///org/gnome/shell/ui/init.js:20:20
+  
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb400 b   resource:///org/gnome/gjs/modules/core/overrides/GLib.js:359 (2f9e9f8acb00 @ 718)
+#1   7ffddafbb530 b   resource:///org/gnome/gjs/modules/esm/console.js:599 (2f9e9f883e20 @ 2160)
+#2   7ffddafbb650 b   resource:///org/gnome/gjs/modules/esm/console.js:396 (2f9e9f883d80 @ 320)
+#3   60980ecd0010 i   resource:///org/gnome/gjs/modules/esm/console.js:139 (2f9e9f8836f0 @ 39)
+#4   60980eccff58 i   resource:///org/gnome/shell/ui/main.js:175 (8309b70b600 @ 227)
+#5   60980eccfea8 i   resource:///org/gnome/shell/ui/init.js:20 (2f9e9f88d8d0 @ 48)
+libmutter-Message: 05:03:26.766: Added virtual monitor Meta-0
+GNOME Shell-Message: 05:03:28.845: GNOME Shell started at Sat Nov 07 2026 05:03:21 GMT+0100 (Central European Standard Time)
+GNOME Shell-Message: 05:03:28.846: Registering display with GDM
+GNOME Shell-Message: 05:03:28.846: [s2] {"ev":"note","what":"start","keymap":{"xkbOptions":"undefined","currentKeymap":null,"shortName":"en","ibusReady":true,"sources":["xkb:us"]},"im":{"imFocus":false,"ibusContext":true,"inputSource":"us"},"display":":2","wayland":"wayland-0","t":20642802845}
+GNOME Shell-Message: 05:03:28.846: [s2] {"ev":"note","what":"ibus","im":{"imFocus":false,"ibusContext":true,"inputSource":"us"},"keymap":{"xkbOptions":"undefined","currentKeymap":null,"shortName":"en","ibusReady":true,"sources":["xkb:us"]},"t":20642803186}
+GNOME Shell-Message: 05:03:28.847: [s2] {"ev":"note","what":"setup","altA":129,"superL":130,"killAction":131,"t":20642803838}
+GNOME Shell-Message: 05:03:29.319: [s2] {"ev":"note","what":"spawned","cmd":"WAYLAND_DEBUG=1 exec /usr/bin/python3 -I /home/martin/.cache/tiler-dev.RSt3HoJi/share/gnome-shell/extensions/vase-s2@maartenhaine.github.io/probe_gtk.py /home/martin/.cache/tiler-dev.RSt3HoJi/home/s2/gtk.jsonl 2>/home/martin/.cache/tiler-dev.RSt3HoJi/home/s2/gtk-wayland.log","t":20643275137}
+GNOME Shell-Message: 05:03:29.650: [s2] {"ev":"note","what":"spawned","cmd":"exec /usr/bin/ghostty --gtk-single-instance=false --title=s2-ghostty -e /usr/bin/python3 -I /home/martin/.cache/tiler-dev.RSt3HoJi/share/gnome-shell/extensions/vase-s2@maartenhaine.github.io/bytelog.py /home/martin/.cache/tiler-dev.RSt3HoJi/home/s2/ghostty.jsonl >/home/martin/.cache/tiler-dev.RSt3HoJi/home/s2/ghostty.log 2>&1","t":20643606155}
+GNOME Shell-Message: 05:03:29.794: [s2] {"ev":"note","what":"spawned","cmd":"exec /usr/bin/stdbuf -oL /usr/bin/xev -name s2-xev -event keyboard -event focus >/home/martin/.cache/tiler-dev.RSt3HoJi/home/s2/xev.log 2>&1","t":20643750307}
+GNOME Shell-Message: 05:03:29.812: Error registering display with GDM: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.DisplayManager was not provided by any .service files
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Unsupported maximum keycode 708, clipping.
+>                   X11 cannot support keycodes above 255.
+> Warning:          Virtual modifier Hyper multiply defined
+>                   Using 0, ignoring 0
+> Warning:          Virtual modifier ScrollLock multiply defined
+>                   Using 0, ignoring 0
+Errors from xkbcomp are not fatal to the X server
+portal is not running: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.portal.IBus was not provided by any .service files
+
+(gnome-shell:538014): GNOME Shell-CRITICAL **: 05:03:35.446: TypeError: can't access property "join", this._xkbOptions is undefined
+
+Stack trace:
+  _buildOptionsString@resource:///org/gnome/shell/misc/keyboardManager.js:208:25
+  _updateCurrentKeymap@resource:///org/gnome/shell/misc/keyboardManager.js:58:30
+  _doApply@resource:///org/gnome/shell/misc/keyboardManager.js:107:18
+  apply@resource:///org/gnome/shell/misc/keyboardManager.js:126:14
+  activateInputSource@resource:///org/gnome/shell/ui/status/keyboard.js:511:31
+  _callHandlers@resource:///org/gnome/gjs/modules/core/_signals.js:130:42
+  _emit@resource:///org/gnome/gjs/modules/core/_signals.js:119:10
+  activate@resource:///org/gnome/shell/ui/status/keyboard.js:63:14
+  _inputSourcesChanged@resource:///org/gnome/shell/ui/status/keyboard.js:657:33
+  _ibusReadyCallback@resource:///org/gnome/shell/ui/status/keyboard.js:404:14
+  _callHandlers@resource:///org/gnome/gjs/modules/core/_signals.js:130:42
+  _emit@resource:///org/gnome/gjs/modules/core/_signals.js:119:10
+  _clear@resource:///org/gnome/shell/misc/ibusManager.js:158:14
+  @resource:///org/gnome/shell/ui/init.js:20:20
+  
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb650 b   resource:///org/gnome/gjs/modules/core/overrides/GLib.js:359 (2f9e9f8acb00 @ 718)
+#1   60980ecd01b0 i   resource:///org/gnome/gjs/modules/esm/console.js:599 (2f9e9f883e20 @ 2160)
+#2   60980ecd00a8 i   resource:///org/gnome/gjs/modules/esm/console.js:396 (2f9e9f883d80 @ 320)
+#3   60980ecd0010 i   resource:///org/gnome/gjs/modules/esm/console.js:139 (2f9e9f8836f0 @ 39)
+#4   60980eccff58 i   resource:///org/gnome/shell/ui/main.js:175 (8309b70b600 @ 227)
+#5   60980eccfea8 i   resource:///org/gnome/shell/ui/init.js:20 (2f9e9f88d8d0 @ 48)
+
+(gnome-shell:538014): GNOME Shell-CRITICAL **: 05:03:35.591: TypeError: can't access property "join", this._xkbOptions is undefined
+
+Stack trace:
+  _buildOptionsString@resource:///org/gnome/shell/misc/keyboardManager.js:208:25
+  _updateCurrentKeymap@resource:///org/gnome/shell/misc/keyboardManager.js:58:30
+  _doApply@resource:///org/gnome/shell/misc/keyboardManager.js:107:18
+  apply@resource:///org/gnome/shell/misc/keyboardManager.js:126:14
+  activateInputSource@resource:///org/gnome/shell/ui/status/keyboard.js:511:31
+  _callHandlers@resource:///org/gnome/gjs/modules/core/_signals.js:130:42
+  _emit@resource:///org/gnome/gjs/modules/core/_signals.js:119:10
+  activate@resource:///org/gnome/shell/ui/status/keyboard.js:63:14
+  _inputSourcesChanged@resource:///org/gnome/shell/ui/status/keyboard.js:657:33
+  _ibusReadyCallback@resource:///org/gnome/shell/ui/status/keyboard.js:404:14
+  _callHandlers@resource:///org/gnome/gjs/modules/core/_signals.js:130:42
+  _emit@resource:///org/gnome/gjs/modules/core/_signals.js:119:10
+  _updateReadiness@resource:///org/gnome/shell/misc/ibusManager.js:231:14
+  _initPanelService@resource:///org/gnome/shell/misc/ibusManager.js:218:14
+  async*_onConnected@resource:///org/gnome/shell/misc/ibusManager.js:164:14
+  @resource:///org/gnome/shell/ui/init.js:20:20
+  
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb650 b   resource:///org/gnome/gjs/modules/core/overrides/GLib.js:359 (2f9e9f8acb00 @ 718)
+#1   60980ecd01b0 i   resource:///org/gnome/gjs/modules/esm/console.js:599 (2f9e9f883e20 @ 2160)
+#2   60980ecd00a8 i   resource:///org/gnome/gjs/modules/esm/console.js:396 (2f9e9f883d80 @ 320)
+#3   60980ecd0010 i   resource:///org/gnome/gjs/modules/esm/console.js:139 (2f9e9f8836f0 @ 39)
+#4   60980eccff58 i   resource:///org/gnome/shell/ui/main.js:175 (8309b70b600 @ 227)
+#5   60980eccfea8 i   resource:///org/gnome/shell/ui/init.js:20 (2f9e9f88d8d0 @ 48)
+*** BUG ***
+In pixman_region32_init_rect: Invalid rectangle passed
+Set a breakpoint on '_pixman_log_error' to debug
+
+*** BUG ***
+In pixman_region32_init_rect: Invalid rectangle passed
+Set a breakpoint on '_pixman_log_error' to debug
+
+
+(gnome-shell:538014): libmutter-CRITICAL **: 05:03:38.921: meta_window_set_stack_position_no_sync: assertion 'window->stack_position >= 0' failed
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980ecd00d0 i   file:///home/martin/.cache/tiler-dev.RSt3HoJi/share/gnome-shell/extensions/vase-s2@maartenhaine.github.io/s2core.js:307 (3e64fe969c90 @ 56)
+#1   60980eccffd0 i   file:///home/martin/.cache/tiler-dev.RSt3HoJi/share/gnome-shell/extensions/vase-s2@maartenhaine.github.io/extension.js:76 (195873178f10 @ 1678)
+#2   60980eccff38 i   self-hosted:1432 (195873178d80 @ 30)
+#3   7ffddafbbef0 b   self-hosted:800 (195873178ba0 @ 15)
+#4   60980eccfea8 i   resource:///org/gnome/shell/ui/init.js:20 (2f9e9f88d8d0 @ 48)
+GNOME Shell-Message: 05:03:39.533: [s2] {"ev":"error","what":"couldn't focus gtk","t":20653489644,"target":"gtk"}
+GNOME Shell-Message: 05:03:39.533: [s2] {"ev":"scenario-start","t":20653489907,"scenario":"baseline","target":"gtk"}
+GNOME Shell-Message: 05:03:41.335: Received error from D-Bus search provider org.gnome.Settings.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Settings.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:03:41.336: Received error from D-Bus search provider org.gnome.Nautilus.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Nautilus was not provided by any .service files
+GNOME Shell-Message: 05:03:41.337: Received error from D-Bus search provider org.gnome.Calculator.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calculator.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:03:41.337: Received error from D-Bus search provider org.gnome.Calendar.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calendar was not provided by any .service files
+GNOME Shell-Message: 05:03:41.337: Received error from D-Bus search provider org.gnome.Characters.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Characters was not provided by any .service files
+GNOME Shell-Message: 05:03:41.337: Received error from D-Bus search provider com.anthropic.Claude.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.anthropic.Claude.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:03:41.337: Received error from D-Bus search provider org.gnome.clocks.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.clocks was not provided by any .service files
+GNOME Shell-Message: 05:03:41.337: Received error from D-Bus search provider org.gnome.seahorse.Application.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.seahorse.Application was not provided by any .service files
+GNOME Shell-Message: 05:03:42.249: [s2] {"ev":"scenario-start","t":20656205297,"scenario":"prefix-slow","target":"gtk"}
+GNOME Shell-Message: 05:03:43.079: Received error from D-Bus search provider org.gnome.Settings.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Settings.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:03:43.079: Received error from D-Bus search provider org.gnome.Nautilus.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Nautilus was not provided by any .service files
+GNOME Shell-Message: 05:03:43.079: Received error from D-Bus search provider org.gnome.Calculator.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calculator.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:03:43.079: Received error from D-Bus search provider org.gnome.Calendar.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calendar was not provided by any .service files
+GNOME Shell-Message: 05:03:43.079: Received error from D-Bus search provider org.gnome.Characters.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Characters was not provided by any .service files
+GNOME Shell-Message: 05:03:43.079: Received error from D-Bus search provider com.anthropic.Claude.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.anthropic.Claude.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:03:43.080: Received error from D-Bus search provider org.gnome.clocks.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.clocks was not provided by any .service files
+GNOME Shell-Message: 05:03:43.080: Received error from D-Bus search provider org.gnome.seahorse.Application.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.seahorse.Application was not provided by any .service files
+GNOME Shell-Message: 05:03:43.898: [s2] {"ev":"scenario-start","t":20657854372,"scenario":"prefix-slow-pop-on-press","target":"gtk"}
+GNOME Shell-Message: 05:03:44.724: [s2] {"ev":"scenario-start","t":20658680376,"scenario":"fast-0ms","target":"gtk"}
+GNOME Shell-Message: 05:03:45.697: [s2] {"ev":"scenario-start","t":20659653200,"scenario":"fast-2ms","target":"gtk"}
+GNOME Shell-Message: 05:03:46.503: [s2] {"ev":"scenario-start","t":20660458190,"scenario":"fast-5ms","target":"gtk"}
+GNOME Shell-Message: 05:03:47.184: [s2] {"ev":"scenario-start","t":20661140184,"scenario":"fast-10ms","target":"gtk"}
+GNOME Shell-Message: 05:03:48.765: [s2] {"ev":"scenario-start","t":20662721419,"scenario":"fast-20ms","target":"gtk"}
+GNOME Shell-Message: 05:03:50.350: [s2] {"ev":"scenario-start","t":20664306149,"scenario":"fast-5ms-blocked","target":"gtk"}
+GNOME Shell-Message: 05:03:51.105: [s2] {"ev":"scenario-start","t":20665061210,"scenario":"fast-10ms-blocked","target":"gtk"}
+GNOME Shell-Message: 05:03:52.360: [s2] {"ev":"scenario-start","t":20666296415,"scenario":"keys-before-pop","target":"gtk"}
+GNOME Shell-Message: 05:03:53.790: [s2] {"ev":"scenario-start","t":20667746277,"scenario":"timeout","target":"gtk"}
+GNOME Shell-Message: 05:03:58.523: Received error from D-Bus search provider org.gnome.Settings.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Settings.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:03:58.523: Received error from D-Bus search provider org.gnome.Nautilus.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Nautilus was not provided by any .service files
+GNOME Shell-Message: 05:03:58.523: Received error from D-Bus search provider org.gnome.Calculator.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calculator.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:03:58.523: Received error from D-Bus search provider org.gnome.Calendar.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calendar was not provided by any .service files
+GNOME Shell-Message: 05:03:58.523: Received error from D-Bus search provider org.gnome.Characters.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Characters was not provided by any .service files
+GNOME Shell-Message: 05:03:58.523: Received error from D-Bus search provider com.anthropic.Claude.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.anthropic.Claude.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:03:58.523: Received error from D-Bus search provider org.gnome.clocks.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.clocks was not provided by any .service files
+GNOME Shell-Message: 05:03:58.523: Received error from D-Bus search provider org.gnome.seahorse.Application.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.seahorse.Application was not provided by any .service files
+GNOME Shell-Message: 05:03:58.523: [s2] {"ev":"scenario-start","t":20672480040,"scenario":"escape","target":"gtk"}
+GNOME Shell-Message: 05:03:59.818: Received error from D-Bus search provider org.gnome.Settings.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Settings.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:03:59.818: Received error from D-Bus search provider org.gnome.Nautilus.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Nautilus was not provided by any .service files
+GNOME Shell-Message: 05:03:59.818: Received error from D-Bus search provider org.gnome.Calculator.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calculator.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:03:59.818: Received error from D-Bus search provider org.gnome.Calendar.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calendar was not provided by any .service files
+GNOME Shell-Message: 05:03:59.853: Received error from D-Bus search provider org.gnome.Characters.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Characters was not provided by any .service files
+GNOME Shell-Message: 05:03:59.853: Received error from D-Bus search provider com.anthropic.Claude.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.anthropic.Claude.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:03:59.853: Received error from D-Bus search provider org.gnome.clocks.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.clocks was not provided by any .service files
+GNOME Shell-Message: 05:03:59.853: Received error from D-Bus search provider org.gnome.seahorse.Application.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.seahorse.Application was not provided by any .service files
+GNOME Shell-Message: 05:03:59.869: [s2] {"ev":"scenario-start","t":20673825564,"scenario":"kill-chord-outside-grab","target":"gtk"}
+GNOME Shell-Message: 05:04:00.679: [s2] {"ev":"scenario-start","t":20674635711,"scenario":"kill-chord-in-none-grab","target":"gtk"}
+GNOME Shell-Message: 05:04:02.242: [s2] {"ev":"scenario-start","t":20676198440,"scenario":"super-l-outside-grab","target":"gtk"}
+GNOME Shell-Message: 05:04:02.870: [s2] {"ev":"scenario-start","t":20676817355,"scenario":"super-l-in-none-grab","target":"gtk"}
+GNOME Shell-Message: 05:04:03.880: [s2] {"ev":"scenario-start","t":20677836163,"scenario":"normal-grab-super-l-and-alt-a","target":"gtk"}
+GNOME Shell-Message: 05:04:05.506: [s2] {"ev":"scenario-start","t":20679462238,"scenario":"normal-grab-kill-chord","target":"gtk"}
+GNOME Shell-Message: 05:04:06.513: [s2] {"ev":"scenario-start","t":20680469151,"scenario":"revoked-by-modal","target":"gtk"}
+GNOME Shell-Message: 05:04:06.758: [s2] {"ev":"note","what":"pushed second modal","prefixRevoked":true,"t":20680714192,"scenario":"revoked-by-modal","target":"gtk"}
+GNOME Shell-Message: 05:04:07.058: [s2] {"ev":"note","what":"popped second modal","prefixRevoked":false,"t":20681014632,"scenario":"revoked-by-modal","target":"gtk"}
+GNOME Shell-Message: 05:04:08.271: [s2] {"ev":"scenario-start","t":20682227250,"scenario":"observe-without-grab","target":"gtk"}
+GNOME Shell-Message: 05:04:09.241: Received error from D-Bus search provider org.gnome.Settings.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Settings.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:09.241: Received error from D-Bus search provider org.gnome.Nautilus.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Nautilus was not provided by any .service files
+GNOME Shell-Message: 05:04:09.241: Received error from D-Bus search provider org.gnome.Calculator.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calculator.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:09.241: Received error from D-Bus search provider org.gnome.Calendar.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calendar was not provided by any .service files
+GNOME Shell-Message: 05:04:09.241: Received error from D-Bus search provider org.gnome.Characters.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Characters was not provided by any .service files
+GNOME Shell-Message: 05:04:09.241: Received error from D-Bus search provider com.anthropic.Claude.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.anthropic.Claude.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:09.241: Received error from D-Bus search provider org.gnome.clocks.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.clocks was not provided by any .service files
+GNOME Shell-Message: 05:04:09.241: Received error from D-Bus search provider org.gnome.seahorse.Application.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.seahorse.Application was not provided by any .service files
+GNOME Shell-Message: 05:04:09.698: Received error from D-Bus search provider org.gnome.Settings.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Settings.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:09.715: Received error from D-Bus search provider org.gnome.Nautilus.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Nautilus was not provided by any .service files
+GNOME Shell-Message: 05:04:09.715: Received error from D-Bus search provider org.gnome.Calculator.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calculator.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:09.715: Received error from D-Bus search provider org.gnome.Calendar.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calendar was not provided by any .service files
+GNOME Shell-Message: 05:04:09.715: Received error from D-Bus search provider org.gnome.Characters.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Characters was not provided by any .service files
+GNOME Shell-Message: 05:04:09.715: Received error from D-Bus search provider com.anthropic.Claude.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.anthropic.Claude.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:09.715: Received error from D-Bus search provider org.gnome.clocks.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.clocks was not provided by any .service files
+GNOME Shell-Message: 05:04:09.715: Received error from D-Bus search provider org.gnome.seahorse.Application.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.seahorse.Application was not provided by any .service files
+GNOME Shell-Message: 05:04:09.842: [s2] {"ev":"scenario-start","t":20683798261,"scenario":"temporary-accelerator","target":"gtk"}
+GNOME Shell-Message: 05:04:10.304: [s2] {"ev":"note","what":"ungrabbed Shift+Left","t":20684260204,"scenario":"temporary-accelerator","target":"gtk"}
+GNOME Shell-Message: 05:04:10.341: Received error from D-Bus search provider org.gnome.Settings.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Settings.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:10.347: Received error from D-Bus search provider org.gnome.Nautilus.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Nautilus was not provided by any .service files
+GNOME Shell-Message: 05:04:10.347: Received error from D-Bus search provider org.gnome.Calculator.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calculator.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:10.347: Received error from D-Bus search provider org.gnome.Calendar.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calendar was not provided by any .service files
+GNOME Shell-Message: 05:04:10.347: Received error from D-Bus search provider org.gnome.Characters.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Characters was not provided by any .service files
+GNOME Shell-Message: 05:04:10.347: Received error from D-Bus search provider com.anthropic.Claude.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.anthropic.Claude.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:10.347: Received error from D-Bus search provider org.gnome.clocks.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.clocks was not provided by any .service files
+GNOME Shell-Message: 05:04:10.347: Received error from D-Bus search provider org.gnome.seahorse.Application.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.seahorse.Application was not provided by any .service files
+GNOME Shell-Message: 05:04:11.037: [s2] {"ev":"scenario-start","t":20684993347,"scenario":"normal-grab-alt-tab","target":"gtk"}
+GNOME Shell-Message: 05:04:13.044: [s2] {"ev":"note","what":"after alt-tab","focus":"s2-ghostty","prefixArmed":true,"prefixRevoked":false,"t":20687000156,"scenario":"normal-grab-alt-tab","target":"gtk"}
+GNOME Shell-Message: 05:04:16.114: [s2] {"ev":"scenario-start","t":20690070512,"scenario":"baseline","target":"ghostty"}
+GNOME Shell-Message: 05:04:16.740: Received error from D-Bus search provider org.gnome.Settings.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Settings.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:16.769: Received error from D-Bus search provider org.gnome.Nautilus.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Nautilus was not provided by any .service files
+GNOME Shell-Message: 05:04:16.804: Received error from D-Bus search provider org.gnome.Calculator.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calculator.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:16.804: Received error from D-Bus search provider org.gnome.Calendar.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calendar was not provided by any .service files
+GNOME Shell-Message: 05:04:16.804: Received error from D-Bus search provider org.gnome.Characters.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Characters was not provided by any .service files
+GNOME Shell-Message: 05:04:16.804: Received error from D-Bus search provider com.anthropic.Claude.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.anthropic.Claude.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:16.804: Received error from D-Bus search provider org.gnome.clocks.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.clocks was not provided by any .service files
+GNOME Shell-Message: 05:04:16.804: Received error from D-Bus search provider org.gnome.seahorse.Application.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.seahorse.Application was not provided by any .service files
+GNOME Shell-Message: 05:04:17.171: [s2] {"ev":"scenario-start","t":20691117541,"scenario":"prefix-slow","target":"ghostty"}
+GNOME Shell-Message: 05:04:18.637: [s2] {"ev":"scenario-start","t":20692593274,"scenario":"prefix-slow-pop-on-press","target":"ghostty"}
+GNOME Shell-Message: 05:04:18.685: Received error from D-Bus search provider org.gnome.Settings.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Settings.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:18.686: Received error from D-Bus search provider org.gnome.Nautilus.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Nautilus was not provided by any .service files
+GNOME Shell-Message: 05:04:18.686: Received error from D-Bus search provider org.gnome.Calculator.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calculator.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:18.686: Received error from D-Bus search provider org.gnome.Calendar.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calendar was not provided by any .service files
+GNOME Shell-Message: 05:04:18.686: Received error from D-Bus search provider org.gnome.Characters.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Characters was not provided by any .service files
+GNOME Shell-Message: 05:04:18.686: Received error from D-Bus search provider com.anthropic.Claude.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.anthropic.Claude.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:18.686: Received error from D-Bus search provider org.gnome.clocks.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.clocks was not provided by any .service files
+GNOME Shell-Message: 05:04:18.693: Received error from D-Bus search provider org.gnome.seahorse.Application.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.seahorse.Application was not provided by any .service files
+GNOME Shell-Message: 05:04:20.098: [s2] {"ev":"scenario-start","t":20694054226,"scenario":"fast-5ms","target":"ghostty"}
+GNOME Shell-Message: 05:04:21.711: [s2] {"ev":"scenario-start","t":20695667153,"scenario":"fast-10ms","target":"ghostty"}
+GNOME Shell-Message: 05:04:25.331: [s2] {"ev":"scenario-start","t":20699287473,"scenario":"baseline","target":"xev"}
+GNOME Shell-Message: 05:04:25.857: Received error from D-Bus search provider org.gnome.Settings.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Settings.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:25.857: Received error from D-Bus search provider org.gnome.Nautilus.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Nautilus was not provided by any .service files
+GNOME Shell-Message: 05:04:25.919: Received error from D-Bus search provider org.gnome.Calculator.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calculator.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:25.919: Received error from D-Bus search provider org.gnome.Calendar.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Calendar was not provided by any .service files
+GNOME Shell-Message: 05:04:25.919: Received error from D-Bus search provider org.gnome.Characters.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Characters was not provided by any .service files
+GNOME Shell-Message: 05:04:25.919: Received error from D-Bus search provider com.anthropic.Claude.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.anthropic.Claude.SearchProvider was not provided by any .service files
+GNOME Shell-Message: 05:04:25.919: Received error from D-Bus search provider org.gnome.clocks.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.clocks was not provided by any .service files
+GNOME Shell-Message: 05:04:25.919: Received error from D-Bus search provider org.gnome.seahorse.Application.desktop: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.seahorse.Application was not provided by any .service files
+GNOME Shell-Message: 05:04:26.302: [s2] {"ev":"scenario-start","t":20700247161,"scenario":"prefix-slow","target":"xev"}
+GNOME Shell-Message: 05:04:28.837: [s2] {"ev":"scenario-start","t":20702793519,"scenario":"prefix-slow-pop-on-press","target":"xev"}
+GNOME Shell-Message: 05:04:30.267: [s2] {"ev":"scenario-start","t":20704217339,"scenario":"fast-5ms","target":"xev"}
+GNOME Shell-Message: 05:04:32.076: [s2] {"ev":"scenario-start","t":20706032154,"scenario":"fast-10ms","target":"xev"}
+GNOME Shell-Message: 05:04:32.796: [s2] {"ev":"note","what":"done","keymap":{"xkbOptions":"undefined","currentKeymap":null,"shortName":"en","ibusReady":true,"sources":["xkb:us"]},"im":{"imFocus":true,"ibusContext":true,"inputSource":"us"},"t":20706752874}
+GNOME Shell-Message: 05:04:32.849: [s2] DONE
+** Message: 05:04:34.369: Shutting down GNOME Shell
+
+(gnome-shell:538014): GLib-GObject-CRITICAL **: 05:04:34.704: ../../../gobject/gsignal.c:2723: instance '0x6098140886b0' has no handler with id '6084'
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff60 i   resource:///org/gnome/shell/ui/search.js:638 (8309b7f1100 @ 27)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/layout.js:249 (8309b72fce0 @ 328)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.715: Object St.Entry (0x6098111e9ad0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccfff0 i   resource:///org/gnome/shell/ui/searchController.js:187 (2fafaf34e100 @ 74)
+#1   60980eccff60 i   resource:///org/gnome/shell/ui/searchController.js:128 (2fafaf34bf10 @ 17)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/layout.js:249 (8309b72fce0 @ 328)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.715: Object Clutter.Text (0x6098111ea3d0), has been already disposed — impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccfff0 i   resource:///org/gnome/shell/ui/searchController.js:189 (2fafaf34e100 @ 97)
+#1   60980eccff60 i   resource:///org/gnome/shell/ui/searchController.js:128 (2fafaf34bf10 @ 17)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/layout.js:249 (8309b72fce0 @ 328)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.715: Object Clutter.Text (0x6098111ea3d0), has been already disposed — impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccfff0 i   resource:///org/gnome/shell/ui/searchController.js:190 (2fafaf34e100 @ 119)
+#1   60980eccff60 i   resource:///org/gnome/shell/ui/searchController.js:128 (2fafaf34bf10 @ 17)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/layout.js:249 (8309b72fce0 @ 328)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.738: Object Clutter.Actor (0x609810f49590), has been already disposed — impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccfff8 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:327 (2fafaf335ab0 @ 58)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:213 (2fafaf3356a0 @ 212)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.738: Object Clutter.Actor (0x609810f49590), has been already disposed — impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccfff8 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:328 (2fafaf335ab0 @ 114)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:213 (2fafaf3356a0 @ 212)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.738: Object Gjs_ui_ibusCandidatePopup_IbusCandidatePopup (0x609810ef9d10), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccfff8 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:330 (2fafaf335ab0 @ 122)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:213 (2fafaf3356a0 @ 212)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.743: Object St.Label (0x609810f07740), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:260 (2fafaf335830 @ 13)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.744: Object St.Label (0x609810efe780), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb070 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:336 (2fafaf335b00 @ 53)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:261 (2fafaf335830 @ 31)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.744: Object St.Label (0x609810f07740), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb070 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:337 (2fafaf335b00 @ 78)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:261 (2fafaf335830 @ 31)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.744: Object Gjs_ui_ibusCandidatePopup_CandidateArea (0x609810f0c5f0), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb070 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:338 (2fafaf335b00 @ 103)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:261 (2fafaf335830 @ 31)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.744: Object Gjs_ui_ibusCandidatePopup_IbusCandidatePopup (0x609810ef9d10), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafba8e0 b   resource:///org/gnome/shell/ui/boxpointer.js:134 (8309b748330 @ 55)
+#1   7ffddafbb070 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:350 (2fafaf335b00 @ 301)
+#2   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:261 (2fafaf335830 @ 31)
+#3   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.744: Object St.Label (0x609810f07740), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:263 (2fafaf335830 @ 58)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Clutter-CRITICAL **: 05:04:34.744: clutter_text_get_editable: assertion 'CLUTTER_IS_TEXT (self)' failed
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:263 (2fafaf335830 @ 58)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Clutter-CRITICAL **: 05:04:34.745: clutter_text_get_text: assertion 'CLUTTER_IS_TEXT (self)' failed
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:263 (2fafaf335830 @ 58)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Clutter-CRITICAL **: 05:04:34.745: clutter_text_set_text: assertion 'CLUTTER_IS_TEXT (self)' failed
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:263 (2fafaf335830 @ 58)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.745: Object Gjs_ui_ibusCandidatePopup_CandidateArea (0x609810f0c5f0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:274 (2fafaf335920 @ 55)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.745: Object St.Label (0x609810efe780), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbab50 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:336 (2fafaf335b00 @ 53)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:275 (2fafaf335920 @ 73)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.745: Object St.Label (0x609810f07740), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbab50 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:337 (2fafaf335b00 @ 78)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:275 (2fafaf335920 @ 73)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.745: Object Gjs_ui_ibusCandidatePopup_CandidateArea (0x609810f0c5f0), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbab50 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:338 (2fafaf335b00 @ 103)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:275 (2fafaf335920 @ 73)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.745: Object Gjs_ui_ibusCandidatePopup_IbusCandidatePopup (0x609810ef9d10), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaa40 b   resource:///org/gnome/shell/ui/boxpointer.js:134 (8309b748330 @ 55)
+#1   7ffddafbab50 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:350 (2fafaf335b00 @ 301)
+#2   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:275 (2fafaf335920 @ 73)
+#3   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810f0d7e0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810f19080), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810f25d20), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810f31800), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810f3d230), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810f48c60), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810d627d0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810d6e200), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810d79c30), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810d865a0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810d920b0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810d9dae0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810da9510), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810db4ef0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810dc09d0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810dcc400), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810f0d7e0), has been already disposed — impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaaf0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:132 (2fafaf335380 @ 307)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.BoxLayout (0x609810dd7da0), has been already disposed — impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:140 (2fafaf3353d0 @ 38)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:308 (2fafaf335920 @ 742)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.Label (0x609810f07740), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:260 (2fafaf335830 @ 13)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.Label (0x609810efe780), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb070 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:336 (2fafaf335b00 @ 53)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:261 (2fafaf335830 @ 31)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.Label (0x609810f07740), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb070 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:337 (2fafaf335b00 @ 78)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:261 (2fafaf335830 @ 31)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object Gjs_ui_ibusCandidatePopup_CandidateArea (0x609810f0c5f0), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb070 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:338 (2fafaf335b00 @ 103)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:261 (2fafaf335830 @ 31)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object Gjs_ui_ibusCandidatePopup_IbusCandidatePopup (0x609810ef9d10), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaf60 b   resource:///org/gnome/shell/ui/boxpointer.js:134 (8309b748330 @ 55)
+#1   7ffddafbb070 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:350 (2fafaf335b00 @ 301)
+#2   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:261 (2fafaf335830 @ 31)
+#3   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.746: Object St.Label (0x609810f07740), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:263 (2fafaf335830 @ 58)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Clutter-CRITICAL **: 05:04:34.746: clutter_text_get_editable: assertion 'CLUTTER_IS_TEXT (self)' failed
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:263 (2fafaf335830 @ 58)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Clutter-CRITICAL **: 05:04:34.747: clutter_text_get_text: assertion 'CLUTTER_IS_TEXT (self)' failed
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:263 (2fafaf335830 @ 58)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Clutter-CRITICAL **: 05:04:34.747: clutter_text_set_text: assertion 'CLUTTER_IS_TEXT (self)' failed
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:263 (2fafaf335830 @ 58)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object Gjs_ui_ibusCandidatePopup_CandidateArea (0x609810f0c5f0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:274 (2fafaf335920 @ 55)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.Label (0x609810efe780), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb1d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:336 (2fafaf335b00 @ 53)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:275 (2fafaf335920 @ 73)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.Label (0x609810f07740), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb1d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:337 (2fafaf335b00 @ 78)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:275 (2fafaf335920 @ 73)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object Gjs_ui_ibusCandidatePopup_CandidateArea (0x609810f0c5f0), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb1d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:338 (2fafaf335b00 @ 103)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:275 (2fafaf335920 @ 73)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object Gjs_ui_ibusCandidatePopup_IbusCandidatePopup (0x609810ef9d10), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb0c0 b   resource:///org/gnome/shell/ui/boxpointer.js:134 (8309b748330 @ 55)
+#1   7ffddafbb1d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:350 (2fafaf335b00 @ 301)
+#2   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:275 (2fafaf335920 @ 73)
+#3   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810f0d7e0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810f19080), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810f25d20), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810f31800), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810f3d230), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810f48c60), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810d627d0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810d6e200), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810d79c30), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810d865a0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810d920b0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810d9dae0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810da9510), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810db4ef0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810dc09d0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810dcc400), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.747: Object St.BoxLayout (0x609810f0d7e0), has been already disposed — impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:132 (2fafaf335380 @ 307)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.748: Object St.BoxLayout (0x609810dd7da0), has been already disposed — impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:140 (2fafaf3353d0 @ 38)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:308 (2fafaf335920 @ 742)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.748: Object St.Label (0x609810f07740), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:260 (2fafaf335830 @ 13)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.748: Object St.Label (0x609810efe780), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb070 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:336 (2fafaf335b00 @ 53)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:261 (2fafaf335830 @ 31)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.748: Object St.Label (0x609810f07740), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb070 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:337 (2fafaf335b00 @ 78)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:261 (2fafaf335830 @ 31)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.748: Object Gjs_ui_ibusCandidatePopup_CandidateArea (0x609810f0c5f0), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb070 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:338 (2fafaf335b00 @ 103)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:261 (2fafaf335830 @ 31)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.748: Object Gjs_ui_ibusCandidatePopup_IbusCandidatePopup (0x609810ef9d10), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbaf60 b   resource:///org/gnome/shell/ui/boxpointer.js:134 (8309b748330 @ 55)
+#1   7ffddafbb070 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:350 (2fafaf335b00 @ 301)
+#2   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:261 (2fafaf335830 @ 31)
+#3   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.748: Object St.Label (0x609810f07740), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:263 (2fafaf335830 @ 58)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Clutter-CRITICAL **: 05:04:34.748: clutter_text_get_editable: assertion 'CLUTTER_IS_TEXT (self)' failed
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:263 (2fafaf335830 @ 58)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Clutter-CRITICAL **: 05:04:34.748: clutter_text_get_text: assertion 'CLUTTER_IS_TEXT (self)' failed
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:263 (2fafaf335830 @ 58)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Clutter-CRITICAL **: 05:04:34.748: clutter_text_set_text: assertion 'CLUTTER_IS_TEXT (self)' failed
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:263 (2fafaf335830 @ 58)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object Gjs_ui_ibusCandidatePopup_CandidateArea (0x609810f0c5f0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:274 (2fafaf335920 @ 55)
+#1   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.Label (0x609810efe780), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb1d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:336 (2fafaf335b00 @ 53)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:275 (2fafaf335920 @ 73)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.Label (0x609810f07740), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb1d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:337 (2fafaf335b00 @ 78)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:275 (2fafaf335920 @ 73)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object Gjs_ui_ibusCandidatePopup_CandidateArea (0x609810f0c5f0), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb1d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:338 (2fafaf335b00 @ 103)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:275 (2fafaf335920 @ 73)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object Gjs_ui_ibusCandidatePopup_IbusCandidatePopup (0x609810ef9d10), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb0c0 b   resource:///org/gnome/shell/ui/boxpointer.js:134 (8309b748330 @ 55)
+#1   7ffddafbb1d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:350 (2fafaf335b00 @ 301)
+#2   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:275 (2fafaf335920 @ 73)
+#3   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810f0d7e0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810f19080), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810f25d20), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810f31800), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810f3d230), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810f48c60), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810d627d0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810d6e200), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810d79c30), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810d865a0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810d920b0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810d9dae0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810da9510), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810db4ef0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810dc09d0), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810dcc400), has been already disposed — impossible to set any property on it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:123 (2fafaf335380 @ 104)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810f0d7e0), has been already disposed — impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb190 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:132 (2fafaf335380 @ 307)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:303 (2fafaf335920 @ 666)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object St.BoxLayout (0x609810dd7da0), has been already disposed — impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:140 (2fafaf3353d0 @ 38)
+#1   7ffddafbb2d0 b   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:308 (2fafaf335920 @ 742)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:34.750: Object Gjs_ui_ibusCandidatePopup_IbusCandidatePopup (0x609810ef9d10), has been already disposed — impossible to get any property from it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
+== Stack trace for context 0x60980ebd1920 ==
+#0   7ffddafbb040 b   resource:///org/gnome/shell/ui/boxpointer.js:134 (8309b748330 @ 55)
+#1   60980eccff48 i   resource:///org/gnome/shell/ui/ibusCandidatePopup.js:321 (2fafaf335a60 @ 32)
+#2   60980eccfea8 i   resource:///org/gnome/shell/ui/main.js:292 (8309b70b7e0 @ 119)
+
+(gnome-shell:538014): Gjs-CRITICAL **: 05:04:35.002: Attempting to call back into JSAPI during the sweeping phase of GC. This is most likely caused by not destroying a Clutter actor or Gtk+ widget with ::destroy signals connected, but can also be caused by using the destroy(), dispose(), or remove() vfuncs. Because it would crash the application, it has been blocked and the JS callback not invoked.
+== Stack trace for context 0x60980ebd1920 ==
+The offending signal was notify on ShellWindowTracker 0x6098106f05d0.
+libmutter-Message: 05:04:35.236: Removed virtual monitor Meta-0
+ 05:04:35 | INFO | Disconnected by EIS
+dev-shell: logs in /home/martin/.cache/tiler-dev.RSt3HoJi/log (shell.log, system-bus.log); 'tools/dev-shell.sh clean' removes finished runs
+dev-shell exit 0
