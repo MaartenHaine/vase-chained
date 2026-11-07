@@ -1,5 +1,6 @@
 //! The daemon driven whole, over a fake platform.
 
+mod detach;
 mod fake;
 mod key_mode;
 mod prefix;

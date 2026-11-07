@@ -66,6 +66,11 @@ pub fn world(displays: Vec<Display>, windows: Vec<WindowInfo>) -> Shared {
 /// main display, the bar's strip comes off it, and every manageable window becomes a tab on the
 /// screen its frame sits on. Nothing is persisted.
 pub fn daemon(world: &Shared) -> TestDaemon {
+    daemon_with(world, Paths::default())
+}
+
+/// `daemon`, keeping its files where `paths` says.
+pub fn daemon_with(world: &Shared, paths: Paths) -> TestDaemon {
     let backend = FakeBackend(Rc::clone(world));
     let displays = backend.displays();
     let screens_cg: Vec<Rect> = displays.iter().map(|d| d.bounds).collect();
@@ -79,7 +84,7 @@ pub fn daemon(world: &Shared) -> TestDaemon {
     }
     let model = Model::adopt(&rects, &pairs);
     let ids = displays.iter().map(|d| d.id).collect();
-    Daemon::new(model, backend, FakePainter(Rc::clone(world)), registry, Paths::default(), main_screen, screens_cg, ids)
+    Daemon::new(model, backend, FakePainter(Rc::clone(world)), registry, paths, main_screen, screens_cg, ids)
 }
 
 impl Backend for FakeBackend {
