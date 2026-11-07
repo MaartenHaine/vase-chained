@@ -1,0 +1,8 @@
+{
+  "uuid": "vase-s9@maartenhaine.github.io",
+  "name": "vase S9 transport spike",
+  "description": "Throwaway spike S9: a unix-socket client to a stub daemon, with the peer check, EOF, backoff and a timed prefix command. Not the Tiler.",
+  "shell-version": ["50"],
+  "session-modes": ["user", "tiler-dev"],
+  "url": "https://github.com/MaartenHaine/vase-chained"
+}

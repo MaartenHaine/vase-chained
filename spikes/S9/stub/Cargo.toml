@@ -1,0 +1,12 @@
+# Spike S9's stub daemon (docs/linux-spike/S9.md). Throwaway: std only, no dependencies, its own workspace so the
+# fork's workspace never builds it.
+[package]
+name = "s9-stub"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[profile.release]
+debug = false
