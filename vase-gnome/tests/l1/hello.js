@@ -86,18 +86,33 @@ function checkEnabled(when) {
  */
 function checkTheChecker(checker, baseline) {
     checker.reset();
-    let actor, signalId, sourceId;
+    let actor, signalId, sourceId, interval, removed;
     checker.record(() => {
         actor = new St.Widget({name: 'l1-planted-leak'});
         Main.layoutManager.uiGroup.add_child(actor);
         signalId = Main.layoutManager.connect('monitors-changed', () => {});
         sourceId = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 3600, () => GLib.SOURCE_REMOVE);
+        interval = setInterval(() => {}, 3600 * 1000);
+        // Taken off the stage but not destroyed: its handler is still connected.
+        removed = new St.Widget({name: 'l1-planted-removed'});
+        Main.layoutManager.uiGroup.add_child(removed);
+        removed.connect('notify::mapped', () => {});
+        Main.layoutManager.uiGroup.remove_child(removed);
+        // Destroyed: its handler went with it, so it is not a leak.
+        const gone = new St.Widget({name: 'l1-planted-destroyed'});
+        Main.layoutManager.uiGroup.add_child(gone);
+        gone.connect('notify::mapped', () => {});
+        gone.destroy();
     });
     const found = checker.leaks({baseline, stateObj: {}});
     actor.destroy();
+    removed.destroy();
     Main.layoutManager.disconnect(signalId);
     GLib.Source.remove(sourceId);
-    check(found.length === 3, `the leak checker finds a planted actor, signal and source (found: ${found.join('; ')})`);
+    clearInterval(interval);
+    check(found.length === 5,
+        'the leak checker finds a planted actor, signal, source, setInterval and signal on a removed actor, and ' +
+        `skips a destroyed one (found: ${found.join('; ')})`);
     checker.reset();
 }
 

@@ -6,10 +6,15 @@
 // (Main.modalCount, the stage's grab actor) and the stage's actor tree with a snapshot() taken while the extension was
 // off, and looks for GObjects the extension object still holds.
 //
+// Main-loop sources are the GLib id adders (timeout_add, idle_add and their variants) and every GLib.Source attached
+// from JavaScript, which covers setTimeout and setInterval: GJS builds them on GLib.timeout_source_new() and
+// source.attach(). Connections on an actor that was destroyed went with it; an actor that was only taken off the stage
+// is still checked.
+//
 // What it can't see: anything done later from a callback or after an await (it records only synchronous work inside
-// enable() and disable()); connections on actors that were destroyed (those go with the actor); connections through
-// objects that copy their signal methods with Signals.addSignalMethods instead of extending Signals.EventEmitter; and a
-// pushModal that was popped by someone else (Main is a module namespace, so pushModal can't be wrapped).
+// enable() and disable()); sources attached from C on the extension's behalf; connections through objects that copy
+// their signal methods with Signals.addSignalMethods instead of extending Signals.EventEmitter; and a pushModal that was
+// popped by someone else (Main is a module namespace, so pushModal can't be wrapped).
 
 import Clutter from 'gi://Clutter';
 import GLib from 'gi://GLib';
@@ -58,6 +63,8 @@ export class LeakChecker {
     reset() {
         this.signals = [];
         this.sources = [];
+        this._destroyed = new WeakSet();
+        this._watched = new WeakSet();
         this.accelerators = new Set();
         this.keybindings = new Set();
     }
@@ -111,15 +118,33 @@ export class LeakChecker {
             });
         };
 
+        // Each actor the extension connects to is watched for its destroy, through the unwrapped connect, so that
+        // leaks() skips only actors that are really gone.
+        const rawConnect = GObject.Object.prototype.connect;
+        const watch = obj => {
+            if (!(obj instanceof Clutter.Actor) || this._watched.has(obj))
+                return;
+            this._watched.add(obj);
+            rawConnect.call(obj, 'destroy', actor => this._destroyed.add(actor));
+        };
+
         for (const name of ['connect', 'connect_after']) {
-            wrap(GObject.Object.prototype, name, (obj, id, args) =>
-                this.signals.push({obj, id, signal: args[0], kind: 'gobject'}));
+            wrap(GObject.Object.prototype, name, (obj, id, args) => {
+                watch(obj);
+                this.signals.push({obj, id, signal: args[0], kind: 'gobject'});
+            });
         }
-        wrap(Signals.EventEmitter.prototype, 'connect', (obj, id, args) =>
-            this.signals.push({obj, id, signal: args[0], kind: 'js'}));
+        wrap(Signals.EventEmitter.prototype, 'connect', (obj, id, args) => {
+            watch(obj);
+            this.signals.push({obj, id, signal: args[0], kind: 'js'});
+        });
 
         for (const name of SOURCE_ADDERS)
-            wrap(GLib, name, (_obj, id) => this.sources.push({id, adder: name}));
+            wrap(GLib, name, (_obj, id) => this.sources.push({id, adder: `GLib.${name}`}));
+        // g_timeout_add and the other adders attach in C, so this sees only JavaScript's attaches: setTimeout,
+        // setInterval and sources attached by hand.
+        wrap(GLib.Source.prototype, 'attach', (source, id) =>
+            this.sources.push({id, source, adder: 'GLib.Source.attach (setTimeout, setInterval or by hand)'}));
 
         wrap(global.display, 'grab_accelerator', (_obj, action) => this.accelerators.add(action));
         wrap(global.display, 'ungrab_accelerator', (_obj, _ok, args) => this.accelerators.delete(args[0]));
@@ -146,8 +171,8 @@ export class LeakChecker {
         const stage = actorTree(global.stage);
 
         for (const {obj, id, signal, kind} of this.signals) {
-            // A connection on an actor that is no longer on the stage went with the actor.
-            if (obj instanceof Clutter.Actor && !stage.has(obj))
+            // A connection on a destroyed actor went with the actor (and asking a disposed object about it warns).
+            if (this._destroyed.has(obj))
                 continue;
             const connected = kind === 'gobject'
                 ? GObject.signal_handler_is_connected(obj, id)
@@ -157,9 +182,10 @@ export class LeakChecker {
         }
 
         const context = GLib.MainContext.default();
-        for (const {id, adder} of this.sources) {
-            if (context.find_source_by_id(id))
-                leaks.push(`main-loop source ${id} from GLib.${adder}`);
+        for (const {id, source, adder} of this.sources) {
+            const alive = source ? !source.is_destroyed() : context.find_source_by_id(id);
+            if (alive)
+                leaks.push(`main-loop source ${id} from ${adder}`);
         }
 
         if (Main.modalCount !== baseline.modalCount)
