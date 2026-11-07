@@ -3,6 +3,7 @@
 mod fake;
 mod key_mode;
 mod prefix;
+mod primary;
 mod sticky;
 
 use crate::geometry::Rect;

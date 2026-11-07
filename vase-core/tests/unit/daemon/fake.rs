@@ -7,7 +7,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use crate::backend::{manageable, Backend, Display, WindowInfo};
+use crate::backend::{manageable, origin_display, Backend, Display, WindowInfo};
 use crate::chrome::bar::{Bar, Hits};
 use crate::chrome::help::HelpLayout;
 use crate::chrome::{usable, BarHits, ListAt, Painter, Position, SwitchRow};
@@ -21,6 +21,8 @@ use crate::tree::WindowId;
 #[derive(Default)]
 pub struct World {
     pub displays: Vec<Display>,
+    /// The display the backend reports as primary; unset keeps the trait's default.
+    pub primary: Option<usize>,
     /// Frontmost first, as `Backend::list_windows` promises.
     pub windows: Vec<WindowInfo>,
     /// Every `set_frame`, in order.
@@ -60,14 +62,14 @@ pub fn world(displays: Vec<Display>, windows: Vec<WindowInfo>) -> Shared {
     Rc::new(RefCell::new(World { displays, windows, ..World::default() }))
 }
 
-/// Build a daemon over the world the way the platform binaries do at startup: the display at the
-/// origin is the main one, the bar's strip comes off it, and every manageable window becomes a tab
-/// on the screen its frame sits on. Nothing is persisted.
+/// Build a daemon over the world the way the platform binaries do at startup: the backend names the
+/// main display, the bar's strip comes off it, and every manageable window becomes a tab on the
+/// screen its frame sits on. Nothing is persisted.
 pub fn daemon(world: &Shared) -> TestDaemon {
     let backend = FakeBackend(Rc::clone(world));
     let displays = backend.displays();
     let screens_cg: Vec<Rect> = displays.iter().map(|d| d.bounds).collect();
-    let main_screen = screens_cg.iter().position(|r| r.x == 0.0 && r.y == 0.0).unwrap_or(0);
+    let main_screen = backend.primary_display(&displays);
     let rects: Vec<Rect> = displays.iter().enumerate().map(|(i, d)| usable(d.work_area, i == main_screen, Position::Bottom)).collect();
     let mut registry = Registry::default();
     let mut pairs = Vec::new();
@@ -148,6 +150,10 @@ impl Backend for FakeBackend {
     fn launch(&self, _app: &str) {}
 
     fn warp_cursor(&self, _x: f64, _y: f64) {}
+
+    fn primary_display(&self, displays: &[Display]) -> usize {
+        self.0.borrow().primary.unwrap_or_else(|| origin_display(displays))
+    }
 }
 
 impl Painter for FakePainter {

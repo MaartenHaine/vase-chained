@@ -2,7 +2,7 @@
 
 use std::collections::{HashMap, HashSet};
 
-use crate::backend::{manageable, Backend, WindowInfo};
+use crate::backend::{manageable, origin_display, Backend, WindowInfo};
 use crate::geometry::{screen_of, Rect};
 use crate::model::{Command, Effect, Screen, Tab};
 use crate::tree::WindowId;
@@ -55,10 +55,12 @@ impl<B: Backend, C: Painter> Daemon<B, C> {
         }
         let new_ids: Vec<u32> = displays.iter().map(|d| d.id).collect();
         let new_cg: Vec<Rect> = displays.iter().map(|d| d.bounds).collect();
-        if new_ids == self.display_ids && new_cg == self.screens_cg {
+        // An index the backend gets wrong falls back to the display at the origin rather than panicking.
+        let main_screen = Some(self.backend.primary_display(&displays)).filter(|&i| i < displays.len()).unwrap_or_else(|| origin_display(&displays));
+        // The primary can move on its own, with every display where it was.
+        if new_ids == self.display_ids && new_cg == self.screens_cg && main_screen == self.main_screen {
             return; // no change
         }
-        let main_screen = new_cg.iter().position(|r| r.x == 0.0 && r.y == 0.0).unwrap_or(0);
 
         let Some(model) = self.model.as_mut() else { return };
         // Index old Screens by display id, rebuild in the new order, carrying surviving tabs.
