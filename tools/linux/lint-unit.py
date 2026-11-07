@@ -22,7 +22,9 @@ DEFAULT_TEMPLATE = 'vase-gnome/systemd/vase-gnome.service.in'
 SHIPPED_EXEC = '/usr/local/libexec/vase/vase-gnome'
 
 # Every option that needs a mount, user or other namespace, or CAP_SYS_ADMIN, in a user manager (systemd 259
-# exec_needs_cap_sys_admin and its neighbours, as S10 read them), plus the logged no-ops.
+# exec_needs_cap_sys_admin and its neighbours, as S10 read them), plus the logged no-ops. BindLogSockets= (257)
+# and PrivateBPF= with its BPFDelegate*= (258) need a mount namespace too: BindLogSockets=yes relabels the daemon
+# unprivileged_userns on systemd 259.
 NAMESPACE_OPTIONS = {
     'PrivateTmp', 'PrivateDevices', 'PrivateNetwork', 'PrivateIPC', 'PrivateMounts', 'PrivateUsers', 'PrivatePIDs',
     'ProtectSystem', 'ProtectHome', 'ProtectKernelTunables', 'ProtectKernelModules', 'ProtectKernelLogs',
@@ -31,7 +33,8 @@ NAMESPACE_OPTIONS = {
     'BindPaths', 'BindReadOnlyPaths', 'MountAPIVFS', 'MountFlags', 'MountImages', 'ExtensionImages',
     'ExtensionDirectories', 'RootDirectory', 'RootImage', 'RootEphemeral', 'NetworkNamespacePath',
     'IPCNamespacePath', 'DynamicUser', 'LogNamespace', 'IPAddressDeny', 'IPAddressAllow', 'JoinsNamespaceOf',
-    'DelegateNamespaces',
+    'DelegateNamespaces', 'BindLogSockets', 'PrivateBPF', 'BPFDelegateCommands', 'BPFDelegateMaps',
+    'BPFDelegatePrograms', 'BPFDelegateAttachments',
 }
 CAPABILITY_OPTIONS = {'CapabilityBoundingSet', 'AmbientCapabilities', 'SecureBits', 'User', 'Group',
                       'SupplementaryGroups'}
@@ -128,6 +131,8 @@ def self_test():
         ('the template as it is', good, 0),
         ('ProtectHome=read-only added', good.replace(service, service + 'ProtectHome=read-only\n'), 2),
         ('PrivateTmp=yes added', good.replace(service, service + 'PrivateTmp=yes\n'), 2),
+        ('BindLogSockets=yes added', good.replace(service, service + 'BindLogSockets=yes\n'), 2),
+        ('PrivateBPF=yes added', good.replace(service, service + 'PrivateBPF=yes\n'), 2),
         ('CapabilityBoundingSet= added', good.replace(service, service + 'CapabilityBoundingSet=\n'), 2),
         ('LimitCORE=1 dropped', good.replace('LimitCORE=1\n', ''), 2),
         ('MemoryDenyWriteExecute dropped', good.replace('MemoryDenyWriteExecute=yes\n', ''), 2),
