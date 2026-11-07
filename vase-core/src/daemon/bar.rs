@@ -58,6 +58,20 @@ impl<B: Backend, C: Painter> Daemon<B, C> {
         }
     }
 
+    /// End the prefix from outside the key stream: drop a half-typed `prefix-<number>` without
+    /// acting on it, and clear the prefix dot. For a host whose keys can stop arriving mid-prefix
+    /// (a timeout, another grab taking the keyboard, the hook going away); it disarms its own
+    /// `KeyRouter` alongside. Returns whether anything was pending.
+    pub fn cancel_prefix(&mut self) -> bool {
+        let entry = self.tab_entry.is_pending();
+        self.tab_entry.cancel();
+        let armed = std::mem::take(&mut self.prefix_armed);
+        if armed {
+            self.refresh(); // clear the prefix dot
+        }
+        entry || armed
+    }
+
     /// Map a flat tab index (bar order) to `(screen index, tab-within-screen index)`.
     fn flat_tab_to_screen(&self, flat: usize) -> Option<(usize, usize)> {
         let model = self.model.as_ref()?;

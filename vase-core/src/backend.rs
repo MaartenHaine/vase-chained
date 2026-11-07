@@ -76,6 +76,13 @@ pub trait Backend {
     fn default_bar_position(&self) -> Position {
         Position::Bottom
     }
+
+    /// The main display, where the tab bar lives, as an index into `displays` (the list `displays()`
+    /// just returned). The default is the display at the origin, which is the main display on macOS
+    /// and Windows. A platform whose primary monitor can sit anywhere in the layout reports its own.
+    fn primary_display(&self, displays: &[Display]) -> usize {
+        origin_display(displays)
+    }
 }
 
 /// A snapshot of one native window.
@@ -100,6 +107,12 @@ pub struct Display {
     pub bounds: Rect,
     /// Usable area: `bounds` less the OS's own furniture (menu bar and Dock, or the taskbar).
     pub work_area: Rect,
+}
+
+/// The display whose top-left corner is the origin of the global coordinate space, or the first one
+/// when none is.
+pub fn origin_display(displays: &[Display]) -> usize {
+    displays.iter().position(|d| d.bounds.x == 0.0 && d.bounds.y == 0.0).unwrap_or(0)
 }
 
 /// Whether a window should be tiled.

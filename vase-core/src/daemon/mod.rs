@@ -22,6 +22,7 @@ use crate::model::{apply, Command, Model};
 use crate::registry::Registry;
 use crate::tree::WindowId;
 
+pub use self::input::KeyMode;
 use pane_picker::{PendingLaunch, PickItem};
 use prompt::PromptKind;
 use switcher::SwitchItem;

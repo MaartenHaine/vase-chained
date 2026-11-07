@@ -6,6 +6,7 @@
 #   tools/linux/podman.sh test         cargo test of the same packages
 #   tools/linux/podman.sh check        clippy (warnings denied) and rustfmt --check on the same packages
 #   tools/linux/podman.sh supply BIN   cargo-deny and cargo-audit, with the binaries tools/linux/cargo-tools.sh put in BIN
+#   tools/linux/podman.sh lock         Cargo.lock after a manifest change, printed to stdout (the checkout stays read-only)
 #   tools/linux/podman.sh lint NODE    tools/linux/lint.sh in the build image, with a Node.js install mounted from NODE
 #   tools/linux/podman.sh l1           the L1 hello test: headless GNOME Shell in chained-tiler-test
 #   tools/linux/podman.sh spike S#     a throwaway M0b spike at L1: spikes/S#/l1.sh, or else spikes/S#/run.sh, like l1
@@ -97,6 +98,24 @@ case "${1:-}" in
 		run supply "$ref" "${cargo_volumes[@]}" -v "$(cd "$bin" && pwd):/tools:ro" -- \
 			bash -c '/tools/cargo-deny --locked check && /tools/cargo-audit audit --deny warnings'
 		;;
+	lock)
+		# A new dependency needs a Cargo.lock entry before the locked steps above can run. The resolution runs online
+		# in the container, in a copy of the checkout (the mount stays read-only), and only adds what the manifests
+		# now need: cargo metadata keeps every version already locked. Like fetch, it runs no crate code, so it may
+		# write the cargo volume. Review the diff before replacing the lockfile:
+		#   tools/linux/podman.sh lock > Cargo.lock.new && git diff --no-index Cargo.lock Cargo.lock.new
+		# shellcheck disable=SC2016 # the script expands $CARGO_HOME in the container
+		run lock "$(image build)" "${cargo_volumes[@]}" -- bash -c '
+			for f in config.toml config bin; do
+				if [ -e "$CARGO_HOME/$f" ]; then
+					echo "podman.sh: the chained-tiler-cargo volume holds $f, which nothing here writes; not resolving" >&2
+					exit 2
+				fi
+			done
+			mkdir /tmp/ws
+			tar -C /src --exclude=./.git --exclude=./target -cf - . | tar -C /tmp/ws -xf -
+			cd /tmp/ws && cargo metadata --format-version 1 >/dev/null && cat Cargo.lock'
+		;;
 	lint)
 		node=${2:?usage: podman.sh lint NODE_DIR (a Node.js install with bin/node and bin/npm)}
 		[ -x "$node/bin/node" ] || die "$node/bin/node not found"
@@ -120,5 +139,5 @@ case "${1:-}" in
 		while IFS='=' read -r k _; do envs+=(-e "$k"); done < <(env | grep -E '^S[0-9]+_[A-Z_]+=' || true)
 		run "spike-${s,,}" "$(image test)" --network=none "${envs[@]}" -- bash "/src/spikes/$s/$entry"
 		;;
-	*) die "usage: podman.sh build | test | check | supply BIN_DIR | lint NODE_DIR | l1 | spike S#" ;;
+	*) die "usage: podman.sh build | test | check | supply BIN_DIR | lock | lint NODE_DIR | l1 | spike S#" ;;
 esac

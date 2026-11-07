@@ -109,6 +109,26 @@ impl<B: Backend, C: Painter> Daemon<B, C> {
         }
     }
 
+    /// Let go of the screen without undoing the layout: save it, drop whatever was half-typed, and
+    /// hide every surface, leaving each window where vase put it. For a platform whose input and
+    /// chrome can go away while the windows stay, or that is stopped without being quit: the daemon
+    /// then exits, or resumes with `refresh()` once it has its host back. `restore()` still works
+    /// after a resume, for a quit.
+    pub fn detach(&mut self) {
+        // The keyboard went with the host, so nothing mid-entry can finish; the picker reopens on the
+        // next refresh if its pane is still empty.
+        self.help_open = false;
+        self.switcher = None;
+        self.pane_picker = None;
+        self.prompt = None;
+        self.tab_entry.cancel();
+        self.prefix_armed = false;
+        self.resize_sticky = false;
+        self.movetab_sticky = false;
+        self.save_state();
+        self.chrome.hide_all();
+    }
+
     pub fn restore(&mut self) {
         if self.restored {
             return;

@@ -4,6 +4,7 @@
 
 mod backend;
 mod chrome;
+mod daemon;
 mod focus;
 mod geometry;
 mod input;

@@ -1,19 +1,90 @@
 //! Running a bound command, and the sticky repeat modes that outlive the prefix.
 
 use crate::focus::Direction;
-use crate::input::{InputCommand, Key, KeyCode};
+use crate::input::{InputCommand, Key, KeyCode, Mods};
 use crate::model::Command;
 
 use super::Daemon;
 use crate::backend::Backend;
 use crate::chrome::Painter;
 
+/// The bare repeat keys after a prefix resize, each with Shift: arrows and vim keys both, matching
+/// the prefix bindings.
+const RESIZE_REPEAT: [(KeyCode, Direction); 8] = [
+    (KeyCode::Left, Direction::Left),
+    (KeyCode::Char('h'), Direction::Left),
+    (KeyCode::Right, Direction::Right),
+    (KeyCode::Char('l'), Direction::Right),
+    (KeyCode::Up, Direction::Up),
+    (KeyCode::Char('k'), Direction::Up),
+    (KeyCode::Down, Direction::Down),
+    (KeyCode::Char('j'), Direction::Down),
+];
+
+/// The bare repeat keys after a prefix move-tab, each with Shift, and which way they move the tab.
+const MOVETAB_REPEAT: [(KeyCode, isize); 2] = [(KeyCode::Char(','), -1), (KeyCode::Char('.'), 1)];
+
+/// Which keys the daemon is taking right now, for a platform that has to grab keys before they
+/// arrive rather than decide on each one as it comes. Follows the precedence of `intercept_key`,
+/// then the prefix router, then the sticky repeat keys.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum KeyMode {
+    /// Nothing is in progress: only the prefix chords and the app-focus hotkeys are the daemon's.
+    Idle,
+    /// The next key is the daemon's: a prefix is armed (as the platform last reported it in
+    /// `prefix_armed`), or a `prefix-<number>` is waiting for another digit.
+    Prefix,
+    /// An overlay takes every key: the shortcut sheet, the command line, the window switcher or the
+    /// pane picker.
+    Overlay,
+    /// After a prefix resize or move-tab, these keys (each with Shift only) repeat it. Any other key
+    /// belongs to the focused app and ends the mode.
+    Sticky(Vec<Key>),
+    /// A launch into the focused empty pane is waiting for its window. Every key is taken, and only
+    /// Esc acts: it cancels the launch and closes the pane.
+    PendingLaunch,
+}
+
 impl<B: Backend, C: Painter> Daemon<B, C> {
-    /// Whether an overlay is taking keys. Kept in step with the guards at the top of `intercept_key`,
-    /// for a platform that has to answer "is this key the overlay's?" at a moment when it cannot ask
-    /// the daemon itself.
+    /// Which keys the daemon is taking right now. See `KeyMode`.
+    pub fn key_mode(&self) -> KeyMode {
+        if self.help_open {
+            return KeyMode::Overlay;
+        }
+        if self.pending_launch.is_some() {
+            return KeyMode::PendingLaunch;
+        }
+        if self.prompt.is_some() || self.switcher.is_some() || self.pane_picker.is_some() {
+            return KeyMode::Overlay;
+        }
+        if self.tab_entry.is_pending() || self.prefix_armed {
+            return KeyMode::Prefix;
+        }
+        let shift = Mods { shift: true, ..Mods::default() };
+        let mut keys: Vec<Key> = Vec::new();
+        if self.resize_sticky {
+            keys.extend(RESIZE_REPEAT.iter().map(|(code, _)| Key { code: *code, mods: shift }));
+        }
+        if self.movetab_sticky {
+            keys.extend(MOVETAB_REPEAT.iter().map(|(code, _)| Key { code: *code, mods: shift }));
+        }
+        if keys.is_empty() {
+            KeyMode::Idle
+        } else {
+            KeyMode::Sticky(keys)
+        }
+    }
+
+    /// Whether an overlay is taking keys: whether `intercept_key` will swallow the next one. For a
+    /// platform that has to answer "is this key the overlay's?" at a moment when it cannot ask the
+    /// daemon itself.
     pub fn modal(&self) -> bool {
-        self.pending_launch.is_some() || self.prompt.is_some() || self.switcher.is_some() || self.pane_picker.is_some() || self.tab_entry.is_pending() || self.help_open
+        match self.key_mode() {
+            KeyMode::Overlay | KeyMode::PendingLaunch => true,
+            // A half-typed tab number is `intercept_key`'s; an armed prefix is the router's.
+            KeyMode::Prefix => self.tab_entry.is_pending(),
+            KeyMode::Idle | KeyMode::Sticky(_) => false,
+        }
     }
 
     /// Offer a key to whatever is modal, before the prefix router sees it. Returns whether the key was swallowed. The order here *is* the modal precedence.
@@ -99,14 +170,7 @@ impl<B: Backend, C: Painter> Daemon<B, C> {
     pub fn sticky_key(&mut self, key: Key) -> bool {
         let shift_only = key.mods.shift_only();
         if self.resize_sticky {
-            // Arrows and vim keys both, matching the prefix bindings.
-            let dir = match key.code {
-                KeyCode::Left | KeyCode::Char('h') => Some(Direction::Left),
-                KeyCode::Right | KeyCode::Char('l') => Some(Direction::Right),
-                KeyCode::Up | KeyCode::Char('k') => Some(Direction::Up),
-                KeyCode::Down | KeyCode::Char('j') => Some(Direction::Down),
-                _ => None,
-            };
+            let dir = RESIZE_REPEAT.iter().find(|(code, _)| *code == key.code).map(|(_, dir)| *dir);
             if let (true, Some(dir)) = (shift_only, dir) {
                 self.dispatch(Command::Resize(dir));
                 return true;
@@ -114,11 +178,7 @@ impl<B: Backend, C: Painter> Daemon<B, C> {
             self.resize_sticky = false;
         }
         if self.movetab_sticky {
-            let offset = match key.code {
-                KeyCode::Char(',') => Some(-1),
-                KeyCode::Char('.') => Some(1),
-                _ => None,
-            };
+            let offset = MOVETAB_REPEAT.iter().find(|(code, _)| *code == key.code).map(|(_, offset)| *offset);
             if let (true, Some(offset)) = (shift_only, offset) {
                 self.dispatch(Command::MoveTab(offset));
                 return true;
@@ -126,5 +186,14 @@ impl<B: Backend, C: Painter> Daemon<B, C> {
             self.movetab_sticky = false;
         }
         false
+    }
+
+    /// End a sticky resize or move-tab the way any other key would, for a platform that cannot see
+    /// that other key and ends the mode on a timer instead. Returns whether one was on.
+    pub fn end_sticky(&mut self) -> bool {
+        let was = self.resize_sticky || self.movetab_sticky;
+        self.resize_sticky = false;
+        self.movetab_sticky = false;
+        was
     }
 }
