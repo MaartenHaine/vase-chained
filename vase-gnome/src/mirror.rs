@@ -10,7 +10,7 @@
 //! and acknowledges the batch. So a delta sent before the extension applied an effect never undoes
 //! it, and once the extension has caught up the mirror shows exactly what it reported.
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 use vase_core::geometry::Rect;
 
@@ -149,6 +149,13 @@ impl Mirror {
     /// Whether a placement of `id` is still unconfirmed.
     pub fn placing(&self, id: u64) -> bool {
         self.ops.iter().any(|op| op.window == id && matches!(op.kind, OpKind::Frame(_)))
+    }
+
+    /// The windows with a placement the extension never confirmed. Read before a `load`, it names the
+    /// placements a disconnect cut short: unread in the socket, held behind one in flight, or waiting
+    /// for its re-send (§6.2).
+    pub fn unfinished(&self) -> HashSet<u64> {
+        self.ops.iter().filter(|op| matches!(op.kind, OpKind::Frame(_))).map(|op| op.window).collect()
     }
 
     /// The frame the extension last reported for `id`, ignoring the daemon's own placements.

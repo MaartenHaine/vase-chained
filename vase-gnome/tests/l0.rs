@@ -208,6 +208,24 @@ fn disconnected_the_daemon_is_frozen_and_the_same_shell_resumes_without_a_move()
 }
 
 #[test]
+fn a_placement_cut_short_by_a_lock_is_finished_on_the_resume() {
+    let dir = tempdir("l0-unfinished");
+    let d = Daemon::start(&dir);
+    let mut ext = Fake::connect(&d.socket());
+    ext.handshake("boot:1:1", two_windows());
+    ext.key(ALT_A, &["alt"]);
+    let c = content();
+    let left = [c[0], c[1], c[2] / 2.0, c[3]];
+    assert_eq!(places(&ext.key(BACKSLASH, &[])), vec![(10, left)]);
+    // The lock tears the extension down before it applied that place.
+    drop(ext);
+    std::thread::sleep(Duration::from_millis(200));
+    let mut ext = Fake::connect(&d.socket());
+    let lines = ext.handshake("boot:1:1", json!([window(10, "Ghostty", c), window(11, "Files", [900.0, 100.0, 800.0, 600.0])]));
+    assert_eq!(places(&lines), vec![(10, left)], "the cut-short placement is finished, and nothing else moves");
+}
+
+#[test]
 fn a_new_shell_gets_the_layout_back_by_app_and_title() {
     let dir = tempdir("l0-relogin");
     let d = Daemon::start(&dir);

@@ -398,6 +398,8 @@ impl Host {
             return Output::fatal(vec![error(seq, Some(re), "bad_json", true, "snapshot: needs a display, and a frame for every window")]);
         }
         let instance = self.conn.as_ref().and_then(|c| c.hello.as_ref()).map(|h| h.instance.clone()).unwrap_or_default();
+        // Read before the snapshot replaces the ops.
+        let unfinished = self.shared.borrow().mirror.unfinished();
         self.shared.borrow_mut().mirror.load(s.displays, s.primary, s.windows, s.focus, s.apps);
         let same = self.daemon.is_some() && self.instance.as_deref() == Some(instance.as_str());
         if same {
@@ -407,6 +409,7 @@ impl Host {
             let d = self.daemon.as_mut().unwrap();
             d.refresh();
             d.reconcile();
+            self.finish_placements(&unfinished);
         } else {
             if let Some(mut old) = self.daemon.take() {
                 eprintln!("vase-gnome: a new compositor instance ({instance}); rebuilding the layout from state.json");
@@ -422,6 +425,33 @@ impl Host {
         let mut lines = vec![self.grabs(seq)];
         lines.extend(self.flush(None, Vec::new()));
         self.finish(lines)
+    }
+
+    /// On a resume, finish the placements the disconnect cut short (`unfinished`, read before the
+    /// snapshot), each on the rect the model gives its window now. A window already there is skipped
+    /// by `set_frame`, and so is one reconcile just placed; no other window moves, so a window the
+    /// user dragged stays where it is until the next render or a resync.
+    fn finish_placements(&mut self, unfinished: &HashSet<u64>) {
+        if unfinished.is_empty() {
+            return;
+        }
+        let Some(model) = self.daemon.as_ref().and_then(|d| d.model.as_ref()) else { return };
+        // The current tabs' placements (a zoom included) win over the layout rect of every tab.
+        let mut want: std::collections::HashMap<u64, Rect> = model.all_placements().into_iter().map(|(id, r)| (id.0, r)).collect();
+        want.extend(model.placements().into_iter().map(|(id, r)| (id.0, r)));
+        let mut backend = GnomeBackend(Rc::clone(&self.shared));
+        let mut ids: Vec<u64> = unfinished.iter().copied().collect();
+        ids.sort_unstable();
+        for id in ids {
+            let Some(&rect) = want.get(&id) else { continue };
+            let skip = {
+                let shared = self.shared.borrow();
+                shared.mirror.placing(id) || shared.mirror.get(id).is_none_or(|w| w.minimized)
+            };
+            if !skip {
+                backend.set_frame(vase_core::tree::WindowId(id), rect);
+            }
+        }
     }
 
     /// Build the `Daemon` the way the other platforms do at startup (`vase-windows/src/bin/vase.rs`):

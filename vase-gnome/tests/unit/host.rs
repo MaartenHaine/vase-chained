@@ -338,6 +338,23 @@ fn a_disconnected_daemon_runs_nothing_and_resumes_without_moving_a_window() {
 }
 
 #[test]
+fn a_resume_finishes_a_placement_the_disconnect_cut_short_and_moves_nothing_else() {
+    let mut ext = Ext::new(None);
+    ext.connect("boot:1:1", windows());
+    ext.key(ALT_A, &["alt"]);
+    let split = ext.key(BACKSLASH, &[]);
+    let half = vec![0.0, 0.0, 1280.0, 1440.0];
+    assert!(places(&split).contains(&(10, half.clone())));
+    // The lock comes before the extension applies the split's place: it never settles.
+    ext.host.eof();
+    // Ghostty still has the frame of the first render; the Files tab, never placed, was dragged off.
+    let calc = [2560.0, 32.0 + vase_core::chrome::bar_height(), 1920.0, 1048.0 - vase_core::chrome::bar_height()];
+    let back = json!([window(10, "Ghostty", [0.0, 0.0, 2560.0, 1440.0]), window(11, "Files", [50.0, 50.0, 700.0, 500.0]), window(12, "Calculator", calc)]);
+    let lines = ext.connect("boot:1:1", back);
+    assert_eq!(places(&lines), vec![(10, half)], "only the placement that was cut short is finished");
+}
+
+#[test]
 fn a_new_compositor_instance_rematches_the_layout_by_app_and_title() {
     let dir = tempdir("inst");
     let state = dir.join("state.json");
