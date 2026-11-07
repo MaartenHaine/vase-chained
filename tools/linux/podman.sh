@@ -46,16 +46,37 @@ run() { # name image podman-args... -- command...
 		-v "$ROOT:/src:ro" "${args[@]}" "$ref" "$@"
 }
 
-cargo_volumes=(-v chained-tiler-cargo:/home/ubuntu/cargo:U -v chained-tiler-target:/home/ubuntu/target:U)
+# CARGO_HOME is one volume for every checkout: it holds only what Cargo.lock names, checked by checksum when it is
+# downloaded. Only steps that run no crate code (cargo fetch, cargo-deny, cargo-audit) may write it; the offline step,
+# which runs build scripts, proc macros and test binaries, gets it read-only, so nothing it does outlives the run.
+# The target dir is one volume per checkout: every checkout is mounted at /src, so with one shared target dir cargo's
+# mtime check could call another checkout's build fresh and run its test binaries.
+target_volume="chained-tiler-target-$(printf %s "$ROOT" | sha256sum | cut -c1-12)"
+cargo_volumes=(-v chained-tiler-cargo:/home/ubuntu/cargo:U -v "$target_volume:/home/ubuntu/target:U")
+offline_volumes=(-v chained-tiler-cargo:/home/ubuntu/cargo:ro -v "$target_volume:/home/ubuntu/target:U")
+
+# cargo fetch --locked, online. It refuses to run when the cargo volume holds a config or a bin/: nothing here writes
+# one, and a planted config (a rustc-wrapper, say) would run code in this container, which has the network.
+fetch() { # image
+	# shellcheck disable=SC2016 # the script expands $CARGO_HOME in the container
+	run fetch "$1" "${cargo_volumes[@]}" -- bash -c '
+		for f in config.toml config bin; do
+			if [ -e "$CARGO_HOME/$f" ]; then
+				echo "podman.sh: the chained-tiler-cargo volume holds $f, which nothing here writes; not fetching" >&2
+				exit 2
+			fi
+		done
+		exec cargo fetch --locked'
+}
 
 # Fetch exactly what Cargo.lock names (online), then run cargo offline with no network at all.
 cargo_offline() { # subcommand args...
 	local ref sub=$1
 	shift
 	ref=$(image build)
-	run fetch "$ref" "${cargo_volumes[@]}" -- cargo fetch --locked
+	fetch "$ref"
 	# shellcheck disable=SC2086 # LINUX_PACKAGES is a list of flags
-	run cargo "$ref" --network=none "${cargo_volumes[@]}" -- cargo "$sub" --locked --offline $LINUX_PACKAGES "$@"
+	run cargo "$ref" --network=none "${offline_volumes[@]}" -- cargo "$sub" --locked --offline $LINUX_PACKAGES "$@"
 }
 
 case "${1:-}" in
@@ -71,7 +92,7 @@ case "${1:-}" in
 		ref=$(image build)
 		# Both read the advisory database from GitHub, so this step is online. cargo-deny reads the whole
 		# workspace's metadata (every platform), so it is fetched first.
-		run fetch "$ref" "${cargo_volumes[@]}" -- cargo fetch --locked
+		fetch "$ref"
 		run supply "$ref" "${cargo_volumes[@]}" -v "$(cd "$bin" && pwd):/tools:ro" -- \
 			bash -c '/tools/cargo-deny --locked check && /tools/cargo-audit audit --deny warnings'
 		;;
