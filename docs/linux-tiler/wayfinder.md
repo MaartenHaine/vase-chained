@@ -12,6 +12,9 @@ F26-F35, the settled and remaining unknowns (§2.3), the key-ownership rules (§
 options (§3.6), the round-2 questions (§4, now askable) and M1a-M1c (§5). §8 summarises the results, what they mean for
 the owner's constraints, and the next milestone.
 
+**Updated after M1a (2026-11-07).** The Rust half is built and tested at L0 on `lt/m1a` (§5 M1a, "M1a status"), and
+the rest of the plan is re-estimated from it (§5, "Re-estimate after M1a").
+
 Labels, as in the critique: **VERIFIED** means checked in source or read-only on the desktop. **INFERENCE** means
 reasoned from verified facts. **UNVERIFIED** means a spike has to settle it; every UNVERIFIED item has a spike row (§5)
 or, after M0b, an owner in §2.3.
@@ -436,8 +439,8 @@ Costs to accept:
 - A protocol, a mirror and two state machines to keep consistent, testable in Rust with a fake extension.
 - Two artifacts and an AppArmor profile to install and match by version.
 - A Rust build for Ubuntu.
-- No estimate yet. The work covers two programs, a protocol, CI from nothing and a container harness; re-estimate
-  after M1a.
+- The time: 25 to 39 agent sessions for M1b-M8, plus the owner's steps and two weeks of daily use (§5, "Re-estimate
+  after M1a").
 
 ---
 
@@ -751,6 +754,36 @@ L1 startup hang (M1b). Every spike's `before-after.sh compare` found no watched 
 
 **Exit:** re-estimate the rest of the plan.
 
+**M1a status (2026-11-07): met**, on `lt/m1a` from `dc82597`, nothing pushed:
+- the seams K1, K2, K3, D1 and L1 in vase-core, one commit each, with a whole-daemon test harness;
+- the protocol v1 spec, amended in its §12.3 by what building the daemon showed;
+- `vase-gnome`: the mirror, `GnomeBackend`, `GnomePainter`, the lifecycle, the socket and its caps;
+- the fake extension and the L0 suite;
+- Landlock, in its own commit;
+- the unit template and its lint;
+- `podman.sh lock`, to add a crate to `Cargo.lock`.
+
+The checks:
+- tests: 216 in vase-core, and in vase-gnome 42 line-by-line, 14 over the socket and 1 for Landlock;
+- clippy (warnings denied) and rustfmt clean;
+- cargo-deny and cargo audit clean;
+- `lint.sh` clean, the unit lint included.
+
+The Linux CI job already runs `podman.sh test` and `lint.sh`, so all of this is in CI with no workflow change.
+
+What it showed:
+- **No new seam.** vase-core's `Daemon` runs unchanged behind the mirror. The tabs, stacks, prompt, sticky keys and
+  multi-digit entry of M2 and M3 already work in the daemon; what they still cost is extension work and L1 tests.
+- **Landlock holds fully at ABI 8, even inside rootless podman,** so its test runs in CI.
+  - It costs the daemon's own `exe` check of the shell. Landlock scopes ptrace access, and reading
+    `/proc/<pid>/exe` of a process outside the domain needs it. So the daemon checks only the uid; the extension's full
+    check on the daemon (§3.5) is unchanged.
+  - It makes `config.toml` read only, so saving favorites fails quietly: M5.
+- **vase focuses screen 0 at startup.** On the owner's layout that is the 4K monitor, not the primary, so the first
+  placement hint and the first prefix act there. M1b decides whether to seed focus from the snapshot.
+- **What only the extension can test** is left to M1c: the state-machine rows that change no daemon state (fullscreen
+  focus ungrabbing, Disconnected releasing grabs, the 3 s and 500 ms timers themselves).
+
 ### M1b: the extension without keys or chrome, at L1
 
 **What gets built:**
@@ -893,6 +926,39 @@ hard-codes one): tabs stay on their screen, a hot-unplug moves them sensibly, th
   - crash or stuck grab, main loop alive: wait out the 3 s timeout or press the kill chord; Ctrl+Alt+F3, log in, then
     `gsettings set org.gnome.shell disable-user-extensions true` or `sudo mv` the extension directory;
   - hang, main loop dead: Alt+SysRq+S, U, B (F15; or whatever Q1.6 decides).
+
+### Re-estimate after M1a (2026-11-07)
+
+**The unit is an agent session:** one long unattended run, like each half of M1a, that ends with every check green
+and reviewed commits. M1a took two: the seams and the spec, then the daemon. The daemon came to about 2,450 lines of
+Rust plus 1,570 lines of tests. What is left is mostly the extension: GJS inside the compositor, tested at L1. That is
+slower per line than Rust at L0, because a headless shell has to start for each run.
+
+| Milestone | Sessions | Owner | What drives it |
+|---|---|---|---|
+| M1b, the extension without keys or chrome | 4-6 | the S10 AppArmor half (5 min), best before M1b ends | **The new L1 runner** (two virtual monitors, 1.5 scale, a startup watchdog, and the cause of the F33 hang found first) is the biggest unknown in the plan. Then: S9's 531-line spike client as the transport; the deltas from Meta signals; settling by S4's rules; placement in `configure` by S6's; teardown |
+| M1c, keys and the picker | 4-6 | Q2.1, Q2.2; the L3 feel check (1 h) | The key-ownership state machine in JS, the hardest code inside the shell; seam K4 (small); S7 first; the picker list chrome; the F27 Alt-release test |
+| M2, tabs | 2-3 | – | The daemon already does all of it; the cost is L1 tests and drawing the prompt |
+| M3, stacks and Alt+E | 2-4 | – | S5 decides the hiding; every exit path brings every window back |
+| M4, the chrome | 4-6 | the L3 visual check (30 min) | Finishing the bar's draw items (M1a sent a first cut); St drawing crisp at 1 and 1.5; Pango golden tests; clicks |
+| M5, config | 1-2 | the favorites question (Landlock) | Linux paths exist in `vase-gnome/src/paths.rs`; reload; the `app_focus` grabs are already in `grabs` |
+| M6, Pause, fullscreen, games | 3-4 | Q3.5; a Steam game (30 min) | P1 is a cross-platform core seam, so it changes macOS and Windows too and needs their builds checked; P2 |
+| M7, monitor changes | 2-3 | – | D1 is done; the hotplug runner; display ids from connectors |
+| M8, assessment readiness | 3-5 | the runbook rehearsal (1 h); round 3 | The AppArmor profile; the full L1 suite in GitHub CI; the fork ADR; a full review |
+| **Total** | **25-39** | **about 4 h, plus two weeks of daily use (§1.9)** | |
+
+At about one session a day that is 5 to 8 weeks before the two weeks of daily use, so 7 to 10 weeks to "done" (§1).
+The low end assumes F33 has a findable cause and S5 and S7 confirm their defaults. Either one going the other way costs
+about a week: L1 has to work around a flaky startup, or stack items get a second hiding mechanism.
+
+M1a changed none of the risks:
+- F33 (M1b);
+- F27, the Xwayland Alt (M1c);
+- S5 (M3);
+- the AppArmor half (M8).
+
+It took out three it could have added: a missing core seam, a protocol that had to change shape, and a sandbox that
+couldn't be tested in a container.
 
 ---
 
