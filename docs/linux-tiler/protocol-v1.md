@@ -5,7 +5,8 @@ The wire between the two pieces of the Linux Tiler: the GNOME Shell extension (i
 spike findings (`docs/linux-spike/S2.md`, `S3.md`, `S4.md`, `S6.md`, `S9.md`). Both sides test against this document:
 the daemon at L0 with a fake extension (M1a), the extension at L1 (M1b, M1c).
 
-Status: **draft for M1a.** Nothing here is implemented yet except the core seams it relies on (§9). Words in bold
+Status: **v1, the daemon's half implemented in M1a** (`vase-gnome`, tested at L0 against a fake extension; the
+extension's half lands in M1b and M1c). The amendments M1a made while building it are listed in §12.3. Words in bold
 caps (**MUST**, **MUST NOT**, **SHOULD**) are requirements a test checks; the rest explains them. Terms are
 CONTEXT.md's: window, pane, tab, stack, screen, chrome, prefix.
 
@@ -34,6 +35,7 @@ Contents:
 | One connection at a time. A second connection while one is live is closed at once with an `error` `busy` (§10). | S9 stub |
 | The extension connects with `Gio.SocketClient.connect_async` to a `Gio.UnixSocketAddress`, and on failure retries with backoff: 100 ms, doubling, capped at 2 s. A restarted daemon is picked up within one step. The extension **never** spawns the daemon. | S9 item 5, §3.1 |
 | On connect, before reading or writing anything, the extension checks the peer: `Gio.Socket.get_credentials()` uid equals its own, and `/proc/<pid>/exe` equals `/usr/local/libexec/vase/vase-gnome`. An `exe` that ends in ` (deleted)` is refused with the log line `daemon binary replaced; restart vase-gnome.service`. Any refusal closes the connection and backs off. | §3.5, F29 |
+| The daemon checks the uid of what connects (`SO_PEERCRED`) and closes anything else without a line. It does not check the shell's `exe`: confined by Landlock it may not read `/proc/<pid>/exe` of a process outside its domain (Landlock scopes ptrace access, which that read needs). | M1a |
 | The daemon is installed 0755 and never calls `PR_SET_DUMPABLE(0)`: either makes `exe` unreadable to the shell. | F29 |
 | The check is defence in depth: any same-uid process can reach the compositor in other ways. | `devtest-security.md` §5.5 |
 
@@ -104,10 +106,10 @@ extension                                     daemon
    |------------- snapshot -------------------->|
    |                                            |  lifecycle transition (§7.1)
    |<------------ grabs ------------------------|
-   |<------------ mode -------------------------|
-   |<------------ placement_hint ---------------|
    |<------------ effects (first render) -------|
    |<------------ draw -------------------------|
+   |<------------ placement_hint ---------------|
+   |<------------ mode -------------------------|
    |  live: deltas, keys, clicks / effects, draw, mode, replay
 ```
 
@@ -134,7 +136,9 @@ extension                                     daemon
   space, the ellipsis and the marks (`ZOOM_MARK`, `WORKSPACE_MARK`, `FAVORITE_MARK`).
 - Neither side sends anything but `hello` before it has the other's hello. The extension then sends `measure` for the
   glyph table and for every title in the snapshot, then the `snapshot`; the daemon sends nothing more until it has the
-  snapshot.
+  snapshot, except a `pong` or an `error`.
+- Every answer, the snapshot's included, goes out in one order: `effects`, `draw`, `measure_request`, `replay`,
+  `placement_hint`, and last `mode`. The snapshot's answer starts with `grabs`.
 
 ## 5. Extension to daemon
 
@@ -146,7 +150,8 @@ it (§6.1).
 
 ```json
 {"v": 1, "t": "snapshot", "seq": 2, "ack": 0, "displays": [Display, …], "primary": 1,
- "windows": [window object, …], "focus": 2183041}
+ "windows": [window object, …], "focus": 2183041,
+ "apps": [{"app": "Calculator", "app_id": "org.gnome.Calculator.desktop"}, …]}
 ```
 
 - `displays` are ordered left to right, then top to bottom (vase's `Backend::displays`). `primary` is
@@ -155,12 +160,16 @@ it (§6.1).
 - `windows` are **frontmost first**, from `global.display.sort_windows_by_stacking`, reversed. The first window with
   `on_workspace` is what vase's `reconcile()` takes as the OS focus.
 - `focus` is `global.display.focus_window`'s id, or `null`.
+- `apps` (optional) are the installed apps the picker offers to launch (`Shell.AppSystem` `get_installed()`), by
+  display name and desktop-file id. vase names apps by display name; the daemon maps a name to its id for `launch`,
+  `activate`, the placement hint and icons, from this list or else from a window of that app.
+- At least one display, and a `frame` for every window; otherwise the snapshot is a fatal `bad_json`.
 
 ### 5.2 Deltas
 
 | `t` | Fields | Sent when |
 |---|---|---|
-| `window` | a window object | a window becomes known (`configure` for a new one, S6; at `enable()` for windows already open) or any field of it changes (`notify::title`, `size-changed`, `position-changed`, `notify::minimized`, `notify::fullscreen`, `workspace-changed`) |
+| `window` | a window object's fields, at the top level of the line | a window becomes known (`configure` for a new one, S6; at `enable()` for windows already open) or any field of it changes (`notify::title`, `size-changed`, `position-changed`, `notify::minimized`, `notify::fullscreen`, `workspace-changed`) |
 | `window_gone` | `id` | `unmanaging` |
 | `stacking` | `ids`, frontmost first | `global.display` `restacked` |
 | `focus` | `id` or `null` | `notify::focus-window` |
@@ -265,6 +274,9 @@ key or click that caused it, when one did.
 | `activate` | `app_id` | `activate` | `Shell.App.activate()`, same check |
 | `warp` | `at` | `warp_cursor` | the extension's virtual pointer, `notify_absolute_motion` |
 
+- `GnomeBackend` leaves out a `place` whose rect the extension already reports for that window with no placement in
+  flight: it would change nothing on screen, and leaving it out is what keeps a daemon restart or a reconnect from
+  sending any `place` at all.
 - The extension looks every `id` up again (`list_all_windows` index kept by `window-created` and `unmanaging`) and
   **ignores** an effect on an unknown or unmanaged id.
 - **The mirror is optimistic.** `GnomeBackend` applies `place`, `raise` and `focus` to its own mirror as it emits them,
@@ -382,23 +394,24 @@ away.
  "selected": 0}}
 ```
 
-One line per `Deck::sync` or list redraw (the example: two empty panes, the picker over the focused one, so only the
-other gets a placeholder). Each surface field is either an object (draw it), `null`
-(hide it) or absent (unchanged). Coordinates are stage pixels.
+At most one line per answer (§4), carrying only the surfaces that changed since the last `draw`; the first after a
+connect names every surface (the example: two empty panes, the picker over the focused one, so only the other gets a
+placeholder). Each surface field is either an object (draw it), `null` (hide it) or absent (unchanged). Coordinates
+are stage pixels. Hiding everything (`hide_all`, a fullscreen window, a detach) is every surface `null`.
 
 | Field | `Painter` call | Object |
 |---|---|---|
-| `bar` | `bar`, `prompt`, `hide_bar` | `{"rect", "items": [draw item…], "hits": [[x0, x1]…]}`: the powerline bar laid out in Rust (`chrome::powerline`), so the daemon already knows the hit spans |
+| `bar` | `bar`, `prompt`, `hide_bar` | `{"rect", "items": [draw item…], "hits": [[x0, x1]…]}`: the powerline bar laid out in Rust (`chrome::powerline`), so the daemon already knows the hit spans. The command line is `{"rect", "prompt": text, "edge": "top" \| "bottom", "items": [], "hits": []}` |
 | `stack_bars` | `stack_bars` | an array of `bar` objects |
 | `panes` | `panes` | `[{"rect", "focused"}…]`, the empty-pane placeholders |
 | `border` | `focus_border` | a Rect, or `null` |
 | `list` | `list`, `hide_list` | `{"rect", "centered": bool, "header", "rows": [{"number", "prefix", "icons": [app_id…], "label", "dim", "off_workspace", "favorite", "current"}…], "selected"}` (`SwitchRow`) |
-| `help` | `help`, `hide_help` | the `HelpLayout`'s rows, already placed |
-| `hide_all` | `hide_all` | `true` |
+| `help` | `help`, `hide_help` | `{"rect", "texts": [{"rect", "text", "style": "title" \| "section" \| "keys" \| "label"}…], "cells": [{"rect", "kind": "plain" \| "active" \| "ghost"}…]}`: the `HelpLayout`, already placed (text rects card-local) |
 
 A draw item is one of `{"k": "rect", "r": Rect, "fill": "#rrggbbaa", "radius": n}`, `{"k": "poly", "pts": [Point…],
 "fill"}`, `{"k": "text", "at": Point, "text", "size", "color", "bold": bool}` and `{"k": "icon", "r": Rect, "app_id"}`.
-M1a builds `panes`, `border` and `list`; the bar's items land in M4.
+M1a builds every surface; the bar's items are a first cut (a rect per tab, its texts and icons, the prefix dot) that
+M4 finishes and checks against Pango.
 
 `measure_request` (`{"t": "measure_request", "texts": ["my tab"], "sizes": [12]}`) asks for texts the daemon has no
 array for (a tab name the user typed). The extension answers with `measure`; the daemon redraws when it arrives.
@@ -552,5 +565,26 @@ The core seams have their own unit tests in vase-core (`vase-core/tests/unit/dae
 | What the daemon does with `end` `overlay` for the **picker**. The sheet, the command line and the switcher close as Esc would. The picker can't take Esc (Esc closes its pane), and it reopens on every refresh while its empty pane has focus, so it needs a "dismissed until focus returns" flag in `vase-gnome` or a core seam. | M1c, with Q2.2's feel check |
 | Whether `popModal` of a revoked grab is safe (INFERENCE, `main.js:840-855`). | an L1 test in M1c |
 | Whether a replayed Alt release clears the stuck Alt in an Xwayland client (F27). | an L1 test in M1c |
-| The draw items for the bar, the stack bars and the sheet (M1a draws only placeholders, the border and the list). | M4 |
+| The draw items for the bar, the stack bars and the sheet (M1a sends a first cut of the bar's). | M4 |
+| Saving picker favorites: vase writes them into `config.toml`, which Landlock keeps read-only, so the write fails quietly. Move favorites to the state dir, or allow that one file. | M5 |
+| At startup vase focuses screen 0, the leftmost (`Model::adopt`), not the screen of the focused window or the primary: on the owner's layout the first `placement_hint` and the first prefix act on the 4K monitor. Whether `vase-gnome` should seed the focused screen from the snapshot's `focus`. | M1b, with the first L1 run on two monitors |
 | `pause` (P1). | M6 |
+
+### 12.3 Amendments made in M1a, building the daemon
+
+- **The daemon's own peer check is the uid alone** (§1): Landlock forbids the confined daemon to read the shell's
+  `/proc/<pid>/exe`. The extension's full check on the daemon is unchanged.
+- **One answer order** (§4): `effects`, `draw`, `measure_request`, `replay`, `placement_hint`, `mode` last; before the
+  snapshot, only `pong` and `error`.
+- **The snapshot carries `apps`** (§5.1), the installed apps by name and desktop-file id, because vase names apps by
+  display name and the effects need the id.
+- **A `window` delta carries the window object's fields at the top level** of its line (§5.2).
+- **`draw` is one line per answer with only what changed** (§6.7), and hiding everything is every surface `null`; the
+  `hide_all` field is gone. The command line and the shortcut sheet have their object shapes.
+- **No `place` for a frame the extension already reports** (§6.1).
+
+Where each L0 check of §11 lives: the line-by-line ones in `vase-gnome/tests/unit/host.rs` (the prefix command and its
+modes, replay order, the timeout, sticky, pending launch, the hint, freezing and thawing, a new instance, SIGTERM,
+the kill chord, the errors), the mirror's property test in `tests/unit/mirror.rs`, and the ones that need a process
+and a socket in `tests/l0.rs` (the handshake on the wire, a v2 line, the line cap, the peer check, busy, the lock, a
+restart, freezing, a re-login, SIGTERM). Landlock is `tests/landlock.rs`.
