@@ -1,0 +1,18 @@
+[s4] {"what":"step-start","client":"adw","label":"mrf-only-to-other"}
+[3226125.930] gtk_surface1#48.configure(array[0])
+[3226125.948] gtk_surface1#48.configure_edges(array[16])
+[3226125.950] xdg_toplevel#47.configure_bounds(1920, 1048)
+[3226125.953] xdg_toplevel#47.configure(1260, 1420, array[4])
+[3226125.956] xdg_surface#43.configure(7)
+[3226125.967]  -> xdg_surface#43.ack_configure(7)
+[3226142.247]  -> xdg_surface#43.set_window_geometry(25, 25, 1260, 1048)
+[3226147.644] {mesa egl surface queue}  -> wl_surface#13.commit()
+[3226190.666] gtk_surface1#48.configure(array[0])
+[3226190.670] gtk_surface1#48.configure_edges(array[16])
+[3226190.673] xdg_toplevel#47.configure_bounds(2560, 1440)
+[3226190.677] xdg_toplevel#47.configure(1260, 1048, array[4])
+[3226190.688] xdg_surface#43.configure(8)
+[3226190.693]  -> xdg_surface#43.ack_configure(8)
+[3226272.198] {mesa egl surface queue}  -> wl_surface#13.commit()
+[s4] {"what":"step","client":"adw","label":"mrf-only-to-other","mode":"mrf","target":{"x":10,"y":10,"w":1260,"h":1420},"first":null,"delay":0,"tSecond":0.1,"jumpBack":false,"before":{"x":3521,"y":33,"w":957,"h":521},"afterFirst":null,"afterMove":{"x":3521,"y":33,"w":957,"h":521},"afterCall":{"x":3521,"y":33,"w":957,"h":521},"final":{"x":10,"y":10,"w":1260,"h":1048},"reached":false,"visitedFirst":f
+[s4] {"what":"step-start","client":"adw","label":"overlap-primary-then-other"}

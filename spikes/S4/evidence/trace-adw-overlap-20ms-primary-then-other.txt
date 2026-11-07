@@ -1,0 +1,25 @@
+[s4] {"what":"step-start","client":"adw","label":"overlap-20ms-primary-then-other"}
+[3258422.380] gtk_surface1#48.configure(array[0])
+[3258422.398] gtk_surface1#48.configure_edges(array[16])
+[3258422.401] xdg_toplevel#47.configure_bounds(1920, 1048)
+[3258422.405] xdg_toplevel#47.configure(956, 524, array[4])
+[3258422.408] xdg_surface#43.configure(14)
+[3258422.422]  -> xdg_surface#43.ack_configure(14)
+[3258429.360]  -> xdg_surface#43.set_window_geometry(25, 25, 956, 524)
+[3258440.561] {mesa egl surface queue}  -> wl_surface#13.commit()
+[s4] {"what":"second-request","client":"adw","label":"overlap-20ms-primary-then-other"}
+[3258493.159] gtk_surface1#48.configure(array[0])
+[3258493.162] gtk_surface1#48.configure_edges(array[16])
+[3258493.166] xdg_toplevel#47.configure_bounds(2560, 1440)
+[3258493.169] xdg_toplevel#47.configure(1276, 1436, array[4])
+[3258493.173] xdg_surface#43.configure(15)
+[3258493.178]  -> xdg_surface#43.ack_configure(15)
+[3258509.446] gtk_surface1#48.configure(array[0])
+[3258509.450] gtk_surface1#48.configure_edges(array[16])
+[3258509.453] xdg_toplevel#47.configure_bounds(1920, 1048)
+[3258509.457] xdg_toplevel#47.configure(956, 524, array[4])
+[3258509.460] xdg_surface#43.configure(16)
+[3258509.465]  -> xdg_surface#43.ack_configure(16)
+[3258522.043] {mesa egl surface queue}  -> wl_surface#13.commit()
+[s4] {"what":"step","client":"adw","label":"overlap-20ms-primary-then-other","mode":"overlap","target":{"x":1282,"y":2,"w":1276,"h":1436},"first":{"x":2562,"y":34,"w":956,"h":524},"delay":20,"tSecond":50.1,"jumpBack":true,"before":{"x":3522,"y":34,"w":956,"h":1044},"afterFirst":{"x":2562,"y":34,"w":956,"h":1044},"afterMove":{"x":1282,"y":2,"w":956,"h":1044},"afterCall":{"x":1282,"y":2,"w":956,"h":
+[s4] {"what":"step-start","client":"adw","label":"overlap-60ms-other-then-primary"}

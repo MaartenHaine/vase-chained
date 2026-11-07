@@ -1,0 +1,15 @@
+# chained-tiler-s4: spike S4's clients on top of chained-tiler-test (throwaway; docs/linux-spike/S4.md).
+#
+# The base image already pins the Ubuntu archive snapshot (APT::Snapshot), so these come from the same date.
+# - xterm: an Xwayland client with WM_NORMAL_HINTS resize increments (a cell-sized terminal)
+# - libadwaita-1-examples: adwaita-1-demo, a libadwaita window
+# - ghostty: a GTK4 terminal that snaps its grid inside the window it gets
+# The base image's gtk-4-examples gives gtk4-demo and gtk4-widget-factory (plain GTK4).
+ARG BASE
+FROM ${BASE}
+USER root
+RUN apt-get update --error-on=any \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+      xterm libadwaita-1-examples ghostty x11-utils \
+ && rm -rf /var/lib/apt/lists/*
+USER ubuntu
