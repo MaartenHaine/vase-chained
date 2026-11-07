@@ -9,7 +9,7 @@ path = "src/bin/vase.rs"
 
 [dependencies]
 vase-core = { path = "../vase-core" }
-windows-numerics = "0.3"
+windows-numerics = "0.100"
 windows = { version = "0.62", features = [
     "UI_ViewManagement",
     "Win32_Foundation",
