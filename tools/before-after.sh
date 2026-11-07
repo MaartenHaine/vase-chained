@@ -10,7 +10,9 @@
 #   locked_hint    logind's LockedHint of the graphical session (a nested shell can call SetLockedHint, F18)
 #   crash_marker   whether $XDG_RUNTIME_DIR/gnome-shell-disable-extensions exists (a shell started on the host
 #                  creates it; the real shell removes its own 60 s after start, so it is "absent" on a settled desktop)
-#   ext_tree       a hash over ~/.local/share/gnome-shell: every path, type, mode, link target and file content
+#   ext_tree       a hash over ~/.local/share/gnome-shell: every path, type, mode, link target and file content, except
+#                  application_state, which the running shell rewrites as the owner switches apps (its app-usage
+#                  record); its mtime goes to DIR/info, which compare shows but doesn't judge
 #   monitors_xml   mtime and sha256 of ~/.config/monitors.xml
 #   owner.*        pid and process of the owner of org.gnome.Shell (session bus), org.freedesktop.PolicyKit1 and
 #                  org.freedesktop.NetworkManager (system bus)
@@ -37,8 +39,9 @@ tree_hash() { # dir
 	[ -d "$dir" ] || { echo absent; return; }
 	(
 		cd "$dir"
-		LC_ALL=C find -P . -printf '%y %m %p -> %l\n' | LC_ALL=C sort
-		LC_ALL=C find -P . -type f -print0 | LC_ALL=C sort -z | xargs -0 -r sha256sum
+		LC_ALL=C find -P . -path ./application_state -prune -o -printf '%y %m %p -> %l\n' | LC_ALL=C sort
+		LC_ALL=C find -P . -path ./application_state -prune -o -type f -print0 | LC_ALL=C sort -z |
+			xargs -0 -r sha256sum
 	) | sha256sum | cut -d' ' -f1
 }
 
@@ -78,12 +81,16 @@ snapshot() {
 		printf 'shell_pids=%s\n' "$(pgrep -x gnome-shell | sort -n | tr '\n' ' ' | sed 's/ $//')"
 	} >"$dir/summary"
 	printf 'taken=%s\n' "$(date -Is)" >"$dir/taken"
+	printf 'application_state_mtime=%s\n' \
+		"$(stat -c %y "$HOME/.local/share/gnome-shell/application_state" 2>/dev/null || echo absent)" >"$dir/info"
 	cat "$dir/summary"
 }
 
 compare() {
 	local a=$1 b=$2
 	[ -f "$a/summary" ] && [ -f "$b/summary" ] || die "both arguments must be snapshot directories"
+	printf 'before-after: not judged (the live shell writes these): %s -> %s\n' "$(cat "$a/info" 2>/dev/null)" \
+		"$(cat "$b/info" 2>/dev/null)"
 	if diff -u "$a/summary" "$b/summary"; then
 		printf 'before-after: nothing changed (%s -> %s)\n' "$(cut -d= -f2 "$a/taken")" "$(cut -d= -f2 "$b/taken")"
 		return 0
