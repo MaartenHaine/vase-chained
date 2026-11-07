@@ -1,0 +1,32 @@
+# The tripwires: code in the extension that needs a reviewer's eyes (docs/linux-tiler/devtest-security.md §4.4, plus
+# the launch and spawn wires of wayfinder §3.6). tools/linux/tripwires.sh fails on any match in vase-gnome/extension
+# that tools/linux/tripwires.allow doesn't list.
+#
+# One wire per line, tab-separated: id, Perl regex, a line the regex must match (the self-test checks each one).
+# processes
+proc-subprocess	\bSubprocess	const p = new Gio.Subprocess({argv});
+proc-spawn	(?i)spawn	GLib.spawn_command_line_async('x');
+proc-wayland-client	WaylandClient	Meta.WaylandClient.new_subprocess(ctx, launcher, argv);
+launch	\.launch\w*\s*\(	app.launch(0, -1, Shell.AppLaunchGpu.APP_PREF);
+open-new-window	open_new_window\s*\(	app.open_new_window(-1);
+# network
+net-soup	\bSoup\b	import Soup from 'gi://Soup';
+net-socket	\bSocket(Client|Service|Listener|Connection)\b|Gio\.Socket\b	const client = new Gio.SocketClient();
+net-resolver	\bResolver\b	Gio.Resolver.get_default();
+net-uri	GLib\.Uri\b|\bhttps?://	const u = GLib.Uri.parse('x', GLib.UriFlags.NONE);
+# D-Bus
+dbus-own-name	own_name	Gio.bus_own_name(Gio.BusType.SESSION, 'x', 0, null, null, null);
+dbus-export	DBusExportedObject|wrapJSObject	Gio.DBusExportedObject.wrapJSObject(xml, this);
+dbus-call	Gio\.DBus\b.*\bcall|\bcall_sync\b|DBusProxy|makeProxyWrapper	Gio.DBus.session.call('a', '/', 'i', 'm', null, null, 0, -1, null, null);
+# file writes
+file-write	replace_contents|file_set_contents|\.replace(_async)?\s*\(\s*null|\.create(_readwrite)?(_async)?\s*\(|\bappend_to\b|make_directory	file.replace_contents(bytes, null, false, 0, null);
+# clipboard, screen and dynamic code
+clipboard	St\.Clipboard	St.Clipboard.get_default();
+screenshot	Shell\.Screenshot	const s = new Shell.Screenshot();
+eval	\beval\s*\(|\bnew\s+Function\b	eval(code);
+dynamic-import	\bimport\s*\(	const m = await import(path);
+# environment
+setenv	\b(setenv|unsetenv)\b	GLib.setenv('LD_PRELOAD', 'x', true);
+# monkey-patching, and the modules that hold the login password
+inject	InjectionManager|\.prototype\.[\w$]+\s*=[^=]	Panel.prototype._init = function () {};
+sensitive-module	polkitAgent|unlockDialog|keyring|loginDialog|shellDBus	import * as PolkitAgent from 'resource:///org/gnome/shell/ui/components/polkitAgent.js';

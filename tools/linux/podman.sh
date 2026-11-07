@@ -5,6 +5,8 @@
 #   tools/linux/podman.sh build        cargo build of the Linux workspace, fetched with the lock, built offline
 #   tools/linux/podman.sh test         cargo test of the same packages
 #   tools/linux/podman.sh check        clippy (warnings denied) and rustfmt --check on the same packages
+#   tools/linux/podman.sh supply BIN   cargo-deny and cargo-audit, with the binaries tools/linux/cargo-tools.sh put in BIN
+#   tools/linux/podman.sh lint NODE    tools/linux/lint.sh in the build image, with a Node.js install mounted from NODE
 #   tools/linux/podman.sh l1           the L1 hello test: headless GNOME Shell in chained-tiler-test
 #
 # Rules (docs/linux-tiler/devtest-security.md §3.5, §4.5): images, containers and volumes are all named chained-tiler-*;
@@ -63,10 +65,26 @@ case "${1:-}" in
 		cargo_offline clippy --all-targets -- -D warnings
 		run fmt "$(image build)" --network=none -- cargo fmt --all --check
 		;;
+	supply)
+		bin=${2:?usage: podman.sh supply BIN_DIR}
+		[ -x "$bin/cargo-deny" ] && [ -x "$bin/cargo-audit" ] || die "$bin must hold cargo-deny and cargo-audit"
+		ref=$(image build)
+		# Both read the advisory database from GitHub, so this step is online. cargo-deny reads the whole
+		# workspace's metadata (every platform), so it is fetched first.
+		run fetch "$ref" "${cargo_volumes[@]}" -- cargo fetch --locked
+		run supply "$ref" "${cargo_volumes[@]}" -v "$(cd "$bin" && pwd):/tools:ro" -- \
+			bash -c '/tools/cargo-deny --locked check && /tools/cargo-audit audit --deny warnings'
+		;;
+	lint)
+		node=${2:?usage: podman.sh lint NODE_DIR (a Node.js install with bin/node and bin/npm)}
+		[ -x "$node/bin/node" ] || die "$node/bin/node not found"
+		run lint "$(image build)" -v "$(cd "$node" && pwd):/opt/node:ro" -e PATH=/opt/node/bin:/usr/bin:/bin -- \
+			bash /src/tools/linux/lint.sh
+		;;
 	l1)
 		# The shell gets no network: everything it talks to is a bus inside the container.
 		run l1 "$(image test)" --network=none -e L1_VERBOSE="${L1_VERBOSE:-}" -e L1_TIMEOUT="${L1_TIMEOUT:-120}" -- \
 			bash /src/vase-gnome/tests/l1/run.sh
 		;;
-	*) die "usage: podman.sh build | test | check | l1" ;;
+	*) die "usage: podman.sh build | test | check | supply BIN_DIR | lint NODE_DIR | l1" ;;
 esac

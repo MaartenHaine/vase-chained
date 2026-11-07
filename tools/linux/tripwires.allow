@@ -1,0 +1,4 @@
+# Reviewed tripwire matches (see tools/linux/tripwires.txt). One per line, tab-separated:
+#   path (relative to the repo)   wire id   the matching line, trimmed   why it is allowed
+# An entry covers that exact line wherever it moves in the file; any other match of the wire fails until reviewed.
+# Nothing is allowed yet.

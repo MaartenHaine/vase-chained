@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+# The tripwires (tools/linux/tripwires.txt) over the extension's JavaScript.
+#
+#   tools/linux/tripwires.sh [DIR]      fail on any match in DIR (default vase-gnome/extension) not in tripwires.allow
+#   tools/linux/tripwires.sh --self-test   check that every wire matches its sample line and that the allow-list works
+set -euo pipefail
+
+ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
+WIRES="$ROOT/tools/linux/tripwires.txt"
+ALLOW="$ROOT/tools/linux/tripwires.allow"
+
+# Every match in a directory, one per line: path, wire id, trimmed line, line number (tab-separated).
+scan() { # dir
+	local dir=$1 id regex _sample hit file rest lineno text
+	while IFS=$'\t' read -r id regex _sample; do
+		[ -z "$id" ] || [ "${id:0:1}" = '#' ] && continue
+		while IFS= read -r hit; do
+			file=${hit%%:*}
+			rest=${hit#*:}
+			lineno=${rest%%:*}
+			text=${rest#*:}
+			text=$(sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' <<<"$text")
+			printf '%s\t%s\t%s\t%s\n' "${file#"$ROOT"/}" "$id" "$text" "$lineno"
+		done < <(grep -rnP --include='*.js' -- "$regex" "$dir" || true)
+	done <"$WIRES"
+}
+
+allowed() { # path id text
+	awk -F'\t' -v p="$1" -v i="$2" -v t="$3" '$1 == p && $2 == i && $3 == t { found = 1 } END { exit !found }' "$ALLOW"
+}
+
+check() { # dir
+	local dir=$1 path id text lineno bad=0 hits=0
+	while IFS=$'\t' read -r path id text lineno; do
+		hits=$((hits + 1))
+		if allowed "$path" "$id" "$text"; then
+			printf 'tripwires: allowed: %s:%s [%s]\n' "$path" "$lineno" "$id"
+		else
+			printf 'tripwires: %s:%s [%s] %s\n' "$path" "$lineno" "$id" "$text" >&2
+			bad=$((bad + 1))
+		fi
+	done < <(scan "$dir")
+	if [ "$bad" -gt 0 ]; then
+		printf 'tripwires: %s unreviewed match(es); review them, then list them in %s\n' "$bad" "${ALLOW#"$ROOT"/}" >&2
+		return 1
+	fi
+	printf 'tripwires: %s clean (%s allowed match(es))\n' "${dir#"$ROOT"/}" "$hits"
+}
+
+self_test() {
+	local tmp id regex sample failed=0 count=0
+	tmp=$(mktemp -d)
+	trap 'rm -rf "$tmp"' RETURN
+	while IFS=$'\t' read -r id regex sample; do
+		[ -z "$id" ] || [ "${id:0:1}" = '#' ] && continue
+		count=$((count + 1))
+		printf '%s\n' "$sample" >"$tmp/$id.js"
+	done <"$WIRES"
+	local found
+	found=$(scan "$tmp")
+	while IFS=$'\t' read -r id regex sample; do
+		[ -z "$id" ] || [ "${id:0:1}" = '#' ] && continue
+		if awk -F'\t' -v i="$id" -v f="${tmp#"$ROOT"/}/$id.js" '$2 == i && $1 == f { ok = 1 } END { exit !ok }' <<<"$found"; then
+			printf 'tripwires self-test: ok: %s matches its sample\n' "$id"
+		else
+			printf 'tripwires self-test: FAIL: %s does not match its sample\n' "$id" >&2
+			failed=1
+		fi
+	done <"$WIRES"
+	if check "$tmp" >/dev/null 2>&1; then
+		printf 'tripwires self-test: FAIL: a directory full of samples passed\n' >&2
+		failed=1
+	else
+		printf 'tripwires self-test: ok: %s samples fail the check\n' "$count"
+	fi
+	return "$failed"
+}
+
+case "${1:-}" in
+	--self-test) self_test ;;
+	*) check "${1:-$ROOT/vase-gnome/extension}" ;;
+esac
