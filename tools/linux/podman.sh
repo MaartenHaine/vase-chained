@@ -8,7 +8,7 @@
 #   tools/linux/podman.sh supply BIN   cargo-deny and cargo-audit, with the binaries tools/linux/cargo-tools.sh put in BIN
 #   tools/linux/podman.sh lint NODE    tools/linux/lint.sh in the build image, with a Node.js install mounted from NODE
 #   tools/linux/podman.sh l1           the L1 hello test: headless GNOME Shell in chained-tiler-test
-#   tools/linux/podman.sh spike S#     a throwaway M0b spike's L1 run, spikes/S#/l1.sh, under the same rules as l1
+#   tools/linux/podman.sh spike S#     a throwaway M0b spike at L1: spikes/S#/l1.sh, or else spikes/S#/run.sh, like l1
 #
 # Rules (docs/linux-tiler/devtest-security.md §3.5, §4.5): images, containers and volumes are all named chained-tiler-*;
 # every container is --rm; only the checkout is mounted, read-only; nothing from the host's /run/user, D-Bus or
@@ -109,11 +109,16 @@ case "${1:-}" in
 			bash /src/vase-gnome/tests/l1/run.sh
 		;;
 	spike)
-		spike=${2:?usage: podman.sh spike S#}
-		case $spike in S[0-9] | S[0-9][0-9]) ;; *) die "a spike is named S<number>, not $spike" ;; esac
-		[ -f "$ROOT/spikes/$spike/l1.sh" ] || die "spikes/$spike/l1.sh not found"
-		run "spike-${spike,,}" "$(image test)" --network=none -e L1_VERBOSE="${L1_VERBOSE:-}" \
-			-e L1_TIMEOUT="${L1_TIMEOUT:-300}" -- bash "/src/spikes/$spike/l1.sh"
+		# A throwaway M0b spike at L1 (wayfinder.md §5) in chained-tiler-test, under the same rules as l1. S3 named its
+		# entry point l1.sh and S6 named it run.sh; l1.sh wins when a spike has both.
+		s=${2:?usage: podman.sh spike S#}
+		[[ $s =~ ^S[0-9]+$ ]] || die "a spike is named S<number>, not $s"
+		entry=
+		for f in l1.sh run.sh; do [ -f "$ROOT/spikes/$s/$f" ] && { entry=$f; break; }; done
+		[ -n "$entry" ] || die "spikes/$s/l1.sh or spikes/$s/run.sh not found"
+		envs=(-e L1_VERBOSE="${L1_VERBOSE:-}" -e L1_TIMEOUT="${L1_TIMEOUT:-300}")
+		while IFS='=' read -r k _; do envs+=(-e "$k"); done < <(env | grep -E '^S[0-9]+_[A-Z_]+=' || true)
+		run "spike-${s,,}" "$(image test)" --network=none "${envs[@]}" -- bash "/src/spikes/$s/$entry"
 		;;
 	*) die "usage: podman.sh build | test | check | supply BIN_DIR | lint NODE_DIR | l1 | spike S#" ;;
 esac
