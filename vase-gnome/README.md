@@ -17,7 +17,7 @@ How to run it, from the repo root (the host needs podman; no Rust, no GNOME test
 | Its tests | `just test-linux` (`tools/linux/podman.sh test`) |
 | The L1 hello test | `just l1` (`tools/linux/podman.sh l1`) |
 | cargo-deny and cargo audit | `tools/linux/cargo-tools.sh DIR`, then `tools/linux/podman.sh supply DIR` |
-| Metadata lint, tripwires, eslint | `tools/linux/lint.sh` (CI), or `tools/linux/podman.sh lint NODE_DIR` |
+| Metadata lint, tripwires, eslint | `tools/linux/podman.sh lint NODE_DIR` (CI runs `tools/linux/lint.sh` directly) |
 | Check the desktop wasn't touched | `tools/before-after.sh snapshot A`, run things, `snapshot B`, `compare A B` |
 
 gnome-shell only ever starts inside the `chained-tiler-test` container: `run.sh` and `dbusrunner.py` refuse to run
