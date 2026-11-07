@@ -54,6 +54,17 @@ release ver=version:
     tar -czf "dist/vase-v{{ ver }}-macos.tar.gz" -C dist vase
     @echo "packaged dist/vase-v{{ ver }}-macos.zip (app) + .tar.gz (binary)"
 
+# The L3 dev shell: gnome-shell --devkit in a window on this GNOME desktop, on private buses, loading only
+# vase-gnome/extension (tools/dev-shell.sh explains the isolation). Args: --x11, --debug, or `clean`.
+[linux]
+dev-shell *args:
+    sh tools/dev-shell.sh {{ args }}
+
+# Read-only snapshot of the real desktop, and the comparison of two (the M0a exit check).
+[linux]
+before-after *args:
+    sh tools/before-after.sh {{ args }}
+
 # Version bumping (requires cargo-edit: `cargo install cargo-edit`)
 bump-version-patch:
     @cargo set-version --workspace --bump patch

@@ -1,0 +1,7 @@
+{
+  "uuid": "vase-hello@vase-chained",
+  "name": "vase hello",
+  "description": "M0a hello: logs enable and disable and draws one label.",
+  "shell-version": ["50"],
+  "session-modes": ["user", "tiler-dev"]
+}
