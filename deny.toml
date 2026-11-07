@@ -8,6 +8,8 @@ ignore = []
 [licenses]
 # The workspace is GPL-3.0 (LICENSE); every dependency must carry a licence compatible with it.
 allow = ["MIT", "Apache-2.0", "Unicode-3.0", "Zlib"]
+# vase-gnome's own crates (Linux only): libc, serde_json, and for its Landlock confinement landlock, enumflags2 and
+# thiserror, each MIT OR Apache-2.0; nothing new to allow.
 confidence-threshold = 0.9
 
 [licenses.private]

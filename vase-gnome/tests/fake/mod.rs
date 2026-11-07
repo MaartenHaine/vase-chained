@@ -35,25 +35,18 @@ pub fn tempdir(name: &str) -> PathBuf {
 }
 
 impl Daemon {
-    /// Start a daemon that accepts this test binary as its compositor.
     pub fn start(dir: &Path) -> Daemon {
-        Daemon::start_with(dir, &std::env::current_exe().unwrap())
-    }
-
-    pub fn start_with(dir: &Path, shell_exe: &Path) -> Daemon {
-        let child = Daemon::spawn(dir, shell_exe);
+        let child = Daemon::spawn(dir);
         let mut d = Daemon { child, dir: dir.to_path_buf() };
         d.wait_for_socket();
         d
     }
 
-    pub fn spawn(dir: &Path, shell_exe: &Path) -> Child {
+    pub fn spawn(dir: &Path) -> Child {
         // A session always has its runtime dir; the daemon makes only its own `vase/` in it.
         std::fs::create_dir_all(dir.join("run")).unwrap();
         let log = File::options().create(true).append(true).open(dir.join("daemon.log")).unwrap();
         Command::new(daemon_exe())
-            .arg("--shell-exe")
-            .arg(shell_exe)
             .env_clear()
             .env("HOME", dir)
             .env("XDG_RUNTIME_DIR", dir.join("run"))

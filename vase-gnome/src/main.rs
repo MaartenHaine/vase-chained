@@ -1,6 +1,4 @@
-//! `vase-gnome [--shell-exe PATH]`: the Linux Tiler's daemon, started by its `systemd --user` unit.
-//! `--shell-exe` names the binary the connecting compositor must run from (default
-//! `/usr/bin/gnome-shell`); the L0 tests point it at their own fake extension.
+//! `vase-gnome`: the Linux Tiler's daemon, started by its `systemd --user` unit.
 
 #[cfg(target_os = "linux")]
 fn main() {
@@ -15,26 +13,18 @@ fn main() {
 
 #[cfg(target_os = "linux")]
 fn run() -> i32 {
-    use std::path::PathBuf;
-
     use vase_gnome::host::{Host, Settings};
     use vase_gnome::paths::Dirs;
     use vase_gnome::server::{self, Bind};
 
-    let mut shell_exe = PathBuf::from(vase_gnome::SHELL_EXE);
-    let mut args = std::env::args().skip(1);
-    while let Some(arg) = args.next() {
-        match arg.as_str() {
-            "--shell-exe" => match args.next() {
-                Some(p) => shell_exe = PathBuf::from(p),
-                None => return usage(),
-            },
-            "--version" => {
-                println!("vase-gnome {} (build {})", env!("CARGO_PKG_VERSION"), vase_gnome::BUILD);
-                return 0;
-            }
-            _ => return usage(),
+    let args: Vec<String> = std::env::args().skip(1).collect();
+    match args.as_slice() {
+        [] => {}
+        [v] if v == "--version" => {
+            println!("vase-gnome {} (build {})", env!("CARGO_PKG_VERSION"), vase_gnome::BUILD);
+            return 0;
         }
+        _ => return usage(),
     }
 
     let dirs = match Dirs::from_env() {
@@ -59,12 +49,21 @@ fn run() -> i32 {
         eprintln!("vase-gnome: could not install the SIGTERM handler: {e}");
         return 1;
     }
-    let settings = Settings { paths: dirs.paths(), build: vase_gnome::BUILD.to_string(), mdwe: vase_gnome::mdwe(), landlock: None };
-    server::serve(bound, Host::new(settings), &shell_exe)
+    // Confined once the socket is bound and before anything is read from it.
+    let landlock = match vase_gnome::confine::apply(&dirs) {
+        Ok(status) => status,
+        Err(e) => {
+            eprintln!("vase-gnome: Landlock not applied: {e}");
+            "off"
+        }
+    };
+    eprintln!("vase-gnome: Landlock: {landlock}");
+    let settings = Settings { paths: dirs.paths(), build: vase_gnome::BUILD.to_string(), mdwe: vase_gnome::mdwe(), landlock: Some(landlock.to_string()) };
+    server::serve(bound, Host::new(settings))
 }
 
 #[cfg(target_os = "linux")]
 fn usage() -> i32 {
-    eprintln!("usage: vase-gnome [--shell-exe PATH] [--version]");
+    eprintln!("usage: vase-gnome [--version]");
     2
 }

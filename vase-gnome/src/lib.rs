@@ -4,6 +4,7 @@
 #![cfg(target_os = "linux")]
 
 pub mod backend;
+pub mod confine;
 pub mod host;
 pub mod keys;
 pub mod mirror;
@@ -18,9 +19,6 @@ pub const BUILD: &str = match option_env!("VASE_GNOME_BUILD") {
     Some(b) => b,
     None => "dev",
 };
-
-/// Where the extension's compositor runs from: the daemon checks its peer against it (§1).
-pub const SHELL_EXE: &str = "/usr/bin/gnome-shell";
 
 /// Whether the kernel refuses this process memory that is writable and executable
 /// (`MemoryDenyWriteExecute=`, which systemd sets with `PR_SET_MDWE`; `/proc` doesn't show it, S10).

@@ -109,14 +109,14 @@ fn a_line_over_one_mib_is_refused_without_being_read_whole() {
 }
 
 #[test]
-fn a_peer_that_is_not_the_compositor_is_refused_before_any_line() {
-    let dir = tempdir("l0-peer");
-    let d = Daemon::start_with(&dir, std::path::Path::new("/usr/bin/gnome-shell"));
-    let mut ext = Fake::over(connect(&d.socket()));
-    let lines = ext.until_eof();
-    assert!(lines.is_empty(), "no hello for a refused peer: {lines:?}");
-    std::thread::sleep(Duration::from_millis(100));
-    assert!(d.log().contains("refusing a connection: peer exe"), "{}", d.log());
+fn the_confined_daemon_reports_landlock_in_its_hello() {
+    let dir = tempdir("l0-ll");
+    let d = Daemon::start(&dir);
+    let mut ext = Fake::connect(&d.socket());
+    let hello = ext.until("hello");
+    let landlock = hello[0]["landlock"].as_str().unwrap().to_string();
+    assert!(["full", "partial", "off"].contains(&landlock.as_str()));
+    assert!(d.log().contains(&format!("Landlock: {landlock}")));
 }
 
 #[test]
@@ -146,7 +146,7 @@ fn a_second_daemon_leaves_a_live_ones_socket_alone() {
     let dir = tempdir("l0-lock");
     let d = Daemon::start(&dir);
     let inode = std::fs::metadata(d.socket()).unwrap().ino();
-    let mut second = Daemon { child: Daemon::spawn(&dir, &std::env::current_exe().unwrap()), dir: dir.clone() };
+    let mut second = Daemon { child: Daemon::spawn(&dir), dir: dir.clone() };
     assert_eq!(second.wait(Duration::from_secs(10)), Some(0), "{}", second.log());
     assert!(second.log().contains("another vase-gnome holds"));
     assert_eq!(std::fs::metadata(d.socket()).unwrap().ino(), inode, "the socket file is the first daemon's still");

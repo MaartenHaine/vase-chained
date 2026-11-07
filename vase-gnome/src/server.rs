@@ -8,7 +8,7 @@ use std::io::{self, Read, Write};
 use std::os::fd::AsRawFd;
 use std::os::unix::fs::{FileTypeExt, OpenOptionsExt, PermissionsExt};
 use std::os::unix::net::{UnixListener, UnixStream};
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::time::{Duration, Instant};
 
@@ -154,7 +154,7 @@ fn poll(fds: &mut [libc::pollfd], timeout: Duration) -> io::Result<()> {
 }
 
 /// Serve until SIGTERM or a quit. Returns the exit code.
-pub fn serve(bound: Bound, mut host: Host, shell_exe: &Path) -> i32 {
+pub fn serve(bound: Bound, mut host: Host) -> i32 {
     let Bound { listener, socket, .. } = &bound;
     if let Err(e) = listener.set_nonblocking(true) {
         eprintln!("vase-gnome: {e}");
@@ -196,7 +196,7 @@ pub fn serve(bound: Bound, mut host: Host, shell_exe: &Path) -> i32 {
                         break;
                     }
                 };
-                if let Err(refusal) = peer::check(&stream, shell_exe, true) {
+                if let Err(refusal) = peer::check_uid(&stream) {
                     eprintln!("vase-gnome: refusing a connection: {refusal}");
                     continue;
                 }

@@ -1,8 +1,10 @@
 //! The peer check on the socket (protocol §1, S9): `SO_PEERCRED` names the process at the other end,
-//! its uid must be ours, and `/proc/<pid>/exe` must be the expected binary. Both sides run it: the
-//! extension on the daemon (the reference for M1b is `judge` with `replaced_ok: false`), and the
-//! daemon on the extension's compositor. It is defence in depth: any same-uid process can reach the
-//! compositor in other ways (`devtest-security.md` §5.5).
+//! its uid must be ours, and `/proc/<pid>/exe` must be the expected binary. The extension runs the
+//! whole check on the daemon (the reference for M1b is `judge` with `replaced_ok: false`). The
+//! daemon checks only the uid (`check_uid`): confined by Landlock it may not read the exe of a
+//! process outside its domain, which the unconfined shell is (Landlock scopes ptrace access, and
+//! `/proc/<pid>/exe` needs it). It is defence in depth either way: any same-uid process can reach
+//! the compositor in other ways (`devtest-security.md` §5.5).
 
 use std::fmt;
 use std::io;
@@ -89,6 +91,16 @@ pub fn judge(cred: Cred, own_uid: u32, exe: io::Result<PathBuf>, want: &Path, re
         return Err(Refusal::Exe { got: exe, want: want.to_path_buf() });
     }
     Ok(())
+}
+
+/// The daemon's check on the extension: the uid only (see the module doc).
+pub fn check_uid(stream: &UnixStream) -> Result<Cred, Refusal> {
+    let cred = cred(stream).map_err(|e| Refusal::Unreadable(format!("SO_PEERCRED: {e}")))?;
+    let want = own_uid();
+    if cred.uid != want {
+        return Err(Refusal::Uid { got: cred.uid, want });
+    }
+    Ok(cred)
 }
 
 /// Check the process at the other end of `stream`.

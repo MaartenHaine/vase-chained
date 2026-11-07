@@ -16,3 +16,4 @@ vase-core = { path = "../vase-core" }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1.0.151"
 libc = "0.2.189"
+landlock = "0.4.7"
