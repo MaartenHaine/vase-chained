@@ -1,0 +1,8 @@
+{
+  "uuid": "vase-s2@maartenhaine.github.io",
+  "name": "vase spike S2",
+  "description": "Throwaway spike S2: the prefix input contract. Runs only in the L3 dev shell's tiler-dev mode.",
+  "shell-version": ["50"],
+  "session-modes": ["tiler-dev"],
+  "url": "https://github.com/MaartenHaine/vase-chained"
+}

@@ -1,0 +1,8 @@
+warning(gtk_ghostty_application): setting GDK_DEBUG=
+warning(gtk_ghostty_application): setting GDK_DISABLE=gles-api,vulkan
+warning(glib): WARNING: Adwaita: The resource style-dark.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+warning(glib): WARNING: Adwaita: The resource style-hc.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+warning(glib): WARNING: Adwaita: The resource style-hc-dark.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+warning(gtk_ghostty_surface): gtk-xft-dpi has invalid value (-1), using default
+warning(io_exec): shell could not be detected, no automatic shell integration will be injected
+warning(gtk_ghostty_application): unimplemented action=.cell_size

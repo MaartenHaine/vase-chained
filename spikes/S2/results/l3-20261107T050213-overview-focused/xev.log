@@ -1,0 +1,12 @@
+Outer window is 0x400001, inner window is 0x400002
+
+FocusIn event, serial 25, synthetic NO, window 0x400001,
+    mode NotifyNormal, detail NotifyNonlinear
+
+KeymapNotify event, serial 25, synthetic NO, window 0x0,
+    keys:  45  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   
+           0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   
+
+FocusOut event, serial 25, synthetic NO, window 0x400001,
+    mode NotifyNormal, detail NotifyNonlinear
+X connection to :2 broken (explicit kill or server shutdown).

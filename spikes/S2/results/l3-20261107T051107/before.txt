@@ -1,0 +1,19 @@
+# before-after snapshot v3
+taken=2026-11-07T05:11:09+01:00
+dconf_sha256=230bb06cfd6edea3474b85e9d749f4b864e32851e31d44d258c6530e2d574a03
+session=2
+locked_hint=no
+crash_marker=absent
+tree_sha256=c1fbd514a5b794ca911304e37d49aefee72cd256ec1682ff1886a0557145b2bd
+application_state_mtime=1794024510
+monitors_xml=1782940114 83bb3f3e5207b8cda1727756918f2fe2c6cd238da3e18aa0c6d74b40652d17cc
+owner.session.org.gnome.Shell=5222 gnome-shell
+owner.session.org.gnome.Mutter.Devkit=none
+owner.system.org.freedesktop.PolicyKit1=2344 polkitd
+owner.system.org.freedesktop.NetworkManager=2482 NetworkManager
+owner.system.org.freedesktop.login1=2374 systemd-logind
+conns.session=5222:gnome-shell:2
+conns.system=5222:gnome-shell:3
+shell_pids=5222
+leftovers=0
+crash reports: 3

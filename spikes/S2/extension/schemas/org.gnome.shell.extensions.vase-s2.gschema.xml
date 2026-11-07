@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Spike S2 (throwaway): the kill chord as an addKeybinding binding (it needs a schema key). -->
+<schemalist>
+  <schema id="org.gnome.shell.extensions.vase-s2" path="/org/gnome/shell/extensions/vase-s2/">
+    <key name="s2-kill-chord" type="as">
+      <default><![CDATA[['<Control><Super><Alt>Escape']]]></default>
+      <summary>Spike S2 kill chord</summary>
+    </key>
+  </schema>
+</schemalist>

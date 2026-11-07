@@ -1,0 +1,357 @@
+# {"ev": "note", "what": "start", "keymap": {"xkbOptions": "undefined", "currentKeymap": null, "shortName": "en", "ibusReady": true, "sources": ["xkb:us"]}, "im": {"imFocus": false, "ibusContext": true, "inputSource": "us"}, "display": ":2", "wayland": "wayland-0", "t": 21108023798}
+# {"ev": "note", "what": "ibus", "im": {"imFocus": false, "ibusContext": true, "inputSource": "us"}, "keymap": {"xkbOptions": "undefined", "currentKeymap": null, "shortName": "en", "ibusReady": true, "sources": ["xkb:us"]}, "t": 21108023940}
+# {"ev": "note", "what": "setup", "altA": 129, "superL": 130, "killAction": 131, "t": 21108024528}
+# {"ev": "note", "what": "done", "keymap": {"xkbOptions": "undefined", "currentKeymap": null, "shortName": "en", "ibusReady": true, "sources": ["xkb:us"]}, "im": {"imFocus": false, "ibusContext": true, "inputSource": "us"}, "t": 21145704685}
+
+== gtk / baseline
+  injected: 45v@0.3 45^@26.8 43v@56.2 43^@82.0 12v@107.7 12^@133.0
+  gtk: key-pressed x@2.7; changed='x'@3.0; key-released x@30.5; key-pressed backslash@58.4; changed='x\\'@58.6; key-released backslash@83.9; key-pressed minus@108.9; changed='x\\-'@109.2; key-released minus@137.3
+  wl: kb.key k45^@25.7; kb.key k43v@54.6; kb.key k43^@80.2; kb.key k12v@105.1; kb.key k12^@133.6; kb.key k56v@557.4; kb.modifiers@557.4
+
+== gtk / prefix-slow
+  armed mode=0 accelLag=1633us armLag=4473us pushModal=2840us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=2326us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=8920us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=7519us revoked=False
+  command sym=0x5c lag=7519us sinceArm=222129us im=False
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=1019us revoked=False
+  popped {"why": "command-release", "heldMs": 257.762, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.4 30v@16.1 30^@41.5 56^@66.8 43v@234.8 43^@275.1
+  gtk: key-pressed Alt_L@2.0; focus-leave@23.8; is-active False@23.9; focus-enter@280.0; is-active True@280.2
+  wl: kb.leave@20.1; ti.leave@20.1; ti.disable@20.1; kb.enter@276.2; kb.modifiers@276.2; ti.enter@276.3; ti.enable@276.4
+
+== gtk / prefix-slow-pop-on-press
+  armed mode=0 accelLag=938us armLag=2862us pushModal=1924us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=15514us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=4454us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=8910us revoked=False
+  command sym=0x5c lag=8910us sinceArm=225512us im=False
+  popped {"why": "command-press", "heldMs": 226.083, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.3 30v@15.6 30^@43.9 56^@69.5 43v@236.6 43^@277.2
+  gtk: key-pressed Alt_L@6.1; focus-leave@18.8; is-active False@18.9; focus-enter@246.6; is-active True@246.9; key-released backslash@278.5
+  wl: kb.key k56v@2.3; kb.modifiers@2.4; kb.leave@15.0; ti.leave@15.1; ti.disable@15.1; kb.enter@242.9; kb.modifiers@242.9; ti.enter@243.0; ti.enable@243.1; kb.key k43^@274.7
+
+== gtk / fast-0ms
+  armed mode=0 accelLag=6153us armLag=6711us pushModal=558us im=True altHeldAtArm=False focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=True lag=14789us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=True lag=14828us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=True lag=14839us revoked=False
+  command sym=0x5c lag=14839us sinceArm=8170us im=True
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=6068us revoked=False
+  popped {"why": "command-release", "heldMs": 40.189, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.3 30v@30.5 30^@30.5 56^@30.5 43v@30.5 43^@70.8
+  gtk: key-pressed Alt_L@3.2; focus-leave@37.6; is-active False@37.7; focus-enter@78.7; is-active True@78.9
+  wl: kb.leave@33.9; ti.leave@33.9; ti.disable@33.9; kb.enter@74.9; kb.modifiers@74.9; ti.enter@75.0; ti.enable@75.1
+
+== gtk / fast-2ms
+  armed mode=0 accelLag=2560us armLag=3109us pushModal=549us im=True altHeldAtArm=False focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=True lag=10056us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=True lag=8971us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=3706us revoked=False
+  command sym=0x5c lag=3706us sinceArm=8135us im=False
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=13282us revoked=False
+  popped {"why": "command-release", "heldMs": 58.493, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.2 30v@30.5 30^@31.6 56^@32.7 43v@38.0 43^@78.3
+  gtk: key-pressed Alt_L@4.1; focus-leave@33.9; is-active False@34.0; focus-enter@93.8; is-active True@94.0
+  wl: kb.key k56v@0.3; kb.modifiers@0.4; kb.leave@30.1; ti.leave@30.1; ti.disable@30.1; kb.enter@90.0; kb.modifiers@90.0; ti.enter@90.1; ti.enable@90.2
+
+== gtk / fast-5ms
+  armed mode=0 accelLag=4599us armLag=5292us pushModal=693us im=True altHeldAtArm=False focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=True lag=13078us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=10864us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=8356us revoked=False
+  command sym=0x5c lag=8356us sinceArm=10057us im=False
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=1404us revoked=False
+  popped {"why": "command-release", "heldMs": 43.902, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.3 30v@30.5 30^@32.7 56^@34.9 43v@37.5 43^@77.7
+  gtk: key-pressed Alt_L@2.0; focus-leave@37.6; is-active False@37.7; focus-enter@81.3; is-active True@81.6
+  wl: kb.leave@33.8; ti.leave@33.9; ti.disable@33.9; kb.enter@77.5; kb.modifiers@77.5; ti.enter@77.6; ti.enable@77.8
+
+== gtk / fast-10ms
+  armed mode=0 accelLag=2027us armLag=2780us pushModal=753us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=8784us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=5666us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=2541us revoked=False
+  command sym=0x5c lag=2541us sinceArm=9233us im=False
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=9915us revoked=False
+  popped {"why": "command-release", "heldMs": 57.386, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.2 30v@30.4 30^@33.6 56^@36.8 43v@39.9 43^@80.2
+  gtk: key-pressed Alt_L@2.9; focus-leave@33.5; is-active False@33.7; focus-enter@92.4; is-active True@92.6
+  wl: kb.leave@29.8; ti.leave@29.8; ti.disable@29.8; kb.enter@88.6; kb.modifiers@88.6; ti.enter@88.7; ti.enable@88.8
+
+== gtk / fast-20ms
+  armed mode=0 accelLag=1017us armLag=1681us pushModal=664us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=6614us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=14902us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=7772us revoked=False
+  command sym=0x5c lag=7772us sinceArm=28754us im=False
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=17476us revoked=False
+  popped {"why": "command-release", "heldMs": 79.939, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.3 30v@30.7 30^@37.9 56^@46.2 43v@53.4 43^@93.6
+  gtk: key-pressed Alt_L@1.7; focus-leave@32.6; is-active False@32.7; focus-enter@113.3; is-active True@113.6
+  wl: kb.leave@28.9; ti.leave@28.9; ti.disable@28.9; kb.enter@109.6; kb.modifiers@109.6; ti.enter@109.7; ti.enable@109.8
+
+== gtk / fast-5ms-blocked
+  armed mode=0 accelLag=7683us armLag=8186us pushModal=503us im=True altHeldAtArm=False focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=True lag=23415us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=True lag=21730us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=True lag=20050us revoked=False
+  command sym=0x5c lag=20050us sinceArm=17040us im=True
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=15107us revoked=False
+  popped {"why": "command-release", "heldMs": 53.217, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.4 30v@30.6 30^@32.4 56^@34.1 43v@35.7 43^@76.0
+  gtk: key-pressed Alt_L@5.4; focus-leave@39.2; is-active False@39.4; focus-enter@94.9; is-active True@95.2
+  wl: kb.key k56v@1.6; kb.modifiers@1.7; kb.leave@35.5; ti.leave@35.5; ti.disable@35.5; kb.enter@91.2; kb.modifiers@91.2; ti.enter@91.3; ti.enable@91.4
+
+== gtk / fast-10ms-blocked
+  armed mode=0 accelLag=14107us armLag=14732us pushModal=625us im=True altHeldAtArm=False focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=True lag=24486us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=True lag=21148us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=True lag=17789us revoked=False
+  command sym=0x5c lag=17789us sinceArm=13277us im=True
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=10661us revoked=False
+  popped {"why": "command-release", "heldMs": 49.406, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.8 30v@31.4 30^@34.8 56^@38.2 43v@41.6 43^@81.9
+  gtk: key-pressed Alt_L@3.3; focus-leave@49.4; is-active False@49.5; focus-enter@97.3; is-active True@97.5
+  wl: kb.leave@45.7; ti.leave@45.7; ti.disable@45.7; kb.enter@93.5; kb.modifiers@93.5; ti.enter@93.6; ti.enable@93.8
+
+== gtk / keys-before-pop
+  armed mode=0 accelLag=1280us armLag=2002us pushModal=722us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=11192us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=3592us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=10285us revoked=False
+  command sym=0x5c lag=10285us sinceArm=134389us im=False
+  grab-press sym=0x71 uni='q' state=0x0 im=False lag=15754us revoked=False
+  key-after-command {"sym": 113, "code": 24}
+  grab-release sym=0x71 uni='q' state=0x0 im=False lag=5682us revoked=False
+  grab-press sym=0x7a uni='z' state=0x0 im=False lag=13156us revoked=False
+  key-after-command {"sym": 122, "code": 52}
+  grab-release sym=0x7a uni='z' state=0x0 im=False lag=1950us revoked=False
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=9727us revoked=False
+  popped {"why": "command-release", "heldMs": 218.47, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.3 30v@15.6 30^@40.8 56^@66.2 43v@141.7 16v@152.9 16^@163.1 44v@189.1 44^@200.4 43^@225.7
+  gtk: key-pressed Alt_L@1.8; focus-leave@17.8; is-active False@17.9; focus-enter@238.1; is-active True@238.4
+  wl: kb.leave@14.1; ti.leave@14.1; ti.disable@14.1; kb.enter@234.4; kb.modifiers@234.4; ti.enter@234.4; ti.enable@234.6
+
+== gtk / timeout
+  armed mode=0 accelLag=1122us armLag=1745us pushModal=623us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=987us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=7146us revoked=False
+  popped {"why": "timeout", "heldMs": 3002.529, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.4 30v@16.4 30^@41.6 56^@67.0 21v@3383.0 21^@3408.2
+  gtk: key-pressed Alt_L@2.3; focus-leave@18.3; is-active False@18.4; focus-enter@3021.1; is-active True@3021.3; key-pressed y@3384.8; changed='x\\-y'@3385.1; key-released y@3409.9
+  wl: kb.leave@14.6; ti.leave@14.6; ti.disable@14.6; kb.enter@3017.3; kb.modifiers@3017.3; ti.enter@3017.4; ti.enable@3017.5; kb.key k21v@3381.1; kb.key k21^@3406.1
+
+== gtk / escape
+  armed mode=0 accelLag=889us armLag=1449us pushModal=560us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=15015us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=8563us revoked=False
+  grab-press sym=0xff1b uni='\x1b' state=0x0 im=False lag=22311us revoked=False
+  popped {"why": "escape", "heldMs": 188.128, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.3 30v@15.5 30^@40.7 56^@66.5 1v@182.3 1^@208.6 21v@336.2 21^@363.5
+  gtk: key-pressed Alt_L@1.8; focus-leave@17.2; is-active False@17.3; focus-enter@209.1; is-active True@209.4; key-released Escape@209.5; key-pressed y@342.5; changed='x\\-yy'@342.8; key-released y@367.2
+  wl: kb.leave@13.4; ti.leave@13.5; ti.disable@13.5; kb.enter@205.4; kb.modifiers@205.4; ti.enter@205.5; kb.key k1^@205.5; ti.enable@205.6; kb.key k21v@338.7; kb.key k21^@363.4
+
+== gtk / kill-chord-outside-grab
+  binding {"name": "kill-chord", "armed": false}
+  injected: 29v@0.8 125v@16.7 56v@32.0 1v@50.0 1^@75.2 56^@100.6 125^@115.8 29^@131.0
+  gtk: key-pressed Control_L@7.0; modifiers@26.1; key-pressed Super_L@26.2; modifiers@46.2; key-pressed Alt_L@46.3; modifiers@88.7; key-released Escape@88.7; key-released Alt_L@101.7; modifiers@126.5; key-released Super_L@126.6; modifiers@132.1; key-released Control_L@132.1
+  wl: kb.key k29v@3.1; kb.modifiers@3.2; kb.key k125v@22.4; kb.modifiers@22.4; kb.key k56v@42.4; kb.modifiers@42.5; kb.key k1^@84.9; kb.key k56^@97.9; kb.modifiers@98.0; kb.key k125^@122.7; kb.modifiers@122.8; kb.key k29^@128.3; kb.modifiers@128.4
+
+== gtk / kill-chord-in-none-grab
+  armed mode=0 accelLag=1139us armLag=3143us pushModal=2004us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=19749us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=27432us revoked=False
+  grab-press sym=0xffe3 uni='' state=0x0 im=False lag=11465us revoked=False
+  grab-press sym=0xffeb uni='' state=0x4 im=False lag=29682us revoked=False
+  grab-press sym=0xffe9 uni='' state=0x44 im=False lag=14454us revoked=False
+  grab-press sym=0xff1b uni='\x1b' state=0x4c im=False lag=32646us revoked=False
+  popped {"why": "kill-chord-in-grab", "heldMs": 244.488, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.8 30v@16.0 30^@42.6 56^@67.8 29v@183.4 125v@198.6 56v@213.9 1v@230.3 1^@255.7 56^@280.9 125^@298.1 29^@313.4
+  gtk: modifiers@2.2; key-pressed Alt_L@2.3; focus-leave@21.4; is-active False@21.5; focus-enter@265.8; is-active True@266.1; modifiers@282.0; key-released Alt_L@282.0; modifiers@299.8; key-released Super_L@299.9; modifiers@315.0; key-released Control_L@315.0
+  wl: kb.leave@17.7; ti.leave@17.7; ti.disable@17.7; kb.enter@262.0; kb.modifiers@262.0; ti.enter@262.1; ti.enable@262.3; kb.key k56^@278.2; kb.modifiers@278.2; kb.key k125^@296.1; kb.modifiers@296.1; kb.key k29^@311.2; kb.modifiers@311.2
+
+== gtk / super-l-outside-grab
+  binding {"name": "super-l", "evTime": 21123610128, "im": true, "state": 64, "armed": false}
+  injected: 125v@0.4 38v@15.7 38^@42.7 125^@68.0
+  gtk: modifiers@2.6; key-pressed Super_L@2.7; modifiers@45.4; key-released l@45.5; key-released Super_L@71.3
+  wl: kb.key k38^@41.7; kb.key k125^@67.5; kb.modifiers@67.5
+
+== gtk / super-l-in-none-grab
+  armed mode=0 accelLag=1076us armLag=1686us pushModal=610us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=7773us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=12689us revoked=False
+  grab-press sym=0xffeb uni='' state=0x0 im=False lag=13749us revoked=False
+  grab-press sym=0x6c uni='l' state=0x40 im=False lag=15312us revoked=False
+  command sym=0x6c lag=15312us sinceArm=195600us im=False
+  grab-release sym=0x6c uni='l' state=0x40 im=False lag=5921us revoked=False
+  popped {"why": "command-release", "heldMs": 213.263, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.4 30v@16.1 30^@41.5 56^@67.1 125v@182.9 38v@198.4 38^@224.8 125^@250.1 1v@366.1 1^@391.6
+  gtk: modifiers@2.1; key-pressed Alt_L@2.2; focus-leave@18.0; is-active False@18.1; focus-enter@240.1; is-active True@240.3; modifiers@251.5; key-released Super_L@251.6; modifiers@372.8; key-pressed Escape@372.9; key-released Escape@393.2
+  wl: kb.leave@14.3; ti.leave@14.3; ti.disable@14.3; kb.enter@236.3; kb.modifiers@236.4; ti.enter@236.4; ti.enable@236.6; kb.key k125^@247.7; kb.modifiers@247.8; kb.key k1v@369.1; kb.key k1^@389.5
+
+== gtk / normal-grab-super-l-and-alt-a
+  armed mode=1 accelLag=1828us armLag=3832us pushModal=2004us im=True altHeldAtArm=True focus=True actionMode=1
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=4064us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=15909us revoked=False
+  grab-press sym=0xffeb uni='' state=0x0 im=False lag=2494us revoked=False
+  binding {"name": "super-l", "evTime": 21125129836, "im": false, "state": 64, "armed": true}
+  grab-release sym=0x6c uni='l' state=0x40 im=False lag=5371us revoked=False
+  grab-release sym=0xffeb uni='' state=0x40 im=False lag=11071us revoked=False
+  grab-press sym=0xffe9 uni='' state=0x0 im=False lag=496us revoked=False
+  alt-a-while-armed {"evTime": 21125317757, "im": false, "state": 8}
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=2033us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=496us revoked=False
+  grab-press sym=0xff1b uni='\x1b' state=0x0 im=False lag=447us revoked=False
+  popped {"why": "escape", "heldMs": 541.685, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.3 30v@15.6 30^@41.7 56^@68.5 125v@184.4 38v@204.2 38^@229.4 125^@256.6 56v@372.3 30v@393.4 30^@418.7 56^@444.1 1v@560.2 1^@588.7
+  gtk: key-pressed Alt_L@2.8; focus-leave@23.6; is-active False@23.8; focus-enter@564.4; is-active True@564.6; key-released Escape@595.3
+  wl: kb.leave@19.9; ti.leave@19.9; ti.disable@19.9; kb.enter@560.6; kb.modifiers@560.6; ti.enter@560.7; ti.enable@560.9; kb.key k1^@591.6
+
+== gtk / normal-grab-kill-chord
+  armed mode=1 accelLag=6766us armLag=16640us pushModal=9874us im=True altHeldAtArm=True focus=True actionMode=1
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=6916us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=21576us revoked=False
+  grab-press sym=0xffe3 uni='' state=0x0 im=False lag=20609us revoked=False
+  grab-press sym=0xffeb uni='' state=0x4 im=False lag=4688us revoked=False
+  grab-press sym=0xffe9 uni='' state=0x44 im=False lag=8086us revoked=False
+  binding {"name": "kill-chord", "armed": true}
+  popped {"why": "kill-binding", "heldMs": 258.448, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.3 30v@16.0 30^@41.8 56^@67.8 29v@183.7 125v@199.7 56v@215.0 1v@287.5 1^@313.3 56^@339.7 125^@356.0 29^@373.6
+  gtk: key-pressed Alt_L@12.6; focus-leave@35.3; is-active False@35.4; focus-enter@291.2; is-active True@291.4; modifiers@316.5; key-released Escape@316.6; key-released Alt_L@342.7; modifiers@357.2; key-released Super_L@357.3; modifiers@379.2; key-released Control_L@379.4
+  wl: kb.key k56v@8.8; kb.modifiers@8.8; kb.leave@31.5; ti.leave@31.5; ti.disable@31.6; kb.enter@287.5; kb.modifiers@287.5; ti.enter@287.6; ti.enable@287.7; kb.key k1^@312.8; kb.key k56^@339.0; kb.modifiers@339.0; kb.key k125^@353.4; kb.modifiers@353.5; kb.key k29^@375.5; kb.modifiers@375.5
+
+== gtk / revoked-by-modal
+  armed mode=0 accelLag=1087us armLag=1642us pushModal=555us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=564us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=11110us revoked=False
+  revoked {"value": true, "topActor": "[0x606fcefd73d0 StWidget]"}
+  note {"what": "pushed second modal", "prefixRevoked": true}
+  other-modal-key {"sym": 120}
+  revoked {"value": false, "topActor": "[0x606fceba1500 StWidget]"}
+  note {"what": "popped second modal", "prefixRevoked": false}
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=828us revoked=False
+  command sym=0x5c lag=828us sinceArm=518804us im=False
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=436us revoked=False
+  popped {"why": "command-release", "heldMs": 544.42, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@1.0 30v@18.3 30^@43.6 56^@68.9 45v@285.5 45^@310.7 43v@537.9 43^@563.3
+  gtk: modifiers@3.2; key-pressed Alt_L@3.3; focus-leave@20.9; is-active False@21.0; focus-enter@567.2; is-active True@567.4
+  wl: kb.leave@17.2; ti.leave@17.2; ti.disable@17.2; kb.enter@563.4; kb.modifiers@563.5; ti.enter@563.6; ti.enable@563.7
+
+== gtk / observe-without-grab
+  observed {"filterKeys": 0, "capturedKeys": 0, "injectedKeyEvents": 4, "error": null}
+  injected: 44v@0.4 44^@26.8 44v@52.8 44^@78.0
+  gtk: key-pressed z@12.8; changed='x\\-yyz'@13.0; key-released z@31.5; key-pressed z@54.9; changed='x\\-yyzz'@55.1; key-released z@84.0
+  wl: kb.key k44v@9.0; kb.key k44^@27.8; kb.key k44v@51.1; kb.key k44^@80.2
+
+== gtk / temporary-accelerator
+  binding {"name": "shift-left", "evTime": 21128487961, "im": true, "state": 1, "armed": false}
+  note {"what": "ungrabbed Shift+Left"}
+  injected: 42v@0.6 105v@15.8 105^@43.2 42^@104.4 16v@136.4 16^@172.1 42v@257.1 105v@276.9 105^@315.0 42^@352.7
+  gtk: key-pressed Shift_L@6.0; modifiers@48.7; key-released Left@48.7; key-released Shift_L@172.4; modifiers@172.6; key-pressed q@172.6; changed='x\\-yyzzq'@172.8; key-released q@211.1; key-pressed Shift_L@349.1; modifiers@349.3; key-pressed Left@349.3; key-released Left@349.7; key-released Shift_L@387.3
+  wl: kb.key k42v@2.3; kb.modifiers@2.3; kb.key k105^@44.9; kb.key k42^@168.7; kb.modifiers@168.7; kb.key k16v@168.7; kb.key k16^@207.4; kb.key k42v@345.3; kb.modifiers@345.4; kb.key k105v@345.4; kb.key k105^@345.4; kb.key k42^@383.5; kb.modifiers@383.5
+
+== gtk / normal-grab-alt-tab
+  armed mode=1 accelLag=208129us armLag=222922us pushModal=14793us im=True altHeldAtArm=True focus=True actionMode=1
+  revoked {"value": true, "topActor": "[0x606fcfd80640 Gjs_ui_altTab_AppSwitcherPopup.switcher-popup]"}
+  revoked {"value": false, "topActor": "[0x606fcedc3f10 StWidget]"}
+  note {"what": "after alt-tab", "focus": "s2-ghostty", "prefixArmed": true, "prefixRevoked": false}
+  grab-press sym=0xff1b uni='\x1b' state=0x0 im=False lag=57557us revoked=False
+  popped {"why": "escape", "heldMs": 1048.717, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@65.6 30v@138.2 30^@170.3 56^@200.4 56v@329.9 15v@362.6 15^@514.3 56^@942.0 1v@1351.7 1^@1380.1
+  gtk: modifiers@379.5; key-pressed Alt_L@379.5; focus-leave@379.7; is-active False@379.8
+  wl: kb.key k56v@375.7; kb.modifiers@375.8; kb.leave@375.8; ti.leave@375.8; ti.disable@375.8
+
+== ghostty / baseline
+  injected: 45v@45.7 45^@171.9 43v@197.1 43^@224.1 12v@254.8 12^@285.7
+  ghostty: 'x'@195.7; '\\'@202.1; '-'@282.9
+
+== ghostty / prefix-slow
+  armed mode=0 accelLag=59413us armLag=60421us pushModal=1008us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=True lag=204883us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=89160us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=10599us revoked=False
+  command sym=0x5c lag=10599us sinceArm=357923us im=False
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=31296us revoked=False
+  popped {"why": "command-release", "heldMs": 419.524, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@14.5 30v@51.8 30^@91.0 56^@206.8 43v@459.5 43^@499.8
+  ghostty: '\x1b[O'@214.9; '\x1b[I'@687.9
+
+== ghostty / prefix-slow-pop-on-press
+  armed mode=0 accelLag=173574us armLag=174297us pushModal=723us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=True lag=886543us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=783650us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=521441us revoked=False
+  command sym=0x5c lag=521441us sinceArm=793350us im=False
+  popped {"why": "command-press", "heldMs": 793.869, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.3 30v@15.7 30^@85.9 56^@188.9 43v@461.8 43^@504.1
+  ghostty: '\x1b[O'@484.0; '\x1b[I'@1257.6
+
+== ghostty / fast-5ms
+  armed mode=0 accelLag=209779us armLag=210433us pushModal=654us im=True altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=528352us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=476284us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=428671us revoked=False
+  command sym=0x5c lag=428671us sinceArm=527433us im=False
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=251426us revoked=False
+  popped {"why": "command-release", "heldMs": 527.974, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@58.1 30v@128.4 30^@337.8 56^@423.7 43v@456.7 43^@614.9
+  ghostty: '\x1b[O'@741.3; '\x1b[I'@1224.8
+
+== ghostty / fast-10ms
+  armed mode=0 accelLag=221600us armLag=222306us pushModal=706us im=True altHeldAtArm=False focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=True lag=346521us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=True lag=341399us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=True lag=246101us revoked=False
+  command sym=0x5c lag=246101us sinceArm=209977us im=True
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=159637us revoked=False
+  popped {"why": "command-release", "heldMs": 210.506, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.4 30v@130.3 30^@215.9 56^@221.1 43v@316.5 43^@423.4
+  ghostty: '\x1b[O'@467.6; '\x1b[I'@625.2
+
+== xev / baseline
+  injected: 45v@40.4 45^@65.7 43v@95.6 43^@128.5 12v@164.7 12^@211.7
+  xev: KeyPress x@40.5; KeyRelease x@65.5; KeyPress backslash@95.5; KeyRelease backslash@128.5; KeyPress minus@164.5; KeyRelease minus@221.5
+
+== xev / prefix-slow
+  armed mode=0 accelLag=219us armLag=702us pushModal=483us im=False altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=29522us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=57835us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=51397us revoked=False
+  command sym=0x5c lag=51397us sinceArm=365179us im=False
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=5419us revoked=False
+  popped {"why": "command-release", "heldMs": 365.832, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@37.1 30v@52.4 30^@170.1 56^@199.2 43v@366.8 43^@413.0
+  xev: KeyPress Alt_L@45.8
+
+== xev / prefix-slow-pop-on-press
+  armed mode=0 accelLag=16688us armLag=17250us pushModal=562us im=False altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=75679us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=50030us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=12727us revoked=False
+  command sym=0x5c lag=12727us sinceArm=289866us im=False
+  popped {"why": "command-press", "heldMs": 290.413, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.3 30v@17.1 30^@107.2 56^@133.0 43v@311.5 43^@352.1
+  xev: KeyPress Alt_L@27.9; KeyRelease backslash@352.9
+
+== xev / fast-5ms
+  armed mode=0 accelLag=4658us armLag=7544us pushModal=2886us im=False altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=98us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=36517us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=33928us revoked=False
+  command sym=0x5c lag=33928us sinceArm=40099us im=False
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=38986us revoked=False
+  popped {"why": "command-release", "heldMs": 89.347, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@1.7 30v@33.4 30^@41.2 56^@44.4 43v@47.1 43^@90.6
+  xev: KeyPress Alt_L@2.5
+
+== xev / fast-10ms
+  armed mode=0 accelLag=339us armLag=895us pushModal=556us im=False altHeldAtArm=True focus=True actionMode=0
+  grab-release sym=0x61 uni='a' state=0x8 im=False lag=45373us revoked=False
+  grab-release sym=0xffe9 uni='' state=0x8 im=False lag=41680us revoked=False
+  grab-press sym=0x5c uni='\\' state=0x0 im=False lag=38010us revoked=False
+  command sym=0x5c lag=38010us sinceArm=48537us im=False
+  grab-release sym=0x5c uni='\\' state=0x0 im=False lag=42533us revoked=False
+  popped {"why": "command-release", "heldMs": 94.191, "error": null, "actionMode": 1, "grabActor": null}
+  injected: 56v@0.3 30v@30.7 30^@34.6 56^@38.4 43v@42.1 43^@82.6
+  xev: KeyPress Alt_L@0.5

@@ -1,0 +1,8 @@
+before: 2026-11-07T05:02:54+01:00
+after:  2026-11-07T05:06:07+01:00
+
+Not watched (normal use of the desktop; read them anyway):
+- crash f 1661906 1794023856 /var/crash/_usr_bin_python3.14.1000.crash
+
+before-after: no watched item changed
+compare exit 0
